@@ -3,7 +3,7 @@ package epsilon.world;
 import mindustry.type.Item;
 import epsilon.world.meta.EpsStats;
 
-public class EpsItem extends Item {
+public class EpsItem extends Item{
   public float Infection;
   public EpsItem(String name, Color color){
     super(name);
@@ -13,6 +13,6 @@ public class EpsItem extends Item {
   @Override
   public void setStats(){
     super.setStats();
-    stats.addPercent(EpsStats.infection, infection);
+    stats.addPercent(EpsStats.infection, infection); 
   }
 }
