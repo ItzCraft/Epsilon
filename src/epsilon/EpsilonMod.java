@@ -1,4 +1,4 @@
-package example;
+package epsilon;
 
 import arc.*;
 import arc.util.*;
@@ -9,13 +9,13 @@ import mindustry.gen.*;
 import mindustry.mod.*;
 import mindustry.ui.dialogs.*;
 
-public class ExampleJavaMod extends Mod{
+public class EpsilonMod extends Mod{
 
-    public ExampleJavaMod(){
+    public EpsilonMod(){
         Log.info("Loaded ExampleJavaMod constructor.");
 
         //listen for game load event
-        Events.on(ClientLoadEvent.class, e -> {
+       /* Events.on(ClientLoadEvent.class, e -> {
             //show dialog upon startup
             Time.runTask(10f, () -> {
                 BaseDialog dialog = new BaseDialog("frog");
@@ -25,7 +25,7 @@ public class ExampleJavaMod extends Mod{
                 dialog.cont.button("I see", dialog::hide).size(100f, 50f);
                 dialog.show();
             });
-        });
+        });*/
     }
 
     @Override
