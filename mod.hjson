@@ -1,6 +1,6 @@
-displayName: "Java Mod Template"
+displayName: "Epsilon"
 name: "epsilon"
-author: "ItzCraft"
+author: "ItzCraft /n Helpers: Nahan, AnDashik :3"
 main: "epsilon.EpsilonMod"
 description: "A mod that main focus - lore"
 version: 0.1

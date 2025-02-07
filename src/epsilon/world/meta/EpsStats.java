@@ -4,6 +4,5 @@ import mindustry.world.meta.Stat;
 
 public class EpsStats {
   public static final Stat
-
-  infection = new Stat("infection");
+          infection = new Stat("infection");
 }

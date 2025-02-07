@@ -1,8 +1,8 @@
 package epsilon.world;
 
 import arc.graphics.Color;
-import mindustry.type.Item;
 import epsilon.world.meta.EpsStats;
+import mindustry.type.Item;
 
 public class EpsItem extends Item{
   public float infection;
@@ -14,6 +14,6 @@ public class EpsItem extends Item{
   @Override
   public void setStats(){
     super.setStats();
-    stats.addPercent(EpsStats.infection, infection); 
+        stats.addPercent(EpsStats.infection, infection);
   }
 }
