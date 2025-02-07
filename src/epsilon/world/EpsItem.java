@@ -1,10 +1,11 @@
 package epsilon.world;
 
+import arc.graphics.Color;
 import mindustry.type.Item;
 import epsilon.world.meta.EpsStats;
 
 public class EpsItem extends Item{
-  public float Infection;
+  public float infection;
   public EpsItem(String name, Color color){
     super(name);
     this.color = color;
