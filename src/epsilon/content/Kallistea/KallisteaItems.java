@@ -40,19 +40,18 @@ public class KallisteaItems {
             hardness = 3;
             infection = 0.7f;
         }};
-        tantalum = new EpsItem("tantalum", Color.valueOf("8d60cc")){{
+        tantalum = new EpsItem("tantalum", Color.valueOf("#8d60cc")){{
             charge = 0.05f;
             flammability = 0.08f;
             explosiveness = 0.2f;
             cost = 0.75f;
             infection = 0.2f;
         }};
-        wierdium = Item("wierdium", Color.valueOf("82b394")){{
+        wierdium = new Item("wierdium", Color.valueOf("#82b394")){{
             charge = 0.07f;
             flammability = 0.24f;
             explosiveness = 0.45f;
         }};
-
         kallisteaItems.addAll(gelionyte, calcite, quartz, fylion, redSand, magnetite, tantalum, wierdium);
     }
 }
