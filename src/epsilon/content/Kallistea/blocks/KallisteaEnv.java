@@ -35,7 +35,7 @@ public class KallisteaEnv {
                 }};;
                 gelionyticWall = new StaticWall("gelionytic-wall"){{variants = 4;
                     purystalErodedFloor.asFloor().wall = this; purystalFloor.asFloor().wall = this; purystalLightFloor.asFloor().wall = this;
-                                itemDrop = KallisteaItems.Gelionyte;
+                                itemDrop = KallisteaItems.gelionyte;
                 }};
                 gelionyteCluster = new TallBlock("gelionyte-cluster"){{variants = 2; clipSize = 148; shadowOffset = -0.68f;}};
 
