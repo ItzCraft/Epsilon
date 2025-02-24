@@ -2,6 +2,7 @@ package epsilon.content.Kallistea.blocks;
 
 import mindustry.world.Block;
 import mindustry.world.blocks.environment.*;
+import epsilon.content.Kallistea.KallisteaItems;
 
 
 public class KallisteaEnv {
@@ -34,6 +35,7 @@ public class KallisteaEnv {
                 }};;
                 gelionyticWall = new StaticWall("gelionytic-wall"){{variants = 4;
                     purystalErodedFloor.asFloor().wall = this; purystalFloor.asFloor().wall = this; purystalLightFloor.asFloor().wall = this;
+                                itemDrop = KallisteaItems.Gelionyte;
                 }};
                 gelionyteCluster = new TallBlock("gelionyte-cluster"){{variants = 2; clipSize = 148; shadowOffset = -0.68f;}};
 
