@@ -2,7 +2,8 @@ package epsilon;
 
 import arc.*;
 import arc.util.*;
-import epsilon.content.Kallistea.blocks.KallisteaEnv;
+import epsilon.content.Kallistea.blocks.*;
+import epsilon.content.Kallistea.*;
 import mindustry.*;
 import mindustry.content.*;
 import mindustry.game.EventType.*;
@@ -31,7 +32,7 @@ public class EpsilonMod extends Mod{
 
     @Override
     public void loadContent(){
-        Log.info("Loading some example content.");
+        KallisteaItems.load();
         KallisteaEnv.load();
     }
 
