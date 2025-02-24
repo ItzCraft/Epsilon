@@ -2,7 +2,7 @@ package epsilon.content.Kallistea;
 
 import arc.graphics.*;
 import mindustry.type.Item;
-import epsilon.world.
+import epsilon.world.EpsItem;
 
 public class KallisteaItems {
     public static Item
