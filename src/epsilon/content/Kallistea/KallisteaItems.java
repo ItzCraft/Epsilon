@@ -6,7 +6,7 @@ import epsilon.world.
 
 public class KallisteaItems {
     public static Item
-    Gelionyte, Calcite, Quartz, Fylion, Red sand, Magnetite, Tantalum, Wierdium;
+    Gelionyte, Calcite, Quartz, Fylion, redSand, Magnetite, Tantalum, Wierdium;
 
     public static final Seq<Item> kallisteaItems = new Seq<>();
 
@@ -27,6 +27,10 @@ public class KallisteaItems {
         Fylion = new Item("fylion", Color.valueOf("56c772")){{
             charge = 0.13f;
             flammability = 0.19f;
+        }};
+        redSand = new Item("red-sand", Color.valueOf("#c76a28")){{
+            flammability = 0.1f;
+            hardness = 2;
         }};
     }
 }
