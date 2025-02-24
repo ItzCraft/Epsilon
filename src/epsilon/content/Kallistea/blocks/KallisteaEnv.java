@@ -2,7 +2,6 @@ package epsilon.content.Kallistea.blocks;
 
 import mindustry.world.Block;
 import mindustry.world.blocks.environment.*;
-import
 
 
 public class KallisteaEnv {
