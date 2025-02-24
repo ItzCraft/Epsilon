@@ -1,6 +1,7 @@
 package epsilon.content.Kallistea;
 
 import arc.graphics.*;
+import arc.struct.*;
 import mindustry.type.Item;
 import epsilon.world.EpsItem;
 
