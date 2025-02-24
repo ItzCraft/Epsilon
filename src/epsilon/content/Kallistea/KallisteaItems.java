@@ -14,6 +14,7 @@ public class KallisteaItems {
         Gelionyte = new Item("gelionyte", Color.valueOf("#e675ab")){{
             charge = 0.7f;
             cost = 0.65f;
+            hardness = 4;
         }};
         Calcite = new Item("calcite", Color.valueOf("#b59d3c")){{
             flammability = 0.3f;
