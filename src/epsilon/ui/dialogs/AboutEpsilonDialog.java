@@ -21,7 +21,7 @@ public class AboutEpsilonDialog extends BaseDialog{
 
 t.cont.add(Core.bundle.get("settings.epsilon-solar-system-text")).row();
               t.cont.button(Core.bundle.get("settings.back"), dialog::hide).size(100f, 50f); 
-                }) ;
+                });
         } 
     } 
 }
