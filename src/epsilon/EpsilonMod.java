@@ -2,7 +2,7 @@ package epsilon;
 
 import arc.*;
 import arc.util.*;
-import epsilon.content.Kallistea.blocks.*;
+import epsilon.content.Kallistea.blocks.KallisteaBlocks;
 import epsilon.content.Kallistea.*;
 import mindustry.*;
 import mindustry.content.*;
@@ -31,7 +31,7 @@ dialog.cont.image(Core.atlas.find("epsilon-mod-frog")).pad(20f).row();
     @Override
     public void loadContent(){
         KallisteaItems.load();
-        KallisteaEnv.load();
+        KallisteaBlocks.load();
     }
 
 }
