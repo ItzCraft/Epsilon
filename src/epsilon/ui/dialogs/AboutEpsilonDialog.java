@@ -7,7 +7,7 @@ public class AboutEpsilonDialog extends BaseDialog{
     public BaseDialog EpsDataBase;
 
     public AboutEpsilonDialog(){
-        super(@about.epsilon);
+        super("@about.epsilon");
         addCloseButton();
         shouldPause = true;
 
