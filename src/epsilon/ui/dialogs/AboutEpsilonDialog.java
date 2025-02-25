@@ -11,7 +11,7 @@ public class AboutEpsilonDialog extends BaseDialog{
         addCloseButton();
         shouldPause = true;
 
-        EpsDataBase = new BaseDialog(){
+        EpsDataBase = new BaseDialog("Epsilon Database"){
             EpsDataBase.addCloseButton();
                     dataDialog.cont.table(Tex.button, t -> {
             t.defaults().size(280f, 60f).left();
