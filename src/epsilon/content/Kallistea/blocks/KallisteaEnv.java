@@ -12,7 +12,16 @@ public class KallisteaEnv {
             //purystal-biome
             purystalErodedFloor, purystalFloor, purystalLightFloor,
             purystalWall, purystalWallAlt, gelionyticWall,
-            purystalBoulder, gelionyteCluster, crystallineBush, crystallineTree;
+            purystalBoulder, gelionyteCluster, crystallineBush, crystallineTree, 
+
+            // eadstal biome
+            eadstonFloor, eadstonLightFloor, eadstonRoughFloor, fensporReinforcedFloor, fensporStrandsFloor, fensporVent,
+
+eadstonWall, eadstonWallAlt, eadstonWallDeanytic, eadstonWallFenspor,
+
+
+eadstonBoulder, eadstonFensporBoulder, eadstalDeanyteCluster, buahanDeadTree, buahanDeadBush, buahanFensporDeadBush;
+
     public static void load() {
         {
             {
