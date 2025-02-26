@@ -54,7 +54,11 @@ eadstonBoulder, eadstonFensporBoulder, eadstalDeanyteCluster, buahanDeadTree, bu
                 }};
                 crystallineBush = new Prop("crystalline-bush"){{variants = 3; customShadow = true;}};
                 crystallineTree = new TreeBlock("crystalline-tree"){{variants = 2; clipSize = 200; shadowOffset = -1.53f;}};
-
+   
+                // eadstal biome
+                // floors
+                eadstonFloor = new Floor("eadston-floor", 6);
+                eadstonLightFloor = new Floor("eadston-light-floor", 6);
             }
         }
     }
