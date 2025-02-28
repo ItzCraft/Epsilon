@@ -42,7 +42,7 @@
             KallisteaBlocks.load();
         }
 
-        public void loadESSD(){
+        private void loadESSD(){
             ui.menufrag.addButton(Core.bundle.get("settings.epsilon-solar-system-database-title"), Icon.admin, () -> {
                 AboutEpsilonDialog database = new AboutEpsilonDialog();
                 database.show();
