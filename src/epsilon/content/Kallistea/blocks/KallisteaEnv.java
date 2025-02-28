@@ -12,7 +12,16 @@ public class KallisteaEnv {
             //purystal-biome
             purystalErodedFloor, purystalFloor, purystalLightFloor,
             purystalWall, purystalWallAlt, gelionyticWall,
-            purystalBoulder, gelionyteCluster, crystallineBush, crystallineTree;
+            purystalBoulder, gelionyteCluster, crystallineBush, crystallineTree, 
+
+            // eadstal biome
+            eadstonFloor, eadstonLightFloor, eadstonRoughFloor, fensporReinforcedFloor, fensporStrandsFloor, fensporVent,
+
+eadstonWall, eadstonWallAlt, eadstonWallDeanytic, eadstonWallFenspor,
+
+
+eadstonBoulder, eadstonFensporBoulder, eadstalDeanyteCluster, buahanDeadTree, buahanDeadBush, buahanFensporDeadBush;
+
     public static void load() {
         {
             {
@@ -45,7 +54,11 @@ public class KallisteaEnv {
                 }};
                 crystallineBush = new Prop("crystalline-bush"){{variants = 3; customShadow = true;}};
                 crystallineTree = new TreeBlock("crystalline-tree"){{variants = 2; clipSize = 200; shadowOffset = -1.53f;}};
-
+   
+                // eadstal biome
+                // floors
+                eadstonFloor = new Floor("eadston-floor", 6);
+                eadstonLightFloor = new Floor("eadston-light-floor", 6);
             }
         }
     }
