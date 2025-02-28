@@ -24,7 +24,7 @@
               Events.on(ClientLoadEvent.class, e -> {
                   loadESSD();
                   loadSettings();
-                  if (!EpsilonVars.hideWarnDialog) {
+                  if(!EpsilonVars.hideWarnDialog){
                       Time.runTask(10f, () -> {
                           BaseDialog dialog = new BaseDialog("Epsilon");
                           dialog.cont.add(bundle.get("warn-text1")).row();
