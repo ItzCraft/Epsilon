@@ -43,14 +43,14 @@
         }
 
         private void loadESSD(){
-            ui.menufrag.addButton(Core.bundle.get("settings.epsilon-solar-system-database-title"), Icon.admin, () -> {
+            ui.menufrag.addButton(Core.bundle.get("epsilon-solar-system-database-title"), Icon.admin, () -> {
                 AboutEpsilonDialog database = new AboutEpsilonDialog();
                 database.show();
             });
         }
 
         private void loadSettings(){
-            ui.settings.addCategory(bundle.get("hide-warn-dialog"), Icon.book, t -> {
+            ui.settings.addCategory(bundle.get("settings.hide-warn-dialog"), Icon.book, t -> {
                 t.checkPref("epsilon-hide-warn-dialog", false);
             });
         }
