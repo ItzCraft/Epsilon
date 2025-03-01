@@ -2,9 +2,10 @@
 
     import arc.*;
     import arc.util.*;
-    import epsilon.content.Kallistea.blocks.KallisteaBlocks;
+    import epsilon.content.Kallistea.blocks.*;
     import epsilon.content.Kallistea.*;
     import epsilon.ui.dialogs.AboutEpsilonDialog;
+    import epsilon.world.EpsAttribute;
     import mindustry.*;
     import mindustry.content.*;
     import mindustry.game.EventType.*;
@@ -28,7 +29,7 @@
                       Time.runTask(10f, () -> {
                           BaseDialog dialog = new BaseDialog("Epsilon");
                           dialog.cont.add(bundle.get("warn-text1")).row();
-                          dialog.cont.image(Core.atlas.find("epsilon-mod-frog")).pad(20f).row();
+                          dialog.cont.image(Core.atlas.find("epsilon-icon")).pad(20f).row();
                           dialog.cont.button("OK", dialog::hide).size(100f, 50f);
                           dialog.show();
                       });
@@ -38,6 +39,7 @@
 
         @Override
         public void loadContent(){
+            EpsAttribute.load();
             KallisteaItems.load();
             KallisteaBlocks.load();
         }
