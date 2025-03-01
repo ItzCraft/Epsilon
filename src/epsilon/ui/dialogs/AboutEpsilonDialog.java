@@ -13,6 +13,11 @@ public class AboutEpsilonDialog extends BaseDialog {
         addCloseButton();
         shouldPause = true;
 
+        setup();
+        shown(this::setup);
+    }
+
+    private void setup(){
         Table buttons = new Table();
 
         buttons.button(Core.bundle.get("epsilon-database-ss-button"), () -> {
@@ -21,6 +26,6 @@ public class AboutEpsilonDialog extends BaseDialog {
             EpsilonSolarSystem.cont.add(Core.bundle.get("epsilon-database-as-text1")).row();
             EpsilonSolarSystem.show();
         }).size(100f, 50f);
-        buttons.draw();
+        cont.add(buttons);
     }
 }
