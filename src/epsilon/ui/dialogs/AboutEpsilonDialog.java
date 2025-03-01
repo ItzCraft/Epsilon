@@ -13,11 +13,10 @@ public class AboutEpsilonDialog extends BaseDialog {
         addCloseButton();
         shouldPause = true;
 
-        setup();
-        shown(this::setup);
+        shown(this::show);
     }
 
-    private void setup(){
+    private void show(){
         Table buttons = new Table();
 
         buttons.button(Core.bundle.get("epsilon-database-ss-button"), () -> {
