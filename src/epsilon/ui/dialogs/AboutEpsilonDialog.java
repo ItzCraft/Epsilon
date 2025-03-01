@@ -13,7 +13,7 @@ public class AboutEpsilonDialog extends BaseDialog {
         addCloseButton();
         shouldPause = true;
 
-        shown(this::show);
+        show();
     }
 
     private void show(){
