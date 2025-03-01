@@ -2,6 +2,7 @@ package epsilon.ui.dialogs;
 
 import arc.*;
 import arc.util.*;
+import arc.
 import mindustry.ui.dialogs.BaseDialog;
 
 import static arc.Core.bundle;
@@ -12,11 +13,9 @@ public class AboutEpsilonDialog extends BaseDialog {
         addCloseButton();
         shouldPause = true;
 
-        BaseDialog buttons = new BaseDialog("bebe");
+        Table buttons = new Table("bebe");
 
-        buttons.addCloseButton();
-
-        buttons.cont.button(Core.bundle.get("epsilon-database-ss-button"), () -> {
+        buttons.button(Core.bundle.get("epsilon-database-ss-button"), () -> {
             BaseDialog EpsilonSolarSystem = new BaseDialog("@epsilon-solar-system-title");
             EpsilonSolarSystem.addCloseButton();
             EpsilonSolarSystem.cont.add(Core.bundle.get("epsilon-database-as-text1")).row();
