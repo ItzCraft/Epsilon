@@ -21,5 +21,6 @@ public class AboutEpsilonDialog extends BaseDialog {
             EpsilonSolarSystem.cont.add(Core.bundle.get("epsilon-database-as-text1")).row();
             EpsilonSolarSystem.show();
         }).size(100f, 50f);
+        buttons.draw();
     }
 }
