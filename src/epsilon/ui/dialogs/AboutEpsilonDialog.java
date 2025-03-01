@@ -12,7 +12,7 @@ public class AboutEpsilonDialog extends BaseDialog {
         addCloseButton();
         shouldPause = true;
 
-        BaseDialog buttons = new BaseDialog();
+        BaseDialog buttons = new BaseDialog("bebe");
 
         buttons.addCloseButton();
 
