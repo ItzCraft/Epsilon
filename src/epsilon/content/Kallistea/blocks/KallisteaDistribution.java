@@ -10,7 +10,7 @@ public class KallisteaDistribution{
 
     public static void load(){
         transmittingBridge = new DuctBridge("transmitting-bridge"){{
-            requirements(Category.distribution, ItemStack.with(KallisteaItems.calcite, 1);
+            requirements(Category.distribution, ItemStack.with(KallisteaItems.calcite, 1));
             size = 1;
             health = 20;
             speed = 2;
