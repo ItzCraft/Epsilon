@@ -20,5 +20,11 @@ public class KallisteaDistribution{
             speed = 2;
             itemCapacity = 3;
         }};
+        transmittingJunction = new Junction("transmitting-junction"){{
+            requirements(Category.distribution, with(KallisteaItems.calcite, 2));
+            size = 1;
+            health = 15;
+            speed = 3;
+        }};
     }
 }
