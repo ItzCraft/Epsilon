@@ -3,6 +3,7 @@ package epsilon.content.Kallistea.blocks;
 import mindustry.world.Block;
 import mindustry.world.blocks.environment.*;
 import epsilon.content.Kallistea.KallisteaItems;
+import epsilon.world.blocks.environment.*;
 
 import static epsilon.world.EpsAttribute.infection;
 
@@ -50,7 +51,7 @@ public class KallisteaEnv {
                 purystalBoulder = new Prop("purystal-boulder"){{variants = 4; customShadow = true;
                     purystalErodedFloor.asFloor().decoration = this; purystalFloor.asFloor().decoration = this; purystalLightFloor.asFloor().decoration = this;
                 }};
-                gelionyteCluster = new TallBlock("gelionyte-cluster"){{variants = 2; clipSize = 148; shadowOffset = -0.68f;}};
+                gelionyteCluster = new BreakableTallBlock("gelionyte-cluster"){{variants = 2; clipSize = 148; shadowOffset = -0.68f;}};
                 buahanBush = new Prop("buahan-bush"){{variants = 3; customShadow = true;}};
                 buahanTree = new TreeBlock("buahan-tree"){{variants = 2; clipSize = 200; shadowOffset = -1.53f;}};
    
