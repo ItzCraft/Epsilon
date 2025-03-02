@@ -53,7 +53,7 @@
 
         private void loadSettings(){
             ui.settings.addCategory(bundle.get("settings.epsilon-title"), Icon.book, t -> {
-                t.checkPref("epsilon-hide-warn-dialog", false);
+                t.checkPref("hide-warn-dialog", false);
             });
         }
 
