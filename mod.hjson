@@ -1,8 +1,10 @@
 displayName: "Epsilon"
 name: "epsilon"
-author: "ItzCraft /n Helpers: Nahan, AnDashik :3"
+repo: "ItzCraft/Epsilon"
+author: "ItzCraft \n Helpers: Nahan, AnDashik :3"
 main: "epsilon.EpsilonMod"
 description: "A mod that main focus - lore"
 version: 0.1
 minGameVersion: 146
 java: true
+hideBrowser: true
