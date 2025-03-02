@@ -24,14 +24,14 @@ public class AboutEpsilonDialog extends BaseDialog {
             EpsilonSolarSystem.addCloseButton();
             EpsilonSolarSystem.cont.add(Core.bundle.get("epsilon-database-as-text1")).row();
             EpsilonSolarSystem.show();
-        }).growX().pad(1f).size(195f, 90f);
+        }).growY().pad(1f).size(195f, 90f);
 
         table.button(Core.bundle.get("epsilon-database-fenspor-button"), () -> {
             BaseDialog EpsilonSolarSystem = new BaseDialog("@epsilon-solar-system-title");
             EpsilonSolarSystem.addCloseButton();
             EpsilonSolarSystem.cont.add(Core.bundle.get("epsilon-database-as-text1")).row();
             EpsilonSolarSystem.show();
-        }).growX().pad(120f).size(195f, 90f);
+        }).growY().pad(120f).size(195f, 90f);
         cont.add(table);
     }
 }
