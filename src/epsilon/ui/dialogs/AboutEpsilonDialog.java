@@ -24,7 +24,7 @@ public class AboutEpsilonDialog extends BaseDialog {
             EpsilonSolarSystem.addCloseButton();
             EpsilonSolarSystem.cont.add(Core.bundle.get("epsilon-database-as-text1")).row();
             EpsilonSolarSystem.show();
-        }).padTop(190f).size(195f, 90f);
+        }).padTop(90f).size(195f, 90f);
 
         table.button(Core.bundle.get("epsilon-database-fenspor-button"), () -> {
             BaseDialog EpsilonSolarSystem = new BaseDialog("@epsilon-solar-system-title");
@@ -32,6 +32,6 @@ public class AboutEpsilonDialog extends BaseDialog {
             EpsilonSolarSystem.cont.add(Core.bundle.get("epsilon-database-as-text1")).row();
             EpsilonSolarSystem.show();
         }).padTop(-90f).size(195f, 90f);
-        cont.add(table).size(12*4);
+        cont.add(table).width(500f).height(100f);
     }
 }
