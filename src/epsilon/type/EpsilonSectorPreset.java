@@ -4,6 +4,7 @@ import arc.Core;
 import arc.graphics.g2d.TextureRegion;
 import mindustry.gen.Icon;
 import mindustry.type.*;
+import mindustry.ctype.*;
 
 public class EpsilonSectorPreset extends SectorPreset{
     public TextureRegion icon;
