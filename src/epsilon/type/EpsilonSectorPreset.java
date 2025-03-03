@@ -12,6 +12,6 @@ public class EpsilonSectorPreset extends SectorPreset{
     }
 
     public void loadIcon(){
-        uiIcon = fullIcon = Core.atlas.find(icon);
+        uiIcon = fullIcon = icon;
     }
 }
