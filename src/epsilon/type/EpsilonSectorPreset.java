@@ -8,7 +8,7 @@ import mindustry.ctype.*;
 
 public class EpsilonSectorPreset extends SectorPreset{
     public TextureRegion icon;
-    public Sector sector
+    public Sector sector;
     public EpsilonSectorPreset(String name, Planet planet, int sector){
         super(name, planet, sector);
     }
