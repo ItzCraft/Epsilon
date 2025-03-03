@@ -16,7 +16,7 @@ public class EpsilonSectorPreset extends SectorPreset{
     public void loadIcon(){
         uiIcon = fullIcon = icon;
     }
-
+    // will be changed to custom for more threats type
     @Override
     public ContentType getContentType(){
         return ContentType.sector;
