@@ -3,7 +3,7 @@ package epsilon.type;
 import mindustry.type.*;
 
 /* public class EpsilonSector extends Sector{
-    public Sector(Planet planet, Ptile tile){
+    public EpsilonSector(Planet planet, Ptile tile){
         super(planet, tile);
     }
 
