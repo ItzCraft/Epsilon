@@ -18,8 +18,6 @@ public class AboutEpsilonDialog extends BaseDialog {
 
     private void setup(){
         Table table = new Table();
-
-        table.width(500f).height(100f);
         table.button(Core.bundle.get("epsilon-database-ss-button"), () -> {
             BaseDialog EpsilonSolarSystem = new BaseDialog("@epsilon-solar-system-title");
             EpsilonSolarSystem.addCloseButton();
@@ -33,6 +31,6 @@ public class AboutEpsilonDialog extends BaseDialog {
             EpsilonSolarSystem.cont.add(Core.bundle.get("epsilon-database-as-text1")).row();
             EpsilonSolarSystem.show();
         }).padTop(-90f).size(195f, 90f);
-        cont.add(table);
+        cont.add(table).width(500f).height(100f);
     }
 }
