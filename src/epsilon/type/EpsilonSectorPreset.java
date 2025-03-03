@@ -1,6 +1,7 @@
 package epsilon.type;
 
 import arc.Core;
+import arc.graphics.g2d.TextureRegion;
 import mindustry.gen.Icon;
 import mindustry.type.*;
 
