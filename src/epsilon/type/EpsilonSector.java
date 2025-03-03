@@ -10,6 +10,6 @@ import mindustry.type.*;
     // idk if it's gonna work tbh
     @Override
     public String displayThreat(){
-                String[] threats = {"none", "low", "medium", "high", "extreme", "eradication"};
+        String[] threats = {"none", "low", "medium", "high", "extreme", "eradication"};
     }
 } */
