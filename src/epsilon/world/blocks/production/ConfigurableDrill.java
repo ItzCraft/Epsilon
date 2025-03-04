@@ -1,6 +1,8 @@
 package epsilon.world.blocks.production;
 
+import arc.scene.ui.layout.Table;
 import mindustry.world.blocks.production.Drill;
+import mindustry.ui.Styles;
 
 public class ConfigurableDrill extends Drill{
     public Float efficiency1 = 0.5f;
