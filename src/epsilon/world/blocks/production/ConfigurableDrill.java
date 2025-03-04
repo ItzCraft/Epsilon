@@ -58,19 +58,19 @@ public class ConfigurableDrill extends Drill{
                 eff2 = false;
                 eff3 = false;
                 deselect();
-            }).pad(20f).size(40f);
+            }).pad(40f).size(60f);
            table.button(button2Name, () -> {
                 eff1 = false;
                 eff2 = true;
                 eff3 = false;
                 deselect();
-            }).size(40f);
+            }).size(60f);
             table.button(button3Name, () -> {
                 eff1 = false;
                 eff2 = false;
                 eff3 = true;
                 deselect();
-            }).pad(-20f).size(40f);
+            }).pad(-35f).size(60f);
         }
     }
 }
