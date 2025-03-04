@@ -23,7 +23,7 @@ public class ImageBlock extends Block{
                 imageShow.addCloseButton();
                 imageShow.cont.image(Core.atlas.find(imagePath));
                 imageShow.show();
-            }
+            )};
         } 
     } 
 }
