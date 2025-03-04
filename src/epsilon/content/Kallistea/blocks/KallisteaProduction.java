@@ -1,7 +1,7 @@
 package epsilon.content.Kallistea.blocks;
 
 import mindustry.world.Block;
-import mindustry.world.production.*;
+import mindustry.world.blocks.production.*;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import epsilon.content.Kallistea.KallisteaItems;
