@@ -28,20 +28,23 @@ public class ConfigurableDrill extends Drill{
                 }
                 else{
                     drillTime = oldDrillTime * efficiency1;
+                }
             } else if(eff2){
                 if(efficiency2 > 1){
                     drillTime = oldDrillTime / efficiency2;
                 }
                 else{
-                    drillTime = oldDrillTime * efficiencyw;
+                    drillTime = oldDrillTime * efficiency2;
+                }
             } else{
                 if(efficiency3 > 1){
                     drillTime = oldDrillTime / efficiency3;
                 }
                 else{
                     drillTime = oldDrillTime * efficiency3;
+                }
             }
-            super.updateTile();
+            super.updateTile(); 
         }
 
         @Override
