@@ -17,6 +17,7 @@ public class ImageBlock extends Block{
         super(name);
         update = true;
         breakable = false;
+        configurable = true;
     }
 
     public class ImageBlockBuild extends Building{
