@@ -8,6 +8,10 @@ public class ConfigurableDrill extends Drill{
     public float efficiency1 = 0.5f;
     public float efficiency2 = 1f;
     public float efficiency3 = 2f;
+    public String button1Name = "0.5x";
+    public String button2Name = "1x";
+    public String button3Name = "2x";
+
 
     public ConfigurableDrill(String name){
         super(name);
@@ -49,19 +53,19 @@ public class ConfigurableDrill extends Drill{
 
         @Override
         public void buildConfiguration(Table table){
-            table.button(efficiency1.toString() + "x", () -> {
+            table.button(button1Name, () -> {
                 eff1 = true;
                 eff2 = false;
                 eff3 = false;
                 deselect();
             }).pad(20f).size(40f);
-           table.button(efficiency2.toString() + "x", () -> {
+           table.button(button2Name, () -> {
                 eff1 = false;
                 eff2 = true;
                 eff3 = false;
                 deselect();
             }).size(40f);
-            table.button(efficiency3.toString() + "x", () -> {
+            table.button(button3Name, () -> {
                 eff1 = false;
                 eff2 = false;
                 eff3 = true;
