@@ -1,6 +1,6 @@
 package epsilon.world.blocks.lore;
 
-import mindsutry.world.Block;
+import mindustry.world.Block;
 import mindustry.ui.dialogs.BaseDialog;
 
 public class ImageBlock extends Block{
