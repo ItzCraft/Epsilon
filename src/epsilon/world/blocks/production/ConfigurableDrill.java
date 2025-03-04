@@ -38,19 +38,19 @@ public class ConfigurableDrill extends Drill{
 
         @Override
         public void buildConfiguration(Table table){
-            table.button(button1Name, () -> {
+            table.button(button3Name, () -> {
                 eff1 = true;
                 eff2 = false;
                 eff3 = false;
                 deselect();
-            }).pad(60f).size(60f);
+            }).pad(70f).size(60f);
            table.button(button2Name, () -> {
                 eff1 = false;
                 eff2 = true;
                 eff3 = false;
                 deselect();
-            }).pad(-10f).size(60f);
-            table.button(button3Name, () -> {
+            }).pad(-30f).size(60f);
+            table.button(button1Name, () -> {
                 eff1 = false;
                 eff2 = false;
                 eff3 = true;
