@@ -4,7 +4,7 @@ import mindustry.world.blocks.production.Drill;
 
 public class ConfigurableDrill extends Drill{
     public Float efficiency1 = 0.5f;
-    public Float efficiency2 = 1f;
+    public final Float efficiency2 = 1f;
     public float efficiency3 = 2f;
 
     public ConfigurableDrill(String name){
