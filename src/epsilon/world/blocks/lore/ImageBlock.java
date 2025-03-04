@@ -5,7 +5,7 @@ import mindustry.ui.dialogs.BaseDialog;
 
 public class ImageBlock extends Block{
     // idk If it gonna work with Textureregion
-    public String image;
+    public String imagePath;
     public String dialogName;
 
     public ImageBlock(String name){
@@ -20,7 +20,7 @@ public class ImageBlock extends Block{
             table.button(Icon.idk, Styles.cleari, () -> {
                 BaseDialog imageShow = new BaseDialog(Core.bundle.get(dialogName));
                 imageShow.addCloseButton();
-                imageShow.cont.
+                imageShow.cont.image(Core.atlas.find(imagePath));
                 imageShow.show();
             }
         } 
