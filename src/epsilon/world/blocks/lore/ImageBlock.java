@@ -1,5 +1,6 @@
 package epsilon.world.blocks.lore;
 
+import arc.scene.ui.layout.Table;
 import mindustry.world.Block;
 import mindustry.ui.dialogs.BaseDialog;
 
@@ -14,15 +15,15 @@ public class ImageBlock extends Block{
         breakable = false;
     }
 
-    /* public class ImageBlockBuild extends Building{
+    public class ImageBlockBuild extends Building{
         @Override
         public void buildConfiguration(Table table){
-            table.button(Icon.idk, Styles.cleari, () -> {
+            table.button(Icon.eye, Styles.cleari, () -> {
                 BaseDialog imageShow = new BaseDialog(Core.bundle.get(dialogName));
                 imageShow.addCloseButton();
                 imageShow.cont.image(Core.atlas.find(imagePath));
                 imageShow.show();
             }
         } 
-    } */
+    } 
 }
