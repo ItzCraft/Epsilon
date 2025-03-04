@@ -26,9 +26,9 @@ public class ConfigurableDrill extends Drill{
 
         @Override 
         public void updateTile(){
-            if(eff1){
+            if(eff1 && !eff2 && !eff3){
                 drillTime = oldDrillTime * efficiency1;
-            } else if(eff2){
+            } else if(eff2 && !eff3 && !eff1){
                   drillTime = oldDrillTime * efficiency2;
             } else{
                   drillTime = oldDrillTime * efficiency3;
