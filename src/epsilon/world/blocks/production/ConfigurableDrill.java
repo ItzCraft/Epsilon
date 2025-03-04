@@ -19,7 +19,7 @@ public class ConfigurableDrill extends Drill{
         saveConfig = true;
         this.drillTime = drillTime;
     }
-    public class ConfigurableDrillBuild extends DrillBuild{
+    /*public class ConfigurableDrillBuild extends DrillBuild{
         public boolean eff1 = false;
         public boolean eff2 = true;
         public boolean eff3 = false;
@@ -58,5 +58,5 @@ public class ConfigurableDrill extends Drill{
                 deselect();
             }).pad(65f).size(60f);
         }
-    }
+    }*/
 }
