@@ -5,8 +5,8 @@ import mindustry.world.blocks.production.Drill;
 import mindustry.ui.Styles;
 
 public class ConfigurableDrill extends Drill{
-    public Float efficiency1 = 0.5f;
-    public Float efficiency2 = 1f;
+    public float efficiency1 = 0.5f;
+    public float efficiency2 = 1f;
     public float efficiency3 = 2f;
 
     public ConfigurableDrill(String name){
@@ -18,7 +18,7 @@ public class ConfigurableDrill extends Drill{
         public boolean eff1 = false;
         public boolean eff2 = true;
         public boolean eff3 = false;
-        public final int oldDrillTime = drillTime;
+        public final float oldDrillTime = drillTime;
 
         @Override 
         public void updateTile(){
@@ -49,19 +49,19 @@ public class ConfigurableDrill extends Drill{
 
         @Override
         public void buildConfiguration(Table table){
-            table.button(efficiency1.toString() + "x", Styles.cleari, () -> {
+            table.button(efficiency1.toString() + "x", () -> {
                 eff1 = true;
                 eff2 = false;
                 eff3 = false;
                 deselect();
             }).pad(20f).size(40f);
-           table.button(efficiency2.toString() + "x", Styles.cleari, () -> {
+           table.button(efficiency2.toString() + "x", () -> {
                 eff1 = false;
                 eff2 = true;
                 eff3 = false;
                 deselect();
             }).size(40f);
-            table.button(efficiency3.toString() + "x", Styles.cleari, () -> {
+            table.button(efficiency3.toString() + "x", () -> {
                 eff1 = false;
                 eff2 = false;
                 eff3 = true;
