@@ -10,10 +10,10 @@ import static mindustry.type.ItemStack.with;
 
 public class LoreBlocks{
     public static Block
-    andashikLoveUltraKall;
+    testBlock1;
 
     public static void load(){
-        andashikLoveUltraKall = new ImageBlock("ultrakall"){{
+        testBlock1 = new ImageBlock("testBlock1"){{
             requirements(Category.distribution, with(KallisteaItems.calcite, 14884252));
             health = 1;
             size = 1;
