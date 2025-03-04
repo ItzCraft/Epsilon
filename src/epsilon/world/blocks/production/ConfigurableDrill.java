@@ -37,7 +37,7 @@ public class ConfigurableDrill extends Drill{
                 eff2 = false;
                 eff3 = false;
                 deselect();
-            }).size(40f);
+            }).pad(20f).size(40f);
            table.button(efficiency2.toString() + "x", Styles.cleari, () -> {
                 eff1 = false;
                 eff2 = true;
@@ -49,7 +49,7 @@ public class ConfigurableDrill extends Drill{
                 eff2 = false;
                 eff3 = true;
                 deselect();
-            }).size(40f);
+            }).pad(-20f).size(40f);
         }
     }*/
 }
