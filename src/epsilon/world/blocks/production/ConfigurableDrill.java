@@ -27,26 +27,11 @@ public class ConfigurableDrill extends Drill{
         @Override 
         public void updateTile(){
             if(eff1){
-                if(efficiency1 > 1){
-                    drillTime = oldDrillTime / efficiency1;
-                }
-                else{
-                    drillTime = oldDrillTime * efficiency1;
-                }
+                drillTime = oldDrillTime * efficiency1;
             } else if(eff2){
-                if(efficiency2 > 1){
-                    drillTime = oldDrillTime / efficiency2;
-                }
-                else{
-                    drillTime = oldDrillTime * efficiency2;
-                }
+                  drillTime = oldDrillTime * efficiency2;
             } else{
-                if(efficiency3 > 1){
-                    drillTime = oldDrillTime / efficiency3;
-                }
-                else{
-                    drillTime = oldDrillTime * efficiency3;
-                }
+                  drillTime = oldDrillTime * efficiency3;
             }
             super.updateTile(); 
         }
@@ -58,19 +43,19 @@ public class ConfigurableDrill extends Drill{
                 eff2 = false;
                 eff3 = false;
                 deselect();
-            }).pad(40f).size(60f);
+            }).pad(60f).size(60f);
            table.button(button2Name, () -> {
                 eff1 = false;
                 eff2 = true;
                 eff3 = false;
                 deselect();
-            }).size(60f);
+            }).pad(-10f).size(60f);
             table.button(button3Name, () -> {
                 eff1 = false;
                 eff2 = false;
                 eff3 = true;
                 deselect();
-            }).pad(-35f).size(60f);
+            }).pad(-55f).size(60f);
         }
     }
 }
