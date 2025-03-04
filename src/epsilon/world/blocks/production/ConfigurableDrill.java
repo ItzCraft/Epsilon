@@ -22,16 +22,16 @@ public class ConfigurableDrill extends Drill{
         public boolean eff1 = false;
         public boolean eff2 = true;
         public boolean eff3 = false;
-        public final float oldDrillTime = drillTime;
+        public final float oldDrillTime = this.drillTime;
 
         @Override 
         public void updateTile(){
             if(eff1 && !eff2 && !eff3){
-                drillTime = oldDrillTime * efficiency1;
+                this.drillTime = oldDrillTime * efficiency1;
             } else if(eff2 && !eff3 && !eff1){
-                  drillTime = oldDrillTime * efficiency2;
+                  this.drillTime = oldDrillTime * efficiency2;
             } else{
-                  drillTime = oldDrillTime * efficiency3;
+                  this.drillTime = oldDrillTime * efficiency3;
             }
             super.updateTile(); 
         }
