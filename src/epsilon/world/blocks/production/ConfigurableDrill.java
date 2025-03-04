@@ -13,10 +13,11 @@ public class ConfigurableDrill extends Drill{
     public String button3Name = "2x";
 
 
-    public ConfigurableDrill(String name){
+    public ConfigurableDrill(String name, float drillTime){
         super(name);
         configurable = true;
         saveConfig = true;
+        this.drillTime = drillTime;
     }
     public class ConfigurableDrillBuild extends DrillBuild{
         public boolean eff1 = false;
