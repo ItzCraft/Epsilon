@@ -14,7 +14,7 @@ public class KallisteaProduction{
     exponentialDrill;
 
     public static void load(){
-        exponentialDrill = new ConfigurableDrill("exponential-drill"){{
+        exponentialDrill = new Drill("exponential-drill"){{
             requirements(Category.production, with(KallisteaItems.gelionyte, 25, KallisteaItems.calcite, 20));
             health = 120;
             size = 3;
