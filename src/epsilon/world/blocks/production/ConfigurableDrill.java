@@ -3,6 +3,7 @@ package epsilon.world.blocks.production;
 import arc.scene.ui.layout.Table;
 import mindustry.world.blocks.production.Drill;
 import mindustry.world.*;
+import epsilon.world.meta.*;
 
 public class ConfigurableDrill extends Drill{
     public float efficiency1 = 0.5f;
@@ -25,7 +26,9 @@ public class ConfigurableDrill extends Drill{
     @Override
     public void setStats(){
         super.setStats();
-        
+        stats.add(EpsStats.efficiency1, efficiency1);
+        stats.add(EpsStats.efficiency2, efficiency2);
+        stats.add(EpsStats.efficiency3, efficiency3); 
     }
 
     public class ConfigurableDrillBuild extends DrillBuild{
