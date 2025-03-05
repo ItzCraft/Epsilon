@@ -3,7 +3,7 @@ package epsilon.ui;
 import arc.scene.ui.layout.Table;
 
 /*public class EpsUi{
-    public void showDialog(Textureregion unitIcon, String text){
+    public void showDialog(Textureregion unitIcon, String text, float duration){
 
     }
 } */
