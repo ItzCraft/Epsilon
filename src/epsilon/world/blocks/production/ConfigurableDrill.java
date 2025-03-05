@@ -60,7 +60,7 @@ public class ConfigurableDrill extends Drill{
             }).pad(65f).size(60f);
         }
 
-        @Override
+        /*@Override
         public boolean onConfigureBuildTapped(Building other){
             if(this == other){
                 deselect();
@@ -68,6 +68,6 @@ public class ConfigurableDrill extends Drill{
             }
 
             return true;
-        }
+        }*/
     }
 }
