@@ -18,7 +18,7 @@ public class KallisteaEnv {
             //purystal-biome
             purystalErodedFloor, purystalFloor, purystalLightFloor,
             purystalWall, purystalWallAlt, gelionyticWall,
-            purystalBoulder, gelionyteCluster, buahanBush, buahanTree,
+            purystalBoulder, gelionyteChunk, gelionyteCluster, buahanBush, buahanTree,
 
             // eadstal biome
             eadstonFloor, eadstonLightFloor, eadstonRoughFloor, fensporReinforcedFloor, fensporStrandsFloor, fensporVent,
@@ -53,8 +53,9 @@ public class KallisteaEnv {
                 //decor, etc
                 purystalBoulder = new Prop("purystal-boulder"){{variants = 4; customShadow = true;
                     purystalErodedFloor.asFloor().decoration = this; purystalFloor.asFloor().decoration = this; purystalLightFloor.asFloor().decoration = this;
-                }};
-                gelionyteCluster = new BreakableTallBlock("gelionyte-cluster"){{requirements(Category.distribution, with(KallisteaItems.gelionyte, 24)); buildCostMultiplier = 3; variants = 2; clipSize = 148; shadowOffset = -0.68f;}};
+                }};          
+                gelionyteChunk = new BreakableTallBlock("gelionyte-chunk"){{requirements(Category.distribution, with(KallisteaItems.gelionyte, 24)); buildCostMultiplier = 6; variants = 3; clipSize = 148; shadowOffset = -0.68f;}};
+                gelionyteCluster = new TallBlock("gelionyte-cluster"){{variants = 2; clipSize = 148; shadowOffset = -0.68f;}};
                 buahanBush = new Prop("buahan-bush"){{variants = 3; customShadow = true;}};
                 buahanTree = new TreeBlock("buahan-tree"){{variants = 2; clipSize = 200; shadowOffset = -1.53f;}};
    
