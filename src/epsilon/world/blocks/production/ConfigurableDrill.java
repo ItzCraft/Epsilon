@@ -3,7 +3,6 @@ package epsilon.world.blocks.production;
 import arc.scene.ui.layout.Table;
 import mindustry.world.blocks.production.Drill;
 import mindustry.world.*;
-import mindustry.world.meta.BuildVisibility;
 import epsilon.world.meta.*;
 
 public class ConfigurableDrill extends Drill{
@@ -22,11 +21,6 @@ public class ConfigurableDrill extends Drill{
         configurable = true;
         saveConfig = true;
         canOverdrive = false;
-        replaceable = false;
-        targetable = false;
-        destructible = false;
-        drawTeamOverlay = false;
-        buildVisibility = BuildVisibility.sandboxOnly;
     }
 
     @Override
