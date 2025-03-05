@@ -21,6 +21,13 @@ public class ConfigurableDrill extends Drill{
         saveConfig = true;
         canOverdrive = false;
     }
+
+    @Override
+    public void setStats(){
+        super.setStats();
+        
+    }
+
     public class ConfigurableDrillBuild extends DrillBuild{
         public boolean eff1 = false;
         public boolean eff2 = true;
