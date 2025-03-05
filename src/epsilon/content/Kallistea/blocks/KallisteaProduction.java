@@ -14,10 +14,11 @@ public class KallisteaProduction{
     exponentialDrill;
 
     public static void load(){
-        exponentialDrill = new ConfigurableDrill("exponential-drill", 480){{
+        exponentialDrill = new ConfigurableDrill("exponential-drill"){{
             requirements(Category.production, with(KallisteaItems.gelionyte, 25, KallisteaItems.calcite, 20));
             health = 120;
             size = 3;
+            drillTime = 480;
             tier = 3;
         }};
     } 
