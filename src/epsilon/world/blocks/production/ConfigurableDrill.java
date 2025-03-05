@@ -2,7 +2,7 @@ package epsilon.world.blocks.production;
 
 import arc.scene.ui.layout.Table;
 import mindustry.world.blocks.production.Drill;
-import mindustry.ui.Styles;
+import mindustry.world.Block;
 
 public class ConfigurableDrill extends Drill{
     public float efficiency1 = 0.5f;
@@ -12,27 +12,28 @@ public class ConfigurableDrill extends Drill{
     public String button2Name = "1x";
     public String button3Name = "2x";
 
+    public final float oldDrillTime = drillTime; 
 
-    public ConfigurableDrill(String name, float drillTime){
+
+    public ConfigurableDrill(String name){
         super(name);
         configurable = true;
         saveConfig = true;
-        this.drillTime = drillTime;
+        canOverdrive = false;
     }
-    /*public class ConfigurableDrillBuild extends DrillBuild{
+    public class ConfigurableDrillBuild extends DrillBuild{
         public boolean eff1 = false;
         public boolean eff2 = true;
         public boolean eff3 = false;
-        public final float oldDrillTime = this.drillTime;
 
         @Override 
         public void updateTile(){
             if(eff1 && !eff2 && !eff3){
-                this.drillTime = oldDrillTime * efficiency1;
+                drillTime = oldDrillTime * efficiency1;
             } else if(eff2 && !eff3 && !eff1){
-                  this.drillTime = oldDrillTime * efficiency2;
+                  drillTime = oldDrillTime * efficiency2;
             } else{
-                  this.drillTime = oldDrillTime * efficiency3;
+                  drillTime = oldDrillTime * efficiency3;
             }
             super.updateTile(); 
         }
@@ -58,5 +59,15 @@ public class ConfigurableDrill extends Drill{
                 deselect();
             }).pad(65f).size(60f);
         }
-    }*/
+
+        @Override
+        public boolean onConfigureBuildTapped(Building other){
+            if(this == other){
+                deselect();
+                return false;
+            }
+
+            return true;
+        }
+    }
 }
