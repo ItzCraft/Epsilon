@@ -51,7 +51,7 @@ public class ConfigurableDrill extends Drill{
                 eff2 = true;
                 eff3 = false;
                 deselect();
-            }).pad(-32.5f).size(60f);
+            }).pad(-5.5f).size(60f);
             table.button(button1Name, () -> {
                 eff1 = false;
                 eff2 = false;
@@ -59,15 +59,5 @@ public class ConfigurableDrill extends Drill{
                 deselect();
             }).pad(65f).size(60f);
         }
-
-        /*@Override
-        public boolean onConfigureBuildTapped(Building other){
-            if(this == other){
-                deselect();
-                return false;
-            }
-
-            return true;
-        }*/
     }
 }
