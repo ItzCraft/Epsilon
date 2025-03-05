@@ -2,7 +2,7 @@ package epsilon.world.blocks.production;
 
 import arc.scene.ui.layout.Table;
 import mindustry.world.blocks.production.Drill;
-import mindustry.world.Block;
+import mindustry.world.*;
 
 public class ConfigurableDrill extends Drill{
     public float efficiency1 = 0.5f;
