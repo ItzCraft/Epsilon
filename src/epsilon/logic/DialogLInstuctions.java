@@ -6,7 +6,7 @@ import mindustry.logic.*;
 import mindustry.logic.LExecutor.*;
 import epsilon.ui.EpsUi;
 
-public class DialogLInstuctions{
+/*public class DialogLInstuctions{
     public static abstract class DialogControlInstruction implements LInstruction{
         public LVar duration;
         public String unitIconName;
@@ -61,4 +61,4 @@ public class DialogLInstuctions{
             EpsUi.BaseDialogText(name, text, duration.numf());
         }
     }*/
-}
+}*/
