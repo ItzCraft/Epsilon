@@ -4,7 +4,7 @@ package epsilon.logic;
  * @author minri2
  * 
  */
-public class DialogLStatementWriter{
+public class DialogLStatement{
     public static final String SPLITTER = " ";
 
     private StringBuilder builder;
@@ -18,66 +18,66 @@ public class DialogLStatementWriter{
         builder.deleteCharAt(builder.length() - 1);
     }
 
-    public DialogLStatementWriter write(Object obj) {
+    public DialogLStatement write(Object obj) {
         return write(String.valueOf(obj)).write(SPLITTER);
     }
 
-    public DialogLStatementWriter write(String str) {
+    public DialogLStatement write(String str) {
         builder.append(str).append(SPLITTER);
         return this;
     }
 
-    public DialogLStatementWriter write(StringBuffer sb) {
+    public DialogLStatement write(StringBuffer sb) {
         builder.append(sb).append(SPLITTER);
         return this;
     }
 
-    public DialogLStatementWriter write(CharSequence s) {
+    public DialogLStatement write(CharSequence s) {
         builder.append(s).append(SPLITTER);
         return this;
     }
 
-    public DialogLStatementWriter write(CharSequence s, int start, int end) {
+    public DialogLStatement write(CharSequence s, int start, int end) {
         builder.append(s, start, end).append(SPLITTER);
         return this;
     }
 
-    public DialogLStatementWriter write(char[] str) {
+    public DialogLStatement write(char[] str) {
         builder.append(str).append(SPLITTER);
         return this;
     }
 
-    public DialogLStatementWriter write(char[] str, int offset, int len) {
+    public DialogLStatement write(char[] str, int offset, int len) {
         builder.append(str, offset, len).append(SPLITTER);
         return this;
     }
 
-    public DialogLStatementWriter write(boolean b) {
+    public DialogLStatement write(boolean b) {
         builder.append(b).append(SPLITTER);
         return this;
     }
 
-    public DialogLStatementWriter write(char c) {
+    public DialogLStatement write(char c) {
         builder.append(c).append(SPLITTER);
         return this;
     }
 
-    public DialogLStatementWriter write(int i) {
+    public DialogLStatement write(int i) {
         builder.append(i).append(SPLITTER);
         return this;
     }
 
-    public DialogLStatementWriter write(long lng) {
+    public DialogLStatement write(long lng) {
         builder.append(lng).append(SPLITTER);
         return this;
     }
 
-    public DialogLStatementWriter write(float f) {
+    public DialogLStatement write(float f) {
         builder.append(f).append(SPLITTER);
         return this;
     }
 
-    public DialogLStatementWriter write(double d) {
+    public DialogLStatement write(double d) {
         builder.append(d).append(SPLITTER);
         return this;
     }
