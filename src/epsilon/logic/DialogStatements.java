@@ -29,6 +29,9 @@ import mindustry.ui.*;
         void rebuild(Table table){
             table.clearChildren();
 
+            table.add(" unit name ");
+            fields(table, unitIconName, path -> unitIconName = path);
+            table.row();
             table.add(" for ");
             fields(table, duration, str -> duration = str);
             table.add(" sec ");
