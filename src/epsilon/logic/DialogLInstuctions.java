@@ -10,10 +10,10 @@ import static mindustry.Vars.*;
 
 public class DialogLInstuctions{
     public static class DialogControlInstruction implements LInstruction{
-        public float duration;
+        public int duration;
         public String unitIconName;
 
-        public DialogControlInstruction(float duration, String unitIconName){
+        public DialogControlInstruction(int duration, String unitIconName){
             this.unitIconName = unitIconName;
             this.duration = duration;
         }
@@ -28,7 +28,7 @@ public class DialogLInstuctions{
                 }
             }
 
-            EpsUi.showDialog(unitIconName, text, duration);
+            EpsUi.showDialog(unitIconName, text, exec.numf(duration));
         } 
     }
 
