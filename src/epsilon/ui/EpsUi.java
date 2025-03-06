@@ -1,7 +1,8 @@
 package epsilon.ui;
 
 import arc.scene.ui.layout.Table;
-import arc.scene.actions.*;
+import arc.scene.actions.TouchableAction;
+import arc.math.*;
 import mindustry.core.UI;
 import mindustry.ui.Styles;
 
