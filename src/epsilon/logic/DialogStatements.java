@@ -9,14 +9,13 @@ import mindustry.ui.*;
 import epsilon.logic.DialogLInstuctions.*;
 
 public class DialogStatements{
-    @RegisterStatement("dialog-control")
     public static class DialogControlStatement extends LStatement{
-        public LVar duration = 5;
-        public String unitIconName = "epsilon-assets/frog.png";
+        public String duration= "5";
+        public String unitIconName = "epsilon-frog";
 
         @Override
         public LCategory category(){
-            return DialogLogic.dialogCategory;
+            return DialogsLogic.dialogCategory;
         }
 
         @Override
