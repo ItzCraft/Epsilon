@@ -17,7 +17,7 @@ public class LoreBlocks{
             requirements(Category.distribution, with(KallisteaItems.calcite, 14884252));
             health = 1;
             size = 1;
-            imagePath = "epsilon-assets/frog.png";
+            imagePath = "epsilon-frog";
             dialogName = "Router of god";
         }};
     }
