@@ -4,7 +4,6 @@ import arc.Core;
 import arc.scene.ui.layout.Table;
 import mindustry.gen.Building;
 import mindustry.world.Block;
-import mindustry.game.Team;
 import epsilon.ui.EpsUi;
 
 // This block is a another method of showing Dialogs for that case, we won't make it in wprocs
@@ -25,9 +24,9 @@ public class DialogBlock extends Block{
     public class DialogBlockBuild extends Building{
         @Override
         public void updateTile(){
-            if(this.team == derelic){
+            if(this.health == 1){
                 EpsUi.showDialog(unitIconName, text, duration);
-                this.team = sharded;
+                this.health = 0;
             }
             super.updateTile();
         }
