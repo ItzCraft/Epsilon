@@ -6,7 +6,6 @@ import mindustry.logic.*;
 import mindustry.logic.LExecutor.*;
 import epsilon.ui.EpsUi;
 
-import static mindustry.logic.LVar; 
 
 public class DialogLInstuctions{
     public static abstract class DialogControlInstruction implements LInstruction{
