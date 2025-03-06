@@ -13,7 +13,7 @@ public class DialogLInstuctions{
         public float duration;
         public String unitIconName;
 
-        public DialogControlInstruction set(float duration, String unitIconName){
+        public DialogControlInstruction(float duration, String unitIconName){
             this.unitIconName = unitIconName;
             this.duration = duration;
             return this;
