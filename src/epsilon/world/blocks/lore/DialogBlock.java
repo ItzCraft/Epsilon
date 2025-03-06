@@ -1,7 +1,7 @@
 package epsilon.world.blocks.lore;
 
 import arc.Core;
-inport arc.scene.ui.layout.Table;
+import arc.scene.ui.layout.Table;
 import mindustry.gen.Building;
 import mindustry.world.Block;
 import epsilon.ui.EpsUi;
