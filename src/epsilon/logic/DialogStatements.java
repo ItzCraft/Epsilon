@@ -10,7 +10,7 @@ import epsilon.logic.DialogLInstuctions.*;
 
 public class DialogStatements{
     public static class DialogControlStatement extends LStatement{
-        public float duration = 5f;
+        public int duration = 5f;
         public String unitIconName = "epsilon-frog";
 
         @Override
@@ -35,7 +35,7 @@ public class DialogStatements{
             fields(table, unitIconName, str -> unitIconName = str);
             table.row();
             table.add(" for ");
-            fields(table, duration, float -> duration = float);
+            fields(table, duration, int -> duration = int);
             table.add(" sec ");
         }
     }
