@@ -9,19 +9,10 @@ import mindustry.ui.*;
 import epsilon.logic.DialogLInstuctions.*;
 
 public class DialogStatements{
+    @RegisterStatement("dialogControl")
     public static class DialogControlStatement extends LStatement{
         public String duration = "5";
         public String unitIconName = "epsilon-frog";
-
-        @Override
-        public LCategory category(){
-            return DialogsLogic.dialogCategory;
-        }
-
-        @Override
-        public LInstruction build(LAssembler builder){
-            return new DialogControlInstruction(builder.var(duration), unitIconName);
-        } 
 
         @Override
         public void build(Table table){
@@ -38,5 +29,14 @@ public class DialogStatements{
             fields(table, duration, str -> duration = str);
             table.add(" sec ");
         }
+        @Override
+        public LCategory category(){
+            return DialogsLogic.dialogCategory;
+        }
+
+        @Override
+        public LInstruction build(LAssembler builder){
+            return new DialogControlInstruction(builder.var(duration), unitIconName);
+        }  
     }
 }
