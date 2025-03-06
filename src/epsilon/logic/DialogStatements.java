@@ -20,7 +20,7 @@ public class DialogStatements{
 
         @Override
         public LInstruction build(LAssembler builder){
-            return new DialogControlInstruction(builder.var(duration), builder.var(unitIconName));
+            return new DialogControlInstruction(builder.var(duration), unitIconName);
         } 
 
         @Override
