@@ -9,8 +9,21 @@ import mindustry.ui.*;
 //import epsilon.logic.DialogLInstuctions.*;
 
 /*public class DialogStatements{
+    // Code from Mechanical Arms mod by MinRi2
+    private static final Seq<Prov<DialogLStatement>> dialogAllStatements = Seq.with(
+    ControlSwitchStatement::new
+    );
+    
+    
+    public static void register(){
+        Seq<Prov<DialogLStatement>> seq = dialogAllStatements.map(prov -> prov::get);
+        LogicIO.allStatements.addAll(seq);
 
-
+ for(Prov<DialogLStatement> prov : armsAllStatements){
+            DialogLStatement example = prov.get();
+            LAssembler.customParsers.put(example.markName, example::read);
+        }
+    }
 
     public static class DialogControlStatement extends LStatement{
         public LVar duration = 5;
