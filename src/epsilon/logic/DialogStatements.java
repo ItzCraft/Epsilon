@@ -9,5 +9,10 @@ import mindustry.ui.*;
 //import epsilon.logic.DialogLInstuctions.*;
 
 /*public class DialogStatements{
-    
+
+
+
+    public static class ShowDialogStatement extends LStatement{
+
+    }
 }*/
