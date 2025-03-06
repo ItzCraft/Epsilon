@@ -32,5 +32,6 @@ public class DialogStatements{
             table.add(" for ");
             fields(table, duration, str -> duration = str);
             table.add(" sec ");
+        }
     }
 }
