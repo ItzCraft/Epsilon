@@ -17,16 +17,16 @@ public class DialogBlock extends Block{
         replaceable = false;
         targetable = false;
         drawTeamOverlay = false;
-        EpsUi.showDialog(unitIconName, text, duration);
     }
 
     
     public class DialogBlockBuild extends Building{
+        public boolean goida = true;
         @Override
         public void updateTile(){
-            if(this.health == 1){
+            if(goida){
                 EpsUi.showDialog(unitIconName, text, duration);
-                this.health = 0;
+                goida = false;
             }
             super.updateTile();
         }
