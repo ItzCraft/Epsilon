@@ -6,11 +6,31 @@ import arc.scene.ui.layout.*;
 import mindustry.logic.*;
 import mindustry.logic.LExecutor.*;
 import mindustry.ui.*;
-import annotations.src.main.java.mindustry.annotations.misc.LogicStatementProcessor;
 import epsilon.logic.DialogLInstuctions.*;
 
 public class DialogStatements{
-    @RegisterStatement("dialogcontrol")
+        private static final DialogLStatement writer = new DialogLStatement();
+
+    @SuppressWarnings("unchecked")
+    private static final Seq<Prov<DialogLStatement>> dialogAllStatements = Seq.with(
+    DialogControlStatement::new
+    );
+
+    /**
+     * Register to LogicIO
+     * this will be invoked on added to {@link LCanvas} as example
+     * and make customized statement iterable by {@link LogicDialog}
+     */
+    public static void register(){
+        Seq<Prov<LStatement>> seq = dialogAllStatements.map(prov -> prov::get);
+        LogicIO.allStatements.addAll(seq);
+
+        // Customized LStatements will register customized reader automatically.
+        for(Prov<DialogLStatement> prov : armsAllStatements){
+            DialogLStatement example = prov.get();
+            LAssembler.customParsers.put(example.markName, example::read);
+        }
+    }
     public static class DialogControlStatement extends LStatement{
         public String duration = "5";
         public String unitIconName = "epsilon-frog";
