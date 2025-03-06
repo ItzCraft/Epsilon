@@ -5,6 +5,8 @@ import arc.scene.actions.*;
 import mindustry.ui.Ui;
 import mindustry.ui.Styles;
 
+import static arc.Core.bundle;
+import static mindustry.Vars.ui;
 import static arc.scene.actions.Actions.*;
 
 public class EpsUi extends Ui{
