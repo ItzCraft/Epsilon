@@ -30,7 +30,7 @@
                       Time.runTask(10f, () -> {
                           BaseDialog dialog = new BaseDialog("Epsilon");
                           dialog.cont.add(bundle.get("warn-text1")).row();
-                          dialog.cont.image(Core.atlas.find("epsilon-icon")).pad(20f).row();
+                          dialog.cont.image(Core.atlas.find("epsilon-assets/icon")).pad(20f).row();
                           dialog.cont.button("OK", dialog::hide).size(100f, 50f);
                           dialog.show();
                       });
