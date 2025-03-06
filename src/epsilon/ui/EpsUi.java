@@ -1,7 +1,11 @@
 package epsilon.ui;
 
 import arc.scene.ui.layout.Table;
-import mindustry.ui.*;
+import arc.scene.actions.*;
+import mindustry.ui.Ui;
+import mindustry.ui.Styles;
+
+import static arc.scene.actions.Actions.*;
 
 public class EpsUi extends Ui{
     public void showDialog(String unitIconName, String text, float duration){
