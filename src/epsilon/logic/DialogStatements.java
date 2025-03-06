@@ -19,6 +19,11 @@ public class DialogStatements{
         }
 
         @Override
+        public LInstruction build(LAssembler builder){
+            return new DialogControlInstruction(builder.var(duration), builder.var(unitIconName));
+        } 
+
+        @Override
         public void build(Table table){
             rebuild(table);
         }
@@ -27,7 +32,7 @@ public class DialogStatements{
             table.clearChildren();
 
             table.add(" unit name ");
-            fields(table, unitIconName, path -> unitIconName = path);
+            fields(table, unitIconName, str -> unitIconName = str);
             table.row();
             table.add(" for ");
             fields(table, duration, str -> duration = str);
