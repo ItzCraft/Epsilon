@@ -19,7 +19,7 @@ import mindustry.ui.*;
         Seq<Prov<DialogLStatement>> seq = dialogAllStatements.map(prov -> prov::get);
         LogicIO.allStatements.addAll(seq);
 
- for(Prov<DialogLStatement> prov : armsAllStatements){
+ for(Prov<DialogLStatement> prov : dialogAllStatements){
             DialogLStatement example = prov.get();
             LAssembler.customParsers.put(example.markName, example::read);
         }
