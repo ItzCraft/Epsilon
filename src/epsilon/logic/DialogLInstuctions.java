@@ -16,7 +16,6 @@ public class DialogLInstuctions{
         public DialogControlInstruction(float duration, String unitIconName){
             this.unitIconName = unitIconName;
             this.duration = duration;
-            return this;
         }
         
         @Override
