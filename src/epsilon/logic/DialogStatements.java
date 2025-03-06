@@ -13,6 +13,24 @@ import mindustry.ui.*;
 
 
     public static class DialogControlStatement extends LStatement{
+        public LVar duration = 5;
+        public String unitIconName = "epsilon-assets/frog.png";
 
+        @Override
+        public LCategory category(){
+            return DialogLogic.dialogCategory;
+        }
+
+        @Override
+        public void build(Table table){
+            rebuild(table);
+        }
+
+        void rebuild(Table table){
+            table.clearChildren();
+
+            table.add(" for ");
+            fields(table, duration, str -> duration = str);
+            table.add(" sec ");
     }
 }*/
