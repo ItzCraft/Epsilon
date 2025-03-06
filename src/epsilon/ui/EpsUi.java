@@ -2,7 +2,7 @@ package epsilon.ui;
 
 import arc.scene.ui.layout.Table;
 import arc.scene.actions.*;
-import mindustry.core.Ui;
+import mindustry.core.UI;
 import mindustry.ui.Styles;
 
 import static arc.Core.bundle;
