@@ -7,8 +7,8 @@ import epsilon.*;
 /*public class DialogsLogic{
     public static LCategory dialogCategory;
 
-    public static void load(){
+    public static void init(){
         dialogCategory = new LCategory("Dialogs", Color.valueOf("eb347d"));
-        dialogStatements.register();
+        DialogStatements.register();
     } 
 }*/
