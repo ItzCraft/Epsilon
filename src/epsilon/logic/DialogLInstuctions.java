@@ -1,5 +1,7 @@
 package epsilon.logic;
 
+import arc.Core;
+import mindustry.logic.LVar;
 import mindustry.logic.*;
 import mindustry.logic.LExecutor.*;
 import epsilon.ui.EpsUi;
