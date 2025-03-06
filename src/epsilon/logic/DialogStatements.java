@@ -26,7 +26,7 @@ public class DialogStatements{
         LogicIO.allStatements.addAll(seq);
 
         // Customized LStatements will register customized reader automatically.
-        for(Prov<DialogLStatement> prov : armsAllStatements){
+        for(Prov<DialogLStatement> prov : dialogAllStatements){
             DialogLStatement example = prov.get();
             LAssembler.customParsers.put(example.markName, example::read);
         }
