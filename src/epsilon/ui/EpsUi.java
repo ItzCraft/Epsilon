@@ -18,9 +18,9 @@ public class EpsUi extends UI{
         table.touchable = Touchable.disabled;
         table.setFillParent(true);
         table.actions(Actions.delay(duration * 1.2f), Actions.fadeOut(duration * 0.2f, Interp.fade), Actions.remove());
-        table.bottom().table(Styles.black3, t -> t.margin(1).image(Core.atlas.find(unitIconName)).style(Styles.outlineLabel)).padLeft(10f);
+        table.padBottom(40f).table(Styles.black3, t -> t.margin(1).image(Core.atlas.find(unitIconName)).style(Styles.outlineLabel)).padLeft(20f).size(25f, 45f);
         // wanna make it through Flabel but idk how
-        table.bottom().table(Styles.black3, t -> t.margin(10f).add(text).style(Styles.outlineLabel)).padRight(10f);
+        table.padBottom(40f).table(Styles.black3, t -> t.margin(10f).add(text).style(Styles.outlineLabel)).padRight(35f).size(55f, 25f);
         Core.scene.add(table);
     }
 }
