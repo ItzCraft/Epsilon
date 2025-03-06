@@ -10,7 +10,7 @@ import epsilon.logic.DialogLInstuctions.*;
 
 public class DialogStatements{
     public static class DialogControlStatement extends LStatement{
-        public int duration = 5;
+        public String duration = "5";
         public String unitIconName = "epsilon-frog";
 
         @Override
