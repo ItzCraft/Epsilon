@@ -2,9 +2,9 @@ package epsilon.logic;
 
 import mindustry.logic.*;
 import mindustry.logic.LExecutor.*;
-// import epsilon.ui.EpsUi;
+import epsilon.ui.EpsUi;
 
-/*public class DialogLInstuctions{
+public class DialogLInstuctions{
     public static abstract class DialogControlInstruction implements LInstruction{
         public LVar duration;
         public String unitIconName;
@@ -29,7 +29,7 @@ import mindustry.logic.LExecutor.*;
         } 
     }
 
-    public static abstract class BaseDialogTextInstruction implements LInstruction{
+    /*public static abstract class BaseDialogTextInstruction implements LInstruction{
         public String name = template;
         public LVar duration;
 
@@ -58,5 +58,5 @@ import mindustry.logic.LExecutor.*;
 
             EpsUi.BaseDialogText(name, text, duration.numf());
         }
-    }
-}*/
+    }*/
+}
