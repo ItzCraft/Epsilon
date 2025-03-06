@@ -9,7 +9,7 @@ import epsilon.ui.EpsUi;
 import static mindustry.Vars.*;
 
 public class DialogLInstuctions{
-    public static abstract class DialogControlInstruction implements LInstruction{
+    public static class DialogControlInstruction implements LInstruction{
         public float duration;
         public String unitIconName;
 
