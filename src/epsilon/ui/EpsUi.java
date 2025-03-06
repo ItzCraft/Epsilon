@@ -13,7 +13,7 @@ import static mindustry.Vars.ui;
 import static arc.scene.actions.Actions.*;
 
 public class EpsUi extends UI{
-    public void showDialog(String unitIconName, String text, float duration){
+    public static void showDialog(String unitIconName, String text, float duration){
         Table table = new Table();
         table.touchable = Touchable.disabled;
         table.setFillParent(true);
