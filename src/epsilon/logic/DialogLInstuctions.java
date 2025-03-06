@@ -13,7 +13,7 @@ public class DialogLInstuctions{
         public LVar duration;
         public String unitIconName;
 
-        public DialogControlInstruction(LVar duration, String unitIconName){
+        public DialogControlInstruction set(LVar duration, String unitIconName){
             this.unitIconName = unitIconName;
             this.duration = duration;
             return this;
