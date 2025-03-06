@@ -10,10 +10,10 @@ import static mindustry.Vars.*;
 
 public class DialogLInstuctions{
     public static abstract class DialogControlInstruction implements LInstruction{
-        public LVar duration;
+        public float duration;
         public String unitIconName;
 
-        public DialogControlInstruction set(LVar duration, String unitIconName){
+        public DialogControlInstruction set(float duration, String unitIconName){
             this.unitIconName = unitIconName;
             this.duration = duration;
             return this;
