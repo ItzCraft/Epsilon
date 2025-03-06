@@ -25,7 +25,7 @@ public class DialogBlock extends Block{
         @Override
         public void updateTile(){
             if(this.team == 0){
-                EpsUi.showDialog(unitIconName, text, duration
+                EpsUi.showDialog(unitIconName, text, duration);
                 this.team = 1;
             }
             super.updateTile();
