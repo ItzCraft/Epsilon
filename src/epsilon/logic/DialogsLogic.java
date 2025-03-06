@@ -9,5 +9,7 @@ public class DialogsLogic{
 
     public static void init(){
         dialogCategory = new LCategory("Dialogs", Color.valueOf("eb347d"));
+
+        DialogStatements.register();
     } 
 }
