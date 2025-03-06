@@ -6,7 +6,7 @@
     import epsilon.content.Kallistea.*;
     import epsilon.ui.dialogs.AboutEpsilonDialog;
     import epsilon.world.EpsAttribute;
-    import epsilon.logic.DialogsLogic;
+    //import epsilon.logic.DialogsLogic;
     import mindustry.*;
     import mindustry.content.*;
     import mindustry.game.EventType.*;
@@ -38,10 +38,10 @@
             });
         }
 
-        @Override
+        /*@Override
         public void init(){
             DialogsLogic.init();
-        }
+        }*/
         
         @Override
         public void loadContent(){
