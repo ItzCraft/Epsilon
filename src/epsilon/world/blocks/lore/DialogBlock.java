@@ -21,9 +21,14 @@ public class DialogBlock extends Block{
     }
 
     
-    @Override
-    public void init(){
-        super.init();
-        EpsUi.showDialog(unitIconName, text, duration);
+    public class DialogBlockBuild extends Building{
+        @Override
+        public void updateTile(){
+            if(this.team == 0){
+                EpsUi.showDialog(unitIconName, text, duration
+       this.team = 1;
+            }
+            super.updateTile();
+        }
     }
 }
