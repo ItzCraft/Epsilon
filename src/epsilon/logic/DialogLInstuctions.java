@@ -29,15 +29,15 @@ public class DialogLInstuctions{
                 }
             }
 
-            EpsUi.showDialog(unitIconName, text, duration.numf());
+            EpsUi.showDialog(unitIconName, text, duration);
         } 
     }
 
     /*public static abstract class BaseDialogTextInstruction implements LInstruction{
         public String name = template;
-        public LVar duration;
+        public float duration;
 
-        public BaseDialogTextInstruction(String name, LVar duration){
+        public BaseDialogTextInstruction(String name, float duration){
             this.name = name;
             this.duration = duration
             return this;
@@ -60,7 +60,7 @@ public class DialogLInstuctions{
                 }
             }
 
-            EpsUi.BaseDialogText(name, text, duration.numf());
+            EpsUi.BaseDialogText(name, text, duration);
         }
     }*/
 }
