@@ -31,7 +31,7 @@ import epsilon.ui.EpsUi;
         } 
     }
 
-    /*public static abstract class BaseDialogTextInstruction implements LInstruction{
+    public static abstract class BaseDialogTextInstruction implements LInstruction{
         public String name = template;
         public LVar duration;
 
@@ -60,5 +60,5 @@ import epsilon.ui.EpsUi;
 
             EpsUi.BaseDialogText(name, text, duration.numf());
         }
-    }*/
+    }
 }*/
