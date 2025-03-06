@@ -6,6 +6,7 @@ import arc.scene.ui.layout.*;
 import mindustry.logic.*;
 import mindustry.logic.LExecutor.*;
 import mindustry.ui.*;
+import mindustry.annotations.misc.LogicStatementProcessor;
 import epsilon.logic.DialogLInstuctions.*;
 
 public class DialogStatements{
