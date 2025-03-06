@@ -35,7 +35,7 @@ public class DialogStatements{
             fields(table, unitIconName, str -> unitIconName = str);
             table.row();
             table.add(" for ");
-            fields(table, duration, int -> duration = int);
+            fields(table, duration, str -> duration = str);
             table.add(" sec ");
         }
     }
