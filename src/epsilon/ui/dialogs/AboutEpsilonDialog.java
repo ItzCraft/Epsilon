@@ -20,17 +20,16 @@ public class AboutEpsilonDialog extends BaseDialog{
 
     private void setup(){
         Table table = new Table();
-        table.top();
         table.button(Core.bundle.get("epsilon-database-ss-button"), () -> {
             BaseDialog EpsilonSolarSystem = new BaseDialog("@epsilon-solar-system-title");
             EpsilonSolarSystem.addCloseButton();
             EpsilonSolarSystem.cont.add(Core.bundle.get("epsilon-database-as-text1")).row();
             EpsilonSolarSystem.show();
-        }).padTop(-150).pad(-75).size(195f, 90f);
+        }).padTop(30f).size(195f, 90f);
 
         table.button(Core.bundle.get("epsilon-database-fenspor-button"), () -> {
             EpsUi.showDialog("epsilon-assets/frog.png", "blah blah", 10);
-        }).padTop(100).size(195f, 90f);
+        }).padBottom(40f).size(195f, 90f);
         cont.add(table).width(500f).height(100f);
     }
 }
