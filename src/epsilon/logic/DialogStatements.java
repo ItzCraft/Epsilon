@@ -12,7 +12,7 @@ import mindustry.ui.*;
 
 
 
-    public static class ShowDialogStatement extends LStatement{
+    public static class DialogControlStatement extends LStatement{
 
     }
 }*/
