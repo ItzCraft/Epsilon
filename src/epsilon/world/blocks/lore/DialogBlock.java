@@ -16,8 +16,8 @@ public class DialogBlock extends Block{
         super(name);
         replaceable = false;
         targetable = false;
-        destructible = false;
         drawTeamOverlay = false;
+        EpsUi.showDialog(unitIconName, text, duration);
     }
 
     
