@@ -14,7 +14,10 @@ public class DialogBlock extends Block{
 
     public DialogBlock(String name){
         super(name);
+        replaceable = false;
+        targetable = false;
         destructible = false;
+        drawTeamOverlay = false;
     }
 
     
