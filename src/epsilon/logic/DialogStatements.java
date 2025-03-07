@@ -34,6 +34,11 @@ public class DialogStatements{
         }
 
         @Override
+        public final void write(StringBuilder builder){
+            builder.write(this, build);
+        } 
+
+        @Override
         public LInstruction build(LAssembler builder){
             return new DialogControlInstruction(builder.var(duration), unitIconName);
         }  
