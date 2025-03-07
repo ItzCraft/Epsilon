@@ -33,10 +33,8 @@ public class DialogStatements{
             return LCategory.world;
         }
 
-        @Override
-        public final void write(StringBuilder builder){        
-            LogicIO.write(this, builder);
-        } 
+        StringBuilder builder = new StringBuilder();
+        write(builder);
 
         @Override
         public LInstruction build(LAssembler builder){
