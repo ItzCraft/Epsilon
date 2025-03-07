@@ -11,7 +11,7 @@ import epsilon.logic.DialogLInstuctions.*;
 public class DialogStatements{
 
     public static void register(){
- LogicIO.allStatements.addAll(DialogControlStatement);
+       LogicIO.allStatements.addAll(DialogControlStatement);
     } 
 
     public static class DialogControlStatement extends LStatement{
