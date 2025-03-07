@@ -34,8 +34,8 @@ public class DialogStatements{
         }
 
         @Override
-        public final void write(StringBuilder builder){
-            builder.write(this, build);
+        public final void write(StringBuilder builder{        
+            LogicIO.write(this, builder);
         } 
 
         @Override
