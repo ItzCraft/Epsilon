@@ -10,6 +10,14 @@ import epsilon.logic.DialogLInstuctions.*;
 
 public class DialogStatements{
 
+    public static Seq<Prov<LStatement>> allStatements = Seq.with(
+        DialogControlStatement::new
+    );
+
+    public static void register() {
+        LogicIO.allStatements.addAll(allStatements);
+    } 
+
     public static class DialogControlStatement extends LStatement{
         public String duration = "5";
         public String unitIconName = "epsilon-frog";
