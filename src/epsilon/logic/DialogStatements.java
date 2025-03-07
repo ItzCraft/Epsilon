@@ -38,9 +38,6 @@ public class DialogStatements{
             return LCategory.world;
         }
 
-        StringBuilder builder = new StringBuilder();
-        write(builder);
-
         @Override
         public LInstruction build(LAssembler builder){
             return new DialogControlInstruction(builder.var(duration), unitIconName);
