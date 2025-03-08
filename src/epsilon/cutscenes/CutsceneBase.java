@@ -1,6 +1,9 @@
 package epsilon.cutscene;
 
-public class CutsceneBase{
+public abstract class CutsceneBase{
+
+    public void begin(){}
+    
     public String phaseToString(){
         return "";
     } 
