@@ -20,7 +20,6 @@ public class CutsceneUI{
 
        overlay.clear();
        textArea.clear();
-       markers.clear();
    }
 
     public void update(){
