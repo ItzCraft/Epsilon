@@ -3,6 +3,9 @@ package epsilon.cutscene;
 import arc.struct.Seq;
 import mindustry.gen.Building;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import static mindustry.Vars.ui;
 
 public class Cutscene{
@@ -12,6 +15,15 @@ public class Cutscene{
         return bus;
     }
 
+    public static Seq<String> parseString(String line) {
+        Seq<String> result = new Seq<>();
+        Matcher matcher = Pattern.compile("<([^>]*)>|\\S+").matcher(line);
+        while (matcher.find()) {
+            result.add(matcher.group(1) != null ? matcher.group(1) : matcher.group());
+        }
+        return result;
+    };
+     
     public static Seq<String> phaseLine(String code){
         String[] lines = code.split("\\R");
         return Seq.with(lines);
