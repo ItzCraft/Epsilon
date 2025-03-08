@@ -10,10 +10,12 @@ public class Cutscene{
          try{
              return switch(actionName){
                  case "text" -> new TextShowup(args);
+
+                 default -> new CutsceneNull();
              };
           }catch(Exception e){
             ui.announce("Failed to parse action: " + tokens);
-            return new NullCutscene();
+            return new CutsceneNull();
          }
     } */
 }
