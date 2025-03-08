@@ -7,7 +7,7 @@ import arc.scene.event.Touchable;
 import arc.math.*;
 import mindustry.core.UI;
 import mindustry.ui.Styles;
-import epsilon.cutscene.CutsceneBase;
+import epsilon.cutscenes.CutsceneBase;
 
 import static arc.Core.bundle;
 import static mindustry.Vars.ui;
