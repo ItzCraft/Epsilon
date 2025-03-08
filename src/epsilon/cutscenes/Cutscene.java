@@ -22,7 +22,7 @@ public class Cutscene{
          String actionName = tokensArray.remove(0);
          String[] args = tokensArray.toArray(String.class);
          try{
-             return switch(actionName){
+             return switch (actionName){
                  case "text" -> new TextShowup(args);
 
                  default -> new CutsceneNull();
