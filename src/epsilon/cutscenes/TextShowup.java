@@ -18,7 +18,7 @@ public class TextShowup extends CutsceneBase{
         
     }
 
-    Override
+    @Override
     public String phaseToString() {
         return "info_text" + " " + "[" + text + unitIconName + duration + "]";
     }
