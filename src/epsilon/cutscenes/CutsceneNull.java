@@ -1,6 +1,6 @@
-package epsilon.cutscene;
+package epsilon.cutscenes;
 
-import epsilon.cutscene.CutsceneBase;
+import epsilon.cutscenes.CutsceneBase;
 
 public class CutsceneNull extends CutsceneBase{
     public CutsceneNull(){
