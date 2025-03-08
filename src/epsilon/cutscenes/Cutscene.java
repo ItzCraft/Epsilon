@@ -17,7 +17,7 @@ public class Cutscene{
         return Seq.with(lines);
     }
     
-    public static phaseCutscene(String tokens, Building source){
+    public static CutsceneBase phaseCutscene(String tokens, Building source){
          Seq<String> tokensArray = parseString(tokens);
          String actionName = tokensArray.remove(0);
          String[] args = tokensArray.toArray(String.class);
