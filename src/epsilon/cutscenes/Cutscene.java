@@ -16,7 +16,7 @@ public class Cutscene{
         return bus;
     }
 
-    public static Seq<String> parseString(String line) {
+    public static Seq<String> parseString(String line){
         Seq<String> result = new Seq<>();
         Matcher matcher = Pattern.compile("<([^>]*)>|\\S+").matcher(line);
         while (matcher.find()) {
@@ -24,6 +24,10 @@ public class Cutscene{
         }
         return result;
     };
+
+    public static String phaseString(String token){
+        return token.replace("[n]", "\n");
+    }
      
     public static Seq<String> phaseLine(String code){
         String[] lines = code.split("\\R");
