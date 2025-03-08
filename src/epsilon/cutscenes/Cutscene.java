@@ -1,8 +1,8 @@
-package epsilon.cutscene;
+package epsilon.cutscenes;
 
 import arc.struct.Seq;
 import mindustry.gen.Building;
-import epsilon.cutscene.TextShowup;
+import epsilon.cutscenes.TextShowup;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
