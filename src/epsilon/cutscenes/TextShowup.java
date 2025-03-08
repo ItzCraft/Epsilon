@@ -18,6 +18,7 @@ public class TextShowup extends CutsceneBase{
     public String unitIconName;
     public int duration;
     public TextShowup(String text, String unitIconName, int duration){
+        super(0f);
         this.text = text;
         this.unitIconName = unitIconName;
         this.duration = duration;
