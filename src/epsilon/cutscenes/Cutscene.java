@@ -40,7 +40,7 @@ public class Cutscene{
          String[] args = tokensArray.toArray(String.class);
          try{
              return switch (actionName){
-                 case "text" -> new TextShowup(args);
+                 case "text_play" -> new TextShowup(args);
 
                  default -> new CutsceneNull();
              };
