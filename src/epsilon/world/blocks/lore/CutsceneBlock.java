@@ -3,11 +3,14 @@ package epsilon.world.blocks.lore;
 import arc.scene.ui.layout.Table;
 import arc.util.io.Reads;
 import arc.util.io.Writes;
+import mindustry.gen.Icon;
+import mindustry.ui.Styles;
 import mindustry.logic.LAccess;
 import mindustry.type.Category;
 import mindustry.world.blocks.logic.MessageBlock;
 
 import epsilon.cutscenes.Cutscene;
+import epsilon.cutscenes.CutsceneControl;
 
 import static mindustry.Vars.ui;
 
@@ -50,7 +53,7 @@ public class CutsceneBlock extends MessageBlock{
         }
         public void playCutscene(){
             try{
-                cutscene.addSubActionBus(Cutscene.phaseCode(message.toString(), this));
+                CutsceneControl.addCutsceneBus(Cutscene.phaseCode(message.toString(), this));
             }catch (Exception e){
                 ui.announce("Failed to create cutscene in block: " + tileX() + " " + tileY());
             }
