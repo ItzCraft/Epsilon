@@ -32,6 +32,7 @@ public abstract class CutsceneBase implements TimeQueue.Timed{
         public void end(){}
 
         public void act(){}
+        public void skip(){} 
         public float progress(){return Mathf.clamp(lifeTimer / maxTimer);}
 
     public String phaseToString(){
