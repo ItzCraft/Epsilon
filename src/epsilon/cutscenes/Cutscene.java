@@ -2,6 +2,7 @@ package epsilon.cutscene;
 
 import arc.struct.Seq;
 import mindustry.gen.Building;
+import epsilon.cutscene.TextShowup;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
