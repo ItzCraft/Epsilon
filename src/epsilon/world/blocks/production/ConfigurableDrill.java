@@ -3,6 +3,7 @@ package epsilon.world.blocks.production;
 import arc.scene.ui.layout.Table;
 import mindustry.world.blocks.production.Drill;
 import mindustry.world.*;
+import mindustry.entites.comp.*;
 import epsilon.world.meta.*;
 
 public class ConfigurableDrill extends Drill{
@@ -42,8 +43,10 @@ public class ConfigurableDrill extends Drill{
                 drillTime = oldDrillTime * efficiency1;
             } else if(eff2 && !eff3 && !eff1){
                   drillTime = oldDrillTime * efficiency2;
+                  damage(2*efficiency2);
             } else{
                   drillTime = oldDrillTime * efficiency3;
+                  damage(2*efficiency3); 
             }
             super.updateTile(); 
         }
