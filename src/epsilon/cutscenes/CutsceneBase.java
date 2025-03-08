@@ -1,5 +1,7 @@
 package epsilon.cutscene;
 
+import arc.math.Mathf;
+import arc.util.Time;
 import epsilon.util.TimeQueue;
 
 public abstract class CutsceneBase implements TimeQueue.Timed{
