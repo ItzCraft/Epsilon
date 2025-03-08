@@ -1,4 +1,4 @@
-package epsilon.cutscene;
+package epsilon.cutscenes;
 
 import arc.Core;
 import epsilon.util.TimeQueue;
