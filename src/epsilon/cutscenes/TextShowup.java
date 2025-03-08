@@ -24,6 +24,11 @@ public class TextShowup extends CutsceneBase{
         this.duration = duration;
     }
 
+    public TextShowup(String[] args){
+        super(0f);
+        this.text = Cutscene.phaseString(args[0]);
+    }
+
     @Override
     public void begin(){
         Table table = new Table();
