@@ -43,6 +43,6 @@ public class TextShowup extends CutsceneBase{
 
     @Override
     public String phaseToString() {
-        return "text" + " " + "[" + text + "]";
+        return "text_play" + " " + "[" + text + "]";
     }
 }
