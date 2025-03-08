@@ -2,6 +2,8 @@ package epsilon.cutscene;
 
 import arc.struct.Seq;
 
+import static mindustry.Vars.ui;
+
 public class Cutscene{
     /*public static phaseCutscene(String tokens){
          Seq<String> tokensArray = parseString(tokens);
