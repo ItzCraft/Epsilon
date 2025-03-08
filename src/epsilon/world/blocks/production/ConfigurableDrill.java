@@ -3,7 +3,7 @@ package epsilon.world.blocks.production;
 import arc.scene.ui.layout.Table;
 import mindustry.world.blocks.production.Drill;
 import mindustry.world.*;
-import mindustry.entites.comp.*;
+import mindustry.entities.comp.*;
 import epsilon.world.meta.*;
 
 public class ConfigurableDrill extends Drill{
