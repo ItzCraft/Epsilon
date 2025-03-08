@@ -8,7 +8,7 @@ public abstract class CutsceneBase implements TimeQueue.Timed{
         //max time
         public float maxTimer = 0; //Ticks
 
-        public Action(float duration){
+        public CutsceneBase(float duration){
                 this.maxTimer = duration;
         }
 
