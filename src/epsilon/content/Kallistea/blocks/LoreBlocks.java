@@ -10,7 +10,7 @@ import static mindustry.type.ItemStack.with;
 
 public class LoreBlocks{
     public static Block
-    testBlock1, dialogBlock1;
+    testBlock1, dialogBlock1, cutsceneBlock;
 
     public static void load(){
         testBlock1 = new ImageBlock("test-block1"){{
@@ -26,6 +26,12 @@ public class LoreBlocks{
             health = 1;
             size = 1;
             text = "bebebe solo everyone";
+        }};
+
+        cutsceneBlock = new CutsceneBlock("cutscene-block"){{
+            requirements(Category.logic, with(KallisteaItems.gelionyte, 1448425269));
+            size = 1;
+            health = 99999;
         }};
     }
 }
