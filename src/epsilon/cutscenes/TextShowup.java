@@ -12,7 +12,7 @@ import static arc.Core.bundle;
 import static mindustry.Vars.ui;
 import static arc.scene.actions.Actions.*;
 
-public class TextShowup extends CutsceneBase{
+public class TextShowup implements CutsceneBase{
     public String text;
     public String unitIconName;
     public int duration;
