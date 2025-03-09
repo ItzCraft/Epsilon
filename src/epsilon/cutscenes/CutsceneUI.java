@@ -55,12 +55,9 @@ public class CutsceneUI{
     private void buildTextTable(){
         textTable = new Table(Tex.buttonEdge3){{
             touchable(() -> {
-                if(color.a > 0.1f){
-                    return Touchable.childrenOnly;
-                }else return Touchable.disabled;
+                return Touchable.disabled;
             });
             visible(() -> Vars.state.isGame());
-            color.a = 0;
 
             if(Vars.headless){
                 textArea = new Table();
@@ -96,7 +93,6 @@ public class CutsceneUI{
 
     public void resetSave(){
         reset();
-        curtain.color.a = 1;
     }
     
     public void update(){
@@ -104,7 +100,5 @@ public class CutsceneUI{
           reset();
           return;
       }
-
-      curtain.color.a = Mathf.approachDelta(curtain.color.a, targetOverlayAlpha, overlaySpeed);
     }
 } 
