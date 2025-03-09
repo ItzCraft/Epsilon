@@ -6,6 +6,8 @@ import arc.struct.Seq;
 import arc.util.Time;
 import mindustry.game.EventType;
 
+import static epsilon.EpsilonVars.cutscene;
+
 public class CutsceneControl {
         public boolean waiting = false;
         public float waitSpacing = 60;
@@ -26,7 +28,7 @@ public class CutsceneControl {
                 if(mainBus.complete()) {
                     mainBus = null;
                     waiting = true;
-                    CutsceneUI.reset();
+                    cutscene.reset();
                 }
             }
 
@@ -51,26 +53,26 @@ public class CutsceneControl {
                     bus.update();
             }
 
-            CutsceneUI.update();
+            cutscene.update();
         }
 
         public void clear(){
-                waiting = false;
-                waitTimer = 0;
-                mainBus = null;
-                waitingBuses.clear();
-                subBuses.clear();
+            waiting = false;
+            waitTimer = 0;
+            mainBus = null;
+            waitingBuses.clear();
+            subBuses.clear();
         }
 
         public void addMainBus(CutsceneBus bus) {
-                if (mainBus == null) {
-                        mainBus = bus;
-                }else {
-                        waitingBuses.add(bus);
-                }
+            if (mainBus == null) {
+                mainBus = bus;
+            }else {
+                waitingBuses.add(bus);
+            }
         }
 
         public void addCutsceneBus(CutsceneBus bus) {
-                subBuses.add(bus);
+            subBuses.add(bus);
         }
 }
