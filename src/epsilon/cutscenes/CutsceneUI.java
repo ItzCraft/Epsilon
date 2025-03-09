@@ -11,6 +11,7 @@ import arc.math.Mathf;
 import mindustry.gen.Tex;
 import mindustry.Vars;
 import mindustry.ui.Styles;
+import mindustry.game.EventType;
 
 public class CutsceneUI{
     public WidgetGroup overlay, curtain, root;
