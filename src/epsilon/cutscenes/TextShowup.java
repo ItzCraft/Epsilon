@@ -18,8 +18,8 @@ import static arc.scene.actions.Actions.*;
 public class TextShowup extends CutsceneBase{
     public String text;
     public String unitIconName;
-    public float duration;
-    public TextShowup(String text, String unitIconName, float duration){
+    public int duration;
+    public TextShowup(String text, String unitIconName, int duration){
         super(0f);
         this.text = text;
         this.unitIconName = unitIconName;
@@ -30,7 +30,7 @@ public class TextShowup extends CutsceneBase{
         super(0f);
         this.text = Cutscene.phaseString(args[0]);
         this.unitIconName = Cutscene.phaseString(args[1]);
-        this.duration = duration;
+        this.duration = Integer.parseInt(args[2]);
     }
 
     @Override
@@ -39,9 +39,9 @@ public class TextShowup extends CutsceneBase{
         table.touchable = Touchable.disabled;
         table.setFillParent(true);
         table.actions(Actions.delay(duration * 0.8f), Actions.fadeOut(duration * 0.3f, Interp.fade), Actions.remove());
-        table.bottom().table(Styles.black3, t -> t.margin(1).image(Core.atlas.find(unitIconName)).style(Styles.outlineLabel)).padLeft(-15f).padBottom(70f).size(65f, 115f);
+        table.bottom().table(Styles.black5, t -> t.margin(1).image(Core.atlas.find(unitIconName)).style(Styles.outlineLabel)).padLeft(-15f).padBottom(70f).size(65f, 115f);
         // wanna make it through Flabel but idk how
-        table.bottom().table(Styles.black3, t -> t.margin(10f).add(text).style(Styles.outlineLabel)).padRight(65f).padBottom(70f).size(210f, 60f);
+        table.bottom().table(Styles.black5, t -> t.margin(10f).add(text).style(Styles.outlineLabel)).padRight(65f).padBottom(70f).size(210f, 60f);
         Core.scene.add(table);
     }
   
