@@ -9,11 +9,11 @@ public class EpsilonVars{
 
     public static EpsCore core;
     public static CutsceneControl cutsceneControl;
-    public static Cutscene cutscene;
+    public static CutsceneUI cutscene;
 
     public static void init(){
         cutsceneControl = new CutsceneControl();
-        cutscene = new Cutscene();
+        cutscene = new CutsceneUI();
         core = new EpsCore();
         Core.app.addListener(core);
     }
