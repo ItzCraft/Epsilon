@@ -8,7 +8,7 @@ import epsilon.cutscenes.TextShowup;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static mindustry.Vars.ui;
+import static mindustry.Vars.*;
 
 public class Cutscene{
      public static CutsceneBus phaseCode(String code, Building source){
