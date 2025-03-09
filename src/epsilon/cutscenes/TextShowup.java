@@ -30,7 +30,7 @@ public class TextShowup extends CutsceneBase{
         super(0f);
         this.text = Cutscene.phaseString(args[0]);
         this.unitIconName = Cutscene.phaseString(args[1]);
-        this.duration = Cutscene.parseFloat(args[2]);
+        this.duration = duration;
     }
 
     @Override
