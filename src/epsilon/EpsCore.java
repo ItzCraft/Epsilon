@@ -5,7 +5,7 @@ import mindustry.Vars;
 
 import static epsilon.EpsilonVars.*;
 
-public class EpsCore{
+public class EpsCore implements ApplicationListener{
     public EpsCore(){}
 
     @Override
