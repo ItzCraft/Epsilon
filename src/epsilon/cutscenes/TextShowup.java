@@ -18,15 +18,16 @@ public class TextShowup extends CutsceneBase{
     public String unitIconName;
     public int duration;
     public TextShowup(String text, String unitIconName, int duration){
-        super(0f);
+        super(duration * Time.toSeconds);
         this.text = text;
         this.unitIconName = unitIconName;
         this.duration = duration;
     }
 
     public TextShowup(String[] args){
-        super(0f);
+        super(Float.parseFloat(args[2]) * Time.toSeconds);
         this.text = Cutscene.phaseString(args[0]);
+        this.unitIconName = Cutscene.parseString(args[1]);
     }
 
     @Override
@@ -40,9 +41,9 @@ public class TextShowup extends CutsceneBase{
         table.bottom().table(Styles.black3, t -> t.margin(10f).add(text).style(Styles.outlineLabel)).padRight(65f).padBottom(70f).size(130f, 60f);
         Core.scene.add(table);
     }
-
+  
     @Override
     public String phaseToString() {
-        return "text_play" + " " + "[" + text + " " + unitIconName + " " + duration + "]";
+        return "text_dialog" + " " + "[" + text + " " + unitIconName + " " + duration + "]";
     }
 }
