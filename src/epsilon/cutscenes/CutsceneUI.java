@@ -1,13 +1,20 @@
 package epsilon.cutscenes;
 
+import arc.Core;
+import arc.Events;
+import arc.graphics.Color;
+import arc.graphics.g2d.Fill;
+import arc.scene.event.Touchable;
 import arc.scene.ui.layout.Table;
 import arc.scene.ui.layout.WidgetGroup;
 import arc.math.Mathf;
+import mindustry.gen.Tex;
 import mindustry.Vars;
+import mindustry.ui.Styles;
 
 public class CutsceneUI{
-    public WidgetGroup overlay, curtain;
-    public Table textArea;
+    public WidgetGroup overlay, curtain, root;
+    public Table textArea, textTable;
 
     public final float speed = 0.0065f;
     public float curtainProgress = 0;
@@ -15,6 +22,67 @@ public class CutsceneUI{
     public float targetOverlayAlpha;
     public float overlaySpeed = speed;
 
+    public CutsceneUI(){
+        init();
+        Events.on(EventType.WorldLoadEvent.class, e -> resetSave());
+    }
+
+    public void init(){
+        buildRoot();
+
+        buildOverlay();
+
+        buildTextTable();
+
+        buildCutsceneUI();
+    }
+
+    private void buildRoot(){
+        root = new WidgetGroup(){{
+            setFillParent(true);
+            touchable = Touchable.childrenOnly;
+        }};
+    } 
+
+    private void buildOverlay(){
+        overlay = new WidgetGroup(){{
+            fillParent = true;
+            touchable = Touchable.disabled;
+        }};
+    }
+
+    private void buildTextTable(){
+        textTable = new Table(Tex.buttonEdge3){{
+            touchable(() -> {
+                if(color.a > 0.1f){
+                    return Touchable.childrenOnly;
+                }else return Touchable.disabled;
+            });
+            visible(() -> Vars.state.isGame());
+            color.a = 0;
+
+            if(Vars.headless){
+                textArea = new Table();
+                }else {
+                    pane(Styles.smallPane, t -> {
+                        textArea = t;
+                        textArea.defaults().grow().pad(2f);
+                        textArea.exited(() -> Core.scene.unfocus(textArea));
+                        t.fillParent = true;
+                    }).grow();
+                }
+            }};
+    }
+
+    private void buildCutsceneUI(){
+        if(!Vars.headless){
+            Vars.control.input.addLock(() -> controlOverride);
+            Core.scene.root.addChildAt(0, root);
+            root.addChild(overlay);
+            root.addChild(textTable);
+        }
+    } 
+    
     public void reset(){
         controlOverride = false;
         curtainProgress = 0;
@@ -25,6 +93,11 @@ public class CutsceneUI{
        textArea.clear();
    }
 
+    public void resetSave(){
+        reset();
+        curtain.color.a = 1;
+    }
+    
     public void update(){
       if(Vars.headless){
           reset();
