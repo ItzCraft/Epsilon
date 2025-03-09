@@ -20,14 +20,14 @@ public class TextShowup extends CutsceneBase{
     public String unitIconName;
     public float duration;
     public TextShowup(String text, String unitIconName, float duration){
-        super(duration * Time.toSeconds);
+        super(duration * Time.toSeconds * 5);
         this.text = text;
         this.unitIconName = unitIconName;
         this.duration = duration;
     }
 
     public TextShowup(String[] args){
-        super(Float.parseFloat(args[2]) * Time.toSeconds);
+        super(Float.parseFloat(args[2]) * Time.toSeconds * 5);
         this.text = Cutscene.phaseString(args[0]);
         this.unitIconName = Cutscene.phaseString(args[1]);
     }
