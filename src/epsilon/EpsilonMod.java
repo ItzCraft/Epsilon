@@ -6,7 +6,6 @@
     import epsilon.content.Kallistea.*;
     import epsilon.ui.dialogs.AboutEpsilonDialog;
     import epsilon.world.EpsAttribute;
-    import epsilon.logic.DialogsLogic;
     import mindustry.*;
     import mindustry.content.*;
     import mindustry.game.EventType.*;
@@ -30,7 +29,7 @@
                       Time.runTask(10f, () -> {
                           BaseDialog dialog = new BaseDialog("Epsilon");
                           dialog.cont.add(bundle.get("warn-text1")).row();
-                          dialog.cont.image(Core.atlas.find("epsilon-icon")).pad(20f).row();
+                          dialog.cont.image(Core.atlas.find("epsilon-crystal-f")).pad(20f).row();
                           dialog.cont.button("OK", dialog::hide).size(100f, 50f);
                           dialog.show();
                       });
