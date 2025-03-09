@@ -2,6 +2,7 @@ package epsilon.cutscenes;
 
 import arc.struct.Seq;
 import mindustry.gen.Building;
+import mindustry.world.blocks.logic.MemoryBlock;
 import epsilon.cutscenes.TextShowup;
 
 import java.util.regex.Matcher;
@@ -32,6 +33,13 @@ public class Cutscene{
     public static Seq<String> phaseLine(String code){
         String[] lines = code.split("\\R");
         return Seq.with(lines);
+    }
+
+    public static float parseFloat(String token, Building source) {
+        if (token.startsWith("@") && source != null && world.build(source.tileX(), source.tileY() - 1).block instanceof MemoryBlock){
+            MemoryBlock.MemoryBuild memory = (MemoryBlock.MemoryBuild)world.build(source.tileX(), source.tileY() - 1);
+            return (float) memory.memory[Integer.parseInt(token.replace("@", ""))];
+        }else return Float.parseFloat(token);
     }
     
     public static CutsceneBase phaseCutscene(String tokens, Building source){
