@@ -41,7 +41,7 @@
         @Override
         public void init(){
             super.init();
-            DialogsLogic.init();
+            EpsilonVars.init();
         }
         
         @Override
