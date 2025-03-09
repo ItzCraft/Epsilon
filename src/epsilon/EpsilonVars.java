@@ -1,8 +1,17 @@
 package epsilon;
 
 import arc.Core;
+import epsilon.cutscenes.*;
 
 public class EpsilonVars{
     //will the warn dialog be displayed
     public static boolean  hideWarnDialog = Core.settings.getBool("hide-warn-dialog");
+
+    public static CutsceneControl cutsceneControl;
+    public static Cutscene cutscene;
+
+    public static void init(){
+        cutsceneControl = new CutsceneControl();
+        cutscene = new Cutscene();
+    }
 }
