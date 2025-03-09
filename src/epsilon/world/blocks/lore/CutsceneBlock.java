@@ -13,6 +13,7 @@ import epsilon.cutscenes.Cutscene;
 import epsilon.cutscenes.CutsceneControl;
 
 import static mindustry.Vars.ui;
+import static epsilon.EpsilonVars.*;
 
 public class CutsceneBlock extends MessageBlock{
     public CutsceneBlock(String name){
@@ -53,7 +54,7 @@ public class CutsceneBlock extends MessageBlock{
         }
         public void playCutscene(){
             try{
-                CutsceneControl.addCutsceneBus(Cutscene.phaseCode(message.toString(), this));
+                cutsceneControl.addCutsceneBus(Cutscene.phaseCode(message.toString(), this));
             }catch (Exception e){
                 ui.announce("Failed to create cutscene in block: " + tileX() + " " + tileY());
             }
