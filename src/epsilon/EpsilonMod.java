@@ -45,6 +45,7 @@
         
         @Override
         public void loadContent(){
+            EpsTeams.load();
             EpsAttribute.load();
             KallisteaItems.load();
             KallisteaBlocks.load();
