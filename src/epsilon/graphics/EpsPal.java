@@ -4,5 +4,7 @@ import arc.graphics.Color;
 
 public class EpsPal{
     public static Color
-    methane = Color.valueOf("203a6d");
+    methane = Color.valueOf("203a6d"), 
+    incersTeam = Color.valueOf("ebad63"), 
+    ganierisTeam = Color.valueOf("6563eb");
 }
