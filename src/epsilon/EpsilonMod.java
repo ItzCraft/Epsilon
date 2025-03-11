@@ -5,6 +5,7 @@
     import epsilon.content.Kallistea.blocks.*;
     import epsilon.content.Kallistea.*;
     import epsilon.ui.dialogs.AboutEpsilonDialog;
+    import epsilon.ui.TeamsUI;
     import epsilon.world.EpsAttribute;
     import mindustry.*;
     import mindustry.content.*;
@@ -23,6 +24,7 @@
 
             //listen for game load event
               Events.on(ClientLoadEvent.class, e -> {
+                  TeamsUI.init();
                   loadESSD();
                   loadSettings();
                   if(!EpsilonVars.hideWarnDialog){
