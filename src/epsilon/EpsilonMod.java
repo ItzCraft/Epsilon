@@ -22,10 +22,6 @@
         public EpsilonMod(){
             Log.info("Loaded ExampleJavaMod constructor.");
 
-                Events.on(EventType.ClientLoadEvent.class, e -> {
-            TeamsUI.init();
-        });
-
             //listen for game load event
               Events.on(ClientLoadEvent.class, e -> {
                   loadESSD();
@@ -46,6 +42,7 @@
         public void init(){
             super.init();
             EpsilonVars.init();
+            TeamsUI.init();
         }
         
         @Override
