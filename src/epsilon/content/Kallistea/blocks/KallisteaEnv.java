@@ -26,7 +26,7 @@ public class KallisteaEnv {
             eadstonBoulder, eadstonFensporBoulder, eadstalDeanyteCluster, buahanDeadBush, buahanFensporDeadBush, buahanDeadTree
 
         // Merapora biome
-        meraporaFloor, meraporaFensporFloor, meraporaWall, meraporaFensporWall, 
+        meraporaFloor, meraporaFensporFloor, meraporaWall, meraporaWallAlt, meraporaFensporWall, meraporaFensporWallAlt,
         meraporaBoulder, meraporaFesnporBoulder, meraporaVent, meraporaFensporVent, meraporaBunker, meraporaMenhir;
 
     public static void load() {
@@ -98,6 +98,19 @@ public class KallisteaEnv {
                 buahanDeadBush = new Prop("buahan-dead-bush"){{variants = 3; customShadow = true;}};
                 buahanFensporDeadBush = new Prop("buahan-fenspor-dead-bush"){{variants = 3; customShadow = true;}};
                 buahanDeadTree = new TreeBlock("buahan-dead-tree"){{variants = 2; clipSize = 200; shadowOffset = -1.53f;}};
+
+                //merapora biome
+                meraporaFloor = new Floor("merapora-floor", 6);
+                meraporaFensporFloor = new Floor("merapora-Fenspor-floor", 6);
+                meraporaWall = new StaticWall("merapora-wall"){{variants = 4; meraporaFloor.asFloor().wall = this;}};
+                meraporaWallAlt = new StaticWall("merapora-wall-alt"){{variants = 4; meraporaFloor.asFloor().wall = this;}}; 
+                meraporaFensporWall = new StaticWall("merapora-fenspor-wall"){{variants = 4; meraporaFensporFloor.asFloor().wall = this;}};
+                meraporaFensporWallAlt = new StaticWall("merapora-fenspor-wall-alt"){{variants = 3; meraporaFensporFloor.asFloor().wall = this;}};
+                meraporaVent = new SteamVent("merapora-vent"){{variants= 2; parent = blendGroup = meraporaFloor;}}; 
+                meraporaFensporVent = new SteamVent("merapora-fenspor-vent"){{variants= 2; parent = blendGroup = meraporaFensporFloor;
+                    attributes.set(infection, 1f);}};
+                meraporaBoulder = new Prop("merapora-boulder"){{variants = 4; customShadow = true; meraporaFloor.asFloor().decoration = this;}};
+                meraporaFensporBoulder = new Prop("merapora-fenspor-boulder"){{variants = 4; customShadow = true; meraporaFensporFloor.asFloor().decoration = this;}};
             }
         }
     }
