@@ -101,7 +101,7 @@ public class KallisteaEnv {
 
                 //merapora biome
                 meraporaFloor = new Floor("merapora-floor", 6);
-                meraporaFensporFloor = new Floor("merapora-Fenspor-floor", 6);
+                meraporaFensporFloor = new Floor("merapora-fenspor-floor", 6);
                 meraporaWall = new StaticWall("merapora-wall"){{variants = 4; meraporaFloor.asFloor().wall = this;}};
                 meraporaWallAlt = new StaticWall("merapora-wall-alt"){{variants = 4; meraporaFloor.asFloor().wall = this;}}; 
                 meraporaFensporWall = new StaticWall("merapora-fenspor-wall"){{variants = 4; meraporaFensporFloor.asFloor().wall = this;}};
