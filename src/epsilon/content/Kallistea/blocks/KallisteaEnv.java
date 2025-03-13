@@ -27,7 +27,7 @@ public class KallisteaEnv {
 
             // Merapora biome
             meraporaFloor, meraporaFensporFloor, meraporaWall, meraporaWallAlt, meraporaFensporWall, meraporaFensporWallAlt,
-            meraporaBoulder, meraporaFesnporBoulder, meraporaVent, meraporaFensporVent, meraporaBunker, meraporaMenhir;
+            meraporaBoulder, meraporaFensporBoulder, meraporaVent, meraporaFensporVent, meraporaBunker, meraporaMenhir;
 
     public static void load() {
         {
