@@ -23,7 +23,11 @@ public class KallisteaEnv {
             // eadstal biome
             eadstonFloor, eadstonLightFloor, eadstonRoughFloor, fensporReinforcedFloor, fensporStrandsFloor, fensporVent,
             eadstonWall, eadstonWallAlt, eadstonWallDeanytic, eadstonWallFenspor,
-            eadstonBoulder, eadstonFensporBoulder, eadstalDeanyteCluster, buahanDeadBush, buahanFensporDeadBush, buahanDeadTree;
+            eadstonBoulder, eadstonFensporBoulder, eadstalDeanyteCluster, buahanDeadBush, buahanFensporDeadBush, buahanDeadTree
+
+    // Merapora biome
+    meraporaFloor, meraporaFensporFloor, meraporaWall, meraporaFensporWall, 
+    meraporaBoulder, meraporaFesnporBoulder, meraporaVent, meraporaFensporVent, meraporaBunker, meraporaMenhir;
 
     public static void load() {
         {
