@@ -112,6 +112,7 @@ public class KallisteaEnv {
                 meraporaBoulder = new Prop("merapora-boulder"){{variants = 4; customShadow = true; meraporaFloor.asFloor().decoration = this;}};
                 meraporaFensporBoulder = new Prop("merapora-fenspor-boulder"){{variants = 4; customShadow = true; meraporaFensporFloor.asFloor().decoration = this;}};
                 meraporaBunker = new BunkerVent("merapora-bunker", 2){{parent = blendGroup = meraporaFloor;}};
+                meraporaMenhir = new Prop("merapora-menhir"){{variants = 2; meraporaFloor.asFloor().decoration = this;}};
             }
         }
     }
