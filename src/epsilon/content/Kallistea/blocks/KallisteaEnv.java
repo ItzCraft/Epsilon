@@ -111,7 +111,7 @@ public class KallisteaEnv {
                     attributes.set(infection, 1f);}};
                 meraporaBoulder = new Prop("merapora-boulder"){{variants = 4; customShadow = true; meraporaFloor.asFloor().decoration = this;}};
                 meraporaFensporBoulder = new Prop("merapora-fenspor-boulder"){{variants = 4; customShadow = true; meraporaFensporFloor.asFloor().decoration = this;}};
-                meraporaBunker = new BunkerVent("merapora-bunker", 2);
+                meraporaBunker = new BunkerVent("merapora-bunker", 2){{parent = blendGroup = meraporaFloor;}};
             }
         }
     }
