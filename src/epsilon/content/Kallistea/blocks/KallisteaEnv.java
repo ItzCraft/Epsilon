@@ -13,7 +13,7 @@ import static epsilon.world.EpsAttribute.infection;
 
 public class KallisteaEnv {
     public static Block
-            crystalF, calciteOre,
+            crystalF, Calcite Ore, quartzOre,
 
             //purystal-biome
             purystalErodedFloor, purystalFloor, purystalLightFloor,
@@ -37,6 +37,7 @@ public class KallisteaEnv {
 
                 //ores
                 calciteOre = new OreBlock("calcite-ore", KallisteaItems.calcite){{variants = 6;}};
+                quartzOre = new OreBlock("quartz-ore", KallisteaItems.quartz){{variants = 6;}}; 
 
 
                 //PURYSTAL BIOME
