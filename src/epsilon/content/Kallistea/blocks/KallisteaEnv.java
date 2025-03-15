@@ -36,7 +36,7 @@ public class KallisteaEnv {
                 crystalF = new Floor("crystal-f", 0);
 
                 //ores
-                calciteOre = new OreBlock("calcite-ore", KallisteaItems.calcite);
+                calciteOre = new OreBlock("calcite-ore", KallisteaItems.calcite){{variants = 6;}};
 
 
                 //PURYSTAL BIOME
