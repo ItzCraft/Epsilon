@@ -1,5 +1,6 @@
 package epsilon.content.Kallistea.blocks;
 
+import arc.graphics.Color;
 import mindustry.world.Block;
 import mindustry.world.blocks.environment.*;
 import epsilon.content.Kallistea.KallisteaItems;
@@ -69,9 +70,9 @@ public class KallisteaEnv {
    
                 // EADSTON BIOME
                 // floors
-                eadstonFloor = new Floor("eadston-floor", 6);
-                eadstonLightFloor = new Floor("eadston-light-floor", 6);
-                eadstonRoughFloor = new Floor("eadston-rough-floor", 6);
+                eadstonFloor = new Floor("eadston-floor", 6){color= Color.valueOf("818a8c");}};
+                eadstonLightFloor = new Floor("eadston-light-floor", 6){{color= Color.valueOf("656c6e");}};
+                eadstonRoughFloor = new Floor("eadston-rough-floor", 6){color= Color.valueOf("474e4f");}};
                 fensporReinforcedFloor = new Floor("fenspor-reinforced-floor", 6);
                 fensporStrandsFloor = new Floor("fenspor-strands-floor", 6);
                 fensporVent = new SteamVent("fenspor-vent"){{variants= 2; parent = blendGroup = fensporReinforcedFloor = fensporStrandsFloor;
