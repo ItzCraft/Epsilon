@@ -70,9 +70,9 @@ public class KallisteaEnv {
    
                 // EADSTON BIOME
                 // floors
-                eadstonFloor = new Floor("eadston-floor", 6){color= Color.valueOf("818a8c");}};
+                eadstonFloor = new Floor("eadston-floor", 6){{color= Color.valueOf("818a8c");}};
                 eadstonLightFloor = new Floor("eadston-light-floor", 6){{color= Color.valueOf("656c6e");}};
-                eadstonRoughFloor = new Floor("eadston-rough-floor", 6){color= Color.valueOf("474e4f");}};
+                eadstonRoughFloor = new Floor("eadston-rough-floor", 6){{color= Color.valueOf("474e4f");}};
                 fensporReinforcedFloor = new Floor("fenspor-reinforced-floor", 6);
                 fensporStrandsFloor = new Floor("fenspor-strands-floor", 6);
                 fensporVent = new SteamVent("fenspor-vent"){{variants= 2; parent = blendGroup = fensporReinforcedFloor = fensporStrandsFloor;
