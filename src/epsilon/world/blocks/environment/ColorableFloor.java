@@ -11,7 +11,7 @@ public class ColorableFloor extends Floor{
         this(name, 3, color);
     }
 
-    public ColorableFloor(String name int variants, Color color){
+    public ColorableFloor(String name, int variants, Color color){
         super(name);
         this.variants = variants;
         this.mapColor.set(color);
