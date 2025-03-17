@@ -105,7 +105,7 @@ public class KallisteaEnv {
                 buahanDeadTree = new TreeBlock("buahan-dead-tree"){{variants = 2; clipSize = 200; shadowOffset = -1.53f;}};
 
                 //merapora biome
-                meraporaFloor = new Floor("merapora-floor", 6);
+                meraporaFloor = new Floor("merapora-floor", 6){{itemDrop = KallisteaItems.redSand;}};
                 meraporaFensporFloor = new Floor("merapora-fenspor-floor", 6);
                 meraporaWall = new StaticWall("merapora-wall"){{variants = 4; meraporaFloor.asFloor().wall = this;}};
                 meraporaWallAlt = new StaticWall("merapora-wall-alt"){{variants = 4; meraporaFloor.asFloor().wall = this;}}; 
