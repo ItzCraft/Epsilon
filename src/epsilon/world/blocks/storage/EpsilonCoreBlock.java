@@ -5,6 +5,7 @@ import arc.graphics.Color;
 import arc.graphics.g2d.TextureRegion;
 import arc.util.Time;
 import arc.math.Mathf;
+import epsilon.graphics.EpsPal;
 import mindustry.gen.Building;
 import mindustry.graphics.Drawf;
 import mindustry.graphics.Layer;
@@ -12,7 +13,7 @@ import mindustry.graphics.Pal;
 import mindustry.world.blocks.storage.CoreBlock;
 
 public class EpsilonCoreBlock extends CoreBlock{
-    public Color[] glowColors = {Color.valueOf("00000000"), Color.coral, Color.valueOf("ff6161"), Color.pink, Color.acid, Color.sky};
+    public Color[] glowColors = {Color.valueOf("00000000"), Color.coral, Color.valueOf("ff6161"), Color.pink, Color.acid, Color.sky, Color.red, EpsPal.ganierisTeam, EpsPal.incersTeam, EpsPal.fenspor};
     public TextureRegion glow;
     public float glowMag = 0.5f;
     public float glowScl = 10f;
@@ -31,7 +32,7 @@ public class EpsilonCoreBlock extends CoreBlock{
         @Override
         public void draw(){
             super.draw();
-            Drawf.additive(glow, team.id < 44 ? glowColors[team.id] : glowColors[1], 0.8f - glowMag + Mathf.absin(Time.time, glowScl, glowMag), x, y, 0f, Layer.blockAdditive);
+            Drawf.additive(glow, team.id < 9 ? glowColors[team.id] : glowColors[1], 0.8f - glowMag + Mathf.absin(Time.time, glowScl, glowMag), x, y, 0f, Layer.blockAdditive);
         }
     } 
 }

@@ -33,21 +33,21 @@ public class KallisteaEnv {
     public static void load() {
         {
             {
-                //testing blocks
+                // testing blocks
                 crystalF = new Floor("crystal-f", 0);
 
-                //ores
+                // ores
                 calciteOre = new OreBlock("calcite-ore", KallisteaItems.calcite){{variants = 6;}};
                 quartzOre = new OreBlock("quartz-ore", KallisteaItems.quartz){{variants = 6;}}; 
 
 
                 //PURYSTAL BIOME
-                //floors
+                // floors
                 purystalErodedFloor = new Floor("purystal-eroded-floor", 6);
                 purystalFloor = new Floor("purystal-floor", 6);
                 purystalLightFloor = new Floor("purystal-light-floor", 6);
 
-                //walls
+                // walls
                 purystalWall = new StaticWall("purystal-wall"){{variants = 4;
                     purystalErodedFloor.asFloor().wall = this; purystalFloor.asFloor().wall = this; purystalLightFloor.asFloor().wall = this;
                 }};
@@ -59,7 +59,7 @@ public class KallisteaEnv {
                                 itemDrop = KallisteaItems.gelionyte;
                 }};
 
-                //decor, etc
+                // decor, etc
                 purystalBoulder = new Prop("purystal-boulder"){{variants = 4; customShadow = true;
                     purystalErodedFloor.asFloor().decoration = this; purystalFloor.asFloor().decoration = this; purystalLightFloor.asFloor().decoration = this;
                 }};          
@@ -78,7 +78,7 @@ public class KallisteaEnv {
                 fensporVent = new SteamVent("fenspor-vent"){{variants= 2; parent = blendGroup = fensporReinforcedFloor = fensporStrandsFloor;
                     attributes.set(infection, 1f);}};
 
-                //walls
+                // walls
                 eadstonWall = new StaticWall("eadston-wall"){{variants = 4;
                     eadstonFloor.asFloor().wall = this; eadstonLightFloor.asFloor().wall = this; eadstonRoughFloor.asFloor().wall = this;
                 }};
@@ -92,7 +92,7 @@ public class KallisteaEnv {
                     fensporReinforcedFloor.asFloor().wall = this; fensporStrandsFloor.asFloor().wall = this;
                 }};
 
-                //decor, etc
+                // decor, etc
                 eadstonBoulder = new Prop("eadston-boulder"){{variants = 4; customShadow = true;
                     eadstonFloor.asFloor().decoration = this; eadstonLightFloor.asFloor().decoration = this; eadstonRoughFloor.asFloor().decoration = this;
                 }};
@@ -104,16 +104,21 @@ public class KallisteaEnv {
                 buahanFensporDeadBush = new Prop("buahan-fenspor-dead-bush"){{variants = 3; customShadow = true;}};
                 buahanDeadTree = new TreeBlock("buahan-dead-tree"){{variants = 2; clipSize = 200; shadowOffset = -1.53f;}};
 
-                //merapora biome
+                // MERAPORA BIOME
+                // floors
                 meraporaFloor = new Floor("merapora-floor", 6){{itemDrop = KallisteaItems.redSand;}};
+                meraporaVent = new SteamVent("merapora-vent"){{variants= 2; parent = blendGroup = meraporaFloor;}};
                 meraporaFensporFloor = new Floor("merapora-fenspor-floor", 6);
+                meraporaFensporVent = new SteamVent("merapora-fenspor-vent"){{variants= 2; parent = blendGroup = meraporaFensporFloor;
+                    attributes.set(infection, 1f);}};
+
+                //walls
                 meraporaWall = new StaticWall("merapora-wall"){{variants = 4; meraporaFloor.asFloor().wall = this;}};
                 meraporaWallAlt = new StaticWall("merapora-wall-alt"){{variants = 4; meraporaFloor.asFloor().wall = this;}}; 
                 meraporaFensporWall = new StaticWall("merapora-fenspor-wall"){{variants = 4; meraporaFensporFloor.asFloor().wall = this;}};
                 meraporaFensporWallAlt = new StaticWall("merapora-fenspor-wall-alt"){{variants = 3; meraporaFensporFloor.asFloor().wall = this;}};
-                meraporaVent = new SteamVent("merapora-vent"){{variants= 2; parent = blendGroup = meraporaFloor;}}; 
-                meraporaFensporVent = new SteamVent("merapora-fenspor-vent"){{variants= 2; parent = blendGroup = meraporaFensporFloor;
-                    attributes.set(infection, 1f);}};
+
+                // decor, etc
                 meraporaBoulder = new Prop("merapora-boulder"){{variants = 4; customShadow = true; meraporaFloor.asFloor().decoration = this;}};
                 meraporaFensporBoulder = new Prop("merapora-fenspor-boulder"){{variants = 4; customShadow = true; meraporaFensporFloor.asFloor().decoration = this;}};
                 meraporaBunker = new BunkerVent("merapora-bunker", 2){{parent = blendGroup = meraporaFloor;}};

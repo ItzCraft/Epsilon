@@ -15,7 +15,7 @@ public class KallisteaStorage{
 
     public static void load(){
         coreObscurity = new EpsilonCoreBlock("core-obscurity"){{
-            requirements(Category.storage, with(KallisteaItems.calcite, 120, KallisteaItems.gelionyte, 40);
+            requirements(Category.effect, with(KallisteaItems.calcite, 120, KallisteaItems.gelionyte, 40));
             health = 475;
             size = 4;
             itemCapacity = 450;
