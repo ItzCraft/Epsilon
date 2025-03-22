@@ -31,7 +31,7 @@ public class EpsilonCoreBlock extends CoreBlock{
         @Override
         public void draw(){
             super.draw();
-            Drawf.additive(glow, team.id < 6 ? glowColors[team.id] : glowColors[1], 0.8f - glowMag + Mathf.absin(Time.time, glowScl, glowMag), x, y, 0f, Layer.blockAdditive);
+            Drawf.additive(glow, team.id < 44 ? glowColors[team.id] : glowColors[1], 0.8f - glowMag + Mathf.absin(Time.time, glowScl, glowMag), x, y, 0f, Layer.blockAdditive);
         }
     } 
 }
