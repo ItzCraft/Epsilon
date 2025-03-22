@@ -18,7 +18,7 @@ public class KallisteaStorage{
             requirements(Category.effect, with(KallisteaItems.calcite, 120, KallisteaItems.gelionyte, 40));
             health = 475;
             size = 4;
-            itemCapacity = 450;
+            itemCapacity = 1450;
             
         }};
     }
