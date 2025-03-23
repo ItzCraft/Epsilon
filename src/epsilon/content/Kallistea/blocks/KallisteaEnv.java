@@ -23,7 +23,7 @@ public class KallisteaEnv {
 
             // eadstal biome
             eadstonFloor, eadstonLightFloor, eadstonRoughFloor, fensporReinforcedFloor, fensporStrandsFloor, fensporVent,
-            eadstonWall, eadstonWallAlt, eadstonWallDeanytic, magneticWall eadstonWallFenspor,
+            eadstonWall, eadstonWallAlt, eadstonWallDeanytic, eadstalMagnetiteWall eadstonWallFenspor,
             eadstonBoulder, eadstonFensporBoulder, eadstalDeanyteCluster, buahanDeadBush, buahanFensporDeadBush, buahanDeadTree, 
 
             // Merapora biome
@@ -88,7 +88,7 @@ public class KallisteaEnv {
                 eadstonWallDeanytic = new StaticWall("eadston-deanytic-wall"){{variants = 4;
                     eadstonFloor.asFloor().wall = this; eadstonLightFloor.asFloor().wall = this; eadstonRoughFloor.asFloor().wall = this;
                 }};
-                magneticWall = new StaticWall("magnetic-wall"){{
+                eadstalMagnetiteWall = new StaticWall("eadstal-magnetite-wall"){{
             itemDrop = KallisteaItems.magnetite;
             variants = 4;}};
                 eadstonWallFenspor = new StaticWall("eadston-fenspor-wall"){{variants = 4;
