@@ -4,10 +4,11 @@ import arc.*;
 import arc.graphics.*;
 import arc.graphics.g2d.*;
 import arc.math.*;
-import arc.math.*;
 import arc.math.geom.*;
+import arc.struct.*;
+import arc.util.*;
 import mindustry.entities.Effect;
-import mindustry.graphics.Pal;
+import mindustry.graphics.*;
 
 import static arc.graphics.g2d.Draw.rect;
 
