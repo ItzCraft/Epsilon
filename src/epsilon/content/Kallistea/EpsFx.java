@@ -4,9 +4,13 @@ import arc.*;
 import arc.graphics.*;
 import arc.graphics.g2d.*;
 import arc.math.*;
-import static arc.graphics.g2d.Draw.rect;
 import arc.math.*;
 import arc.math.geom.*;
+import mindustry.entities.Effect;
+import mindustry.graphics.Pal;
+
+import static arc.graphics.g2d.Draw.rect;
+
 public class EpsFx{
     public static final Effect
     launchCore = new Effect(50, e -> {
