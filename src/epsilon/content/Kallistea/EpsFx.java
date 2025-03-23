@@ -1,4 +1,4 @@
-package epsilon.content.Kallistea;
+/*package epsilon.content.Kallistea;
 
 import arc.*;
 import arc.graphics.*;
@@ -29,4 +29,4 @@ public class EpsFx{
             lineAngle(e.x + x, e.y + y, ang, e.fout() * 4 + 1f);
         });
     });
-}
+}*/
