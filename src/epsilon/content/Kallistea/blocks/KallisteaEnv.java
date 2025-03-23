@@ -23,7 +23,7 @@ public class KallisteaEnv {
 
             // eadstal biome
             eadstonFloor, eadstonLightFloor, eadstonRoughFloor, fensporReinforcedFloor, fensporStrandsFloor, fensporVent,
-            eadstonWall, eadstonWallAlt, eadstonWallDeanytic, eadstalMagnetiteWall eadstonWallFenspor,
+            eadstonWall, eadstonWallAlt, eadstonWallDeanytic, eadstalMagnetiteWall, eadstonWallFenspor,
             eadstonBoulder, eadstonFensporBoulder, eadstalDeanyteCluster, buahanDeadBush, buahanFensporDeadBush, buahanDeadTree, 
 
             // Merapora biome
