@@ -7,6 +7,7 @@ import mindustry.type.ItemStack;
 import epsilon.content.Kallistea.KallisteaItems;
 import epsilon.world.blocks.storage.*;
 
+import static epsilon.content.Kallistea.EpsFx.launchCore;
 import static mindustry.type.ItemStack.with;
 
 public class KallisteaStorage{
@@ -19,7 +20,7 @@ public class KallisteaStorage{
             health = 475;
             size = 4;
             itemCapacity = 1450;
-            
+            launchEffect = launchCore;
         }};
     }
 }
