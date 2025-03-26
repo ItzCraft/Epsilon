@@ -1,6 +1,9 @@
 package epsilon;
 
 public class EpsRender extends Render{
+    private @Nullable LaunchAnimator launchAnimator;
+    private boolean launching; 
+
     public EpsRender(){
            
     }
