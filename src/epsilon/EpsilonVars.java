@@ -8,6 +8,7 @@ public class EpsilonVars{
     public static boolean  hideWarnDialog = Core.settings.getBool("hide-warn-dialog");
 
     public static EpsCore core;
+    public static EpsRenderer renderer;
     public static CutsceneControl cutsceneControl;
     public static CutsceneUI cutscene;
 
@@ -15,6 +16,7 @@ public class EpsilonVars{
         cutsceneControl = new CutsceneControl();
         cutscene = new CutsceneUI();
         core = new EpsCore();
+        renderer = new EpsRenderer();
         Core.app.addListener(core);
     }
 }
