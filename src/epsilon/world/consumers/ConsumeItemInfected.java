@@ -1,10 +1,11 @@
 package epsilon.world.consumers;
 
-import mindustry.world.consumers.ConsumeItemEfficiency;
+import mindustry.world.consumers.ConsumeItemFilter;
+import mindustry.gen.*;
 import mindustry.type.*;
 import epsilon.world.EpsItem;
 
-public class ConsumeItemInfected extends ConsumeItemEfficiency{
+public class ConsumeItemInfected extends ConsumeItemFilter{
     public float minInfected;
 
     public ConsumeItemInfected(float minInfected){
@@ -17,7 +18,8 @@ public class ConsumeItemInfected extends ConsumeItemEfficiency{
     }
 
     @Override
-    public float itemEfficiencyMultiplier(EpsItem item){
-        return item.infection;
+    public float efficiencyMultiplier(Building build){
+        var item = getConsumed(build);
+        return item == null ? 0f : epsitem.infection;
     }
 }
