@@ -19,7 +19,7 @@ public class ConsumeItemInfected extends ConsumeItemFilter{
 
     @Override
     public float efficiencyMultiplier(Building build){
-        var item = getConsumed(build);
-        return item == null ? 0f : epsitem.infection;
+        var epsitem = getConsumed(build);
+        return epsitem == null ? 0f : epsitem.infection;
     }
 }
