@@ -1,4 +1,4 @@
-package mindustry.world.consumers;
+package epsilon.world.consumers;
 
 import mindustry.world.consumers.ConsumeItemEfficiency;
 import mindustry.type.*;
