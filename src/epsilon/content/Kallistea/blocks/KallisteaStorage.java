@@ -20,7 +20,7 @@ public class KallisteaStorage{
             health = 475;
             size = 4;
             itemCapacity = 1450;
-            launchEffect = launchCore;
+            //unitType = EpsUnitTypes
         }};
     }
 }
