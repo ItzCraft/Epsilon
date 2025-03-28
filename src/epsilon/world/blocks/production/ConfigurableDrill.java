@@ -1,12 +1,17 @@
 package epsilon.world.blocks.production;
 
 import arc.scene.ui.layout.Table;
+import arc.math.*;
+import arc.util.*;
 import mindustry.world.blocks.production.Drill;
 import mindustry.world.*;
-//import mindustry.entities.comp.*;
+import mindustry.entities.*;
+import mindustry.game.Team;
 import epsilon.world.meta.*;
 
 public class ConfigurableDrill extends Drill{
+    public float damageReload = 150;
+    public float damage = 15;
     public float efficiency1 = 0.5f;
     public float efficiency2 = 1f;
     public float efficiency3 = 2f;
@@ -36,18 +41,26 @@ public class ConfigurableDrill extends Drill{
         public boolean eff1 = false;
         public boolean eff2 = true;
         public boolean eff3 = false;
+        public float reloadTime = damageReload;
 
         @Override 
         public void updateTile(){
             if(eff1 && !eff2 && !eff3){
                 drillTime = oldDrillTime * efficiency1;
             } else if(eff2 && !eff3 && !eff1){
-                  drillTime = oldDrillTime * efficiency2;
-                  //damage(2*efficiency2);
+                drillTime = oldDrillTime * efficiency2;
+                if(reloadTime <= 0 && health > 0){
+                    Lightning.create(Team.derelict, team.color, damage*efficiency2, this.x, this.y, Mathf.random(0, 360), 1);
+                    reloadTime = damageReload;
+                }
             } else{
                   drillTime = oldDrillTime * efficiency3;
-                 // damage(2*efficiency3); 
+                  if(reloadTime <= 0 && health > 0){
+                      Lightning.create(Team.derelict, team.color, damage*efficiency3, this.x, this.y, Mathf.random(0, 360), 1);
+                      reloadTime = damageReload;
+                  }
             }
+            reloadTime -= Time.delta;
             super.updateTile(); 
         }
 
