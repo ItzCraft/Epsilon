@@ -18,7 +18,9 @@ public class ColorableFloor extends Floor{
         this.useColor = true;
     }
 
-    public void setup(){
+    @Override
+    public void init(){
+        super.init();
         this.mapColor.set(color);
     }
 }
