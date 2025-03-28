@@ -11,15 +11,26 @@ import static mindustry.type.ItemStack.with;
 
 public class KallisteaProduction{
     public static Block
-    exponentialDrill;
+    //drills
+    pitMiningRig, breakerDrill;
 
     public static void load(){
-        exponentialDrill = new Drill("exponential-drill"){{
+        //drills
+        pitMiningRig = new Drill("pit-mining-rig"){{
             requirements(Category.production, with(KallisteaItems.gelionyte, 25, KallisteaItems.calcite, 20));
             health = 120;
             size = 3;
-            drillTime = 480;
+            drillTime = 660;
+            rotateSpeed = 5;
             tier = 3;
+        }};
+        breakerDrill = new ConfigurableDrill("breaker-drill"){{
+            requirements(Category.production, with(KallisteaItems.calcite, 145, KallisteaItems.quartz, 90, KallisteaItems.fylion, 70));
+            health = 300;
+            size = 4;
+            drillTime = 480;
+            rotateSpeed = 6;
+            tier = 4;
         }};
     } 
 }
