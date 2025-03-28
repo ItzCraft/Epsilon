@@ -4,9 +4,9 @@ package epsilon.world.blocks.production;
 
 public class HeatDrill extends Drill{
     /** Base heat requirement for 100% efficiency. */
-    public float heatRequirement = 9f;
+   // public float heatRequirement = 9f;
     /** After heat meets this requirement, excess heat will be scaled by this number.*/
-    public float overheatScale = 1f;
+  //  public float overheatScale = 1f;
     /** Maximum possible efficiency after overheat. *//*
     public float maxEfficiency = 4f;
 
