@@ -61,7 +61,6 @@ public class ConfigurableDrill extends Drill{
                   }
             }
             reloadTime -= Time.delta;
-            super.updateTile(); 
         }
 
         @Override
