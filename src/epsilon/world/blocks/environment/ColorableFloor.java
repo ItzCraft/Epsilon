@@ -17,4 +17,8 @@ public class ColorableFloor extends Floor{
         this.mapColor.set(color);
         this.useColor = true;
     }
+
+    public void setup(){
+        this.mapColor.set(color);
+    }
 }
