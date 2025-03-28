@@ -49,18 +49,18 @@ public class ConfigurableDrill extends Drill{
                 drillTime = oldDrillTime * efficiency1;
             } else if(eff2 && !eff3 && !eff1){
                 drillTime = oldDrillTime * efficiency2;
-                if(reloadTime <= 0 && health > 0){
+               // if(reloadTime <= 0 && health > 0){
                     Lightning.create(Team.derelict, team.color, damage*efficiency2, this.x, this.y, Mathf.random(0, 360), 1);
-                    reloadTime = damageReload;
-                }
+                    //reloadTime = damageReload;
+              //  }
             } else{
                   drillTime = oldDrillTime * efficiency3;
-                  if(reloadTime <= 0 && health > 0){
+                 // if(reloadTime <= 0 && health > 0){
                       Lightning.create(Team.derelict, team.color, damage*efficiency3, this.x, this.y, Mathf.random(0, 360), 1);
-                      reloadTime = damageReload;
-                  }
+                      //reloadTime = damageReload;
+                  //}
             }
-            reloadTime -= Time.delta;
+            //reloadTime -= Time.delta;
             super.updateTile(); 
         }
 
