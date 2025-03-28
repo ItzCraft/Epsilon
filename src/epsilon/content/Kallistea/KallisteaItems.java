@@ -7,7 +7,7 @@ import epsilon.world.EpsItem;
 
 public class KallisteaItems {
     public static Item
-    gelionyte, calcite, quartz, fylion, redSand, magnetite, tantalum, wierdium;
+    gelionyte, calcite, quartz, fylion, redSand, magnetite, tantalum, anveiur;
 
     public static final Seq<Item> kallisteaItems = new Seq<>();
 
@@ -49,11 +49,11 @@ public class KallisteaItems {
             cost = 0.75f;
             infection = 0.2f;
         }};
-        wierdium = new Item("item-wierdium", Color.valueOf("#82b394")){{
+        anveiur = new Item("item-anveiur", Color.valueOf("#82b394")){{
             charge = 0.07f;
             flammability = 0.24f;
             explosiveness = 0.45f;
         }};
-        kallisteaItems.addAll(gelionyte, calcite, quartz, fylion, redSand, magnetite, tantalum, wierdium);
+        kallisteaItems.addAll(gelionyte, calcite, quartz, fylion, redSand, magnetite, tantalum, anveiur);
     }
 }
