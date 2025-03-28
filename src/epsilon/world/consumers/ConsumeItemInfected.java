@@ -18,6 +18,17 @@ public class ConsumeItemInfected extends ConsumeItemFilter{
     }
 
     @Override
+    public @Nullable EpsItem getConsumed(Building build){
+        for(int i = 0; i < content.items().size; i++){
+            EpsItem item = content.item(i);
+            if(build.items.has(item) && this.filter.get(item)){
+                return item;
+            }
+        }
+        return null;
+    }
+
+    @Override
     public float efficiencyMultiplier(Building build){
         var epsitem = getConsumed(build);
         return epsitem == null ? 0f : epsitem.infection;
