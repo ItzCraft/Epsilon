@@ -1,6 +1,6 @@
 package epsilon.world.consumers;
 
-import mindustry.world.consumers.ConsumeItemFilter;
+/*import mindustry.world.consumers.ConsumeItemFilter;
 import mindustry.gen.*;
 import mindustry.type.*;
 import epsilon.world.EpsItem;
@@ -33,4 +33,4 @@ public class ConsumeItemInfected extends ConsumeItemFilter{
         var epsitem = getConsumed(build);
         return epsitem == null ? 0f : epsitem.infection;
     }
-}
+}*/
