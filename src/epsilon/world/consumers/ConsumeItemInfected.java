@@ -1,9 +1,12 @@
 package epsilon.world.consumers;
 
-/*import mindustry.world.consumers.ConsumeItemFilter;
+import arc.util.Nullable;
+import mindustry.world.consumers.ConsumeItemFilter;
 import mindustry.gen.*;
 import mindustry.type.*;
 import epsilon.world.EpsItem;
+
+import static mindustry.Vars.content;
 
 public class ConsumeItemInfected extends ConsumeItemFilter{
     public float minInfected;
@@ -20,7 +23,7 @@ public class ConsumeItemInfected extends ConsumeItemFilter{
     @Override
     public @Nullable EpsItem getConsumed(Building build){
         for(int i = 0; i < content.items().size; i++){
-            EpsItem item = content.item(i);
+            EpsItem item = (EpsItem) content.item(i);
             if(build.items.has(item) && this.filter.get(item)){
                 return item;
             }
@@ -33,4 +36,4 @@ public class ConsumeItemInfected extends ConsumeItemFilter{
         var epsitem = getConsumed(build);
         return epsitem == null ? 0f : epsitem.infection;
     }
-}*/
+}
