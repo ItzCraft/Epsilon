@@ -12,7 +12,7 @@ import epsilon.world.meta.*;
 
 public class ConfigurableDrill extends Drill{
     public float damageReload = 150;
-    public float damage = 15;
+    public float damageEff = 15;
     public float efficiency1 = 0.5f;
     public float efficiency2 = 1f;
     public float efficiency3 = 2f;
@@ -51,16 +51,18 @@ public class ConfigurableDrill extends Drill{
             } else if(eff2 && !eff3 && !eff1){
                 drillTime = oldDrillTime * efficiency2;
                 if(reloadTime <= 0 && health > 0){
-                    Lightning.create(Team.derelict, Color.valueOf("FFFFFF"), damage*efficiency2, this.x, this.y, Mathf.random(0, 360), 1);
+                    //Lightning.create(Team.derelict, Color.valueOf("FFFFFF"), damage*efficiency2, this.x, this.y, Mathf.random(0, 360), 1);
+                    this.damage(damageEff*efficiency2);
                     reloadTime = damageReload;
                     Log.info("If works"); 
                }
             } else{
                   drillTime = oldDrillTime * efficiency3;
                   if(reloadTime <= 0 && health > 0){
-                      Lightning.create(Team.derelict, Color.valueOf("FFFFFF"), damage*efficiency3, this.x, this.y, Mathf.random(0, 360), 1);
+                      //Lightning.create(Team.derelict, Color.valueOf("FFFFFF"), damage*efficiency3, this.x, this.y, Mathf.random(0, 360), 1);
+                      this.damage(damageEff*efficiency3);
                       reloadTime = damageReload;
-                      Log.info("If works"); 
+                      Log.info("If n2 works"); 
                   }
             }
             reloadTime -= Time.delta;
