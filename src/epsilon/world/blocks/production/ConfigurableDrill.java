@@ -48,22 +48,20 @@ public class ConfigurableDrill extends Drill{
         public void updateTile(){
             if(eff1 && !eff2 && !eff3){
                 drillTime = oldDrillTime * efficiency1;
+                if(reloadTime <= 0 && health > 0){
+                    this.damage(damageEff*efficiency1);
+                    reloadTime = damageReload;
+                    Log.info("If n2 works"); 
+                }
             } else if(eff2 && !eff3 && !eff1){
                 drillTime = oldDrillTime * efficiency2;
                 if(reloadTime <= 0 && health > 0){
-                    //Lightning.create(Team.derelict, Color.valueOf("FFFFFF"), damage*efficiency2, this.x, this.y, Mathf.random(0, 360), 1);
                     this.damage(damageEff*efficiency2);
                     reloadTime = damageReload;
                     Log.info("If works"); 
                }
             } else{
                   drillTime = oldDrillTime * efficiency3;
-                  if(reloadTime <= 0 && health > 0){
-                      //Lightning.create(Team.derelict, Color.valueOf("FFFFFF"), damage*efficiency3, this.x, this.y, Mathf.random(0, 360), 1);
-                      this.damage(damageEff*efficiency3);
-                      reloadTime = damageReload;
-                      Log.info("If n2 works"); 
-                  }
             }
             reloadTime -= Time.delta;
             super.updateTile();
@@ -82,7 +80,7 @@ public class ConfigurableDrill extends Drill{
                 eff2 = true;
                 eff3 = false;
                 deselect();
-            }).pad(20f).size(60f);
+            }).pad(50f).size(60f);
             table.button(button1Name, () -> {
                 eff1 = false;
                 eff2 = false;
