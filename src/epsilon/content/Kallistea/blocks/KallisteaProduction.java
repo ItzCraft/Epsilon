@@ -20,17 +20,18 @@ public class KallisteaProduction{
             requirements(Category.production, with(KallisteaItems.gelionyte, 25, KallisteaItems.calcite, 20));
             health = 120;
             size = 3;
-            drillTime = 660;
-            rotateSpeed = 5;
+            drillTime = 1280;
+            rotateSpeed = 1;
             tier = 3;
         }};
         breakerDrill = new ConfigurableDrill("breaker-drill"){{
             requirements(Category.production, with(KallisteaItems.calcite, 145, KallisteaItems.quartz, 90, KallisteaItems.fylion, 70));
             health = 300;
             size = 4;
-            drillTime = 480;
-            rotateSpeed = 6;
+            drillTime = 900;
+            rotateSpeed = 2;
             tier = 4;
+            damageEff = 5;
         }};
     } 
 }
