@@ -20,9 +20,6 @@ public class ConfigurableDrill extends Drill{
     public String button2Name = "1x";
     public String button3Name = "2x";
 
-    public final float oldDrillTime = drillTime; 
-
-
     public ConfigurableDrill(String name){
         super(name);
         configurable = true;
@@ -43,6 +40,7 @@ public class ConfigurableDrill extends Drill{
         public boolean eff2 = true;
         public boolean eff3 = false;
         public float reloadTime = damageReload;
+        public final float oldDrillTime = drillTime;
 
         @Override 
         public void updateTile(){
