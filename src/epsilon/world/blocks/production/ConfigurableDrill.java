@@ -52,12 +52,14 @@ public class ConfigurableDrill extends Drill{
                 if(reloadTime <= 0 && health > 0){
                     Lightning.create(Team.derelict, team.color, damage*efficiency2, this.x, this.y, Mathf.random(0, 360), 1);
                     reloadTime = damageReload;
+                    Log.info("If works"); 
                }
             } else{
                   drillTime = oldDrillTime * efficiency3;
                   if(reloadTime <= 0 && health > 0){
                       Lightning.create(Team.derelict, team.color, damage*efficiency3, this.x, this.y, Mathf.random(0, 360), 1);
                       reloadTime = damageReload;
+                      Log.info("If works"); 
                   }
             }
             reloadTime -= Time.delta;
