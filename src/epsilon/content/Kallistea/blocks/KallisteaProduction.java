@@ -32,6 +32,7 @@ public class KallisteaProduction{
             rotateSpeed = 2;
             tier = 4;
             damageEff = 9;
+            consumePower(1.33f);
         }};
     } 
 }
