@@ -30,7 +30,7 @@ public class ConfigurableDrill extends Drill{
     @Override
     public void load(){
         super.load();
-        final float oldDrillTime = drillTime;
+        public final float oldDrillTime = drillTime;
     }
 
     @Override
