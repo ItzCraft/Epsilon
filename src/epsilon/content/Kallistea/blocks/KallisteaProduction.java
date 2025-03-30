@@ -31,7 +31,7 @@ public class KallisteaProduction{
             drillTime = 980;
             rotateSpeed = 2;
             tier = 4;
-            damageEff = 9;
+            damageEff = 7;
             consumePower(1.33f);
         }};
     } 
