@@ -23,12 +23,13 @@ public class KallisteaProduction{
             drillTime = 1280;
             rotateSpeed = 1;
             tier = 3;
+            squareSprite = false;
         }};
         breakerDrill = new ConfigurableDrill("breaker-drill"){{
             requirements(Category.production, with(KallisteaItems.calcite, 145, KallisteaItems.quartz, 90, KallisteaItems.fylion, 70));
             health = 300;
             size = 4;
-            drillTime = 980;
+            drillTime = 1075;
             rotateSpeed = 2;
             tier = 4;
             damageEff = 7;
