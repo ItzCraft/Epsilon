@@ -19,6 +19,7 @@ public class ConfigurableDrill extends Drill{
     public String button1Name = "0.5x";
     public String button2Name = "1x";
     public String button3Name = "2x";
+    public float oldDrillTime;
 
     public ConfigurableDrill(String name){
         super(name);
@@ -30,7 +31,7 @@ public class ConfigurableDrill extends Drill{
     @Override
     public void load(){
         super.load();
-        public final float oldDrillTime = drillTime;
+        oldDrillTime = drillTime;
     }
 
     @Override
