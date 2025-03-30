@@ -28,7 +28,7 @@ public class KallisteaProduction{
             requirements(Category.production, with(KallisteaItems.calcite, 145, KallisteaItems.quartz, 90, KallisteaItems.fylion, 70));
             health = 300;
             size = 4;
-            drillTime = 1900;
+            drillTime = 980;
             rotateSpeed = 2;
             tier = 4;
             damageEff = 9;
