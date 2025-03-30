@@ -28,9 +28,9 @@ public class ConfigurableDrill extends Drill{
     }
 
     @Override
-    public void init(){
-        super.init();
-        public final float oldDrillTime = drillTime;
+    public void load(){
+        super.load();
+        final float oldDrillTime = drillTime;
     }
 
     @Override
