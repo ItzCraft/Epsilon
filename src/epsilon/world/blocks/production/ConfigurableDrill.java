@@ -28,6 +28,12 @@ public class ConfigurableDrill extends Drill{
     }
 
     @Override
+    public void init(){
+        super.init();
+        public final float oldDrillTime = drillTime;
+    }
+
+    @Override
     public void setStats(){
         super.setStats();
         stats.add(EpsStats.efficiency1, efficiency1);
@@ -40,14 +46,13 @@ public class ConfigurableDrill extends Drill{
         public boolean eff2 = true;
         public boolean eff3 = false;
         public float reloadTime = damageReload;
-        public final float oldDrillTime = drillTime;
 
         @Override 
         public void updateTile(){
             if(eff1 && !eff2 && !eff3){
                 drillTime = oldDrillTime * efficiency1;
                 if(reloadTime <= 0 && health > 0){
-                    this.damage(damageEff*efficiency1);
+                    this.damage(damageEff*efficiency3);
                     reloadTime = damageReload;
                     Log.info("If n2 works"); 
                 }
