@@ -7,17 +7,19 @@ import mindustry.gen.Icon;
 import mindustry.ui.Styles;
 import mindustry.logic.LAccess;
 import mindustry.type.Category;
+import mindustry.world.*;
 import mindustry.world.blocks.logic.MessageBlock;
 
 import epsilon.cutscenes.Cutscene;
 import epsilon.cutscenes.CutsceneControl;
 
-import static mindustry.Vars.ui;
+import static mindustry.Vars.*;
 import static epsilon.EpsilonVars.*;
 
 public class CutsceneBlock extends MessageBlock{
     public CutsceneBlock(String name){
         super(name);
+        privileged = true;
         maxTextLength = 5000;
         maxNewlines = 200;
         configurable = true;
@@ -27,7 +29,6 @@ public class CutsceneBlock extends MessageBlock{
         noUpdateDisabled = false;
         category = Category.logic;
     }
-
     @SuppressWarnings("InnerClassMayBeStatic")
     public class CutsceneControllerBuild extends MessageBuild implements CutsceneTrigger{
         @Override
