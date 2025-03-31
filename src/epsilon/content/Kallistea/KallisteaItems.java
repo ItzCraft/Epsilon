@@ -19,7 +19,7 @@ public class KallisteaItems {
             frames = 18;
             frameTime = 4f;
         }};
-        calcite = new Item("item-calcite", Color.valueOf("#b59d3c")){{
+        calcite = new Item("item-calcite", Color.valueOf("ebebb2")){{
             flammability = 0.3f;
             cost = 0.85f;
             hardness = 1;
