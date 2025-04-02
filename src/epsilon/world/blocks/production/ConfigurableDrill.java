@@ -52,8 +52,8 @@ public class ConfigurableDrill extends Drill{
         @Override 
         public void updateTile(){
             if(eff1 && !eff2 && !eff3){
-                drillTime = oldDrillTime * efficiency3;
-                rotateSpeed = oldRotateSpeed * efficiency1;
+                drillTime = oldDrillTime * efficiency1;
+                rotateSpeed = oldRotateSpeed * efficiency3;
                 if(reloadTime <= 0 && health > 0 && efficiency > 0){
                     this.damage(damageEff*efficiency3);
                     reloadTime = damageReload;
