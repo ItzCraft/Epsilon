@@ -19,7 +19,7 @@ public class ConfigurableDrill extends Drill{
     public String button1Name = "0.5x";
     public String button2Name = "1x";
     public String button3Name = "2x";
-    public float oldDrillTime;
+    public float oldDrillTime, oldRotateSpeed;
 
     public ConfigurableDrill(String name){
         super(name);
@@ -32,6 +32,7 @@ public class ConfigurableDrill extends Drill{
     public void load(){
         super.load();
         oldDrillTime = drillTime;
+        oldRotateSpeed = rotateSpeed;
     }
 
     @Override
@@ -52,20 +53,23 @@ public class ConfigurableDrill extends Drill{
         public void updateTile(){
             if(eff1 && !eff2 && !eff3){
                 drillTime = oldDrillTime * efficiency1;
-                if(reloadTime <= 0 && health > 0){
+                rotateSpeed = oldRotateSpeed * efficiency1
+                if(reloadTime <= 0 && health > 0 && dominantItem != null){
                     this.damage(damageEff*efficiency3);
                     reloadTime = damageReload;
                     Log.info("If n2 works"); 
                 }
             } else if(eff2 && !eff3 && !eff1){
                 drillTime = oldDrillTime * efficiency2;
-                if(reloadTime <= 0 && health > 0){
+                rotateSpeed = oldRotateSpeed * efficiency2
+                if(reloadTime <= 0 && health > 0 && dominantItem != null){
                     this.damage(damageEff*efficiency2);
                     reloadTime = damageReload;
                     Log.info("If works"); 
                }
             } else{
                   drillTime = oldDrillTime * efficiency3;
+                  rotateSpeed = oldRotateSpeed * efficiency3
             }
             reloadTime -= Time.delta;
             super.updateTile();
