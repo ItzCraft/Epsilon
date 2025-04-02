@@ -21,7 +21,7 @@ public class KallisteaProduction{
             health = 120;
             size = 3;
             drillTime = 1280;
-            rotateSpeed = 1.25;
+            rotateSpeed = 1.25f;
             tier = 3;
             squareSprite = false;
         }};
