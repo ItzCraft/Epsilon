@@ -52,9 +52,9 @@ public class ConfigurableDrill extends Drill{
         @Override 
         public void updateTile(){
             if(eff1 && !eff2 && !eff3){
-                drillTime = oldDrillTime * efficiency1;
+                drillTime = oldDrillTime * efficiency3;
                 rotateSpeed = oldRotateSpeed * efficiency1;
-                if(reloadTime <= 0 && health > 0 && dominantItem != null){
+                if(reloadTime <= 0 && health > 0 && efficiency > 0){
                     this.damage(damageEff*efficiency3);
                     reloadTime = damageReload;
                     Log.info("If n2 works"); 
@@ -62,14 +62,14 @@ public class ConfigurableDrill extends Drill{
             } else if(eff2 && !eff3 && !eff1){
                 drillTime = oldDrillTime * efficiency2;
                 rotateSpeed = oldRotateSpeed * efficiency2;
-                if(reloadTime <= 0 && health > 0 && dominantItem != null){
+                if(reloadTime <= 0 && health > 0 && efficiency > 0){
                     this.damage(damageEff*efficiency2);
                     reloadTime = damageReload;
                     Log.info("If works"); 
                }
             } else{
                   drillTime = oldDrillTime * efficiency3;
-                  rotateSpeed = oldRotateSpeed * efficiency3;
+                  rotateSpeed = oldRotateSpeed * efficiency1;
             }
             reloadTime -= Time.delta;
             super.updateTile();
