@@ -53,7 +53,7 @@ public class ConfigurableDrill extends Drill{
         public void updateTile(){
             if(eff1 && !eff2 && !eff3){
                 drillTime = oldDrillTime * efficiency1;
-                rotateSpeed = oldRotateSpeed * efficiency1
+                rotateSpeed = oldRotateSpeed * efficiency1;
                 if(reloadTime <= 0 && health > 0 && dominantItem != null){
                     this.damage(damageEff*efficiency3);
                     reloadTime = damageReload;
@@ -61,7 +61,7 @@ public class ConfigurableDrill extends Drill{
                 }
             } else if(eff2 && !eff3 && !eff1){
                 drillTime = oldDrillTime * efficiency2;
-                rotateSpeed = oldRotateSpeed * efficiency2
+                rotateSpeed = oldRotateSpeed * efficiency2;
                 if(reloadTime <= 0 && health > 0 && dominantItem != null){
                     this.damage(damageEff*efficiency2);
                     reloadTime = damageReload;
@@ -69,7 +69,7 @@ public class ConfigurableDrill extends Drill{
                }
             } else{
                   drillTime = oldDrillTime * efficiency3;
-                  rotateSpeed = oldRotateSpeed * efficiency3
+                  rotateSpeed = oldRotateSpeed * efficiency3;
             }
             reloadTime -= Time.delta;
             super.updateTile();
