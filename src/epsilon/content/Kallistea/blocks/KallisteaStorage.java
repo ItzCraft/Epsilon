@@ -16,14 +16,14 @@ public class KallisteaStorage{
     public static void load(){
         coreObscurityBroken = new CoreBlock("core-obscurity-broken"){{
             requirements(Category.effect, /*BuildVisibility.editorOnly,*/ with(KallisteaItems.calcite, 120, KallisteaItems.gelionyte, 40));
-            health = 475;
+            health = 1475;
             size = 4;
             itemCapacity = 828;
             //unitType = EpsUnitTypes
         }};
         coreObscurity = new EpsilonCoreBlock("core-obscurity"){{
             requirements(Category.effect, with(KallisteaItems.calcite, 120, KallisteaItems.gelionyte, 40));
-            health = 475;
+            health = 1475;
             size = 4;
             itemCapacity = 1450;
             isFirstTier = true;
