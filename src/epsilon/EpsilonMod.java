@@ -50,6 +50,7 @@
             EpsTeams.load();
             EpsAttribute.load();
             KallisteaItems.load();
+            KallisteaUnitTypes.load();
             KallisteaBlocks.load();
         }
 
