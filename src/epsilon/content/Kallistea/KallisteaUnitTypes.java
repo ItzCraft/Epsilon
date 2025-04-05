@@ -7,8 +7,7 @@ import mindustry.ai.types.BuilderAI;
 import mindustry.content.Fx;
 import mindustry.entities.bullet.*;
 import mindustry.entities.effect.*;
-import mindustry.gen.MechUnit;
-import mindustry.gen.Sounds;
+import mindustry.gen.*;
 import mindustry.type.*;
 
 public class KallisteaUnitTypes{
@@ -16,7 +15,9 @@ public class KallisteaUnitTypes{
     // core
     penumbraStarter;
     public static void load(){
-        penumbraStarter = new UnitType("penumbra"){{
+        penumbraStarter = new UnitType("penumbra-starter"){{
+            constructor = MechUnit::create;
+            controller = u -> new BuilderAI(true, 500f); 
             health = 200;
             speed = 1.1f;
             buildSpeed = 1.4f;
@@ -27,9 +28,8 @@ public class KallisteaUnitTypes{
             mineSpeed = 4.5f;
 
             weapons.add(new Weapon("gun"){{
-                constructor = MechUnit::create;
-                controller = u -> new BuilderAI(true, 500f);
                 top = false;
+                mirror = true;
                 shake = 1.7f;
                 reload = 85f;
                 inaccuracy = 25;
