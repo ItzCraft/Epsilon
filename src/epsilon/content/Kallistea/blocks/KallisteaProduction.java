@@ -28,7 +28,7 @@ public class KallisteaProduction{
         breakerDrill = new ConfigurableDrill("breaker-drill"){{
             requirements(Category.production, with(KallisteaItems.calcite, 145, KallisteaItems.quartz, 90, KallisteaItems.fylion, 70));
             health = 590;
-            size = 4
+            size = 4;
             drillTime = 1075;
             rotateSpeed = 2;
             tier = 4;
