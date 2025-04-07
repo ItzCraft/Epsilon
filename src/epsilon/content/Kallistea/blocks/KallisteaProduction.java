@@ -1,5 +1,6 @@
 package epsilon.content.Kallistea.blocks;
 
+import mindustry.content.Fx;
 import mindustry.world.Block;
 import mindustry.world.blocks.production.*;
 import mindustry.type.Category;
@@ -12,7 +13,9 @@ import static mindustry.type.ItemStack.with;
 public class KallisteaProduction{
     public static Block
     //drills
-    pitMiningRig, breakerDrill;
+    pitMiningRig, breakerDrill,
+    //crafting
+    fylionSmelter, tantalumSynthesizer, anveiurForge, sandFilter;
 
     public static void load(){
         //drills
@@ -35,6 +38,36 @@ public class KallisteaProduction{
             damageEff = 7;
             itemCapacity = 25;
             consumePower(1.33f);
+        }};
+
+        //crafting
+        fylionSmelter = new GenericCrafter("fylion-smelter"){{
+            requirements(Category.crafting, with(KallisteaItems.calcite, 120, KallisteaItems.quartz, 40));
+            health = 400;
+            size = 4;
+            squareSprite = false;
+            hasPower = true;
+            hasLiquids = false;
+            itemCapacity = 15;
+            consumePower(1.2f);
+            consumeItems(with(KallisteaItems.calcite, 2, KallisteaItems.quartz, 1));
+            craftTime = 80f;
+            craftEffect = Fx.fireSmoke; //im lazy to code it rn
+            outputItem = new ItemStack(KallisteaItems.fylion, 1);
+        }};
+        tantalumSynthesizer = new GenericCrafter("tantalum-synthesizer"){{
+            requirements(Category.crafting, with(KallisteaItems.calcite, 195, KallisteaItems.fylion, 150, KallisteaItems.magnetite, 90, KallisteaItems.gelionyte, 75));
+            health = 685;
+            size = 4;
+            squareSprite = false;
+            hasPower = true;
+            hasLiquids = false;
+            itemCapacity = 20;
+            consumePower(3f);
+            consumeItems(with(KallisteaItems.fylion, 1, KallisteaItems.redSand, 3, KallisteaItems.magnetite, 1));
+            craftTime = 60f;
+            craftEffect = Fx.massiveExplosion; //lazy to code rn
+            outputItem = new ItemStack(KallisteaItems.tantalum, 1);
         }};
     } 
 }
