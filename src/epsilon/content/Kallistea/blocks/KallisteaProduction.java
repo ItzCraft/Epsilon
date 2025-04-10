@@ -13,7 +13,7 @@ import static mindustry.type.ItemStack.with;
 public class KallisteaProduction{
     public static Block
     //drills
-    pitMiningRig, breakerDrill,
+    pitMiningRig, breakerDrill, thermalDilatationDrill,
     //crafting
     fylionSmelter, tantalumSynthesizer, anveiurForge, sandFilter;
 
@@ -38,6 +38,16 @@ public class KallisteaProduction{
             damageEff = 7;
             itemCapacity = 25;
             consumePower(1.33f);
+        }};
+        thermalDilatationDrill = new HeatDrill("thermal-dilatation-drill"){{
+            requirements(Category.production, with(KallisteaItems.calcite, 210, KallisteaItems.quartz, 190, KallisteaItems.anveiur, 110, KallisteaItems.magnetite, 95));
+            health = 700;
+            size = 5;
+            drillTime = 700;
+            tier = 5;
+            itemCapacity = 30;
+            consumePower(2.5f);
+            heatRequirement = 9;
         }};
 
         //crafting
