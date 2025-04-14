@@ -24,10 +24,7 @@ public class HeatDrill extends BurstDrill{
     @Override
     public void setBars(){
         super.setBars();
-        removeBar("drillspeed");
-        addBar("drillspeed", (HeatDrillBuild e) ->
-                new Bar(() -> Core.bundle.format("bar.drillspeed", Strings.fixed(e.lastDrillSpeed * 60 * e.timeScale() * Math.min(1, e.heat / heatRequirement), 2)), () -> Pal.ammo, () -> e.warmup));
-        addBar("heat", (HeatDrillBuild e) ->
+       addBar("heat", (HeatDrillBuild e) ->
                 new Bar(() -> Core.bundle.format("bar.heatpercent", (int)(e.heat + 0.01f), (int)(e.getHeatAmount() * 100)), () -> Pal.lightOrange, () -> e.heat / heatRequirement));
     }
 

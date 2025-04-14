@@ -1,13 +1,8 @@
 package epsilon.world.blocks.production;
 
-import arc.graphics.Color;
 import arc.scene.ui.layout.Table;
-import arc.math.*;
 import arc.util.*;
 import mindustry.world.blocks.production.Drill;
-import mindustry.world.*;
-import mindustry.entities.*;
-import mindustry.game.Team;
 import epsilon.world.meta.*;
 
 public class ConfigurableDrill extends Drill{
@@ -88,7 +83,7 @@ public class ConfigurableDrill extends Drill{
                 eff2 = true;
                 eff3 = false;
                 deselect();
-            }).pad(90f).size(55f);
+            }).pad(120f).size(55f);
             table.button(button1Name, () -> {
                 eff1 = false;
                 eff2 = false;
