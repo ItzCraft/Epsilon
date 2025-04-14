@@ -31,9 +31,9 @@ public class KallisteaUnitTypes{
             mineSpeed = 4.5f;
 
             weapons.add(new Weapon("epsilon-penumbra-starter-gun"){{
-                top = true;
-                x = 5f;
-                y = 7;
+                top = false;
+                x = 7f;
+                y = 5.5f;
                 mirror = true;
                 shake = 1.7f;
                 reload = 85f;
@@ -43,14 +43,14 @@ public class KallisteaUnitTypes{
                 recoil = 2f;
                 shootSound = Sounds.spark;
                 bullet = new BasicBulletType(){{
-                    width = 3;
-                    height = 3;
+                    width = 5;
+                    height = 5;
                     speed = 2;
                     lifetime = 60;
                     damage = 30;
                     frontColor = Color.valueOf("97a6cc");
                     backColor = trailColor = Color.valueOf("4c5878");
-                    trailWidth = 1.2f;
+                    trailWidth = 1.05f;
                     trailLength = 3;
                     trailEffect = Fx.missileTrail;
                     shootEffect = new ParticleEffect(){{
