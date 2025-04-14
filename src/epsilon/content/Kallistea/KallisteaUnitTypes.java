@@ -16,6 +16,7 @@ public class KallisteaUnitTypes{
     penumbraStarter;
     public static void load(){
         penumbraStarter = new UnitType("penumbra-starter"){{
+            outlineColor= Color.valueOf("2f2726");
             constructor = MechUnit::create;
             controller = u -> new BuilderAI(true, 500f); 
             canBoost = true;
@@ -29,7 +30,7 @@ public class KallisteaUnitTypes{
             mineTier = 2;
             mineSpeed = 4.5f;
 
-            weapons.add(new Weapon("-gun"){{
+            weapons.add(new Weapon("epsilon-penumbra-starter-gun"){{
                 top = true;
                 x = 5f;
                 y = 7;
