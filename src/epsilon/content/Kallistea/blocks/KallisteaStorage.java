@@ -1,5 +1,6 @@
 package epsilon.content.Kallistea.blocks;
 
+import epsilon.content.Kallistea.KallisteaUnitTypes;
 import mindustry.world.Block;
 import mindustry.world.blocks.storage.*;
 import mindustry.type.Category;
@@ -19,7 +20,7 @@ public class KallisteaStorage{
             health = 1475;
             size = 4;
             itemCapacity = 828;
-            //unitType = EpsUnitTypes
+            unitType = KallisteaUnitTypes.penumbraStarter;
         }};
         coreObscurity = new EpsilonCoreBlock("core-obscurity"){{
             requirements(Category.effect, with(KallisteaItems.calcite, 120, KallisteaItems.gelionyte, 40));
@@ -27,7 +28,7 @@ public class KallisteaStorage{
             size = 4;
             itemCapacity = 1450;
             isFirstTier = true;
-            //unitType = EpsUnitTypes
+            unitType = KallisteaUnitTypes.penumbraStarter;
         }};
     }
 }

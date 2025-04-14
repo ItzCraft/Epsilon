@@ -2,8 +2,8 @@ package epsilon.content.Kallistea;
 
 
 import arc.graphics.Color;
-import arc.math.Interp;
-import mindustry.ai.types.BuilderAI;
+import arc.math.*;
+import mindustry.ai.types.*;
 import mindustry.content.Fx;
 import mindustry.entities.bullet.*;
 import mindustry.entities.effect.*;
@@ -18,17 +18,21 @@ public class KallisteaUnitTypes{
         penumbraStarter = new UnitType("penumbra-starter"){{
             constructor = MechUnit::create;
             controller = u -> new BuilderAI(true, 500f); 
+            canBoost = true;
+            boostMultiplier = 1.3f;
             health = 200;
-            speed = 1.1f;
-            buildSpeed = 1.4f;
+            speed = 0.6f;
+            buildSpeed = 1.2f;
             armor = 2f;
-            riseSpeed = 0.1f;
+            riseSpeed = 0.05f;
 
             mineTier = 2;
             mineSpeed = 4.5f;
 
-            weapons.add(new Weapon("gun"){{
-                top = false;
+            weapons.add(new Weapon("-gun"){{
+                top = true;
+                x = 5f;
+                y = 7;
                 mirror = true;
                 shake = 1.7f;
                 reload = 85f;
@@ -37,10 +41,17 @@ public class KallisteaUnitTypes{
                 shoot.shotDelay = 1f;
                 recoil = 2f;
                 shootSound = Sounds.spark;
-                bullet = new LightningBulletType(){{
-                    lightningColor = hitColor = Color.valueOf("9caedb");
-                    damage = 30f;
-                    lightningLength = 5;
+                bullet = new BasicBulletType(){{
+                    width = 3;
+                    height = 3;
+                    speed = 2;
+                    lifetime = 60;
+                    damage = 30;
+                    frontColor = Color.valueOf("97a6cc");
+                    backColor = trailColor = Color.valueOf("4c5878");
+                    trailWidth = 1.2f;
+                    trailLength = 3;
+                    trailEffect = Fx.missileTrail;
                     shootEffect = new ParticleEffect(){{
                         particles = 6;
                         cone = 15;
@@ -50,10 +61,6 @@ public class KallisteaUnitTypes{
                         sizeTo = 1.5f;
                         interp = Interp.pow3;
                         sizeInterp = Interp.pow3Out;
-                    }};
-                    lightningType = new BasicBulletType(0.0001f, 0f){{
-                        lifetime = Fx.lightning.lifetime;
-                        despawnEffect = Fx.none;
                     }};
                 }};
             }});
