@@ -1,6 +1,9 @@
 package epsilon.content.Kallistea.blocks;
 
+import epsilon.content.Kallistea.KallisteaUnitTypes;
+import epsilon.world.blocks.crafting.EpsilonGenericCrafter;
 import mindustry.content.Fx;
+import mindustry.content.Liquids;
 import mindustry.world.Block;
 import mindustry.world.blocks.production.*;
 import mindustry.type.Category;
@@ -78,6 +81,20 @@ public class KallisteaProduction{
             craftTime = 60f;
             craftEffect = Fx.massiveExplosion; //lazy to code rn
             outputItem = new ItemStack(KallisteaItems.tantalum, 1);
+        }};
+        anveiurForge = new EpsilonGenericCrafter("anveiur-forge"){{
+           requirements(Category.crafting, with(KallisteaItems.calcite, 300, KallisteaItems.magnetite, 275, KallisteaItems.quartz, 195, KallisteaItems.tantalum, 40));
+           health = 960;
+           size = 5;
+           squareSprite = false;
+           hasPower = true;
+           hasLiquids = true;
+           itemCapacity = 15;
+           consumePower(3.95f);
+           consumeItem(KallisteaItems.fylion, 1);
+           consumeLiquid(Liquids.ozone, 1.3333f);
+           craftTime = 90;
+           outputItem = new ItemStack(KallisteaItems.anveiur, 1);
         }};
     } 
 }
