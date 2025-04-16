@@ -5,15 +5,14 @@ import arc.scene.ui.layout.Table;
 import arc.util.*;
 import epsilon.ui.EpsStyles;
 import mindustry.gen.Icon;
-import mindustry.ui.Styles;
 import mindustry.ui.dialogs.BaseDialog;
-import mindustry.world.blocks.production.GenericCrafter;
+import mindustry.world.blocks.production.HeatCrafter;
 
-public class EpsilonGenericCrafter extends GenericCrafter{
-    public float oldCraftTime;
+public class EpsilonHeatCrafter extends HeatCrafter{
+    protected float oldCraftTime;
     public float activationTime = 300;
 
-    public EpsilonGenericCrafter(String name){
+    public EpsilonHeatCrafter(String name){
         super(name);
         configurable = true;
         saveConfig = true;
@@ -26,7 +25,7 @@ public class EpsilonGenericCrafter extends GenericCrafter{
         oldCraftTime = craftTime;
     }
 
-    public class EpsilonGenericCrafterBuild extends GenericCrafterBuild{
+    public class EpsilonHeatCrafterBuild extends HeatCrafterBuild{
         public ProductionTypes selectedType = ProductionTypes.passive;
         private boolean activated;
         private float activationTimeB = activationTime;
@@ -45,16 +44,21 @@ public class EpsilonGenericCrafter extends GenericCrafter{
             switch(getSelectedType()){
                 case passive:
                     Log.info("passive");
+                    craftTime = oldCraftTime;
                 case active:
                     if(activated && getSelectedType() == ProductionTypes.active){
                         Log.info("active");
+                        craftTime = oldCraftTime*1.35f;
                         activationTimeB -= Time.delta;
                         if(activationTimeB <= 0){
                             activated = false;
                             activationTimeB = activationTime;
                         }
+                    } else if(!activated && getSelectedType() == ProductionTypes.active){
+                        this.efficiency = 0.0F;
                     }
             }
+            super.updateTile();
         }
 
         @Override
