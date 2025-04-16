@@ -4,6 +4,7 @@
     import arc.util.*;
     import epsilon.content.Kallistea.blocks.*;
     import epsilon.content.Kallistea.*;
+    import epsilon.ui.EpsStyles;
     import epsilon.ui.dialogs.AboutEpsilonDialog;
     import epsilon.ui.TeamsUI;
     import epsilon.world.EpsAttribute;
@@ -42,6 +43,7 @@
         public void init(){
             super.init();
             EpsilonVars.init();
+            EpsStyles.load();
             TeamsUI.init();
         }
         
