@@ -54,6 +54,7 @@
             KallisteaItems.load();
             KallisteaUnitTypes.load();
             KallisteaBlocks.load();
+            EpsilonPlanets.load();
         }
 
         private void loadESSD(){
