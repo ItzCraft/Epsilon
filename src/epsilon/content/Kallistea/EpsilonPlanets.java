@@ -37,7 +37,7 @@ public class EpsilonPlanets{
             hasAtmosphere = true;
             atmosphereColor = Color.valueOf("7d1bb3");
             atmosphereRadIn = 0;
-            atmosphereRadOut = 0.15f;
+            atmosphereRadOut = 0.25f;
             orbitRadius = 50f;
             solarSystem = epsilon;
             alwaysUnlocked = allowLaunchLoadout = allowLaunchSchematics = clearSectorOnLose = true;
@@ -45,7 +45,7 @@ public class EpsilonPlanets{
                 baseHeight = 0f;
                 baseColor = Color.valueOf("68588c");
                 heights.add(new HeightCalc.NoiseHeight(){{
-                    offset.set(190, 300,150 );
+                    offset.set(190, 000,150 );
                     octaves = 6;
                     magnitude = 1.15f;
                     heightOffset = -0.65f;
