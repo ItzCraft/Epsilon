@@ -56,7 +56,7 @@ public class EpsilonPlanets{
                     mountains.add(new HeightCalc.DotHeight(){{
                         dir.setToRandomDirection().y = Mathf.random(1f, 4f);
                         min = 0.99f;
-                        magnitude = Math.max(0.4f, dir.nor().y) * 0.3f;
+                        magnitude = Math.max(0.15f, dir.nor().y) * 0.3f;
                         interp = Interp.exp10In;
                     }});
                 }
@@ -65,7 +65,7 @@ public class EpsilonPlanets{
                     mountains.add(new HeightCalc.DotHeight(){{
                         dir.setToRandomDirection().y = Mathf.random(-2f, -4f);
                         min = 0.99f;
-                        magnitude = Math.max(0.6f, dir.nor().y) * 0.3f;
+                        magnitude = Math.max(0.35f, dir.nor().y) * 0.3f;
                         interp = Interp.exp10In;
                     }});
                 }
@@ -75,7 +75,7 @@ public class EpsilonPlanets{
                 for(int i = 0; i < 5; i++){
                     craters.add(new HeightCalc.SphereHeight(){{
                         pos.set(Vec3.Y).rotate(Vec3.X, 115f);
-                        radius = 0.35f + Mathf.random(0.5f);
+                        radius = 0.30f + Mathf.random(0.05f);
                         offset = 0.5f;
                         set = true;
                     }});
