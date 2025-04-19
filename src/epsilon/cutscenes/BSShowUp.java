@@ -17,7 +17,7 @@ import static arc.scene.actions.Actions.*;
 
 public class BSShowUp extends CutsceneBase{
     public int duration;
-    public BSShowup(int duration){
+    public BSShowUp(int duration){
         super(0f);
         this.duration = duration;
     }
