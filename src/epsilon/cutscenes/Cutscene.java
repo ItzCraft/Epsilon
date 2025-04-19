@@ -50,6 +50,8 @@ public class Cutscene{
              return switch (actionName){
                  case "text_dialog" -> new TextShowup(args);
 
+                 case "black_screen" -> new BSShowUp(args);
+
                  default -> new CutsceneNull();
              };
           }catch(Exception e){
