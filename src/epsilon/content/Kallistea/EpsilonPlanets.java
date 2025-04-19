@@ -37,7 +37,7 @@ public class EpsilonPlanets{
             hasAtmosphere = true;
             atmosphereColor = Color.valueOf("7d1bb3");
             atmosphereRadIn = 0;
-            atmosphereRadOut = 0.055f;
+            atmosphereRadOut = 0.04f;
             orbitRadius = 40f;
             solarSystem = epsilon;
             alwaysUnlocked = allowLaunchLoadout = allowLaunchSchematics = clearSectorOnLose = true;
@@ -56,7 +56,7 @@ public class EpsilonPlanets{
                     mountains.add(new HeightCalc.DotHeight(){{
                         dir.setToRandomDirection().y = Mathf.random(1f, 4f);
                         min = 0.99f;
-                        magnitude = Math.max(0.15f, dir.nor().y) * 0.3f;
+                        magnitude = Math.max(0.55f, dir.nor().y) * 0.3f;
                         interp = Interp.exp10In;
                     }});
                 }
