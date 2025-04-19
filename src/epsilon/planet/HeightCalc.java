@@ -1,10 +1,13 @@
 package epsilon.planet;
 
-import arc.math.Interp;
-import arc.math.Mathf;
+import arc.math.*;
 import arc.math.geom.Vec3;
 import arc.struct.Seq;
 import arc.util.noise.Simplex;
+
+/*
+the code is from Omaloon.
+ **/
 
 public abstract class HeightCalc{
     public abstract float height(Vec3 pos,float height);
@@ -53,29 +56,11 @@ public abstract class HeightCalc{
     }
 
     public static class DotHeight extends HeightCalc{
-            /**
-             * Main direction vector. Is normalized later.
-             */
             public Vec3 dir = new Vec3();
-
-            /**
-             * Min and max dot result where this pass applies.
-             */
             public float min = -1f;
             public float max = 1f;
-
-            /**
-             * When true, the dot result will be mapped from min to max instead of -1 to 1.
-             */
             public boolean map = true;
-
-            /**
-             * Interpolation curve applied to the mapped dot result.
-             */
             public Interp interp = Interp.linear;
-            /**
-             * Magnitude applied to the final height offset.
-             */
             public float magnitude = 1;
 
             @Override
@@ -93,17 +78,8 @@ public abstract class HeightCalc{
             }
     }
     public static class MultiHeight extends HeightCalc{
-            /**
-             * Heights used to create the raw height value.
-             */
             public Seq<HeightCalc> heights;
-            /**
-             * Height mixing type for the raw height, can either get the highest, or average between results.
-             */
             public MixType mixType;
-            /**
-             * Operation applied to the final height, can either add, subtract(carve) or set to this height.
-             */
             public Operation operation;
 
             public MultiHeight(Seq<HeightCalc> heights, MixType mixType, Operation operation){

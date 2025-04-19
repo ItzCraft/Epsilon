@@ -3,6 +3,7 @@ package epsilon.content.Kallistea;
 import arc.graphics.Color;
 import arc.math.Interp;
 import arc.math.Mathf;
+import arc.math.geom.Vec3;
 import arc.struct.Seq;
 import epsilon.graphics.EpsPal;
 import epsilon.planet.ColorCalc;
@@ -48,33 +49,75 @@ public class EpsilonPlanets{
                 baseHeight = 0f;
                 baseColor = Color.valueOf("68588c");
                 heights.add(new HeightCalc.NoiseHeight(){{
-                    offset.set(100, 0,0 );
+                    offset.set(190, 300,150 );
                     octaves = 6;
-                    magnitude = 1;
+                    magnitude = 1.15f;
                     heightOffset = -0.65f;
                 }});
-                Mathf.rand.setSeed(2);
+                Mathf.rand.setSeed(5);
                 Seq<HeightCalc> mountains = new Seq<>();
-                for(int i = 0; i < 12; i++){
+                for(int i = 0; i < 20; i++){
                     mountains.add(new HeightCalc.DotHeight(){{
-                        dir.setToRandomDirection().y = Mathf.random(2f, 5f);
+                        dir.setToRandomDirection().y = Mathf.random(1f, 4f);
                         min = 0.99f;
-                        magnitude = Math.max(0.7f, dir.nor().y) * 0.3f;
+                        magnitude = Math.max(0.4f, dir.nor().y) * 0.3f;
+                        interp = Interp.exp10In;
+                    }});
+                }
+                mountains = new Seq<>();
+                for(int i = 0; i < 15; i++){
+                    mountains.add(new HeightCalc.DotHeight(){{
+                        dir.setToRandomDirection().y = Mathf.random(-2f, -4f);
+                        min = 0.99f;
+                        magnitude = Math.max(0.6f, dir.nor().y) * 0.3f;
                         interp = Interp.exp10In;
                     }});
                 }
                 heights.add(new HeightCalc.MultiHeight(mountains, HeightCalc.MultiHeight.MixType.max, HeightCalc.MultiHeight.Operation.add));
+                Seq<HeightCalc> craters = new Seq<>();
+                Mathf.rand.setSeed(3);
+                for(int i = 0; i < 5; i++){
+                    craters.add(new HeightCalc.SphereHeight(){{
+                        pos.set(Vec3.Y).rotate(Vec3.X, 115f);
+                        radius = 0.35f + Mathf.random(0.5f);
+                        offset = 0.5f;
+                        set = true;
+                    }});
+                }
+                heights.addAll(new HeightCalc.MultiHeight(craters, HeightCalc.MultiHeight.MixType.max, HeightCalc.MultiHeight.Operation.set));
+                Mathf.rand.setSeed(3);
+                for(int i = 0; i < 5; i++){
+                    heights.add(new HeightCalc.SphereHeight(){{
+                        pos.set(Vec3.Y).rotate(Vec3.X, -115f);
+                        radius = 0.19f + Mathf.random(0.25f);
+                        set = true;
+                    }});
+                }
+                heights.add(new HeightCalc.ClampHeight(0f, 0.8f));
                 colors.addAll(
                         new ColorCalc.NoiseColorCalc(){{
                             scale = 1.5;
                             persistence = 0.5;
-                            octaves = 3;
+                            octaves = 5;
                             magnitude = 1.2f;
-                            min = 0.3f;
-                            max = 0.6f;
+                            min = 0.41f;
+                            max = 0.8f;
                             out = Color.valueOf("5c5c5c");
-                            offset.set(1500f, 300f, -500f);
+                            offset.set(1000f, 000f, -200f);
+                        }},
+                        new ColorCalc.NoiseColorCalc(){{
+                            scale = 1.5;
+                            persistence = 0.5;
+                            octaves = 5;
+                            magnitude = 1.2f;
+                            min = 0.1f;
+                            max = 0.43f;
+                            out = Color.valueOf("d67c97");
+                            offset.set(1000f, 000f, -200f);
                         }});
+                for(int i = 0; i < 7; i++){
+                    colors.add(new ColorCalc.SphereColorCalc(new Vec3().setToRandomDirection(), 0.06f, Color.valueOf("4d0b3d")));
+                }
             }};
             meshLoader = () -> new MultiMesh(
                     new HexMesh(this, 6)
