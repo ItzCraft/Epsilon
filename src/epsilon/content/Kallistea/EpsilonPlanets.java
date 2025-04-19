@@ -37,8 +37,8 @@ public class EpsilonPlanets{
             hasAtmosphere = true;
             atmosphereColor = Color.valueOf("7d1bb3");
             atmosphereRadIn = 0;
-            atmosphereRadOut = 0.04f;
-            orbitRadius = 40f;
+            atmosphereRadOut = 0.15f;
+            orbitRadius = 50f;
             solarSystem = epsilon;
             alwaysUnlocked = allowLaunchLoadout = allowLaunchSchematics = clearSectorOnLose = true;
             generator = new KallisteaPlanetGenerator(){{
@@ -52,11 +52,11 @@ public class EpsilonPlanets{
                 }});
                 Mathf.rand.setSeed(5);
                 Seq<HeightCalc> mountains = new Seq<>();
-                for(int i = 0; i < 20; i++){
+                for(int i = 0; i < 15; i++){
                     mountains.add(new HeightCalc.DotHeight(){{
-                        dir.setToRandomDirection().y = Mathf.random(1f, 4f);
+                        dir.setToRandomDirection().y = Mathf.random(2f, 4f);
                         min = 0.99f;
-                        magnitude = Math.max(0.55f, dir.nor().y) * 0.3f;
+                        magnitude = Math.max(0.7f, dir.nor().y) * 0.3f;
                         interp = Interp.exp10In;
                     }});
                 }
@@ -65,7 +65,7 @@ public class EpsilonPlanets{
                     mountains.add(new HeightCalc.DotHeight(){{
                         dir.setToRandomDirection().y = Mathf.random(-2f, -4f);
                         min = 0.99f;
-                        magnitude = Math.max(0.35f, dir.nor().y) * 0.3f;
+                        magnitude = Math.max(0.65f, dir.nor().y) * 0.3f;
                         interp = Interp.exp10In;
                     }});
                 }
