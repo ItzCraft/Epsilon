@@ -10,6 +10,7 @@ import arc.math.*;
 import mindustry.core.UI;
 import mindustry.ui.Styles;
 import epsilon.cutscenes.CutsceneBase;
+import epsilon.ui.EpsStyles;
 
 import static arc.Core.bundle;
 import static mindustry.Vars.ui;
@@ -33,7 +34,7 @@ public class BSShowUp extends CutsceneBase{
         table.touchable = Touchable.disabled;
         table.setFillParent(true);
         table.actions(Actions.delay(duration * 0.8f), Actions.fadeOut(duration * 0.3f, Interp.fade), Actions.remove());
-        table.bottom().table(Styles.black5, t -> t.margin(1).image(Core.atlas.find("epsilon-black-screen")).style(Styles.outlineLabel)).size(2500f, 2500f);
+        table.bottom().table(EpsStyles.blackBackground, t -> t.margin(1).image(Core.atlas.find("epsilon-black-screen")).style(EpsStyles.blackBackground)).size(2500f, 2500f);
         Core.scene.add(table);
     }
 
