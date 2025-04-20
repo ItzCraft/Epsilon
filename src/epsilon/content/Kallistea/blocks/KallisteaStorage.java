@@ -20,6 +20,7 @@ public class KallisteaStorage{
             health = 1475;
             size = 4;
             itemCapacity = 828;
+            landDuration = 60f;
             unitType = KallisteaUnitTypes.penumbraStarter;
         }};
         coreObscurity = new EpsilonCoreBlock("core-obscurity"){{
