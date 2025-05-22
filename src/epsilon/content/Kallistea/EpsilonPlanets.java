@@ -5,7 +5,6 @@ import arc.math.Interp;
 import arc.math.Mathf;
 import arc.math.geom.Vec3;
 import arc.struct.Seq;
-import epsilon.graphics.EpsPal;
 import epsilon.planet.ColorCalc;
 import epsilon.planet.HeightCalc;
 import epsilon.planet.KallisteaPlanetGenerator;
@@ -60,16 +59,16 @@ public class EpsilonPlanets{
                     mountains.add(new HeightCalc.DotHeight(){{
                         dir.setToRandomDirection().y = Mathf.random(1f, 4f);
                         min = 0.99f;
-                        magnitude = Math.max(0.4f, dir.nor().y) * 0.3f;
+                        magnitude = Math.max(0.4f, dir.nor().y) * 0.45f;
                         interp = Interp.exp10In;
                     }});
                 }
                 mountains = new Seq<>();
                 for(int i = 0; i < 15; i++){
                     mountains.add(new HeightCalc.DotHeight(){{
-                        dir.setToRandomDirection().y = Mathf.random(-2f, -4f);
+                        dir.setToRandomDirection().y = Mathf.random(-1f, -4f);
                         min = 0.99f;
-                        magnitude = Math.max(0.6f, dir.nor().y) * 0.3f;
+                        magnitude = Math.max(0.6f, dir.nor().y) * 0.45f;
                         interp = Interp.exp10In;
                     }});
                 }
