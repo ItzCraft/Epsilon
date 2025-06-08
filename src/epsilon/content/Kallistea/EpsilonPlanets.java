@@ -35,52 +35,6 @@ public class EpsilonPlanets{
             );
         }};
 
-        kallistea = new Planet("kallistea", epsilon, 0.82f, 1){{
-            accessible = true;
-            hasAtmosphere = true;
-            atmosphereColor = Color.valueOf("7d1bb3");
-            atmosphereRadIn = 0;
-            atmosphereRadOut = 0.055f;
-            orbitRadius = 40f;
-            solarSystem = epsilon;
-            alwaysUnlocked = allowLaunchLoadout = allowLaunchSchematics = clearSectorOnLose = true;
-            generator = new KallisteaPlanetGenerator(){{
-                baseHeight = 0f;
-                baseColor = Color.valueOf("68588c");
-                heights.add(new HeightCalc.NoiseHeight(){{
-                    offset.set(100, 0,0 );
-                    octaves = 6;
-                    magnitude = 1;
-                    heightOffset = -0.65f;
-                }});
-                Mathf.rand.setSeed(2);
-                Seq<HeightCalc> mountains = new Seq<>();
-                for(int i = 0; i < 12; i++){
-                    mountains.add(new HeightCalc.DotHeight(){{
-                        dir.setToRandomDirection().y = Mathf.random(2f, 5f);
-                        min = 0.99f;
-                        magnitude = Math.max(0.7f, dir.nor().y) * 0.3f;
-                        interp = Interp.exp10In;
-                    }});
-                }
-                heights.add(new HeightCalc.MultiHeight(mountains, HeightCalc.MultiHeight.MixType.max, HeightCalc.MultiHeight.Operation.add));
-                colors.addAll(
-                        new ColorCalc.NoiseColorCalc(){{
-                            scale = 1.5;
-                            persistence = 0.5;
-                            octaves = 3;
-                            magnitude = 1.2f;
-                            min = 0.3f;
-                            max = 0.6f;
-                            out = Color.valueOf("5c5c5c");
-                            offset.set(1500f, 300f, -500f);
-                        }});
-            }};
-            meshLoader = () -> new MultiMesh(
-                    new HexMesh(this, 6)
-            );
-        }};
-
         eryphos = new Planet("eryphos", epsilon, 1.75f, 1){{
             accessible = true;
             hasAtmosphere = true;

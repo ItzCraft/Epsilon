@@ -1,14 +1,17 @@
 package epsilon.content.Kallistea.blocks;
 
+import arc.graphics.Color;
+import arc.math.Interp;
 import epsilon.world.blocks.crafting.EpsilonHeatCrafter;
-import mindustry.content.Fx;
-import mindustry.content.Liquids;
+import mindustry.content.*;
+import mindustry.entities.effect.*;
 import mindustry.world.Block;
 import mindustry.world.blocks.production.*;
-import mindustry.type.Category;
-import mindustry.type.ItemStack;
+import mindustry.type.*;
 import epsilon.content.Kallistea.KallisteaItems;
 import epsilon.world.blocks.production.*;
+import mindustry.world.consumers.ConsumeItems;
+import mindustry.world.draw.*;
 
 import static mindustry.type.ItemStack.with;
 
@@ -26,6 +29,12 @@ public class KallisteaProduction{
             health = 290;
             size = 3;
             drillTime = 1280;
+            drillEffect = new MultiEffect(
+                    Fx.drillSteam,
+                    Fx.magmasmoke,
+                    Fx.mineImpact
+            );
+            drillEffectChance = 0.05f;
             rotateSpeed = 1.25f;
             tier = 3;
             squareSprite = false;
@@ -35,6 +44,17 @@ public class KallisteaProduction{
             health = 590;
             size = 4;
             drillTime = 1075;
+            drillEffect = new MultiEffect(
+                    Fx.drillSteam,
+                    new WaveEffect(){{
+                        sides = 4;
+                        colorFrom = Color.valueOf("3c8249");
+                        colorTo = Color.valueOf("a2dead");
+                        sizeTo = 45;
+                    }},
+                    Fx.greenCloud
+            );
+            drillEffectChance = 0.03f;
             rotateSpeed = 2;
             tier = 4;
             damageEff = 7;
@@ -64,8 +84,24 @@ public class KallisteaProduction{
             consumePower(1.2f);
             consumeItems(with(KallisteaItems.calcite, 2, KallisteaItems.quartz, 1));
             craftTime = 80f;
-            craftEffect = Fx.fireSmoke; //im lazy to code it rn
+            craftEffect = new ParticleEffect(){{
+                particles = 25;
+                lifetime = 600f;
+                length = 700f;
+                baseLength = 5f;
+                sizeFrom = 4f;
+                sizeTo = 0f;
+                cone = 20f;
+                baseRotation = 45f;
+                colorFrom = Color.valueOf("ffffff");
+                colorTo = Color.valueOf("aaffff");
+                interp = Interp.pow2In;
+                sizeInterp = Interp.pow2Out;
+            }};
             outputItem = new ItemStack(KallisteaItems.fylion, 1);
+            drawer = new DrawMulti(
+                    new DrawDefault(),
+                    new DrawRegion("-top"));
         }};
         tantalumSynthesizer = new GenericCrafter("tantalum-synthesizer"){{
             requirements(Category.crafting, with(KallisteaItems.calcite, 195, KallisteaItems.fylion, 150, KallisteaItems.magnetite, 90, KallisteaItems.gelionyte, 75));
@@ -77,9 +113,28 @@ public class KallisteaProduction{
             itemCapacity = 20;
             consumePower(3f);
             consumeItems(with(KallisteaItems.fylion, 1, KallisteaItems.redSand, 3, KallisteaItems.magnetite, 1));
-            craftTime = 60f;
-            craftEffect = Fx.massiveExplosion; //lazy to code rn
-            outputItem = new ItemStack(KallisteaItems.tantalum, 1);
+            craftTime = 180f;
+            craftEffect = new ParticleEffect(){{
+                particles = 3;
+                lifetime = 35f;
+                sizeFrom = 0f;
+                sizeTo = 4.5f;
+                region = "epsilon-rhombus";
+                length = 7f;
+                baseLength = 7f;
+                colorFrom = colorTo = Color.valueOf("bb81d4");
+                interp = Interp.pow3;
+                sizeInterp = Interp.pow3Out;
+            }};
+            outputItem = new ItemStack(KallisteaItems.tantalum, 3);
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawDefault(),
+                    new DrawPulseShape(){{
+                        radiusScl = 0.5f;
+                        timeScl = 40f;
+                        color = Color.valueOf("bb81d4");
+                    }});
         }};
         anveiurForge = new EpsilonHeatCrafter("anveiur-forge"){{
            requirements(Category.crafting, with(KallisteaItems.calcite, 300, KallisteaItems.magnetite, 275, KallisteaItems.quartz, 195, KallisteaItems.tantalum, 40));
@@ -92,10 +147,25 @@ public class KallisteaProduction{
            consumePower(3.95f);
            consumeItem(KallisteaItems.fylion, 1);
            consumeLiquid(Liquids.ozone, 1.3333f);
-           heatRequirement = 14;
+           heatRequirement = 60;
            maxEfficiency = 2f;
            craftTime = 90;
            outputItem = new ItemStack(KallisteaItems.anveiur, 1);
+        }};
+        sandFilter = new HeatCrafter("sand-filter"){{
+           requirements(Category.crafting, with(KallisteaItems.calcite, 130, KallisteaItems.magnetite, 90, KallisteaItems.quartz, 50, KallisteaItems.fylion, 35));
+           health = 450;
+           size = 3;
+           squareSprite = false;
+           hasPower = true;
+           hasLiquids = false;
+           itemCapacity = 20;
+           consumePower(1.5f);
+           consumeItem(KallisteaItems.redSand, 3);
+           heatRequirement = 35;
+           maxEfficiency = 1.5f;
+           craftTime = 110;
+           outputItems = with(KallisteaItems.quartz, 1, KallisteaItems.magnetite, 1);
         }};
     } 
 }
