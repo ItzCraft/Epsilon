@@ -23,7 +23,7 @@ public class KallisteaPlanetGenerator extends PlanetGenerator {
 
     @Override
     public Color getColor(Vec3 position){
-        Block block = rawHeight(position) < 0.55 ? Blocks.sand : Blocks.ferricStone;
+        Block block = rawHeight(position) < 0.25f ? Blocks.water : rawHeight(position) < 0.6f ? Blocks.ice : rawHeight(position) < 0.75f ? Blocks.sand : Blocks.ferricStone;
         return Tmp.c1.set(block.mapColor).a(1f - block.albedo);
     }
 }
