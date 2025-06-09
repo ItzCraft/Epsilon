@@ -72,7 +72,7 @@ public class EpsilonHeatCrafter extends HeatCrafter{
                 passiveLabel.add(Core.bundle.get("passive")).pad(5f);
 
                 passiveHeader.add(passiveLabel).padLeft(40f).left();
-                passiveHeader.button(Icon.resize, () -> {
+                passiveHeader.button(Icon.infoCircle, () -> {
                     // question mark, desc
                 }).size(35f, 35f).padLeft(10f).padBottom(25f).right();
                 left.add(passiveHeader).left().row();
@@ -88,7 +88,7 @@ public class EpsilonHeatCrafter extends HeatCrafter{
                 activeLabel.add(Core.bundle.get("active")).pad(5f);
 
                 activeHeader.add(activeLabel).padRight(40f).right();
-                activeHeader.button(Icon.resize, () -> {
+                activeHeader.button(Icon.infoCircle, () -> {
                     // question mark, active desc
                 }).size(35f, 35f).padRight(10f).padBottom(25f).right();
                 right.add(activeHeader).right().row();

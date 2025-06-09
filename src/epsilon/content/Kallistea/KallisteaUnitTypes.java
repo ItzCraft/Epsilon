@@ -54,14 +54,15 @@ public class KallisteaUnitTypes{
                     trailLength = 3;
                     trailEffect = Fx.missileTrail;
                     shootEffect = new ParticleEffect(){{
-                        followParent = true;
-                        rotWithParent = true;
                         particles = 6;
+                        lifetime = 30f;
+                        length = 30f;
+                        baseLength = 0f;
                         cone = 15;
                         colorFrom = Color.valueOf("6789e0");
                         colorTo = Color.valueOf("455273");
                         sizeFrom = 5;
-                        sizeTo = 1.5f;
+                        sizeTo = 0;
                         interp = Interp.pow3;
                         sizeInterp = Interp.pow3Out;
                     }};
