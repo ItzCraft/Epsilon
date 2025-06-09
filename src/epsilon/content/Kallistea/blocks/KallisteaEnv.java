@@ -28,7 +28,10 @@ public class KallisteaEnv {
 
             // Merapora biome
             meraporaFloor, meraporaFensporFloor, meraporaWall, meraporaWallAlt, meraporaFensporWall, meraporaFensporWallAlt,
-            meraporaBoulder, meraporaFensporBoulder, meraporaVent, meraporaFensporVent, meraporaBunker, meraporaMenhir;
+            meraporaBoulder, meraporaFensporBoulder, meraporaVent, meraporaFensporVent, meraporaBunker, meraporaMenhir,
+
+            // Thermal biome
+            miniVulcan;
 
     public static void load() {
         {
@@ -126,6 +129,9 @@ public class KallisteaEnv {
                 meraporaFensporBoulder = new Prop("merapora-fenspor-boulder"){{variants = 4; customShadow = true; meraporaFensporFloor.asFloor().decoration = this;}};
                 meraporaBunker = new BunkerVent("merapora-bunker", 2){{parent = blendGroup = meraporaFloor;}};
                 meraporaMenhir = new Prop("merapora-menhir"){{variants = 2; breakable = false; meraporaFloor.asFloor().decoration = this;}};
+
+                // THERMAL BIOME
+                miniVulcan = new Vulcan("mini-vulcan"){{variants = 2; parent = blendGroup = meraporaFloor;}};
             }
         }
     }

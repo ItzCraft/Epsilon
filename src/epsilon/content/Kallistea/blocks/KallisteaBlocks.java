@@ -5,6 +5,8 @@ public class KallisteaBlocks{
       KallisteaEnv.load();
       KallisteaDistribution.load();
       KallisteaProduction.load();
+      KallisteaPower.load();
+      KallisteaHeat.load();
       KallisteaStorage.load();
       LoreBlocks.load();
     }

@@ -10,7 +10,6 @@ import mindustry.world.blocks.production.*;
 import mindustry.type.*;
 import epsilon.content.Kallistea.KallisteaItems;
 import epsilon.world.blocks.production.*;
-import mindustry.world.consumers.ConsumeItems;
 import mindustry.world.draw.*;
 
 import static mindustry.type.ItemStack.with;
@@ -108,6 +107,7 @@ public class KallisteaProduction{
             health = 685;
             size = 4;
             squareSprite = false;
+            buildCostMultiplier = 0.6f;
             hasPower = true;
             hasLiquids = false;
             itemCapacity = 20;
@@ -141,6 +141,7 @@ public class KallisteaProduction{
            health = 960;
            size = 5;
            squareSprite = false;
+           buildCostMultiplier = 0.45f;
            hasPower = true;
            hasLiquids = true;
            itemCapacity = 15;
@@ -157,6 +158,7 @@ public class KallisteaProduction{
            health = 450;
            size = 3;
            squareSprite = false;
+           buildCostMultiplier = 0.65f;
            hasPower = true;
            hasLiquids = false;
            itemCapacity = 20;
