@@ -5,12 +5,13 @@ import arc.math.*;
 import arc.math.geom.*;
 import arc.util.Tmp;
 import arc.util.noise.*;
+import epsilon.content.Kallistea.blocks.KallisteaEnv;
 import mindustry.content.Blocks;
 import mindustry.maps.generators.PlanetGenerator;
 import mindustry.world.Block;
 
 public class KallisteaPlanetGenerator extends PlanetGenerator {
-    public float heightScl = 1.4f, octaves = 8, persistence = 0.7f, heightPow = 2.6f, heightMult = 1.1f;
+    public float heightScl = 1.2f, octaves = 8, persistence = 0.7f, heightPow = 2.2f, heightMult = 1.1f;
 
     @Override
     public float getHeight(Vec3 position){
@@ -23,7 +24,7 @@ public class KallisteaPlanetGenerator extends PlanetGenerator {
 
     @Override
     public Color getColor(Vec3 position){
-        Block block = rawHeight(position) < 0.55 ? Blocks.sand : Blocks.ferricStone;
+        Block block = rawHeight(position) < 0.35f ? Blocks.water : rawHeight(position) < 0.4f ? KallisteaEnv.meraporaFloor : rawHeight(position) < 0.45f ? KallisteaEnv.meraporaFensporFloor : rawHeight(position) < 0.55f ? KallisteaEnv.purystalFloor : rawHeight(position) < 0.6f ? KallisteaEnv.purystalLightFloor : rawHeight(position) < 0.64f ? KallisteaEnv.fensporReinforcedFloor : rawHeight(position) < 0.7f ? KallisteaEnv.eadstonFloor : Blocks.ferricStone;
         return Tmp.c1.set(block.mapColor).a(1f - block.albedo);
     }
 }

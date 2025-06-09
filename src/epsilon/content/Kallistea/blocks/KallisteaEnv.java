@@ -14,7 +14,14 @@ import static epsilon.world.EpsAttribute.infection;
 
 public class KallisteaEnv {
     public static Block
-            crystalF, calciteOre, quartzOre,
+            // testing ones
+            crystalF,
+
+            //misc
+            coreObscurityBrokenBits,
+
+            // ores
+            calciteOre, quartzOre,
 
             //purystal-biome
             purystalErodedFloor, purystalFloor, purystalLightFloor,
@@ -38,6 +45,10 @@ public class KallisteaEnv {
             {
                 // testing blocks
                 crystalF = new Floor("crystal-f", 0);
+
+                // misc
+                coreObscurityBrokenBits = new Prop("core-obscurity-broken-bits"){{variants=2;breakable=false;}};
+
 
                 // ores
                 calciteOre = new OreBlock("calcite-ore", KallisteaItems.calcite){{variants = 6;}};
