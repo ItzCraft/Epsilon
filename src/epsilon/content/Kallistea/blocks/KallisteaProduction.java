@@ -37,6 +37,7 @@ public class KallisteaProduction{
             rotateSpeed = 1.25f;
             tier = 3;
             squareSprite = false;
+            researchCostMultiplier = 0.1f;
         }};
         breakerDrill = new ConfigurableDrill("breaker-drill"){{
             requirements(Category.production, with(KallisteaItems.calcite, 145, KallisteaItems.quartz, 90, KallisteaItems.fylion, 70));
@@ -59,6 +60,7 @@ public class KallisteaProduction{
             damageEff = 7;
             itemCapacity = 25;
             consumePower(1.33f);
+            researchCostMultiplier = 0.25f;
         }};
         thermalDilatationDrill = new HeatDrill("thermal-dilatation-drill"){{
             requirements(Category.production, with(KallisteaItems.calcite, 210, KallisteaItems.quartz, 190, KallisteaItems.anveiur, 110, KallisteaItems.magnetite, 95));
