@@ -21,18 +21,18 @@ public class KallisteaTechTree {
         EpsilonPlanets.kallistea.techTree = nodeRoot("kallistea", KallisteaStorage.coreObscurity, () -> {
             node(KallisteaItems.gelionyte, Seq.with(new Objectives.Research(KallisteaItems.gelionyte)), () -> {
                node(KallisteaItems.calcite, Seq.with(new Objectives.Produce(KallisteaItems.calcite)), () ->{
-                  /*node(KallisteaItems.quartz, () -> {
-                        node(KallisteaItems.fylion, () -> {
-                            node(KallisteaItems.magnetite, () -> {
-                               node(KallisteaItems.tantalum, () -> {
-                                  node(KallisteaItems.anveiur, () -> {
+                  node(KallisteaItems.quartz, Seq.with(new Objectives.Produce(KallisteaItems.quartz)), () -> {
+                        node(KallisteaItems.fylion, Seq.with(new Objectives.Produce(KallisteaItems.fylion)), () -> {
+                            node(KallisteaItems.magnetite, Seq.with(new Objectives.Produce(KallisteaItems.magnetite)), () -> {
+                               node(KallisteaItems.tantalum, Seq.with(new Objectives.Produce(KallisteaItems.tantalum)), () -> {
+                                  node(KallisteaItems.anveiur, Seq.with(new Objectives.Produce(KallisteaItems.anveiur)), () -> {
 
                                   });
                                });
                             });
                         });
                    });
-                  node(KallisteaItems.redSand);*/
+                  node(KallisteaItems.redSand, Seq.with(new Objectives.Produce(KallisteaItems.redSand)), () -> {});
                });
             });
             node(KallisteaDistribution.transmittingBridge, () -> {
