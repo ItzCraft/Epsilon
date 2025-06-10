@@ -34,6 +34,7 @@ public class KallisteaStorage{
             fogRadius = 5;
             unitType = KallisteaUnitTypes.penumbraStarter;
             alwaysUnlocked = true;
+            requiresCoreZone = false;
         }};
     }
 }
