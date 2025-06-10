@@ -8,5 +8,6 @@ public class EpsStats {
           infection = new Stat("infection"),
           efficiency1 = new Stat("efficiency-1", StatCat.general), 
           efficiency2 = new Stat("efficiency-2", StatCat.general),
-          efficiency3 = new Stat("efficiency-3", StatCat.general);
+          efficiency3 = new Stat("efficiency-3", StatCat.general),
+          requirements = new Stat("requirementsMission", StatCat.general);
 }

@@ -1,0 +1,16 @@
+package epsilon.content.Kallistea;
+
+import epsilon.type.EpsilonSectorPreset;
+
+public class KallisteaSectorPresets {
+    public static EpsilonSectorPreset firstRiddles;
+
+    public static void load(){
+        firstRiddles = new EpsilonSectorPreset("first-riddles", EpsilonPlanets.kallistea, 13){{
+           alwaysUnlocked = true;
+           difficulty = 1;
+           overrideLaunchDefaults = true;
+           captureWave = 2;
+        }};
+    }
+}

@@ -23,6 +23,7 @@ public class KallisteaStorage{
             landDuration = 100f;
             fogRadius = 5;
             unitType = KallisteaUnitTypes.penumbraStarter;
+            alwaysReplace = true;
         }};
         coreObscurity = new EpsilonCoreBlock("core-obscurity"){{
             requirements(Category.effect, with(KallisteaItems.calcite, 120, KallisteaItems.gelionyte, 40));
@@ -30,7 +31,9 @@ public class KallisteaStorage{
             size = 4;
             itemCapacity = 1450;
             isFirstTier = true;
+            fogRadius = 5;
             unitType = KallisteaUnitTypes.penumbraStarter;
+            alwaysUnlocked = true;
         }};
     }
 }

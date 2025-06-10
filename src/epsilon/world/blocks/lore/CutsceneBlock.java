@@ -19,7 +19,7 @@ import static epsilon.EpsilonVars.*;
 public class CutsceneBlock extends MessageBlock{
     public CutsceneBlock(String name){
         super(name);
-        privileged = true;
+        privileged = false;
         maxTextLength = 5000;
         maxNewlines = 200;
         configurable = true;

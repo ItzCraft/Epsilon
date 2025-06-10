@@ -1,0 +1,59 @@
+package epsilon.content.Kallistea;
+
+import arc.struct.*;
+import epsilon.EpsilonVars;
+import epsilon.content.Kallistea.blocks.*;
+import epsilon.game.EpsObjectives;
+import mindustry.game.Objectives;
+import mindustry.type.Item;
+
+import static epsilon.content.Kallistea.KallisteaSectorPresets.*;
+import static mindustry.Vars.content;
+import static mindustry.content.TechTree.*;
+
+public class KallisteaTechTree {
+    public static void load(){
+        var costMultipliers = new ObjectFloatMap<Item>();
+        for(var item : content.items()) costMultipliers.put(item, 0.9f);
+
+        costMultipliers.put(KallisteaItems.gelionyte, 0.3f);
+
+        EpsilonPlanets.kallistea.techTree = nodeRoot("kallistea", KallisteaStorage.coreObscurity, () -> {
+            node(KallisteaItems.gelionyte, Seq.with(new Objectives.Research(KallisteaItems.gelionyte)), () -> {
+               node(KallisteaItems.calcite, Seq.with(new Objectives.Produce(KallisteaItems.calcite)), () ->{
+                  /*node(KallisteaItems.quartz, () -> {
+                        node(KallisteaItems.fylion, () -> {
+                            node(KallisteaItems.magnetite, () -> {
+                               node(KallisteaItems.tantalum, () -> {
+                                  node(KallisteaItems.anveiur, () -> {
+
+                                  });
+                               });
+                            });
+                        });
+                   });
+                  node(KallisteaItems.redSand);*/
+               });
+            });
+            node(KallisteaDistribution.transmittingBridge, () -> {
+                node(KallisteaDistribution.transmittingJunction, () -> {
+                   node(KallisteaDistribution.transmittingRouter, () -> {
+                      node(KallisteaDistribution.transmittingSorter);
+                      node(KallisteaDistribution.transmittingOverflowGate, () -> {
+                          node(KallisteaDistribution.transmittingUnderflowGate);
+                      });
+                   });
+                });
+            });
+            node(KallisteaProduction.pitMiningRig, Seq.with(new EpsObjectives.OnVars(EpsilonVars.hideWarnDialog, KallisteaSectorPresets.firstRiddles)),() -> {
+               node(KallisteaProduction.breakerDrill);
+            });
+            node(KallisteaSectorPresets.firstRiddles, Seq.with(new Objectives.OnSector(firstRiddles)), () -> {
+
+            });
+            node(Missions.mission1, Seq.with(new Objectives.SectorComplete(firstRiddles)), () -> {
+
+            });
+        });
+    }
+}

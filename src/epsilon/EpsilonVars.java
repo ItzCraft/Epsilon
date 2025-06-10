@@ -1,11 +1,14 @@
 package epsilon;
 
 import arc.Core;
+import epsilon.content.Kallistea.EpsTeams;
 import epsilon.cutscenes.*;
+import mindustry.Vars;
 
 public class EpsilonVars{
     //will the warn dialog be displayed
     public static boolean  hideWarnDialog = Core.settings.getBool("hide-warn-dialog");
+    public static boolean mission1 = false;
 
     public static EpsCore core;
     public static CutsceneControl cutsceneControl;

@@ -1,11 +1,9 @@
 package epsilon.content.Kallistea;
 
 import arc.graphics.Color;
+import epsilon.content.Kallistea.blocks.KallisteaStorage;
 import epsilon.planet.KallisteaPlanetGenerator;
-import mindustry.graphics.g3d.HexMesh;
-import mindustry.graphics.g3d.MultiMesh;
-import mindustry.graphics.g3d.NoiseMesh;
-import mindustry.graphics.g3d.SunMesh;
+import mindustry.graphics.g3d.*;
 import mindustry.maps.planet.SerpuloPlanetGenerator;
 import mindustry.type.Planet;
 
@@ -33,16 +31,36 @@ public class EpsilonPlanets{
         kallistea = new Planet("kallistea", epsilon, 0.82f, 1){{
             accessible = true;
             hasAtmosphere = true;
+            landCloudColor = Color.valueOf("6a7d9e");
             atmosphereColor = Color.valueOf("7d1bb3");
             atmosphereRadIn = 0;
             atmosphereRadOut = 0.1f;
             orbitRadius = 40f;
+            iconColor = Color.valueOf("891dcc");
             solarSystem = epsilon;
-            alwaysUnlocked = allowLaunchLoadout = allowLaunchSchematics = clearSectorOnLose = true;
+            alwaysUnlocked = clearSectorOnLose = true;
+            allowLaunchLoadout = allowLaunchSchematics = false;
+            defaultCore = KallisteaStorage.coreObscurity;
+            ruleSetter = r -> {
+              r.defaultTeam = EpsTeams.ganieris;
+              r.waveTeam = EpsTeams.incers;
+              r.lighting = false;
+              r.fog = true;
+              r.staticFog = true;
+              r.onlyDepositCore = true;
+            };
+            allowLaunchToNumbered = false;
+            updateLighting = true;
+            campaignRuleDefaults.fog = true;
+            startSector = 13;
             minZoom = 0.75f;
             generator = new KallisteaPlanetGenerator();
             meshLoader = () -> new MultiMesh(
                     new HexMesh(this, 7)
+            );
+            cloudMeshLoader = () -> new MultiMesh(
+                    new HexSkyMesh(this, 59, 2.7f, 0.1f, 5, Color.valueOf("6a7d9e").a(0.95f), 3, 0.42f, 1f, 0.43f),
+                    new HexSkyMesh(this, 1, 2f, 0.16f, 5, Color.valueOf("253785").a(0.55f), 3, 0.42f, 1.2f, 0.45f)
             );
         }};
 
@@ -52,7 +70,7 @@ public class EpsilonPlanets{
             atmosphereColor = Color.valueOf("a9b0d1");
             atmosphereRadIn = 0;
             atmosphereRadOut = 0.1f;
-            orbitRadius = 115f;
+            orbitRadius = 85f;
             solarSystem = epsilon;
             alwaysUnlocked = allowLaunchLoadout = allowLaunchSchematics = clearSectorOnLose = true;
             generator = new SerpuloPlanetGenerator();

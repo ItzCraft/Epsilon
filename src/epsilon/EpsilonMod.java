@@ -55,6 +55,9 @@
             KallisteaUnitTypes.load();
             KallisteaBlocks.load();
             EpsilonPlanets.load();
+            KallisteaSectorPresets.load();
+            Missions.load();
+            KallisteaTechTree.load();
         }
 
         private void loadESSD(){
