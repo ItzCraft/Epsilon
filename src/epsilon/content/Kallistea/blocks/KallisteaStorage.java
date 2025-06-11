@@ -33,7 +33,6 @@ public class KallisteaStorage{
             health = 1475;
             size = 4;
             itemCapacity = 1450;
-            isFirstTier = true;
             fogRadius = 5;
             unitType = KallisteaUnitTypes.penumbraStarter;
             captureInvicibility = 5f;
