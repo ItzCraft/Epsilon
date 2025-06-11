@@ -21,6 +21,7 @@ public class KallisteaDistribution{
             itemCapacity = 3;
             range = 2;
             researchCostMultiplier = 0.45f;
+            requiresCoreZone = false;
         }};
         transmittingJunction = new Junction("transmitting-junction"){{
             requirements(Category.distribution, with(KallisteaItems.calcite, 2));
