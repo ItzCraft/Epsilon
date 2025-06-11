@@ -22,7 +22,7 @@ public class KallisteaUnitTypes{
             canBoost = true;
             boostMultiplier = 1.3f;
             health = 200;
-            speed = 0.6f;
+            speed = 1f;
             buildSpeed = 1.2f;
             armor = 2f;
             riseSpeed = 0.05f;

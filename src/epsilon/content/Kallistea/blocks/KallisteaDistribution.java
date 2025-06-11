@@ -1,9 +1,9 @@
 package epsilon.content.Kallistea.blocks;
 
+import epsilon.world.blocks.distribution.EpsDuctBridge;
 import mindustry.world.Block;
 import mindustry.world.blocks.distribution.*;
 import mindustry.type.Category;
-import mindustry.type.ItemStack;
 import epsilon.content.Kallistea.KallisteaItems;
 
 import static mindustry.type.ItemStack.with;
@@ -13,7 +13,7 @@ public class KallisteaDistribution{
     transmittingBridge, transmittingJunction, transmittingRouter, transmittingSorter, transmittingOverflowGate, transmittingUnderflowGate;
 
     public static void load(){
-        transmittingBridge = new DuctBridge("transmitting-bridge"){{
+        transmittingBridge = new EpsDuctBridge("transmitting-bridge"){{
             requirements(Category.distribution, with(KallisteaItems.calcite, 1));
             size = 1;
             health = 20;
@@ -21,7 +21,6 @@ public class KallisteaDistribution{
             itemCapacity = 3;
             range = 2;
             researchCostMultiplier = 0.45f;
-            requiresCoreZone = false;
         }};
         transmittingJunction = new Junction("transmitting-junction"){{
             requirements(Category.distribution, with(KallisteaItems.calcite, 2));

@@ -7,6 +7,7 @@ import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import epsilon.content.Kallistea.KallisteaItems;
 import epsilon.world.blocks.storage.*;
+import mindustry.world.meta.BuildVisibility;
 
 import static mindustry.type.ItemStack.with;
 
@@ -16,14 +17,16 @@ public class KallisteaStorage{
 
     public static void load(){
         coreObscurityBroken = new CoreBlock("core-obscurity-broken"){{
-            requirements(Category.effect, /*BuildVisibility.editorOnly,*/ with(KallisteaItems.calcite, 120, KallisteaItems.gelionyte, 40));
+            requirements(Category.effect, BuildVisibility.editorOnly, with(KallisteaItems.calcite, 120, KallisteaItems.gelionyte, 40));
             health = 1475;
             size = 4;
             itemCapacity = 828;
             landDuration = 100f;
             fogRadius = 5;
             unitType = KallisteaUnitTypes.penumbraStarter;
+            captureInvicibility = 5f;
             alwaysReplace = true;
+            requiresCoreZone = false;
         }};
         coreObscurity = new EpsilonCoreBlock("core-obscurity"){{
             requirements(Category.effect, with(KallisteaItems.calcite, 120, KallisteaItems.gelionyte, 40));
@@ -33,6 +36,7 @@ public class KallisteaStorage{
             isFirstTier = true;
             fogRadius = 5;
             unitType = KallisteaUnitTypes.penumbraStarter;
+            captureInvicibility = 5f;
             alwaysUnlocked = true;
             requiresCoreZone = false;
         }};
