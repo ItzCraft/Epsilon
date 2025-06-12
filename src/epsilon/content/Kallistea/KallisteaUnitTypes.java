@@ -10,10 +10,12 @@ import mindustry.entities.effect.*;
 import mindustry.gen.*;
 import mindustry.type.*;
 
+import static mindustry.content.Fx.none;
+
 public class KallisteaUnitTypes{
     public static UnitType
     // core
-    penumbraStarter;
+    penumbraStarter, sporacrawler, mycelist, fluorofang;
     public static void load(){
         penumbraStarter = new UnitType("penumbra-starter"){{
             outlineColor= Color.valueOf("2f2726");
@@ -68,6 +70,54 @@ public class KallisteaUnitTypes{
                     }};
                 }};
             }});
+        }};
+
+
+        // fenspor region
+        // spiders
+        sporacrawler = new UnitType("sporacrawler"){{
+            constructor = LegsUnit::create;
+            health = 300;
+            speed = 1.6f;
+            singleTarget = true;
+            faceTarget = true;
+            armor = 0;
+            rotateSpeed = 2.5f;
+            legStraightness = 0.7f;
+            legContinuousMove = true;
+            lockLegBase = true;
+            legGroupSize = 3;
+            legCount = 3;
+            legExtension = -1.5f;
+            legLength = 16f;
+            legSpeed = 0.5f;
+            legForwardScl = 0.8f;
+            legMoveSpace = 1f;
+            weapons.add(new Weapon("sporacrawler-rot"){{
+               top = false;
+               mirror = false;
+               reload = 30;
+               bullet = new BulletType(){{
+                   x = 0.5f;
+                   damage = 25;
+                   lifetime = 5;
+                   speed = 0.5f;
+                   shootEffect = none;
+                   hitEffect = new ParticleEffect(){{
+                       particles = 5;
+                       lifetime = 20f;
+                       length = 35f;
+                       baseLength = 0f;
+                       cone = 360;
+                       colorFrom = Color.valueOf("6ea7ba");
+                       colorTo = Color.valueOf("3e6187");
+                       sizeFrom = 7;
+                       sizeTo = 0;
+                       interp = Interp.pow2;
+                       sizeInterp = Interp.pow2Out;
+                   }};
+               }};
+           }});
         }};
     }
 }

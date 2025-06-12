@@ -7,6 +7,7 @@ import epsilon.content.Kallistea.KallisteaItems;
 import epsilon.world.blocks.environment.*;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
+import mindustry.world.meta.Attribute;
 
 import static mindustry.type.ItemStack.with;
 import static epsilon.world.EpsAttribute.infection;
@@ -142,7 +143,7 @@ public class KallisteaEnv {
                 meraporaMenhir = new Prop("merapora-menhir"){{variants = 2; breakable = false; meraporaFloor.asFloor().decoration = this;}};
 
                 // THERMAL BIOME
-                miniVulcan = new Vulcan("mini-vulcan"){{variants = 2; parent = blendGroup = meraporaFloor;}};
+                miniVulcan = new Vulcan("mini-vulcan"){{variants = 2; parent = blendGroup = meraporaFloor; attributes.set(Attribute.heat, 0.65f);}};
             }
         }
     }

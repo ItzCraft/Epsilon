@@ -1,0 +1,30 @@
+package epsilon.planet;
+
+import arc.graphics.*;
+import arc.math.*;
+import arc.math.geom.*;
+import arc.util.Tmp;
+import arc.util.noise.*;
+import epsilon.content.Kallistea.blocks.KallisteaEnv;
+import mindustry.content.Blocks;
+import mindustry.maps.generators.PlanetGenerator;
+import mindustry.world.Block;
+
+public class EryphosPlanetGenerator extends PlanetGenerator {
+    public float heightScl = 1.3f, octaves = 7, persistence = 0.5f, heightPow = 2.5f, heightMult = 1.15f;
+
+    @Override
+    public float getHeight(Vec3 position){
+        return Mathf.pow(rawHeight(position), heightPow) * heightMult;
+    }
+
+    float rawHeight(Vec3 position){
+        return Simplex.noise3d(seed, octaves, persistence, 1f/heightScl, 10f + position.x, 10f + position.y, 10f + position.z);
+    }
+
+    @Override
+    public Color getColor(Vec3 position){
+        Block block = rawHeight(position) < 0.4f ? Blocks.snow : rawHeight(position) < 0.5f ? Blocks.iceSnow : rawHeight(position) < 0.6f ? Blocks.redIce : Blocks.ice;
+        return Tmp.c1.set(block.mapColor).a(1f - block.albedo);
+    }
+}

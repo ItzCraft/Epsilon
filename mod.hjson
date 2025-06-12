@@ -1,11 +1,11 @@
 displayName: "Epsilon"
 name: "epsilon"
 repo: "ItzCraft/Epsilon"
-author: "ItzCraft \n Helpers: Nahan, AnDashik :3"
+author: "Coders: ItzCraft, AnDashik, Thrster(Decaract) \n\nSprites: Nahan, Ace \n\n Music compositor: Ace"
 main: "epsilon.EpsilonMod"
-description: "A mod that main focus - lore"
-subtitle: "v0.1.2"
-version: 0.1.2
+description: "A mod which introduces actually unique STORY based campaign. Main goal of this mod - show that lore based mods can be good too. \n\nWith story gameplay it introduces to you some new mechanics."
+subtitle: "v0.1.8"
+version: 0.1.8
 minGameVersion: 147
 java: true
 hideBrowser: true
