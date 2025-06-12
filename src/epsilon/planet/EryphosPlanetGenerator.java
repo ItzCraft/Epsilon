@@ -11,7 +11,7 @@ import mindustry.maps.generators.PlanetGenerator;
 import mindustry.world.Block;
 
 public class EryphosPlanetGenerator extends PlanetGenerator {
-    public float heightScl = 1.3f, octaves = 7, persistence = 0.5f, heightPow = 2.5f, heightMult = 1.15f;
+    public float heightScl = 1.3f, octaves = 7, persistence = 0.55f, heightPow = 2.5f, heightMult = 1.15f;
 
     @Override
     public float getHeight(Vec3 position){

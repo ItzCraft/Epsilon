@@ -59,7 +59,7 @@ public class KallisteaEnv {
                 //PURYSTAL BIOME
                 // floors
                 purystalErodedFloor = new Floor("purystal-eroded-floor", 6);
-                purystalFloor = new Floor("purystal-floor", 6);
+                purystalFloor = new Floor("purystal-floor", 6){{this.albedo = 0.35f;}};
                 purystalLightFloor = new Floor("purystal-light-floor", 6);
 
                 // walls
@@ -124,7 +124,7 @@ public class KallisteaEnv {
 
                 // MERAPORA BIOME
                 // floors
-                meraporaFloor = new Floor("merapora-floor", 6){{itemDrop = KallisteaItems.redSand;}};
+                meraporaFloor = new Floor("merapora-floor", 6){{itemDrop = KallisteaItems.redSand; this.albedo = 0.5f;}};
                 meraporaVent = new SteamVent("merapora-vent"){{variants= 2; parent = blendGroup = meraporaFloor;}};
                 meraporaFensporFloor = new Floor("merapora-fenspor-floor", 6);
                 meraporaFensporVent = new SteamVent("merapora-fenspor-vent"){{variants= 2; parent = blendGroup = meraporaFensporFloor;
