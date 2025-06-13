@@ -6,6 +6,7 @@ import arc.math.Rand;
 import arc.math.geom.Mat3D;
 import arc.util.Tmp;
 import arc.struct.Seq;
+import epsilon.EpsilonVars;
 import epsilon.content.Kallistea.blocks.KallisteaEnv;
 import epsilon.content.Kallistea.blocks.KallisteaStorage;
 import epsilon.planet.*;
@@ -90,6 +91,8 @@ public class EpsilonPlanets{
             );
         }};
 
+
+        if(EpsilonVars.detailedSolarSystem){
         eryphos = new Planet("eryphos", epsilon, 1.75f, 1){{
             accessible = false;
             hasAtmosphere = true;
@@ -163,6 +166,7 @@ public class EpsilonPlanets{
         larita = makeAsteroid("larita", epsilon, KallisteaEnv.gelionyteCluster, KallisteaEnv.eadstonWallFenspor, 827, 0.63f, 7, 0.04f, gen -> {
            gen.iceChance = 1.42f;
         });
+        }
     }
     private static Planet makeAsteroid(String name, Planet parent, Block base, Block tint, int seed, float tintThresh, int pieces, float scale, Cons<AsteroidGenerator> cgen) {
         return new Planet(name, parent, 0.12f) {{
