@@ -8,6 +8,7 @@
     import epsilon.ui.dialogs.AboutEpsilonDialog;
     import epsilon.ui.TeamsUI;
     import epsilon.world.EpsAttribute;
+    import epsilon.logic.EpsilonLogic;
     import mindustry.*;
     import mindustry.content.*;
     import mindustry.game.EventType.*;
@@ -58,6 +59,7 @@
             KallisteaSectorPresets.load();
             Missions.load();
             KallisteaTechTree.load();
+            EpsilonLogic.init();
         }
 
         private void loadESSD(){
