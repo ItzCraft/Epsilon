@@ -52,7 +52,6 @@ public class ConfigurableDrill extends Drill{
                 if(reloadTime <= 0 && health > 0 && efficiency > 0){
                     this.damage(damageEff*efficiency3);
                     reloadTime = damageReload;
-                    Log.info("If n2 works"); 
                 }
             } else if(eff2 && !eff3 && !eff1){
                 drillTime = oldDrillTime * efficiency2;
@@ -60,7 +59,6 @@ public class ConfigurableDrill extends Drill{
                 if(reloadTime <= 0 && health > 0 && efficiency > 0){
                     this.damage(damageEff*efficiency2);
                     reloadTime = damageReload;
-                    Log.info("If works"); 
                }
             } else{
                   drillTime = oldDrillTime * efficiency3;

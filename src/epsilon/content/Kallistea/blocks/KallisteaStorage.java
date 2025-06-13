@@ -7,6 +7,9 @@ import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import epsilon.content.Kallistea.KallisteaItems;
 import epsilon.world.blocks.storage.*;
+import mindustry.world.draw.DrawCrucibleFlame;
+import mindustry.world.draw.DrawDefault;
+import mindustry.world.draw.DrawMulti;
 import mindustry.world.meta.BuildVisibility;
 
 import static mindustry.type.ItemStack.with;
@@ -16,7 +19,7 @@ public class KallisteaStorage{
     coreObscurityBroken, coreObscurity;
 
     public static void load(){
-        coreObscurityBroken = new CoreBlock("core-obscurity-broken"){{
+        coreObscurityBroken = new BrokenCoreBlock("core-obscurity-broken"){{
             requirements(Category.effect, BuildVisibility.editorOnly, with(KallisteaItems.calcite, 120, KallisteaItems.gelionyte, 40));
             health = 1475;
             size = 4;
@@ -24,9 +27,35 @@ public class KallisteaStorage{
             landDuration = 100f;
             fogRadius = 5;
             unitType = KallisteaUnitTypes.penumbraStarter;
-            captureInvicibility = 5f;
+            captureInvicibility = 1f;
             alwaysReplace = true;
             requiresCoreZone = false;
+            drawer = new DrawMulti(
+                    new DrawDefault(),
+                    new DrawCrucibleFlame(){{
+                        circleSpace = 0f;
+                        circleStroke = 2;
+                        particleRad = 5f;
+                        rotateScl = 0.5f;
+                        flameRad = 6f;
+                        flameRadiusMag = 2f;
+                    }},
+                    new DrawCrucibleFlame(){{
+                        circleSpace = 0f;
+                        circleStroke = 2;
+                        particleRad = 5f;
+                        rotateScl = 0.5f;
+                        flameRad = 5f;
+                    }},
+                    new DrawCrucibleFlame(){{
+                        circleSpace = 0;
+                        circleStroke = 2;
+                        particleRad = 6f;
+                        rotateScl = 0.6f;
+                        flameRad = 5f;
+                    }}
+
+            );
         }};
         coreObscurity = new EpsilonCoreBlock("core-obscurity"){{
             requirements(Category.effect, with(KallisteaItems.calcite, 120, KallisteaItems.gelionyte, 40));
