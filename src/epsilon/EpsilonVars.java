@@ -8,6 +8,9 @@ import mindustry.Vars;
 public class EpsilonVars{
     //will the warn dialog be displayed
     public static boolean  hideWarnDialog = Core.settings.getBool("hide-warn-dialog");
+
+    // if false, only kallistea and epsilon will appear 
+    public static boolean  detailedSolarSystem = Core.settings.getBool("detailed-solar-system");
     public static boolean mission1 = false;
 
     public static EpsCore core;
