@@ -19,7 +19,7 @@ public class KallisteaProduction{
     //drills
     pitMiningRig, breakerDrill, thermalDilatationDrill,
     //crafting
-    fylionSmelter, tantalumSynthesizer, anveiurForge, sandFilter;
+    fylionSmelter, tantalumSynthesizer, anveiurForge, sandFilter, ozoneChamber;
 
     public static void load(){
         //drills
@@ -51,6 +51,7 @@ public class KallisteaProduction{
                         colorFrom = Color.valueOf("3c8249");
                         colorTo = Color.valueOf("a2dead");
                         sizeTo = 45;
+                        interp = Interp.sineOut;
                     }},
                     Fx.greenCloud
             );
@@ -170,6 +171,20 @@ public class KallisteaProduction{
            maxEfficiency = 1.5f;
            craftTime = 110;
            outputItems = with(KallisteaItems.quartz, 1, KallisteaItems.magnetite, 1);
+        }};
+        ozoneChamber = new GenericCrafter("ozone-chamber"){{
+           requirements(Category.crafting, with(KallisteaItems.calcite, 100, KallisteaItems.fylion, 85, KallisteaItems.gelionyte, 15));
+           health = 530;
+           size = 4;
+           squareSprite = false;
+           buildCostMultiplier = 0.35f;
+           hasPower = true;
+           hasLiquids = true;
+           liquidCapacity = 100f;
+           consumePower(3.7f);
+           craftTime = 100f;
+           liquidOutputDirections = new int[]{1, 3};
+           outputLiquid = new LiquidStack(Liquids.ozone, 0.7f);
         }};
     } 
 }

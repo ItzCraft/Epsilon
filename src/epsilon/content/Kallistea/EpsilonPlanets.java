@@ -93,79 +93,79 @@ public class EpsilonPlanets{
 
 
         if(EpsilonVars.detailedSolarSystem){
-        eryphos = new Planet("eryphos", epsilon, 1.75f, 1){{
-            accessible = false;
-            hasAtmosphere = true;
-            atmosphereColor = Color.valueOf("929dd1");
-            atmosphereRadIn = 0f;
-            atmosphereRadOut = 3f;
-            orbitTime = 60f*47f;
-            orbitRadius = 85f;
-            rotateTime = 60f*836f;
-            solarSystem = epsilon;
-            updateLighting = true;
-            alwaysUnlocked = allowLaunchLoadout = allowLaunchSchematics = clearSectorOnLose = true;
-            generator = new EryphosPlanetGenerator();
-            meshLoader = () -> new MultiMesh(
-                    new HexMesh(this, 7)
-            );
-        }};
-        keraunos = new Planet("keraunos", epsilon, 2.75f, 1){{
-           accessible = false;
-           hasAtmosphere = true;
-           atmosphereColor = Color.valueOf("a6eb81");
-           atmosphereRadIn = 0f;
-           atmosphereRadOut = 6f;
-           minZoom = 6f;
-           solarSystem = epsilon;
-           orbitRadius = 110f;
-           orbitTime = 60f*70f;
-           rotateTime = 60f*6f;
-           alwaysUnlocked = true;
-           generator = new ErekirPlanetGenerator();
-           meshLoader = () -> new MultiMesh(
-                    new HexMesh(this, 7)
-           );
-           cloudMeshLoader = () -> new MultiMesh(
-                    new HexSkyMesh(this, 12, 7.7f, 2.26f, 5, Color.valueOf("d1c99d").a(0.65f), 6, 0.1f, 2f, 1f),
-                    new HexSkyMesh(this, 22, 5f, 2.36f, 5, Color.valueOf("bab66e").a(0.65f), 6, 0.1f, 0.2f, 0.565f),
-                   new HexSkyMesh(this, 33, 4.2f, 2.48f, 5, Color.valueOf("75543d").a(0.65f), 6, 0.12f, 0.16f, 0.75f),
-                   new HexSkyMesh(this, 44, 3.1f, 2.51f, 5, Color.valueOf("8c5343").a(0.65f), 6, 0.12f, 0.12f, 0.75f),
-                   new HexSkyMesh(this, 55, 1.74f, 2.56f, 5, Color.valueOf("a63721").a(0.65f), 6, 0.12f, 0.19f, 0.75f)
-                   );
-        }};
+            eryphos = new Planet("eryphos", epsilon, 1.75f, 1){{
+                accessible = false;
+                hasAtmosphere = true;
+                atmosphereColor = Color.valueOf("929dd1");
+                atmosphereRadIn = 0f;
+                atmosphereRadOut = 3f;
+                orbitTime = 60f*47f;
+                orbitRadius = 85f;
+                rotateTime = 60f*836f;
+                solarSystem = epsilon;
+                updateLighting = true;
+                alwaysUnlocked = allowLaunchLoadout = allowLaunchSchematics = clearSectorOnLose = true;
+                generator = new EryphosPlanetGenerator();
+                meshLoader = () -> new MultiMesh(
+                        new HexMesh(this, 7)
+                );
+            }};
+            keraunos = new Planet("keraunos", epsilon, 2.75f, 1){{
+               accessible = false;
+               hasAtmosphere = true;
+               atmosphereColor = Color.valueOf("a6eb81");
+               atmosphereRadIn = 0f;
+               atmosphereRadOut = 6f;
+               minZoom = 6f;
+               solarSystem = epsilon;
+               orbitRadius = 110f;
+               orbitTime = 60f*70f;
+               rotateTime = 60f*6f;
+               alwaysUnlocked = true;
+               generator = new ErekirPlanetGenerator();
+               meshLoader = () -> new MultiMesh(
+                        new HexMesh(this, 7)
+               );
+               cloudMeshLoader = () -> new MultiMesh(
+                        new HexSkyMesh(this, 12, 7.7f, 2.26f, 5, Color.valueOf("d1c99d").a(0.65f), 6, 0.1f, 2f, 1f),
+                        new HexSkyMesh(this, 22, 5f, 2.36f, 5, Color.valueOf("bab66e").a(0.65f), 6, 0.1f, 0.2f, 0.565f),
+                       new HexSkyMesh(this, 33, 4.2f, 2.48f, 5, Color.valueOf("75543d").a(0.65f), 6, 0.12f, 0.16f, 0.75f),
+                       new HexSkyMesh(this, 44, 3.1f, 2.51f, 5, Color.valueOf("8c5343").a(0.65f), 6, 0.12f, 0.12f, 0.75f),
+                       new HexSkyMesh(this, 55, 1.74f, 2.56f, 5, Color.valueOf("a63721").a(0.65f), 6, 0.12f, 0.19f, 0.75f)
+                       );
+            }};
 
 
-        // region moons
+            // region moons
 
 
-        // region asteroids
-        veraunius = makeAsteroid("verainius", epsilon, KallisteaEnv.gelionyticWall, Blocks.ice, 34, 0.6f, 3, 1.3f, gen -> {
-           gen.iceChance = 0.43f;
-           gen.berylChance = 0.6f;
-           gen.carbonChance = 0.1f;
-           gen.stoneChance = 0.7f;
-        });
-        ardium = makeAsteroid("ardium", epsilon, Blocks.redIce, Blocks.deepwater, 64, 0.2f, 1, 0.1f, gen -> {
-           gen.iceChance = 1f;
-        });
-        kerainius = makeAsteroid("kerainius", epsilon, KallisteaEnv.calciteOre, KallisteaEnv.eadstonWallDeanytic, 21, 0.45f, 5, 0.35f, gen -> {
-            gen.carbonChance = 0.45f;
-            gen.stoneChance = 0.93f;
-        });
-        keraunosB = makeAsteroid("keraunosB", keraunos, Blocks.sand, KallisteaEnv.meraporaWall, 12, 0.2f, 4,0.1f,gen -> {
-           gen.stoneChance = 0.53f;
-           gen.berylChance = 0.21f;
-           gen.carbonChance = 0.52f;
-        });
-        keraunosC = makeAsteroid("keraunosC", keraunos, Blocks.arkyciteFloor, Blocks.basalt, 69, 0.15f, 2,0.05f,gen -> {
-            gen.stoneChance = 0.33f;
-            gen.berylChance = 0.71f;
-            gen.carbonChance = 0.12f;
-        });
-        larita = makeAsteroid("larita", epsilon, KallisteaEnv.gelionyteCluster, KallisteaEnv.eadstonWallFenspor, 827, 0.63f, 7, 0.04f, gen -> {
-           gen.iceChance = 1.42f;
-        });
+            // region asteroids
+            veraunius = makeAsteroid("verainius", epsilon, KallisteaEnv.gelionyticWall, Blocks.ice, 34, 0.6f, 3, 1.3f, gen -> {
+               gen.iceChance = 0.43f;
+               gen.berylChance = 0.6f;
+               gen.carbonChance = 0.1f;
+               gen.stoneChance = 0.7f;
+            });
+            ardium = makeAsteroid("ardium", epsilon, Blocks.redIce, Blocks.deepwater, 64, 0.2f, 1, 0.1f, gen -> {
+               gen.iceChance = 1f;
+            });
+            kerainius = makeAsteroid("kerainius", epsilon, KallisteaEnv.calciteOre, KallisteaEnv.eadstonWallDeanytic, 21, 0.45f, 5, 0.35f, gen -> {
+                gen.carbonChance = 0.45f;
+                gen.stoneChance = 0.93f;
+            });
+            keraunosB = makeAsteroid("keraunosB", keraunos, Blocks.sand, KallisteaEnv.meraporaWall, 12, 0.2f, 4,0.1f,gen -> {
+               gen.stoneChance = 0.53f;
+               gen.berylChance = 0.21f;
+               gen.carbonChance = 0.52f;
+            });
+            keraunosC = makeAsteroid("keraunosC", keraunos, Blocks.arkyciteFloor, Blocks.basalt, 69, 0.15f, 2,0.05f,gen -> {
+                gen.stoneChance = 0.33f;
+                gen.berylChance = 0.71f;
+                gen.carbonChance = 0.12f;
+            });
+            larita = makeAsteroid("larita", epsilon, KallisteaEnv.gelionyteCluster, KallisteaEnv.eadstonWallFenspor, 827, 0.63f, 7, 0.04f, gen -> {
+               gen.iceChance = 1.42f;
+            });
         }
     }
     private static Planet makeAsteroid(String name, Planet parent, Block base, Block tint, int seed, float tintThresh, int pieces, float scale, Cons<AsteroidGenerator> cgen) {
