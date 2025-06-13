@@ -70,6 +70,7 @@
         private void loadSettings(){
             ui.settings.addCategory(bundle.get("settings.epsilon-title"), Icon.book, t -> {
                 t.checkPref("hide-warn-dialog", false);
+                t.checkPref("detailed-solar-system",false);
             });
         }
 
