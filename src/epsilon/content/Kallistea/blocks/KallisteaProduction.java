@@ -17,7 +17,7 @@ import static mindustry.type.ItemStack.with;
 public class KallisteaProduction{
     public static Block
     //drills
-    pitMiningRig, breakerDrill, thermalDilatationDrill,
+    pitMiningRig, breakerDrill, thermalDilatationDrill, materialBiter,
     //crafting
     fylionSmelter, tantalumSynthesizer, anveiurForge, sandFilter, ozoneChamber;
 
@@ -41,7 +41,7 @@ public class KallisteaProduction{
         }};
         breakerDrill = new ConfigurableDrill("breaker-drill"){{
             requirements(Category.production, with(KallisteaItems.calcite, 145, KallisteaItems.quartz, 90, KallisteaItems.fylion, 70));
-            health = 590;
+            health = 370;
             size = 4;
             drillTime = 1075;
             drillEffect = new MultiEffect(
@@ -65,13 +65,26 @@ public class KallisteaProduction{
         }};
         thermalDilatationDrill = new HeatDrill("thermal-dilatation-drill"){{
             requirements(Category.production, with(KallisteaItems.calcite, 210, KallisteaItems.quartz, 190, KallisteaItems.anveiur, 110, KallisteaItems.magnetite, 95));
-            health = 700;
+            health = 550;
             size = 5;
+            squareSprite = false;
             drillTime = 700;
             tier = 5;
             itemCapacity = 30;
             consumePower(2.5f);
             heatRequirement = 9;
+        }};
+
+        materialBiter = new BeamDrill("material-biter"){{
+            requirements(Category.production, with(KallisteaItems.calcite, 150, KallisteaItems.fylion, 90, KallisteaItems.gelionyte, 10));
+            health = 280;
+            size = 3;
+            squareSprite = false;
+            drillTime = 90;
+            range = 4;
+            tier = 4;
+            itemCapacity = 15;
+            consumePower(3f);
         }};
 
         //crafting
