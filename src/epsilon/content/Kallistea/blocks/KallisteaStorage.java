@@ -33,25 +33,25 @@ public class KallisteaStorage{
             drawer = new DrawMulti(
                     new DrawDefault(),
                     new DrawCrucibleFlame(){{
-                        circleSpace = 0f;
-                        circleStroke = 2;
+                        circleSpace = 0.01f;
+                        circleStroke = 0.01f;
                         particleRad = 5f;
-                        rotateScl = 0.5f;
+                        rotateScl = 1.45f;
                         flameRad = 6f;
                         flameRadiusMag = 2f;
                     }},
                     new DrawCrucibleFlame(){{
                         circleSpace = 0f;
-                        circleStroke = 2;
+                        circleStroke = 0;
                         particleRad = 5f;
-                        rotateScl = 0.5f;
+                        rotateScl = 1.2f;
                         flameRad = 5f;
                     }},
                     new DrawCrucibleFlame(){{
                         circleSpace = 0;
-                        circleStroke = 2;
+                        circleStroke = 0;
                         particleRad = 6f;
-                        rotateScl = 0.6f;
+                        rotateScl = 1f;
                         flameRad = 5f;
                     }}
 
