@@ -24,6 +24,10 @@ public class HeatDrill extends BurstDrill{
     @Override
     public void setBars(){
         super.setBars();
+
+        addBar("drillspeed", (HeatDrillBuild e) ->
+                new Bar(() -> Core.bundle.format("bar.drillspeed", Strings.fixed(e.lastDrillSpeed * 60 * e.timeScale() * (e.heat / heatRequirement), 2)), () -> Pal.ammo, () -> e.warmup));
+
        addBar("heat", (HeatDrillBuild e) ->
                 new Bar(() -> Core.bundle.format("bar.heatpercent", (int)(e.heat + 0.01f), (int)(e.getHeatAmount() * 100)), () -> Pal.lightOrange, () -> e.heat / heatRequirement));
     }
@@ -41,6 +45,8 @@ public class HeatDrill extends BurstDrill{
         @Override
         public void updateTile(){
             heat = calculateHeat(sideHeat);
+            float over = Math.max(heat - heatRequirement, 0f);
+
             if(timer(timerDump, dumpTime)){
                 dump(dominantItem != null && items.has(dominantItem) ? dominantItem : null);
             }
@@ -53,8 +59,8 @@ public class HeatDrill extends BurstDrill{
 
             float delay = getDrillTime(dominantItem);
 
-            if(items.total() < itemCapacity && dominantItems > 0 && efficiency > 0){
-                float speed = Mathf.lerp(1f, liquidBoostIntensity, optionalEfficiency) * efficiency * Math.min(1, heat / heatRequirement);
+            if(items.total() < itemCapacity && dominantItems > 0 && efficiency > 0 && heat > 0.01f){
+                float speed = Mathf.lerp(1f, liquidBoostIntensity, optionalEfficiency) * efficiency * Math.min(Mathf.clamp(heat / heatRequirement) + over / heatRequirement * overheatScale, maxEfficiency);
 
                 lastDrillSpeed = (speed * dominantItems * warmup) / delay;
                 warmup = Mathf.approachDelta(warmup, speed, warmupSpeed);

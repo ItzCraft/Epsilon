@@ -4,6 +4,7 @@ import mindustry.type.Item;
 import mindustry.world.meta.Stat;
 
 public class Mission extends Item {
+    public boolean ARBITRASH;
     public Mission(String name){
         super(name);
     }

@@ -119,5 +119,68 @@ public class KallisteaUnitTypes{
                }};
            }});
         }};
+
+        mycelist = new UnitType("mycelist"){{
+           constructor = LegsUnit::create;
+           health = 850;
+            speed = 1.2f;
+            singleTarget = true;
+            faceTarget = true;
+            armor = 3;
+            rotateSpeed = 2f;
+            legStraightness = 0.8f;
+            legContinuousMove = true;
+            lockLegBase = true;
+            legGroupSize = 6;
+            legCount = 4;
+            legExtension = -1.2f;
+            legLength = 21f;
+            legSpeed = 0.85f;
+            legForwardScl = 0.9f;
+            legMoveSpace = 1.2f;
+            weapons.add(new Weapon("mycelist-rot"){{
+                x = 0.5f;
+                top = false;
+                mirror = false;
+                reload = 75;
+                bullet = new BulletType(){{
+                    damage = 60;
+                    lifetime = 5;
+                    speed = 0.5f;
+                    shootEffect = none;
+                    hitEffect = new ParticleEffect(){{
+                        particles = 5;
+                        lifetime = 20f;
+                        length = 35f;
+                        baseLength = 0f;
+                        cone = 360;
+                        colorFrom = Color.valueOf("6ea7ba");
+                        colorTo = Color.valueOf("3e6187");
+                        sizeFrom = 7;
+                        sizeTo = 0;
+                        interp = Interp.pow2;
+                        sizeInterp = Interp.pow2Out;
+                    }};
+                }};
+                new Weapon("mycelist-gun"){{
+                   top = true;
+                   mirror = false;
+                   x = -2f;
+                   bullet = new BasicBulletType(){{
+                       damage = 75;
+                       lifetime = 60;
+                       speed = 1.5f;
+                       width = 9;
+                       height = 9;
+                       frontColor = Color.valueOf("a7cddb");
+                       backColor = trailColor = Color.valueOf("658f9e");
+                       trailWidth = 1.05f;
+                       trailLength = 3;
+                       trailEffect = Fx.shootSmokeDisperse;
+
+                   }};
+                }};
+            }});
+        }};
     }
 }

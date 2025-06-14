@@ -1,29 +1,30 @@
 package epsilon.game;
 
 import arc.Core;
+import epsilon.EpsilonVars;
 import epsilon.type.EpsilonSectorPreset;
 import mindustry.game.Objectives;
 
 public class EpsObjectives {
     public static class OnVars implements Objectives.Objective {
-        public boolean var;
-        public EpsilonSectorPreset sector;
+        public String var;
+        public EpsilonSectorPreset preset;
 
-        public OnVars(boolean var, EpsilonSectorPreset sector){
+        public OnVars(String var, EpsilonSectorPreset preset){
             this.var = var;
-            this.sector = sector;
+            this.preset = preset;
         }
 
         protected OnVars(){}
 
         @Override
         public boolean complete(){
-            return var = true ? true : false;
+            return EpsilonVars.getVarForSector(var);
         }
 
         @Override
         public String display(){
-            return Core.bundle.format("objective.var", sector.localizedName);
+            return Core.bundle.format("objective.var", preset.localizedName);
         }
     }
 }
