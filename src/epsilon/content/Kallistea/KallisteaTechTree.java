@@ -4,16 +4,20 @@ import arc.struct.*;
 import epsilon.EpsilonVars;
 import epsilon.content.Kallistea.blocks.*;
 import epsilon.game.EpsObjectives;
+import mindustry.ctype.UnlockableContent;
 import mindustry.game.Objectives;
 import mindustry.type.Item;
+import mindustry.type.ItemStack;
 
 import static epsilon.content.Kallistea.KallisteaSectorPresets.*;
+import static epsilon.world.meta.EpsStats.requirements;
 import static mindustry.Vars.content;
 import static mindustry.content.TechTree.*;
 
 public class KallisteaTechTree {
     public static void load(){
-        var costMultipliers = new ObjectFloatMap<Item>();
+
+            var costMultipliers = new ObjectFloatMap<Item>();
         for(var item : content.items()) costMultipliers.put(item, 0.9f);
 
         costMultipliers.put(KallisteaItems.gelionyte, 0.3f);
@@ -45,8 +49,8 @@ public class KallisteaTechTree {
                    });
                 });
             });
-            node(KallisteaProduction.pitMiningRig, Seq.with(new EpsObjectives.OnVars(EpsilonVars.hideWarnDialog, KallisteaSectorPresets.firstRiddles)),() -> {
-               node(KallisteaProduction.breakerDrill);
+            node(KallisteaProduction.pitMiningRig, () -> {
+                node(KallisteaProduction.breakerDrill);
             });
             node(KallisteaSectorPresets.firstRiddles, Seq.with(new Objectives.OnSector(firstRiddles)), () -> {
 
