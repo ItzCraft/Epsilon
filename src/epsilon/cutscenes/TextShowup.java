@@ -33,10 +33,6 @@ public class TextShowup extends CutsceneBase{
         this.duration = Integer.parseInt(args[2]);
     }
 
-    float calculateLength(String text){
-        return text.contains("\n") == true ? 5.5f : 11.5f;
-    }
-
     @Override
     public void begin(){
         Table table = new Table();
@@ -44,7 +40,7 @@ public class TextShowup extends CutsceneBase{
         table.setFillParent(true);
         table.actions(Actions.delay(duration * 0.8f), Actions.fadeOut(duration * 0.3f, Interp.fade), Actions.remove());
         table.bottom().table(Styles.black5, t -> t.margin(1).image(Core.atlas.find(unitIconName)).style(Styles.outlineLabel)).padLeft(-15f).padBottom(70f).size(65f, 80f);
-        table.bottom().table(Styles.black5, t -> t.margin(10f).add(Core.bundle.get(text)).style(Styles.outlineLabel)).padRight(65f).padBottom(70f).size(Core.bundle.get(text).length() * calculateLength(Core.bundle.get(text)), 60f);
+        table.bottom().table(Styles.black5, t -> t.margin(10f).add(Core.bundle.get(text)).style(Styles.outlineLabel)).padRight(65f).padBottom(70f).size(Core.bundle.get(text).length() * 11.5f, 60f);
         Core.scene.add(table);
     }
   
