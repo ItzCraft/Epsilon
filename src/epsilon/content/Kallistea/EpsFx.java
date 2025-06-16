@@ -1,5 +1,6 @@
 package epsilon.content.Kallistea;
 
+import arc.graphics.Color;
 import arc.graphics.g2d.*;
 import arc.math.*;
 import mindustry.entities.Effect;
@@ -24,6 +25,13 @@ public class EpsFx{
         randLenVectors(e.id, 24, e.finpow() * 50f, (x, y) -> {
             float ang = Mathf.angle(x, y);
             lineAngle(e.x + x, e.y + y, ang, e.fout() * 4 + 1f);
+        });
+    }),
+    plasmaCharge = new Effect(140f, e -> {
+        color(Color.valueOf("ffb3bc"));
+
+        randLenVectors(e.id, 17, 5f + 20f * e.fout(), e.rotation, 170f, (x, y) -> {
+            lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fslope() * 5.4f + 1f);
         });
     });
 }
