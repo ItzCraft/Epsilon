@@ -9,5 +9,7 @@ public class EpsStats {
           efficiency1 = new Stat("efficiency-1", StatCat.general), 
           efficiency2 = new Stat("efficiency-2", StatCat.general),
           efficiency3 = new Stat("efficiency-3", StatCat.general),
+          fraction = new Stat("fraction", EpsStatCat.fraction),
+          //TODO:
           requirements = new Stat("requirementsMission", StatCat.general);
 }

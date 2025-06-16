@@ -1,16 +1,12 @@
 package epsilon.content.Kallistea;
 
 import arc.struct.*;
-import epsilon.EpsilonVars;
 import epsilon.content.Kallistea.blocks.*;
 import epsilon.game.EpsObjectives;
-import mindustry.ctype.UnlockableContent;
 import mindustry.game.Objectives;
 import mindustry.type.Item;
-import mindustry.type.ItemStack;
 
 import static epsilon.content.Kallistea.KallisteaSectorPresets.*;
-import static epsilon.world.meta.EpsStats.requirements;
 import static mindustry.Vars.content;
 import static mindustry.content.TechTree.*;
 
