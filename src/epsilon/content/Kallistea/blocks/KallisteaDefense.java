@@ -7,12 +7,11 @@ import epsilon.content.Kallistea.KallisteaItems;
 import epsilon.world.blocks.defense.EpsItemTurret;
 import mindustry.content.Fx;
 import mindustry.content.Items;
-import mindustry.entities.bullet.ArtilleryBulletType;
-import mindustry.entities.bullet.BasicBulletType;
+import mindustry.entities.bullet.*;
 import mindustry.entities.effect.*;
 import mindustry.type.Category;
 import mindustry.world.Block;
-import mindustry.world.blocks.defense.turrets.ItemTurret;
+import mindustry.world.meta.BuildVisibility;
 
 import static mindustry.type.ItemStack.with;
 
@@ -73,13 +72,13 @@ public class KallisteaDefense {
                     }}
             );
         }};
-        plasmaTurret = new ItemTurret("") {{
-            requirements(Category.turret, with(Items.copper, 1));
+        plasmaTurret = new EpsItemTurret("") {{
+            requirements(Category.turret, BuildVisibility.sandboxOnly, with(Items.copper, 1));
 
             ammo(
                     KallisteaItems.gelionyte, new BasicBulletType(2.3f, 150, "epsilon-plasm-bullet"){{
-                        width = 19f;
-                        height = 24f;
+                        width = 29f;
+                        height = 34f;
                         smokeEffect = Fx.shootBigSmoke;
                         lifetime = 170;
                         ammoMultiplier = 1;
@@ -87,7 +86,7 @@ public class KallisteaDefense {
                         frontColor = trailColor = Color.valueOf("ffb3bc");
                         trailWidth = 4f;
                         trailLength = 13;
-                        splashDamage = 140;
+                        splashDamage = 450;
                         splashDamageRadius = 73;
                         hitEffect = despawnEffect = new MultiEffect(new ExplosionEffect(){{
                             lifetime = 150;

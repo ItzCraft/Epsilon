@@ -3,6 +3,7 @@ package epsilon.content.Kallistea;
 
 import arc.graphics.Color;
 import arc.math.*;
+import epsilon.type.EpsilonWeapon;
 import mindustry.ai.types.*;
 import mindustry.content.Fx;
 import mindustry.entities.bullet.*;

@@ -1,5 +1,6 @@
 package epsilon.content.Kallistea.blocks;
 
+import epsilon.content.Kallistea.EpsFx;
 import epsilon.content.Kallistea.KallisteaUnitTypes;
 import mindustry.world.Block;
 import mindustry.world.blocks.storage.*;
@@ -67,6 +68,7 @@ public class KallisteaStorage{
             captureInvicibility = 5f;
             alwaysUnlocked = true;
             requiresCoreZone = false;
+            launchEffect = EpsFx.launchCore;
         }};
     }
 }
