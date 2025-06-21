@@ -47,6 +47,7 @@ public class EpsilonMod extends Mod{
         
     @Override
     public void loadContent(){
+        EpsMusic.load();
         EpsTeams.load();
         EpsAttribute.load();
         KallisteaItems.load();
