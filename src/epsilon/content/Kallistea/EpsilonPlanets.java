@@ -57,7 +57,7 @@ public class EpsilonPlanets{
             hasAtmosphere = true;
             landCloudColor = Color.valueOf("6a7d9e");
             atmosphereColor = Color.valueOf("7d1bb3");
-            atmosphereRadIn = 0;
+            atmosphereRadIn = 0.01f;
             atmosphereRadOut = 0.1f;
             orbitTime = 60f*20f;
             rotateTime = 60f*12.3f;
@@ -70,14 +70,13 @@ public class EpsilonPlanets{
             ruleSetter = r -> {
               r.defaultTeam = EpsTeams.ganieris;
               r.waveTeam = EpsTeams.incers;
-              r.lighting = false;
               r.fog = true;
               r.staticFog = false;
               r.ambientLight = Color.valueOf("0f001fa7");
               r.onlyDepositCore = true;
             };
             allowLaunchToNumbered = false;
-            updateLighting = true;
+            updateLighting = false;
             campaignRuleDefaults.fog = true;
             startSector = 13;
             minZoom = 0.75f;
