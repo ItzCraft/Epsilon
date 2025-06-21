@@ -5,10 +5,12 @@ import arc.math.Interp;
 import epsilon.content.Kallistea.EpsFx;
 import epsilon.content.Kallistea.KallisteaItems;
 import epsilon.world.blocks.defense.EpsItemTurret;
+import epsilon.world.blocks.defense.EpsPowerTurret;
 import mindustry.content.Fx;
 import mindustry.content.Items;
 import mindustry.entities.bullet.*;
 import mindustry.entities.effect.*;
+import mindustry.gen.Sounds;
 import mindustry.type.Category;
 import mindustry.world.Block;
 import mindustry.world.meta.BuildVisibility;
@@ -16,7 +18,7 @@ import mindustry.world.meta.BuildVisibility;
 import static mindustry.type.ItemStack.with;
 
 public class KallisteaDefense {
-    public static Block dispersive, plasmaTurret;
+    public static Block dispersive, prism, plasmaTurret;
 
     public static void load() {
 
@@ -72,6 +74,42 @@ public class KallisteaDefense {
                     }}
             );
         }};
+
+        /*prism = new EpsPowerTurret("prism"){{
+           requirements(Category.turret, with(KallisteaItems.quartz, 120, KallisteaItems.fylion, 85));
+            size = 2;
+            health = 260;
+            range = 160f;
+            reload = 45f;
+            rotateSpeed = 6f;
+            targetAir = true;
+            targetGround = true;
+            consumePower(1.2f);
+            coolant = consumeCoolant(0.2f);
+            shootEffect = Fx.shootSmokeSquare;
+            shootSound = Sounds.laser;
+            shootType = new LaserBulletType() {{
+                damage = 50f;
+                length = 160f;
+                lifetime = 22f;
+                width = 6f;
+                colors = new Color[]{Color.valueOf("d580ff"), Color.white};
+                hitEffect = EpsFx.prismBurst;
+                despawnEffect = EpsFx.prismBurst;
+                drawSize = 420f;
+                fragBullets = 6;
+                fragAngle = 360f;
+                fragVelocityMin = 0.9f;
+                fragVelocityMax = 1.1f;
+                fragBullet = new BasicBulletType(){{
+                    keepVelocity = true;
+                    damage = 90;
+                    hitEffect = EpsFx.prismBurst;
+                    despawnEffect = EpsFx.prismBurst;
+                }};
+            }};
+        }};*/
+
         plasmaTurret = new EpsItemTurret("") {{
             requirements(Category.turret, BuildVisibility.sandboxOnly, with(Items.copper, 1));
 
