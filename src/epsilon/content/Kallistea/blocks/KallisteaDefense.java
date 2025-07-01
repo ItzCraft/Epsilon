@@ -4,10 +4,8 @@ import arc.graphics.Color;
 import arc.math.Interp;
 import epsilon.content.Kallistea.EpsFx;
 import epsilon.content.Kallistea.KallisteaItems;
-import epsilon.world.blocks.defense.EpsItemTurret;
-import epsilon.world.blocks.defense.EpsPowerTurret;
+import epsilon.world.blocks.defense.*;
 import mindustry.content.Fx;
-import mindustry.content.Items;
 import mindustry.entities.bullet.*;
 import mindustry.entities.effect.*;
 import mindustry.gen.Sounds;
@@ -18,10 +16,14 @@ import mindustry.world.meta.BuildVisibility;
 import static mindustry.type.ItemStack.with;
 
 public class KallisteaDefense {
-    public static Block dispersive, prism, plasmaTurret;
+    public static Block
+            //region ganieris
+            prism,
+
+            // region incers
+            dispersive, sparkline, fluxray, gravitor, disruptor, pulsegrid, lancefield, expanse, nullflare;
 
     public static void load() {
-
         dispersive = new EpsItemTurret("dispersive"){{
             requirements(Category.turret, with(KallisteaItems.calcite, 90, KallisteaItems.quartz, 50));
             health = 210;
@@ -110,9 +112,11 @@ public class KallisteaDefense {
             }};
         }};*/
 
-        plasmaTurret = new EpsItemTurret("") {{
-            requirements(Category.turret, BuildVisibility.sandboxOnly, with(Items.copper, 1));
+        //region Incers
 
+
+        disruptor = new EpsItemTurret("distruptor") {{
+            requirements(Category.turret, BuildVisibility.sandboxOnly, with(KallisteaItems.gelionyte, 1));
             ammo(
                     KallisteaItems.gelionyte, new BasicBulletType(2.3f, 150, "epsilon-plasm-bullet"){{
                         width = 29f;
@@ -126,6 +130,7 @@ public class KallisteaDefense {
                         trailLength = 13;
                         splashDamage = 450;
                         splashDamageRadius = 73;
+                        makeFire = true;
                         hitEffect = despawnEffect = new MultiEffect(new ExplosionEffect(){{
                             lifetime = 150;
                             waveStroke = 5;
@@ -168,7 +173,7 @@ public class KallisteaDefense {
                                     offset = 1;
                                 }});
                         buildingDamageMultiplier = 0.3f;
-                        chargeEffect = new MultiEffect(EpsFx.plasmaCharge, new WaveEffect(){{
+                        chargeEffect = new MultiEffect(EpsFx.plasmaChargeRed, new WaveEffect(){{
                             rotWithParent = true;
                             followParent = true;
                             lifetime = 85;
@@ -223,8 +228,81 @@ public class KallisteaDefense {
             shoot.firstShotDelay = 150;
             size = 5;
             recoil = 1.6f;
+            shake = 25f;
             reload = 320;
             range = 294;
+        }};
+
+        lancefield = new EpsPowerTurret("lancefield"){{
+            requirements(Category.turret, BuildVisibility.sandboxOnly, with(KallisteaItems.quartz, 1));
+            size = 6;
+            health = 1650;
+            fraction = "Incers";
+            consumePower(390f);
+            recoil = 2;
+            shake = 11f;
+            reload = 180;
+            range = 360;
+            shoot.shots = 6;
+            shoot.shotDelay = 20;
+            shoot.firstShotDelay = 180;
+            shootType = new BasicBulletType(){{
+                width = 15f;
+                height = 20f;
+                smokeEffect = Fx.shootBigSmoke;
+                lifetime = 90;
+                speed = 3.5f;
+                ammoMultiplier = 1;
+                hitColor = backColor = Color.valueOf("633163");
+                frontColor = trailColor = Color.valueOf("966596");
+                trailWidth = 5f;
+                trailLength = 17;
+                splashDamage = 450;
+                splashDamageRadius = 73;
+                chargeEffect = new MultiEffect(
+                        EpsFx.energyOverloadPulse,
+                  EpsFx.purpleOrbital,
+                  EpsFx.plasmaChargePurple,
+                        new WaveEffect(){{
+                            rotWithParent = true;
+                            followParent = true;
+                            lifetime = 150;
+                            sizeFrom = 32;
+                            sizeTo = 0;
+                            strokeFrom = 0;
+                            strokeTo = 2;
+                            colorFrom = Color.valueOf("c075d1");
+                            colorTo = Color.valueOf("9b74a3");
+                        }}
+                );
+                intervalBullets = 2;
+                bulletInterval = 6;
+                intervalSpread = 0;
+                intervalRandomSpread = 45;
+                intervalBullet = new BasicBulletType(3, 0){{
+                    width = 9f;
+                    height = 13f;
+                    lifetime = 1;
+                    hitColor = backColor = trailColor = Color.valueOf("8b1d2a");
+                    frontColor = Color.valueOf("e9b3ff");
+                    trailWidth = 1.8f;
+                    trailLength = 8;
+                    buildingDamageMultiplier = 0.3f;
+                    hitEffect = despawnEffect = new ParticleEffect(){{
+                        lifetime = 36f;
+                        colorFrom = Color.valueOf("e9b3ff");
+                        colorTo = Color.valueOf("e9b3ff");
+                        particles = 4;
+                        cone = 45;
+                        length = 19;
+                        baseLength = 2;
+                        spin = 0;
+                        sizeFrom = 3.9f;
+                        sizeTo = 0;
+                        offset = 1;
+                    }};
+                }};
+            }};
         }};
     }
 }
