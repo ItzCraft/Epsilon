@@ -85,10 +85,12 @@ public class EpsilonPlanets{
             meshLoader = () -> new MultiMesh(
                     new HexMesh(this, 7)
             );
-            cloudMeshLoader = () -> new MultiMesh(
-                    new HexSkyMesh(this, 59, 2.7f, 0.1f, 5, Color.valueOf("6a7d9e").a(0.95f), 3, 0.42f, 1f, 0.43f),
-                    new HexSkyMesh(this, 1, 2f, 0.16f, 5, Color.valueOf("253785").a(0.55f), 3, 0.42f, 1.2f, 0.45f)
-            );
+            if(EpsilonVars.detailedSolarSystem) {
+                cloudMeshLoader = () -> new MultiMesh(
+                        new HexSkyMesh(this, 59, 2.7f, 0.1f, 5, Color.valueOf("6a7d9e").a(0.95f), 3, 0.42f, 1f, 0.43f),
+                        new HexSkyMesh(this, 1, 2f, 0.16f, 5, Color.valueOf("253785").a(0.55f), 3, 0.42f, 1.2f, 0.45f)
+                );
+            }
         }};
 
 
@@ -110,7 +112,7 @@ public class EpsilonPlanets{
                         new HexMesh(this, 7)
                 );
             }};
-            keraunos = new Planet("keraunos", epsilon, 2.75f, 1){{
+            /*keraunos = new Planet("keraunos", epsilon, 2.75f, 1){{
                accessible = false;
                hasAtmosphere = true;
                atmosphereColor = Color.valueOf("a6eb81");
@@ -133,7 +135,7 @@ public class EpsilonPlanets{
                        new HexSkyMesh(this, 44, 3.1f, 2.51f, 5, Color.valueOf("8c5343").a(0.65f), 6, 0.12f, 0.12f, 0.75f),
                        new HexSkyMesh(this, 55, 1.74f, 2.56f, 5, Color.valueOf("a63721").a(0.65f), 6, 0.12f, 0.19f, 0.75f)
                        );
-            }};
+            }};*/
 
 
             // region moons
@@ -153,7 +155,7 @@ public class EpsilonPlanets{
                 gen.carbonChance = 0.45f;
                 gen.stoneChance = 0.93f;
             });
-            keraunosB = makeAsteroid("keraunosB", keraunos, Blocks.sand, KallisteaEnv.meraporaWall, 12, 0.2f, 4,0.1f,gen -> {
+            /*keraunosB = makeAsteroid("keraunosB", keraunos, Blocks.sand, KallisteaEnv.meraporaWall, 12, 0.2f, 4,0.1f,gen -> {
                gen.stoneChance = 0.53f;
                gen.berylChance = 0.21f;
                gen.carbonChance = 0.52f;
@@ -162,7 +164,7 @@ public class EpsilonPlanets{
                 gen.stoneChance = 0.33f;
                 gen.berylChance = 0.71f;
                 gen.carbonChance = 0.12f;
-            });
+            });*/
             larita = makeAsteroid("larita", epsilon, KallisteaEnv.gelionyteCluster, KallisteaEnv.eadstonWallFenspor, 827, 0.63f, 7, 0.04f, gen -> {
                gen.iceChance = 1.42f;
             });
