@@ -167,7 +167,7 @@ public class KallisteaProduction{
             drawer = new DrawMulti(
                     new DrawRegion("-bottom"),
                     new DrawDefault()
-                    );
+            );
         }};
         anveiurForge = new EpsilonHeatCrafter("anveiur-forge"){{
            requirements(Category.crafting, with(KallisteaItems.calcite, 300, KallisteaItems.magnetite, 275, KallisteaItems.quartz, 195, KallisteaItems.tantalum, 40));
@@ -185,6 +185,10 @@ public class KallisteaProduction{
            maxEfficiency = 2f;
            craftTime = 90;
            outputItem = new ItemStack(KallisteaItems.anveiur, 1);
+           drawer = new DrawMulti(
+                   new DrawRegion("-bottom"),
+                   new DrawDefault()
+           );
         }};
         sandFilter = new HeatCrafter("sand-filter"){{
            requirements(Category.crafting, with(KallisteaItems.calcite, 130, KallisteaItems.magnetite, 90, KallisteaItems.quartz, 50, KallisteaItems.fylion, 35));
