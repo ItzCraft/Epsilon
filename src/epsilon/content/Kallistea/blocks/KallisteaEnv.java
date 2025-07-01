@@ -6,7 +6,6 @@ import mindustry.world.blocks.environment.*;
 import epsilon.content.Kallistea.KallisteaItems;
 import epsilon.world.blocks.environment.*;
 import mindustry.type.Category;
-import mindustry.type.ItemStack;
 import mindustry.world.meta.Attribute;
 
 import static mindustry.type.ItemStack.with;
@@ -79,7 +78,7 @@ public class KallisteaEnv {
                     purystalErodedFloor.asFloor().decoration = this; purystalFloor.asFloor().decoration = this; purystalLightFloor.asFloor().decoration = this;
                 }};          
                 gelionyteChunk = new BreakableTallBlock("gelionyte-chunk"){{requirements(Category.distribution, with(KallisteaItems.gelionyte, 24)); buildCostMultiplier = 6; variants = 3; clipSize = 148; shadowOffset = -0.68f;}};
-                gelionyteCluster = new TallBlock("gelionyte-cluster"){{variants = 2; clipSize = 148; shadowOffset = -0.68f;}};
+                gelionyteCluster = new TallBlock("gelionyte-cluster"){{variants = 2; clipSize = 148; shadowOffset = -0.68f; emitLight = true; lightColor = Color.valueOf("a86bd1"); lightRadius = 40f;}};
                 buahanBush = new Prop("buahan-bush"){{variants = 3; customShadow = true;}};
                 buahanTree = new TreeBlock("buahan-tree"){{variants = 2; clipSize = 200; shadowOffset = -1.53f;}};
    
@@ -104,8 +103,8 @@ public class KallisteaEnv {
                     eadstonFloor.asFloor().wall = this; eadstonLightFloor.asFloor().wall = this; eadstonRoughFloor.asFloor().wall = this;
                 }};
                 eadstalMagnetiteWall = new StaticWall("eadstal-magnetite-wall"){{
-            itemDrop = KallisteaItems.magnetite;
-            variants = 4;}};
+                itemDrop = KallisteaItems.magnetite;
+                variants = 4;}};
                 eadstonWallFenspor = new StaticWall("eadston-fenspor-wall"){{variants = 4;
                     fensporReinforcedFloor.asFloor().wall = this; fensporStrandsFloor.asFloor().wall = this;
                 }};
