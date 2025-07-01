@@ -84,6 +84,7 @@ public class EpsilonPlanets{
             meshLoader = () -> new MultiMesh(
                     new HexMesh(this, 7)
             );
+            //due a vertices limit which is set by Anuken i have to minimalize vertices for bad devices (it should crash and on good devices but for some people it is somehow works lmao)
             if(EpsilonVars.detailedSolarSystem) {
                 cloudMeshLoader = () -> new MultiMesh(
                         new HexSkyMesh(this, 59, 2.7f, 0.1f, 5, Color.valueOf("6a7d9e").a(0.95f), 3, 0.42f, 1f, 0.43f),
@@ -92,7 +93,7 @@ public class EpsilonPlanets{
             }
         }};
 
-
+        //due a vertices limit which is set by Anuken i have to minimalize vertices for bad devices (it should crash and on good devices but for some people it is somehow works lmao)
         if(EpsilonVars.detailedSolarSystem){
             eryphos = new Planet("eryphos", epsilon, 1.75f, 1){{
                 accessible = false;
