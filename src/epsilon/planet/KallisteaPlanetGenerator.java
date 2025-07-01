@@ -5,15 +5,13 @@ import arc.math.*;
 import arc.math.geom.*;
 import arc.util.Tmp;
 import arc.util.noise.*;
-import epsilon.EpsilonVars;
 import epsilon.content.Kallistea.blocks.KallisteaEnv;
 import mindustry.content.Blocks;
 import mindustry.maps.generators.PlanetGenerator;
 import mindustry.world.Block;
 
 public class KallisteaPlanetGenerator extends PlanetGenerator {
-    public float octaves = EpsilonVars.detailedSolarSystem ? 8f : 5f;
-    public float heightScl = 1.2f, persistence = 0.7f, heightPow = 2.2f, heightMult = 1.1f;
+    public float heightScl = 1.2f, octaves = 8, persistence = 0.7f, heightPow = 2.2f, heightMult = 1.1f;
 
     @Override
     public float getHeight(Vec3 position){

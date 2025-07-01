@@ -82,15 +82,12 @@ public class EpsilonPlanets{
             minZoom = 0.75f;
             generator = new KallisteaPlanetGenerator();
             meshLoader = () -> new MultiMesh(
-                    new HexMesh(this, EpsilonVars.detailedSolarSystem ? 7 : 4)
+                    new HexMesh(this, EpsilonVars.detailedSolarSystem ? 7 : 5)
             );
-            //due a vertices limit which is set by Anuken i have to minimalize vertices for bad devices (it should crash and on good devices but for some people it is somehow works lmao)
-            if(EpsilonVars.detailedSolarSystem) {
-                cloudMeshLoader = () -> new MultiMesh(
-                        new HexSkyMesh(this, 59, 2.7f, 0.1f, 5, Color.valueOf("6a7d9e").a(0.95f), 3, 0.42f, 1f, 0.43f),
-                        new HexSkyMesh(this, 1, 2f, 0.16f, 5, Color.valueOf("253785").a(0.55f), 3, 0.42f, 1.2f, 0.45f)
-                );
-            }
+            cloudMeshLoader = () -> new MultiMesh(
+                    new HexSkyMesh(this, 59, 2.7f, 0.1f, 5, Color.valueOf("6a7d9e").a(0.95f), 3, 0.42f, 1f, 0.43f),
+                    new HexSkyMesh(this, 1, 2f, 0.16f, 5, Color.valueOf("253785").a(0.55f), 3, 0.42f, 1.2f, 0.45f)
+            );
         }};
 
         //due a vertices limit which is set by Anuken i have to minimalize vertices for bad devices (it should crash and on good devices but for some people it is somehow works lmao)
