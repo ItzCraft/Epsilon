@@ -14,8 +14,10 @@ public class EpsilonLogic{
 
         LAssembler.customParsers.put("playerchange", PlayerChange::new);
         LAssembler.customParsers.put("setvars", SetVars::new);
+        LAssembler.customParsers.put("customeffect", CustomEffect::new);
 
         LogicIO.allStatements.addUnique(PlayerChange::new);
         LogicIO.allStatements.addUnique(SetVars::new);
+        LogicIO.allStatements.addUnique(CustomEffect::new);
     }
 }

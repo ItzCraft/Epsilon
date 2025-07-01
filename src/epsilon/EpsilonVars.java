@@ -1,11 +1,9 @@
 package epsilon;
 
 import arc.Core;
-import arc.struct.ObjectMap;
 import arc.struct.Seq;
-import epsilon.content.Kallistea.EpsTeams;
 import epsilon.cutscenes.*;
-import mindustry.Vars;
+import epsilon.ui.dialogs.EpsEffectsDialog;
 
 public class EpsilonVars{
     private static final Seq<String> sectorVars = Seq.with(
@@ -31,11 +29,13 @@ public class EpsilonVars{
     public static EpsCore core;
     public static CutsceneControl cutsceneControl;
     public static CutsceneUI cutscene;
+    public static EpsEffectsDialog epsEffectsDialog;
 
     public static void init(){
         cutsceneControl = new CutsceneControl();
         cutscene = new CutsceneUI();
         core = new EpsCore();
+        epsEffectsDialog = new EpsEffectsDialog();
         Core.app.addListener(core);
         for(String var : sectorVars){
             if(!Core.settings.has(var)){

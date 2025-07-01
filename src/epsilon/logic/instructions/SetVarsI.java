@@ -1,6 +1,5 @@
 package epsilon.logic.instructions;
 
-import arc.util.Log;
 import epsilon.EpsilonVars;
 import mindustry.logic.LExecutor;
 import mindustry.logic.LVar;
