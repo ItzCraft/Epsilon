@@ -35,7 +35,8 @@ public class VulcanHeatProducer extends HeatProducer{
         for (int xm = -frange + 1; xm <= frange; xm++) {
             for (int ym = -frange + 1; ym <= frange; ym++) {
                 Tile other = world.tile(ox + xm, oy + ym);
-                if (other.block() instanceof Vulcan &&
+                if (other.floor()
+                        instanceof Vulcan &&
                         !((xm > -1 && ym > -1) && (xm < size && ym < size))
                 ) {
                     Drawf.selected(other.x, other.y, Blocks.router, Pal.lightOrange);
@@ -56,7 +57,7 @@ public class VulcanHeatProducer extends HeatProducer{
             for(int xm = -frange+1;xm<=frange;xm++){
                 for(int ym = -frange+1;ym<=frange;ym++){
                     Tile other = tile.nearby(xm,ym);
-                    if(other.block() instanceof Vulcan) {
+                    if(other.floor() instanceof Vulcan) {
                         rcount++;
                     }
                 }
@@ -64,10 +65,15 @@ public class VulcanHeatProducer extends HeatProducer{
             return rcount-size*size;
         }
 
+        public int calculateCount(int count){
+            int value = Mathf.floor( 1 + Mathf.sin((float) ((count/-9)*Mathf.pi+(1.3*(count/Mathf.pi))-2)));
+            return Math.max(value, 1);
+        }
+
         @Override
         public void updateTile(){
             super.updateTile();
-            int count = Math.min(eachTile(range), limitVulcans);
+            int count = Math.min(calculateCount(eachTile(range)), limitVulcans);
             this.heat = Mathf.approachDelta(this.heat, VulcanHeatProducer.this.heatOutput * this.efficiency * count, VulcanHeatProducer.this.warmupRate * this.delta());
         }
 
@@ -80,7 +86,7 @@ public class VulcanHeatProducer extends HeatProducer{
             for(int xm = -frange+1;xm<=frange;xm++){
                 for(int ym = -frange+1;ym<=frange;ym++){
                     Tile other = tile.nearby(xm,ym);
-                    if(other.block() instanceof Vulcan&&other.build!=this) {
+                    if(other.floor() instanceof Vulcan) {
                         Drawf.selected(other.x, other.y, Blocks.router, Pal.lightOrange);
                     }
                 }
