@@ -2,6 +2,8 @@ package epsilon.world.blocks.production;
 
 import arc.scene.ui.layout.Table;
 import arc.util.*;
+import arc.util.io.Reads;
+import arc.util.io.Writes;
 import mindustry.world.blocks.production.Drill;
 import epsilon.world.meta.*;
 
@@ -88,6 +90,22 @@ public class ConfigurableDrill extends Drill{
                 eff3 = true;
                 deselect();
             }).pad(35f).size(55f);
+        }
+
+        @Override
+        public void write(Writes write){
+            super.write(write);
+            write.bool(eff1);
+            write.bool(eff2);
+            write.bool(eff3);
+        }
+
+        @Override
+        public void read(Reads read, byte revision){
+            super.read(read, revision);
+            this.eff1 = read.bool();
+            this.eff2 = read.bool();
+            this.eff3 = read.bool();
         }
     }
 }

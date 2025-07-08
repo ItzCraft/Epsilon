@@ -7,5 +7,9 @@ public class EpsDrill extends Drill{
 
     public EpsDrill(String name){
         super(name);
-    } 
+    }
+
+    public class EpsDrillBuild extends DrillBuild{
+
+    }
 }
