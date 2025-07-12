@@ -8,7 +8,6 @@ public class Mission extends UnlockableContent {
     public Mission(String name){
         super(name);
     }
-
     @Override
     public ContentType getContentType(){
         return ContentType.status;
