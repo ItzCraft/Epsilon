@@ -85,8 +85,9 @@ public class EpsilonPlanets{
                     new HexMesh(this, EpsilonVars.detailedSolarSystem ? 7 : 5)
             );
             cloudMeshLoader = () -> new MultiMesh(
-                    new HexSkyMesh(this, 59, 2.7f, 0.1f, 5, Color.valueOf("6a7d9e").a(0.95f), 3, 0.42f, 1f, 0.43f),
-                    new HexSkyMesh(this, 1, 2f, 0.16f, 5, Color.valueOf("253785").a(0.55f), 3, 0.42f, 1.2f, 0.45f)
+                    new HexSkyMesh(this, 59, 2.7f, 0.1f, EpsilonVars.detailedSolarSystem ? 7 : 5, Color.valueOf("6a7d9e").a(0.80f), 3, 0.42f, EpsilonVars.detailedSolarSystem ? 1.2f : 1f, EpsilonVars.detailedSolarSystem ? 0.36f : 0.43f),
+                    new HexSkyMesh(this, 1, 2f, 0.16f, EpsilonVars.detailedSolarSystem ? 7 : 5, Color.valueOf("253785").a(0.65f), 3, 0.42f, EpsilonVars.detailedSolarSystem ? 1.4f : 1.2f, EpsilonVars.detailedSolarSystem ? 0.38f : 0.45f),
+                    new HexSkyMesh(this, 35, 1.6f, 0.21f, EpsilonVars.detailedSolarSystem ? 7 : 5, Color.valueOf("4f2a73").a(0.30f), 3, 0.42f, EpsilonVars.detailedSolarSystem ? 1.8f : 1.6f, EpsilonVars.detailedSolarSystem ? 0.32f : 0.49f)
             );
         }};
 
