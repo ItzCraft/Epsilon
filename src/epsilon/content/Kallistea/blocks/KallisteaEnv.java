@@ -142,7 +142,7 @@ public class KallisteaEnv {
                 meraporaMenhir = new Prop("merapora-menhir"){{variants = 2; breakable = false; meraporaFloor.asFloor().decoration = this;}};
 
                 // THERMAL BIOME
-                miniVulcan = new Vulcan("mini-vulcan"){{variants = 2; parent = blendGroup = meraporaFloor; attributes.set(Attribute.heat, 0.65f);}};
+                miniVulcan = new Vulcan("mini-vulcan"){{variants = 2; parent = blendGroup = meraporaFloor; mini=true;}};
             }
         }
     }
