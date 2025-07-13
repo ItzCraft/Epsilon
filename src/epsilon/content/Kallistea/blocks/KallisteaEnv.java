@@ -1,6 +1,7 @@
 package epsilon.content.Kallistea.blocks;
 
 import arc.graphics.Color;
+import mindustry.content.Fx;
 import mindustry.world.Block;
 import mindustry.world.blocks.environment.*;
 import epsilon.content.Kallistea.KallisteaItems;
@@ -37,8 +38,10 @@ public class KallisteaEnv {
             meraporaFloor, meraporaFensporFloor, meraporaWall, meraporaWallAlt, meraporaFensporWall, meraporaFensporWallAlt,
             meraporaBoulder, meraporaFensporBoulder, meraporaVent, meraporaFensporVent, meraporaBunker, meraporaMenhir,
 
-            // Thermal biome
-            miniVulcan;
+            // Thermalitic biome
+            thermaliticFloor, thermaliticDarkFloor, thermaliticBrownFloor, thermaliticVulcanFloor, thermaliticWall,thermaliticWallAlt,
+            thermaliticDarkWall, thermaliticBrownWall, thermaliticBrownWallAlt, thermaliticBoulder, thermaliticDarkBoulder, thermaliticBrownBoulder,
+            miniVulcan, vulcan;
 
     public static void load() {
         {
@@ -141,8 +144,29 @@ public class KallisteaEnv {
                 meraporaBunker = new BunkerVent("merapora-bunker", 2){{parent = blendGroup = meraporaFloor;}};
                 meraporaMenhir = new Prop("merapora-menhir"){{variants = 2; breakable = false; meraporaFloor.asFloor().decoration = this;}};
 
-                // THERMAL BIOME
-                miniVulcan = new Vulcan("mini-vulcan"){{variants = 2; parent = blendGroup = meraporaFloor; mini=true;}};
+
+                // THERMALITIC BIOME
+                // floors
+                thermaliticFloor = new Floor("thermalitic-floor"){{variants = 6;}};
+                thermaliticDarkFloor = new Floor("thermalitic-dark-floor"){{variants = 3;}};
+                thermaliticBrownFloor = new Floor("thermalitic-brown-floor"){{variants = 8;}};
+                thermaliticVulcanFloor = new Floor("thermalitic-vulcan-floor"){{variants = 6; emitLight = true; lightColor = Color.valueOf("d46108"); lightRadius = 10;}};
+
+                // walls
+                thermaliticWall = new StaticWall("thermalitic-wall"){{variants = 4; thermaliticFloor.asFloor().wall = this;}};
+                thermaliticWallAlt = new StaticWall("thermalitic-wall-alt"){{variants = 4; thermaliticFloor.asFloor().wall = this;}};
+                thermaliticDarkWall = new StaticWall("thermalitic-dark-wall"){{variants = 2; thermaliticDarkFloor.asFloor().wall = this;}};
+                thermaliticBrownWall = new StaticWall("thermalitic-brown-wall"){{variants = 4; thermaliticBrownFloor.asFloor().wall = this;}};
+                thermaliticBrownWallAlt = new StaticWall("thermalitic-brown-alt-wall"){{variants = 4; thermaliticBrownFloor.asFloor().wall = this;}};
+
+                //decor, etc
+                thermaliticBoulder = new Prop("thermalitic-boulder"){{variants = 4; thermaliticFloor.asFloor().decoration = this;}};
+                thermaliticDarkBoulder = new Prop("thermalitic-dark-boulder"){{variants = 4; thermaliticDarkFloor.asFloor().decoration = this;}};
+                thermaliticBrownBoulder = new Prop("thermalitic-brown-boulder"){{variants = 4; thermaliticBrownFloor.asFloor().decoration = this;}};
+
+                // vulcans
+                vulcan = new Vulcan("thermalitic-vulcan"){{variants = 2; parent = blendGroup = thermaliticVulcanFloor; emitLight = true; lightColor = Color.valueOf("d46108"); lightRadius = 45; effect = Fx.fire;}};
+                miniVulcan = new Vulcan("thermalitic-vulcan-mini"){{variants = 2; parent = blendGroup = thermaliticVulcanFloor; mini=true; emitLight = true; lightColor = Color.valueOf("d46108"); lightRadius = 25; effect = Fx.fire;}};
             }
         }
     }

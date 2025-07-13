@@ -12,7 +12,6 @@ import mindustry.world.*;
 import mindustry.world.blocks.environment.*;
 import static mindustry.Vars.*;
 
-//!!!CODE FROM RouterXdd/Icicle-World mod!!!
 public class Vulcan extends Floor {
     public static boolean mini = false;
     public static final Point2[] offsetsSmall = {
@@ -31,22 +30,6 @@ public class Vulcan extends Floor {
             new Point2(-1, -1),
             new Point2(0, -1),
             new Point2(1, -1),
-            new Point2(2, 0),
-            new Point2(2, 1),
-            new Point2(2, -1),
-            new Point2(2, 2),
-            new Point2(0, 2),
-            new Point2(1, 2),
-            new Point2(-1, 2),
-            new Point2(-2, 2),
-            new Point2(-2, 0),
-            new Point2(-2, 1),
-            new Point2(-2, -1),
-            new Point2(-2, -2),
-            new Point2(0, -2),
-            new Point2(1, -2),
-            new Point2(-1, -2),
-            new Point2(2, -2)
     };
 
     public Block parent = Blocks.air;
@@ -55,8 +38,8 @@ public class Vulcan extends Floor {
     public float effectSpacing = 15f;
 
     static {
-        for (var p : mini ? offsetsSmall : offsetsBig) {
-            p.sub(3, 3);
+        for (var p : mini ? offsetsBig : offsetsSmall) {
+            p.sub(1, 1);
         }
     }
 
@@ -69,15 +52,31 @@ public class Vulcan extends Floor {
         super(name);
     }
 
+    public Point2[] getOffsets() {
+        Point2[] base = mini ? offsetsSmall : offsetsBig;
+        Point2[] shifted = new Point2[base.length];
+
+        for (int i = 0; i < base.length; i++) {
+            int cx = mini ? 0 : 1;
+            int cy = mini ? 0 : 1;
+            shifted[i] = new Point2(base[i]).sub(cx, cy);
+        }
+
+        return shifted;
+    }
+
+
     @Override
     public void drawBase(Tile tile) {
         parent.drawBase(tile);
 
         if (checkAdjacent(tile)) {
             Mathf.rand.setSeed(tile.pos());
-            Draw.rect(variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 3))], tile.worldx() - tilesize - 16, tile.worldy() - tilesize - 16);
+            TextureRegion region = variantRegions[Mathf.randomSeed(tile.pos(), 0, Math.max(0, variantRegions.length - 1))];
+            Draw.rect(region, tile.worldx() - tilesize, tile.worldy() - tilesize);
         }
     }
+
 
     @Override
     public boolean updateRender(Tile tile) {
@@ -87,14 +86,17 @@ public class Vulcan extends Floor {
     @Override
     public void renderUpdate(UpdateRenderState state) {
         if (state.tile.block() == Blocks.air && (state.data += Time.delta) >= effectSpacing) {
-            effect.at(state.tile.x * tilesize - tilesize - 8, state.tile.y * tilesize - tilesize - 8, effectColor);
+            effect.at(state.tile.x * tilesize - tilesize, state.tile.y * tilesize - tilesize, effectColor);
             state.data = 0f;
         }
     }
 
     public boolean checkAdjacent(Tile tile) {
-        for (var point : mini ? offsetsSmall : offsetsBig) {
-            Tile other = Vars.world.tile(tile.x + point.x, tile.y + point.y);
+        Point2[] offsets = mini ? offsetsBig : offsetsSmall;
+        for (var point : offsets) {
+            int dx = tile.x + point.x - 1;
+            int dy = tile.y + point.y - 1;
+            Tile other = Vars.world.tile(dx, dy);
             if (other == null || other.floor() != this) {
                 return false;
             }
