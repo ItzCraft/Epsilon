@@ -23,7 +23,7 @@ public class KallisteaPlanetGenerator extends PlanetGenerator {
     }
 
     @Override
-    public Color getColor(Vec3 position){
+    public void getColor(Vec3 position){
         Block block = rawHeight(position) < 0.35f ? Blocks.water : rawHeight(position) < 0.4f ? KallisteaEnv.meraporaFloor : rawHeight(position) < 0.45f ? KallisteaEnv.meraporaFensporFloor : rawHeight(position) < 0.55f ? KallisteaEnv.purystalFloor : rawHeight(position) < 0.6f ? KallisteaEnv.purystalLightFloor : rawHeight(position) < 0.64f ? KallisteaEnv.fensporReinforcedFloor : rawHeight(position) < 0.7f ? KallisteaEnv.eadstonFloor : KallisteaEnv.thermaliticVulcanFloor;
         return Tmp.c1.set(block.mapColor).a(1f - block.albedo);
     }
