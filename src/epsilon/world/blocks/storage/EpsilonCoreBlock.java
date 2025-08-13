@@ -23,7 +23,7 @@ public class EpsilonCoreBlock extends CoreBlock{
     public void load(){
         super.load();
         glow = Core.atlas.find(name + "-glow");
-        uiIcon = fullIcon = editorIcon = Core.atlas.find(name + "-full");
+        uiIcon = fullIcon = Core.atlas.find(name + "-full");
     }
     public class EpsilonCoreBuild extends CoreBuild{
         @Override
