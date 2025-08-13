@@ -23,8 +23,9 @@ public class EryphosPlanetGenerator extends PlanetGenerator {
     }
 
     @Override
-    public void getColor(Vec3 position){
+    public void getColor(Vec3 position, Color out){
         Block block = rawHeight(position) < 0.4f ? Blocks.snow : rawHeight(position) < 0.5f ? Blocks.iceSnow : rawHeight(position) < 0.6f ? Blocks.redIce : Blocks.ice;
-        return Tmp.c1.set(block.mapColor).a(1f - block.albedo);
+
+        out.set(block.mapColor).a(1f - block.albedo);
     }
 }
