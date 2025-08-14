@@ -31,5 +31,5 @@ public class EpsilonCoreBlock extends CoreBlock{
             super.draw();
             Drawf.additive(glow, team.color, 0.8f - glowMag + Mathf.absin(Time.time, glowScl, glowMag), x, y, 0f, Layer.blockAdditive);
         }
-    } 
+    }
 }

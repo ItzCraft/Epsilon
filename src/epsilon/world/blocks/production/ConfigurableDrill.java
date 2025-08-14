@@ -4,6 +4,7 @@ import arc.scene.ui.layout.Table;
 import arc.util.*;
 import arc.util.io.Reads;
 import arc.util.io.Writes;
+import epsilon.ui.EpsStyles;
 import mindustry.world.blocks.production.Drill;
 import epsilon.world.meta.*;
 
@@ -72,19 +73,19 @@ public class ConfigurableDrill extends Drill{
 
         @Override
         public void buildConfiguration(Table table){
-            table.button(button3Name, () -> {
+            table.button(button3Name, EpsStyles.epsButtonText, () -> {
                 eff1 = true;
                 eff2 = false;
                 eff3 = false;
                 deselect();
             }).pad(-65f).size(55f);
-           table.button(button2Name, () -> {
+           table.button(button2Name, EpsStyles.epsButtonText, () -> {
                 eff1 = false;
                 eff2 = true;
                 eff3 = false;
                 deselect();
             }).pad(120f).size(55f);
-            table.button(button1Name, () -> {
+            table.button(button1Name, EpsStyles.epsButtonText, () -> {
                 eff1 = false;
                 eff2 = false;
                 eff3 = true;

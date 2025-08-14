@@ -66,7 +66,7 @@ public class EpsilonHeatCrafter extends HeatCrafter{
 
         @Override
         public void buildConfiguration(Table table){
-            table.button(Icon.pencil, () -> {
+            table.button(Icon.pencil, EpsStyles.epsButtonImage, () -> {
                 BaseDialog configureUI = new BaseDialog(Core.bundle.get("configureUI"));
                 Table left = new Table();
                 Table passiveHeader = new Table();
@@ -75,12 +75,12 @@ public class EpsilonHeatCrafter extends HeatCrafter{
                 passiveLabel.add(Core.bundle.get("passive")).pad(5f);
 
                 passiveHeader.add(passiveLabel).padLeft(40f).left();
-                passiveHeader.button(Icon.infoCircle, () -> {
+                passiveHeader.button(Icon.infoCircle, EpsStyles.epsButtonImage, () -> {
                     // question mark, desc
                 }).size(35f, 35f).padLeft(10f).padBottom(25f).right();
                 left.add(passiveHeader).left().row();
 
-                left.button(Core.bundle.get("select"), () -> {
+                left.button(Core.bundle.get("select"), EpsStyles.epsButtonText, () -> {
                     selectType(ProductionTypes.passive);
                 }).padLeft(30f).padBottom(40f).left().size(135f, 50f);
                 left.row();
@@ -91,12 +91,12 @@ public class EpsilonHeatCrafter extends HeatCrafter{
                 activeLabel.add(Core.bundle.get("active")).pad(5f);
 
                 activeHeader.add(activeLabel).padRight(40f).right();
-                activeHeader.button(Icon.infoCircle, () -> {
+                activeHeader.button(Icon.infoCircle, EpsStyles.epsButtonImage, () -> {
                     // question mark, active desc
                 }).size(35f, 35f).padRight(10f).padBottom(25f).right();
                 right.add(activeHeader).right().row();
 
-                right.button(Core.bundle.get("select"), () -> {
+                right.button(Core.bundle.get("select"), EpsStyles.epsButtonText, () -> {
                     selectType(ProductionTypes.active);
                 }).size(135f, 50f).padBottom(40f).right();
                 right.row();
