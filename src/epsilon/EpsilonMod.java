@@ -38,8 +38,8 @@ public class EpsilonMod extends Mod{
     @Override
     public void init(){
         super.init();
-        EpsilonVars.init();
         EpsStyles.load();
+        EpsilonVars.init();
         TeamsUI.init();
     }
         
@@ -71,5 +71,4 @@ public class EpsilonMod extends Mod{
             t.checkPref("detailed-solar-system",false);
         });
     }
-
 }

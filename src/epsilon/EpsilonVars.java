@@ -6,16 +6,17 @@ import epsilon.cutscenes.*;
 import epsilon.ui.dialogs.EpsEffectsDialog;
 
 public class EpsilonVars{
-    private static final Seq<String> sectorVars = Seq.with(
-      "test"
-    );
     //will the warn dialog be displayed
     public static boolean  hideWarnDialog = Core.settings.getBool("hide-warn-dialog");
 
     // if false, only kallistea and epsilon will appear 
     public static boolean  detailedSolarSystem = Core.settings.getBool("detailed-solar-system");
 
-    // NOTE: THIS IS FOR OBJECTIVES ONLY DO NOT TRY TO USE IT ANYWHERE ELSE
+    // NOTE: THIS IS FOR SECTORS ONLY DO NOT TRY TO USE IT ANYWHERE ELSE
+    private static final Seq<String> sectorVars = Seq.with(
+            "test",
+            "testwarning"
+    );
     public static boolean getVarForSector(String name){
         return Core.settings.getBool(name);
     }
