@@ -6,21 +6,28 @@ import mindustry.type.Category;
 import mindustry.world.Block;
 import mindustry.world.blocks.power.ConsumeGenerator;
 import mindustry.world.blocks.power.PowerNode;
+import mindustry.world.draw.DrawDefault;
+import mindustry.world.draw.DrawMulti;
+import mindustry.world.draw.DrawRegion;
 
 import static mindustry.type.ItemStack.with;
 
 public class KallisteaPower{
-    public static Block calciteBurner, quartzNode;
+    public static Block quartzGenerator, quartzNode;
 
     public static void load(){
-        calciteBurner = new ConsumeGenerator("calcite-burner"){{
+        quartzGenerator = new ConsumeGenerator("quartz-generator"){{
             requirements(Category.power, with(KallisteaItems.gelionyte, 40, KallisteaItems.calcite, 35));
             health = 90;
             size = 2;
-            powerProduction = 27f/60f;
+            powerProduction = 45f/60f;
             squareSprite = true;
-            consumeItem(KallisteaItems.calcite, 1);
+            consumeItem(KallisteaItems.quartz, 1);
             itemDuration = 45f;
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawDefault()
+            );
         }};
 
         quartzNode = new PowerNode("quartz-node"){{
