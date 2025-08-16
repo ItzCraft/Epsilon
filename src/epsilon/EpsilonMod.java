@@ -53,7 +53,6 @@ public class EpsilonMod extends Mod{
         KallisteaBlocks.load();
         EpsilonPlanets.load();
         KallisteaSectorPresets.load();
-        Missions.load();
         KallisteaTechTree.load();
         EpsilonLogic.init();
     }

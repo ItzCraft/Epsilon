@@ -17,6 +17,8 @@ import static mindustry.type.ItemStack.with;
 
 public class KallisteaDefense {
     public static Block
+            // walls
+            test, quartzWall, quartzWallLarge,
             //region ganieris
             prism,
 
@@ -24,6 +26,19 @@ public class KallisteaDefense {
             dispersive, sparkline, fluxray, gravitor, disruptor, pulsegrid, lancefield, expanse, nullflare;
 
     public static void load() {
+        quartzWall = new EpsShieldWall("quartz-wall"){{
+           requirements(Category.defense, with(KallisteaItems.quartz, 12, KallisteaItems.calcite, 4));
+           health = 840;
+           size = 2;
+           regenSpeed = 1.5f;
+        }};
+        quartzWallLarge = new EpsShieldWall("quartz-wall-large"){{
+            requirements(Category.defense, with(KallisteaItems.quartz, 24, KallisteaItems.calcite, 12));
+            health = 1440;
+            size = 3;
+            regenSpeed = 2.5f;
+            shieldHealth = 900;
+        }};
         dispersive = new EpsItemTurret("dispersive"){{
             requirements(Category.turret, with(KallisteaItems.calcite, 90, KallisteaItems.quartz, 50));
             health = 210;

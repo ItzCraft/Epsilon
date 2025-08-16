@@ -51,9 +51,9 @@ public class KallisteaTechTree {
             node(KallisteaSectorPresets.firstRiddles, Seq.with(new Objectives.OnSector(firstRiddles)), () -> {
 
             });
-            node(Missions.mission1, Seq.with(new Objectives.SectorComplete(firstRiddles)), () -> {
+            //node(Missions.mission1, Seq.with(new Objectives.SectorComplete(firstRiddles)), () -> {
 
-            });
+            //});
         });
     }
 }
