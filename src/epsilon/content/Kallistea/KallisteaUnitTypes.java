@@ -3,11 +3,13 @@ package epsilon.content.Kallistea;
 
 import arc.graphics.Color;
 import arc.math.*;
+import epsilon.graphics.EpsPal;
 import epsilon.type.EpsilonWeapon;
 import mindustry.ai.types.*;
 import mindustry.content.Fx;
 import mindustry.entities.bullet.*;
 import mindustry.entities.effect.*;
+import mindustry.entities.part.RegionPart;
 import mindustry.gen.*;
 import mindustry.type.*;
 
@@ -84,6 +86,7 @@ public class KallisteaUnitTypes{
             faceTarget = true;
             armor = 0;
             rotateSpeed = 2.5f;
+            outlineColor = EpsPal.fensporUnits;
             legStraightness = 0.7f;
             legContinuousMove = true;
             lockLegBase = true;
@@ -94,8 +97,9 @@ public class KallisteaUnitTypes{
             legSpeed = 0.5f;
             legForwardScl = 0.8f;
             legMoveSpace = 1f;
-            weapons.add(new Weapon("sporacrawler-rot"){{
-               top = false;
+            drawCell = false;
+            weapons.add(new Weapon("epsilon-sporacrawler-mouth"){{
+               top = true;
                mirror = false;
                reload = 30;
                bullet = new BulletType(){{
@@ -104,7 +108,7 @@ public class KallisteaUnitTypes{
                    lifetime = 5;
                    speed = 0.5f;
                    shootEffect = none;
-                   hitEffect = new ParticleEffect(){{
+                   hitEffect = despawnEffect = new ParticleEffect(){{
                        particles = 5;
                        lifetime = 20f;
                        length = 35f;
@@ -118,6 +122,20 @@ public class KallisteaUnitTypes{
                        sizeInterp = Interp.pow2Out;
                    }};
                }};
+               parts.addAll(
+                       new RegionPart("-l"){{
+                   progress = PartProgress.heat;
+                   y = 4;
+                   x = -2f;
+                   moveRot = 15f;
+               }},
+                       new RegionPart("-r"){{
+                           progress = PartProgress.heat;
+                           y = 4;
+                           x = 2f;
+                           moveRot = -15f;
+                       }}
+               );
            }});
         }};
 
