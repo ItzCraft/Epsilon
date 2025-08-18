@@ -10,6 +10,7 @@ import mindustry.content.Fx;
 import mindustry.entities.bullet.*;
 import mindustry.entities.effect.*;
 import mindustry.entities.part.RegionPart;
+import mindustry.entities.pattern.ShootBarrel;
 import mindustry.gen.*;
 import mindustry.type.*;
 
@@ -18,7 +19,7 @@ import static mindustry.content.Fx.none;
 public class KallisteaUnitTypes{
     public static UnitType
     // core
-    penumbraStarter, sporacrawler, mycelist, fluorofang;
+    penumbraStarter, sporacrawler, mycelist;
     public static void load(){
         penumbraStarter = new UnitType("penumbra-starter"){{
             outlineColor= Color.valueOf("2f2726");
@@ -147,6 +148,8 @@ public class KallisteaUnitTypes{
             faceTarget = true;
             armor = 3;
             rotateSpeed = 2f;
+            drawCell = false;
+            outlineColor = EpsPal.fensporUnits;
             legStraightness = 0.8f;
             legContinuousMove = true;
             lockLegBase = true;
@@ -157,7 +160,7 @@ public class KallisteaUnitTypes{
             legSpeed = 0.85f;
             legForwardScl = 0.9f;
             legMoveSpace = 1.2f;
-            weapons.add(new Weapon("mycelist-rot"){{
+            weapons.add(new Weapon("epsilon-mycelist-mouth"){{
                 x = 0.5f;
                 top = false;
                 mirror = false;
@@ -167,7 +170,7 @@ public class KallisteaUnitTypes{
                     lifetime = 5;
                     speed = 0.5f;
                     shootEffect = none;
-                    hitEffect = new ParticleEffect(){{
+                    hitEffect = despawnEffect = new ParticleEffect(){{
                         particles = 5;
                         lifetime = 20f;
                         length = 35f;
@@ -181,24 +184,69 @@ public class KallisteaUnitTypes{
                         sizeInterp = Interp.pow2Out;
                     }};
                 }};
-                new Weapon("mycelist-gun"){{
-                   top = true;
-                   mirror = false;
-                   x = -2f;
-                   bullet = new BasicBulletType(){{
-                       damage = 75;
-                       lifetime = 60;
-                       speed = 1.5f;
-                       width = 9;
-                       height = 9;
-                       frontColor = Color.valueOf("a7cddb");
-                       backColor = trailColor = Color.valueOf("658f9e");
-                       trailWidth = 1.05f;
-                       trailLength = 3;
-                       trailEffect = Fx.shootSmokeDisperse;
-
-                   }};
+                parts.addAll(
+                        new RegionPart("-l"){{
+                            under = true;
+                            progress = PartProgress.heat;
+                            y = 10;
+                            x = -4f;
+                            moveRot = 20f;
+                        }},
+                        new RegionPart("-r"){{
+                            under = true;
+                            progress = PartProgress.heat;
+                            y = 10;
+                            x = 4f;
+                            moveRot = -20f;
+                        }}
+                );
+            }},
+            new Weapon("epsilon-mycelist-barrel"){{
+                top = true;
+                mirror = false;
+                reload = 60;
+                x = -3f;
+                shoot = new ShootBarrel(){{
+                    shots = 2;
+                    shotDelay = 20;
+                    barrels = new float[]{
+                            0f,0f,45f,
+                            0f,0f,315f
+                    };
                 }};
+                bullet = new BasicBulletType(){{
+                    damage = 75;
+                    lifetime = 60;
+                    speed = 1.5f;
+                    width = 9;
+                    height = 9;
+                    pierce = true;
+                    homingPower = 10;
+                    homingRange = 40;
+                    frontColor = Color.valueOf("a7cddb");
+                    backColor = trailColor = Color.valueOf("658f9e");
+                    trailWidth = 1.05f;
+                    trailLength = 3;
+                    trailSinScl = 3;
+                    trailSinMag = 5;
+                    trailEffect = Fx.shootSmokeDisperse;
+                }};
+                parts.addAll(
+                        new RegionPart("-l"){{
+                            progress = PartProgress.recoil;
+                            top = false;
+                            y = 4;
+                            x = -3f;
+                            recoil = 3f;
+                        }},
+                        new RegionPart("-r"){{
+                            progress = PartProgress.recoil;
+                            top = false;
+                            y = 4;
+                            x = 1f;
+                            recoil = 3f;
+                        }}
+                );
             }});
         }};
     }

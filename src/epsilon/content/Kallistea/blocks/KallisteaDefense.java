@@ -31,6 +31,7 @@ public class KallisteaDefense {
            health = 840;
            size = 2;
            regenSpeed = 1.5f;
+           glowColor = Color.cyan;
         }};
         quartzWallLarge = new EpsShieldWall("quartz-wall-large"){{
             requirements(Category.defense, with(KallisteaItems.quartz, 24, KallisteaItems.calcite, 12));
@@ -38,6 +39,7 @@ public class KallisteaDefense {
             size = 3;
             regenSpeed = 2.5f;
             shieldHealth = 900;
+            glowColor = Color.cyan;
         }};
         dispersive = new EpsItemTurret("dispersive"){{
             requirements(Category.turret, with(KallisteaItems.calcite, 90, KallisteaItems.quartz, 50));

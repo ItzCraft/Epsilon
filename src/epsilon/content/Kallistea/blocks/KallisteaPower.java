@@ -5,6 +5,8 @@ import epsilon.content.Kallistea.KallisteaItems;
 import mindustry.type.Category;
 import mindustry.world.Block;
 import mindustry.world.blocks.power.ConsumeGenerator;
+import mindustry.world.blocks.power.HeaterGenerator;
+import mindustry.world.blocks.power.PowerDiode;
 import mindustry.world.blocks.power.PowerNode;
 import mindustry.world.draw.DrawDefault;
 import mindustry.world.draw.DrawMulti;
@@ -13,7 +15,7 @@ import mindustry.world.draw.DrawRegion;
 import static mindustry.type.ItemStack.with;
 
 public class KallisteaPower{
-    public static Block quartzGenerator, quartzNode;
+    public static Block quartzGenerator, thermalGenerator, quartzNode, quartzDiode;
 
     public static void load(){
         quartzGenerator = new ConsumeGenerator("quartz-generator"){{
@@ -30,6 +32,15 @@ public class KallisteaPower{
             );
         }};
 
+        thermalGenerator = new HeaterGenerator("thermal-generator"){{
+           requirements(Category.power, with(KallisteaItems.calcite, 80, KallisteaItems.fylion, 45, KallisteaItems.magnetite, 30));
+           health = 200;
+           size = 3;
+           powerProduction = 250f/60f;
+           heatOutput = 40f;
+
+        }};
+
         quartzNode = new PowerNode("quartz-node"){{
            requirements(Category.power, with(KallisteaItems.quartz, 3, KallisteaItems.calcite, 1));
            health = 30;
@@ -38,6 +49,12 @@ public class KallisteaPower{
            maxRange = 10f;
            laserColor1 = Color.valueOf("83a5c9");
            laserColor2 = Color.valueOf("505e6e");
+        }};
+
+        quartzDiode = new PowerDiode("quartz-diode"){{
+           requirements(Category.power, with(KallisteaItems.calcite, 40, KallisteaItems.quartz, 16, KallisteaItems.gelionyte, 4));
+           health = 50;
+           size = 1;
         }};
     }
 }
