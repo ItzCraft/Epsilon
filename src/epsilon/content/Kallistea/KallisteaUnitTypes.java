@@ -141,8 +141,8 @@ public class KallisteaUnitTypes{
         }};
 
         mycelist = new UnitType("mycelist"){{
-           constructor = LegsUnit::create;
-           health = 850;
+            constructor = LegsUnit::create;
+            health = 850;
             speed = 1.2f;
             singleTarget = true;
             faceTarget = true;
@@ -161,93 +161,99 @@ public class KallisteaUnitTypes{
             legForwardScl = 0.9f;
             legMoveSpace = 1.2f;
             weapons.add(new Weapon("epsilon-mycelist-mouth"){{
-                x = 0.5f;
-                top = false;
-                mirror = false;
-                reload = 75;
-                bullet = new BulletType(){{
-                    damage = 60;
-                    lifetime = 5;
-                    speed = 0.5f;
-                    shootEffect = none;
-                    hitEffect = despawnEffect = new ParticleEffect(){{
-                        particles = 5;
-                        lifetime = 20f;
-                        length = 35f;
-                        baseLength = 0f;
-                        cone = 360;
-                        colorFrom = Color.valueOf("6ea7ba");
-                        colorTo = Color.valueOf("3e6187");
-                        sizeFrom = 7;
-                        sizeTo = 0;
-                        interp = Interp.pow2;
-                        sizeInterp = Interp.pow2Out;
-                    }};
-                }};
-                parts.addAll(
-                        new RegionPart("-l"){{
-                            under = true;
-                            progress = PartProgress.heat;
-                            y = 10;
-                            x = -4f;
-                            moveRot = 20f;
+                            x = 0.5f;
+                            mirror = false;
+                            reload = 75;
+                            top = true;
+                            bullet = new BulletType(){{
+                                damage = 60;
+                                lifetime = 5;
+                                speed = 0.5f;
+                                shootEffect = none;
+                                hitEffect = despawnEffect = new ParticleEffect(){{
+                                    particles = 5;
+                                    lifetime = 20f;
+                                    length = 35f;
+                                    baseLength = 0f;
+                                    cone = 360;
+                                    colorFrom = Color.valueOf("6ea7ba");
+                                    colorTo = Color.valueOf("3e6187");
+                                    sizeFrom = 7;
+                                    sizeTo = 0;
+                                    interp = Interp.pow2;
+                                    sizeInterp = Interp.pow2Out;
+                                }};
+                            }};
+                            parts.addAll(
+                                    new RegionPart("-l"){{
+                                        under = true;
+                                        progress = PartProgress.warmup;
+                                        y = 10;
+                                        x = -4f;
+                                        moveRot = 25f;
+                                        moves.add(new PartMove(PartProgress.recoil, 0,0,-26));
+                                    }},
+                                    new RegionPart("-r"){{
+                                        under = true;
+                                        progress = PartProgress.warmup;
+                                        y = 10;
+                                        x = 4f;
+                                        moveRot = -25f;
+                                        moves.add(new PartMove(PartProgress.recoil, 0,0,26));
+                                    }}
+                            );
                         }},
-                        new RegionPart("-r"){{
-                            under = true;
-                            progress = PartProgress.heat;
-                            y = 10;
-                            x = 4f;
-                            moveRot = -20f;
-                        }}
-                );
-            }},
-            new Weapon("epsilon-mycelist-barrel"){{
-                top = true;
-                mirror = false;
-                reload = 60;
-                x = -3f;
-                shoot = new ShootBarrel(){{
-                    shots = 2;
-                    shotDelay = 20;
-                    barrels = new float[]{
-                            0f,0f,45f,
-                            0f,0f,315f
-                    };
-                }};
-                bullet = new BasicBulletType(){{
-                    damage = 75;
-                    lifetime = 60;
-                    speed = 1.5f;
-                    width = 9;
-                    height = 9;
-                    pierce = true;
-                    homingPower = 10;
-                    homingRange = 40;
-                    frontColor = Color.valueOf("a7cddb");
-                    backColor = trailColor = Color.valueOf("658f9e");
-                    trailWidth = 1.05f;
-                    trailLength = 3;
-                    trailSinScl = 3;
-                    trailSinMag = 5;
-                    trailEffect = Fx.shootSmokeDisperse;
-                }};
-                parts.addAll(
-                        new RegionPart("-l"){{
-                            progress = PartProgress.recoil;
-                            top = false;
-                            y = 4;
-                            x = -3f;
-                            recoil = 3f;
-                        }},
-                        new RegionPart("-r"){{
-                            progress = PartProgress.recoil;
-                            top = false;
-                            y = 4;
-                            x = 1f;
-                            recoil = 3f;
-                        }}
-                );
-            }});
+                    new Weapon("epsilon-mycelist-barrel"){{
+                        top = true;
+                        mirror = false;
+                        reload = 60;
+                        recoil = 0.1f;
+                        x = -3f;
+                        shoot = new ShootBarrel(){{
+                            shots = 2;
+                            shotDelay = 20;
+                            inaccuracy = 0;
+                            barrels = new float[]{
+                                    -2.5f, 4f, 15f,
+                                    3f, 4.75f, -15f
+                            };
+                        }};
+                        bullet = new BasicBulletType(){{
+                            damage = 75;
+                            lifetime = 60;
+                            speed = 1.5f;
+                            width = 9;
+                            height = 9;
+                            pierce = true;
+                            homingPower = 10;
+                            homingRange = 40;
+                            frontColor = Color.valueOf("a7cddb");
+                            backColor = trailColor = Color.valueOf("658f9e");
+                            trailWidth = 1.05f;
+                            trailLength = 7;
+                            trailSinScl = 3f;
+                            trailSinMag = 2;
+                            trailEffect = Fx.shootSmokeDisperse;
+                        }};
+                        parts.addAll(
+                                new RegionPart("-l"){{
+                                    progress = PartProgress.recoil;
+                                    under = true;
+                                    top = true;
+                                    y = 4;
+                                    x = -3f;
+                                    moveY = -1.5f;
+                                }},
+                                new RegionPart("-r"){{
+                                    progress = PartProgress.heat;
+                                    under = true;
+                                    top = true;
+                                    y = 4;
+                                    x = 1f;
+                                    moveY = -1.5f;
+                                }}
+                        );
+                    }});
         }};
     }
 }
