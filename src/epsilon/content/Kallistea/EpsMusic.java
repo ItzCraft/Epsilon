@@ -17,8 +17,8 @@ public class EpsMusic{
     public static void load(){
         initializeMusics();
         initializeMusicSets();
-        scan = Vars.tree.loadSound("scan");
-        crashLand = loadMusic("crash");
+        scan = new Sound();
+        crashLand = loadMusic("alarm");
     }
 
     private static void initializeMusics(){
