@@ -6,6 +6,6 @@ main: "epsilon.EpsilonMod"
 description: "A mod which introduces actually unique STORY based campaign. Main goal of this mod - show that lore based mods can be good too. \n\nWith story gameplay it introduces to you some new mechanics."
 subtitle: "v0.2"
 version: 0.2
-minGameVersion: 150
+minGameVersion: 151.1
 java: true
 hideBrowser: true
