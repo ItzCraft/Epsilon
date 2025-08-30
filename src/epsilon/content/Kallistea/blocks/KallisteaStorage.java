@@ -28,7 +28,7 @@ public class KallisteaStorage{
             captureInvicibility = 1f;
             alwaysReplace = true;
             requiresCoreZone = false;
-            landMusic = EpsMusic.crashLand;
+            landMusic = EpsMusic.alarm;
         }};
         coreObscurity = new EpsilonCoreBlock("core-obscurity"){{
             requirements(Category.effect, with(KallisteaItems.calcite, 120, KallisteaItems.gelionyte, 40));

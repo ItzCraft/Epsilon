@@ -25,6 +25,7 @@ public class EpsilonVars{
         Core.settings.manualSave();
     }
 
+    public static String musicName;
 
 
     public static EpsCore core;

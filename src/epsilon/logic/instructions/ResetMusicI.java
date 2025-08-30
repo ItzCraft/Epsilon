@@ -2,6 +2,7 @@ package epsilon.logic.instructions;
 
 import arc.Events;
 import arc.util.Time;
+import epsilon.EpsilonVars;
 import epsilon.type.EpsilonEventTypes;
 import mindustry.logic.LExecutor;
 import mindustry.logic.LVar;
@@ -25,7 +26,7 @@ public class ResetMusicI implements LExecutor.LInstruction {
                 delayB -= Time.delta;
             }
             if(musicName.obj() instanceof String musicN){
-                //EpsSoundControl.play(musicN);
+                EpsilonVars.musicName = musicN;
             }
         }
     }
