@@ -15,7 +15,7 @@ public class BundleUpdater {
     private static final class Token {
         enum Type { COMMENT, PROPERTY }
         final Type type;
-        final String textOrKey; // для COMMENT: оригинальная строка; для PROPERTY: ключ
+        final String textOrKey;
         Token(Type type, String textOrKey){ this.type = type; this.textOrKey = textOrKey; }
         static Token comment(String line){ return new Token(Type.COMMENT, line); }
         static Token property(String key){ return new Token(Type.PROPERTY, key); }
@@ -29,26 +29,26 @@ public class BundleUpdater {
         Fi dir = new Fi(BUNDLES_DIR);
         Fi baseFile = dir.child(BASE_NAME);
         if(!baseFile.exists()){
-            Log.err("Не найден английский файл: @", baseFile.path());
+            Log.err("Not found: @", baseFile.path());
             return;
         }
 
         try{
-            // Парсим английский как эталон: порядок ключей + комментарии/пустые строки
+
             List<Token> layout = parseBaseLayout(baseFile);
             LinkedHashMap<String, String> base = loadProps(baseFile);
 
-            Log.info(">>> Обновление bundles в @", dir.path());
+            Log.info(">>> Bundle update in @", dir.path());
             dir.walk(child -> {
                 String name = child.name();
                 if(!name.endsWith(".properties")) return;
-                if(name.equals(BASE_NAME)) return;             // пропускаем английский
-                if(name.contains("output")) return;            // пропускаем временные
+                if(name.equals(BASE_NAME)) return;
+                if(name.contains("output")) return;
 
                 try{
                     LinkedHashMap<String, String> other = loadProps(child);
 
-                    // Удаляем ключи, которых нет в базе
+
                     int removed = 0;
                     Iterator<String> it = other.keySet().iterator();
                     while(it.hasNext()){
@@ -59,7 +59,7 @@ public class BundleUpdater {
                         }
                     }
 
-                    // Добавляем недостающие/пустые ключи из базы
+
                     int added = 0, filled = 0;
                     for(Map.Entry<String, String> e : base.entrySet()){
                         String k = e.getKey();
@@ -73,7 +73,7 @@ public class BundleUpdater {
                         }
                     }
 
-                    // Перезаписываем файл по макету английского (комментарии/пустые строки сохраняем)
+
                     StringBuilder out = new StringBuilder();
                     for(Token t : layout){
                         if(t.type == Token.Type.COMMENT){
@@ -81,45 +81,41 @@ public class BundleUpdater {
                         }else{
                             String key = t.textOrKey;
                             String val = other.get(key);
-                            if(val == null) continue; // теоретически не должно случиться
+                            if(val == null) continue;
                             out.append(key).append(" = ").append(escape(val)).append("\n");
-                            // удаляем, чтобы видно было «лишние» в конце (мы их не пишем)
+
                             other.remove(key);
                         }
                     }
-                    // Незапланированных ключей (не из базы) быть не должно — мы их удалили выше.
+
 
                     child.writeString(out.toString());
-                    Log.info("✔ @: +@ добавлено, ~@ автозаполнено, -@ удалено",
+                    Log.info("✔ @: +@ added, ~@ auto, -@ deleted",
                             name, added, filled, removed);
                 }catch(Exception ex){
-                    Log.err("Ошибка при обработке @: @", name, ex.getMessage());
+                    Log.err("error in @: @", name, ex.getMessage());
                 }
             });
 
-            Log.info("Готово.");
+            Log.info("Done.");
         }catch(IOException e){
             throw new RuntimeException(e);
         }
     }
 
-    /** Загружаем .properties в LinkedHashMap (с сохранением порядка). */
     private static LinkedHashMap<String, String> loadProps(Fi file) throws IOException{
         LinkedHashMap<String, String> map = new LinkedHashMap<>();
         try(BufferedReader br = new BufferedReader(file.reader())){
             String line;
             while((line = br.readLine()) != null){
-                // Пропускаем комментарии и пустые
                 String trimmed = line.trim();
                 if(trimmed.isEmpty() || trimmed.startsWith("#") || trimmed.startsWith("!")) continue;
 
-                // Простое разделение по первому '=' (или ':')
                 int eq = indexOfAssign(line);
                 if(eq < 0) continue;
                 String key = line.substring(0, eq).trim();
                 String val = line.substring(eq + 1).trim();
 
-                // Не разворачиваем \n -> оставляем как есть; при записи снова экранируем
                 if(!key.isEmpty()){
                     map.put(key, val);
                 }
@@ -128,7 +124,6 @@ public class BundleUpdater {
         return map;
     }
 
-    /** Размечаем английский бандл: комментарии/пустые и порядок ключей. */
     private static List<Token> parseBaseLayout(Fi base) throws IOException{
         List<Token> tokens = new ArrayList<>();
         try(BufferedReader br = new BufferedReader(base.reader())){
@@ -141,7 +136,6 @@ public class BundleUpdater {
                 }
                 int eq = indexOfAssign(line);
                 if(eq < 0){
-                    // строка без '=' — трактуем как комментарий, чтобы не терять
                     tokens.add(Token.comment(line));
                     continue;
                 }
@@ -164,7 +158,6 @@ public class BundleUpdater {
         return Math.min(eq, colon);
     }
 
-    /** Минимальное экранирование под .properties. */
     private static String escape(String s){
         if(s == null) return "";
         StringBuilder out = new StringBuilder(s.length() + 16);
@@ -176,7 +169,6 @@ public class BundleUpdater {
                 case '\r': out.append("\\r"); break;
                 case '\t': out.append("\\t"); break;
                 default:
-                    // при желании — экранировать приватную зону Юникода \uE000–\uF8FF
                     if(ch >= 0xE000 && ch <= 0xF8FF){
                         out.append(String.format("\\u%04x", (int) ch));
                     }else{
