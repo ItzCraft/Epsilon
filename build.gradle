@@ -48,13 +48,6 @@ configurations.all{
     }
 }
 
-task updateBundles(type: JavaExec) {
-    group = "bundles"
-    description = "bundles update"
-    classpath = sourceSets.main.runtimeClasspath
-    mainClass = "epsilon.tools.BundleUpdater"
-}
-
 task jarAndroid{
     dependsOn "jar"
 

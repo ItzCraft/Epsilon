@@ -44,7 +44,7 @@ public class KallisteaEnv {
             miniVulcan, vulcan,
 
             // broken facility
-            facilityTile1, facilityTile2, facilityTile3;
+            facilityTile1, facilityTile2, facilityTile3, facilityWalls;
 
     public static void load() {
         {
@@ -172,20 +172,13 @@ public class KallisteaEnv {
                 miniVulcan = new Vulcan("thermalitic-vulcan-mini"){{variants = 2; parent = blendGroup = thermaliticVulcanFloor; mini=true; emitLight = true; lightColor = Color.valueOf("d46108"); lightRadius = 25; effect = Fx.fire;}};
 
                 // facility biome
-                facilityTile1 = new Floor("facility-tiles-10"){{
-                    autotile = true;
-                    drawEdgeOut = false;
-                    drawEdgeIn = false;
+                facilityTile1 = new TiledFloor("facility-tile-1") {{
                 }};
-                facilityTile2 = new Floor("facility-tiles-11"){{
-                    autotile = true;
-                    drawEdgeOut = false;
-                    drawEdgeIn = false;
+                facilityTile2 = new TiledFloor("facility-tile-2"){{
                 }};
-                facilityTile3 = new Floor("facility-tiles-12"){{
-                    autotile = true;
-                    drawEdgeOut = false;
-                    drawEdgeIn = false;
+                facilityTile3 = new TiledFloor("facility-tile-3"){{
+                }};
+                facilityWalls = new StaticWall("facility-walls"){{
                 }};
             }
         }
