@@ -8,9 +8,11 @@ import epsilon.world.blocks.defense.*;
 import mindustry.content.Fx;
 import mindustry.entities.bullet.*;
 import mindustry.entities.effect.*;
+import mindustry.entities.part.RegionPart;
 import mindustry.gen.Sounds;
 import mindustry.type.Category;
 import mindustry.world.Block;
+import mindustry.world.draw.DrawTurret;
 import mindustry.world.meta.BuildVisibility;
 
 import static mindustry.type.ItemStack.with;
@@ -41,54 +43,218 @@ public class KallisteaDefense {
             shieldHealth = 900;
             glowColor = Color.cyan;
         }};
-        dispersive = new EpsItemTurret("dispersive"){{
+        dispersive = new EpsItemTurret("epsilon-dispersive"){{
             requirements(Category.turret, with(KallisteaItems.calcite, 90, KallisteaItems.quartz, 50));
             health = 210;
             size = 3;
-            fraction = "Incers";
             itemCapacity = 20;
             targetAir = false;
-            range = 150;
-            inaccuracy = 3;
-            reload = 90;
+            rotateSpeed = 2;
+            reload = 155;
+            range = 387;
+            outlineColor = Color.valueOf("38314a");
+
+            drawer = new DrawTurret(){{
+                parts.add(new RegionPart("-blade"){{
+                    x = 26f / 4f;
+                    y = 20f / 4f;
+                    mirror = true;
+                    under = true;
+                    progress = PartProgress.warmup;
+                    moveRot = -18;
+                    moveX = 2;
+                    moveY = -0.5f;
+                    moves.add(new PartMove(PartProgress.recoil, -1, -1f, -18));
+                }});
+            }};
+
+            shoot.firstShotDelay = 54;
+            shoot.shots = 2;
+            shoot.shotDelay = 10;
+
             ammo(
-                    KallisteaItems.quartz, new BasicBulletType(){{
-                        width = 10;
-                        height = 12;
-                        damage = 55;
-                        speed = 2;
-                        lifetime = 75;
-                        shoot.shots = 3;
-                        shoot.shotDelay = 10f;
-                        ammoMultiplier = 1;
-                        ammoPerShot = 3;
-                        backColor = trailColor = Color.valueOf("8a762f");
-                        frontColor = Color.valueOf("d1bc71");
-                        trailWidth = 2.6f;
-                        trailLength = 20;
-                        weaveScale = 7f;
-                        weaveMag = 1.8f;
-                        shootEffect = new ParticleEffect(){{
-                            particles = 6;
-                            line = true;
-                            lifetime = 40;
-                            cone = 15;
-                            length = 15f;
-                            baseLength = 10f;
-                            colorFrom = Color.valueOf("8a762f");
-                            colorTo = Color.valueOf("d1bc71");
-                            sizeFrom = 7;
-                            sizeTo = 0;
-                            strokeFrom = 2f;
-                            strokeTo = 0;
-                            sizeInterp = Interp.pow3Out;
-                            interp = Interp.pow3;
+                    KallisteaItems.quartz, new BasicBulletType(11,90){{
+                        width = 6;
+                        height = 16;
+                        lifetime = 60;
+                        frontColor = trailColor = Color.valueOf("effdff");
+                        backColor = Color.valueOf("8b9cd3");
+                        trailWidth = 1.8f;
+                        trailLength = 10;
+                        trailEffect = Fx.disperseTrail;
+                        trailRotation = true;
+                        trailInterval = 1.7f;
+                        pierce = true;
+                        pierceBuilding = true;
+                        pierceCap = 2;
+
+                        hitEffect = despawnEffect = new MultiEffect(
+                                new ParticleEffect() {{
+                                    lifetime = 20;
+                                    length = 20;
+                                    baseLength = 0;
+                                    colorFrom = Color.valueOf("effdff");
+                                    colorTo = Color.valueOf("8b9cd3");
+                                    sizeFrom = 3;
+                                    sizeTo = 0;
+                                    cone = 40;
+                                }},
+                                new WaveEffect() {{
+                                    sizeFrom = 0;
+                                    sizeTo = 24;
+                                    colorFrom = Color.valueOf("effdff");
+                                    colorTo = Color.valueOf("effdff");
+                                    lifetime = 9;
+                                }}
+                        );
+                        shootEffect = new MultiEffect(
+                                new ParticleEffect() {{
+                                    lifetime = 16;
+                                    length = 27;
+                                    baseLength = 0;
+                                    sizeFrom = 3.6f;
+                                    sizeTo = 0;
+                                    cone = 38;
+                                    colorFrom = Color.valueOf("effdff");
+                                    colorTo = Color.valueOf("8b9cd3");
+                                }},
+                                new ParticleEffect(){{
+                                    offsetX = -80f / 4f;
+                                    offsetY = -30 / 4f;
+                                    useRotation = true;
+                                    baseRotation = -45f;
+                                    lifetime = 70;
+                                    length = -40;
+                                    baseLength = 0;
+                                    sizeFrom = 2f;
+                                    sizeTo = 0;
+                                    cone = 12;
+                                    colorFrom = Color.valueOf("ccccccb8");
+                                    colorTo = Color.valueOf("6b6b6b97");
+                                }},
+                                new ParticleEffect(){{
+                                    offsetX = -80f / 4f;
+                                    offsetY = 30f / 4f;
+                                    useRotation = true;
+                                    baseRotation = 45f;
+                                    lifetime = 70;
+                                    length = -40;
+                                    baseLength = 0;
+                                    sizeFrom = 2f;
+                                    sizeTo = 0;
+                                    cone = 12;
+                                    colorFrom = Color.valueOf("ccccccb8");
+                                    colorTo = Color.valueOf("6b6b6b97");
+                                }}
+                        );
+                        chargeEffect = new MultiEffect(
+                                new ParticleEffect(){{
+                                    useRotation = true;
+                                    baseRotation = 0;
+                                    cone = 20;
+                                    startDelay = 0;
+                                    rotWithParent = true;
+                                    lifetime = 38;
+                                    length = -34;
+                                    baseLength = 34;
+                                    colorFrom = Color.valueOf("effdff");
+                                    colorTo = Color.valueOf("8b9cd3");
+                                    sizeFrom = 0;
+                                    sizeTo = 3;
+                                }},
+                                new ParticleEffect(){{
+                                    useRotation = true;
+                                    baseRotation = 90;
+                                    cone = 20;
+                                    startDelay = 15;
+                                    rotWithParent = true;
+                                    lifetime = 38;
+                                    length = -34;
+                                    baseLength = 34;
+                                    colorFrom = Color.valueOf("effdff");
+                                    colorTo = Color.valueOf("8b9cd3");
+                                    sizeFrom = 0;
+                                    sizeTo = 3;
+                                }},
+                                new ParticleEffect(){{
+                                    useRotation = true;
+                                    baseRotation = 180;
+                                    cone = 20;
+                                    startDelay = 25;
+                                    rotWithParent = true;
+                                    lifetime = 38;
+                                    length = -34;
+                                    baseLength = 34;
+                                    colorFrom = Color.valueOf("effdff");
+                                    colorTo = Color.valueOf("8b9cd3");
+                                    sizeFrom = 0;
+                                    sizeTo = 3;
+                                }},
+                                new ParticleEffect(){{
+                                    useRotation = true;
+                                    baseRotation = 270;
+                                    cone = 20;
+                                    startDelay = 30;
+                                    rotWithParent = true;
+                                    lifetime = 38;
+                                    length = -34;
+                                    baseLength = 34;
+                                    colorFrom = Color.valueOf("effdff");
+                                    colorTo = Color.valueOf("8b9cd3");
+                                    sizeFrom = 0;
+                                    sizeTo = 3;
+                                }}
+                        );
+
+                        bulletInterval = 5.5f;
+                        intervalRandomSpread = 20f;
+                        intervalBullets = 2;
+                        intervalAngle = 180f;
+                        intervalSpread = 300f;
+                        intervalBullet = new BasicBulletType(8, 30) {{
+                            lifetime = 10;
+                            width = 5;
+                            height = 14;
+                            frontColor = trailColor = Color.valueOf("effdff");
+                            backColor = Color.valueOf("8b9cd3");
+                            trailWidth = 1.6f;
+                            trailLength = 6;
+
+                            hitEffect = despawnEffect = new ParticleEffect() {{
+                                lifetime = 20;
+                                length = 27;
+                                baseLength = 0;
+                                colorFrom = Color.valueOf("effdff");
+                                colorTo = Color.valueOf("8b9cd3");
+                                sizeFrom = 2.6f;
+                                sizeTo = 0;
+                                cone = 40;
+                            }};
                         }};
-                        hitEffect = despawnEffect = new WaveEffect(){{
-                            colorFrom = Color.valueOf("8a762f");
-                            colorTo = Color.valueOf("d1bc71");
-                            sizeTo = 20;
-                            lightColor = Color.valueOf("d1bc71");
+
+                        fragBullets = 3;
+                        fragRandomSpread = 45;
+                        fragAngle = 180;
+                        fragSpread = 45;
+                        fragBullet = new BasicBulletType(8, 30){{
+                            lifetime = 10;
+                            width = 5;
+                            height = 14;
+                            frontColor = trailColor = Color.valueOf("effdff");
+                            backColor = Color.valueOf("8b9cd3");
+                            trailWidth = 1.6f;
+                            trailLength = 6;
+
+                            hitEffect = despawnEffect = new ParticleEffect() {{
+                                lifetime = 20;
+                                length = 27;
+                                baseLength = 0;
+                                colorFrom = Color.valueOf("effdff");
+                                colorTo = Color.valueOf("8b9cd3");
+                                sizeFrom = 2.6f;
+                                sizeTo = 0;
+                                cone = 40;
+                            }};
                         }};
                     }}
             );
