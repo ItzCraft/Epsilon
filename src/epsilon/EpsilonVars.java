@@ -2,8 +2,11 @@ package epsilon;
 
 import arc.Core;
 import arc.struct.Seq;
+import epsilon.audio.EpsSoundControl;
 import epsilon.cutscenes.*;
 import epsilon.ui.dialogs.EpsEffectsDialog;
+
+import static mindustry.core.Control.sound;
 
 public class EpsilonVars{
     //will the warn dialog be displayed
@@ -44,5 +47,6 @@ public class EpsilonVars{
                 Core.settings.put(var, false);
             }
         }
+        sound = new EpsSoundControl();
     }
 }
