@@ -6,7 +6,7 @@ import epsilon.audio.EpsSoundControl;
 import epsilon.cutscenes.*;
 import epsilon.ui.dialogs.EpsEffectsDialog;
 
-import static mindustry.core.Control.sound;
+import static mindustry.Vars.control;
 
 public class EpsilonVars{
     //will the warn dialog be displayed
@@ -47,6 +47,6 @@ public class EpsilonVars{
                 Core.settings.put(var, false);
             }
         }
-        sound = new EpsSoundControl();
+        control.sound = new EpsSoundControl();
     }
 }
