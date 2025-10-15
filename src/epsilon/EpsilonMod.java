@@ -45,6 +45,13 @@ public class EpsilonMod extends Mod{
         
     @Override
     public void loadContent(){
+
+        modahh = mods.getMod(getClass());
+        modahh.meta.displayName = Core.bundle.get("mod.epsilon.name");
+        modahh.meta.author = Core.bundle.get("mod.epsilon.author");
+        modahh.meta.description = Core.bundle.get("mod.epsilon.description");
+        modahh.meta.subtitle = Core.bundle.get("mod.epsilon.subtitle");
+        
         EpsMusic.load();
         EpsTeams.load();
         EpsAttribute.load();
