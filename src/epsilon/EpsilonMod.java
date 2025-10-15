@@ -18,6 +18,7 @@ import static arc.Core.bundle;
 import static mindustry.Vars.*;
 
 public class EpsilonMod extends Mod{
+    public static Mods.LoadedMod modahh;
 
     public EpsilonMod(){
         Events.on(ClientLoadEvent.class, e -> {
