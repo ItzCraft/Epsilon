@@ -15,7 +15,7 @@ import mindustry.mod.*;
 import mindustry.ui.dialogs.*;
 
 import static arc.Core.bundle;
-import static mindustry.Vars.ui;
+import static mindustry.Vars.*;
 
 public class EpsilonMod extends Mod{
 
