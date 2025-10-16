@@ -45,7 +45,7 @@ public class KallisteaDefense {
             shieldHealth = 900;
             glowColor = Color.cyan;
         }};
-        dispersive = new EpsItemTurret("epsilon-dispersive"){{
+        dispersive = new EpsItemTurret("dispersive"){{
             requirements(Category.turret, with(KallisteaItems.calcite, 90, KallisteaItems.quartz, 50));
             health = 210;
             size = 3;
