@@ -12,6 +12,8 @@ import mindustry.entities.part.RegionPart;
 import mindustry.gen.Sounds;
 import mindustry.type.Category;
 import mindustry.world.Block;
+import mindustry.world.draw.DrawDefault;
+import mindustry.world.draw.DrawMulti;
 import mindustry.world.draw.DrawTurret;
 import mindustry.world.meta.BuildVisibility;
 
@@ -257,6 +259,9 @@ public class KallisteaDefense {
                             }};
                         }};
                     }}
+            );
+            drawer = new DrawMulti(
+                    new DrawDefault()
             );
         }};
 
