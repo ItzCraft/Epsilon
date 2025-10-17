@@ -117,6 +117,7 @@ public class KallisteaProduction{
             }};
             outputItem = new ItemStack(KallisteaItems.fylion, 1);
             drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
                     new DrawDefault(),
                     new DrawRegion("-top"));
         }};

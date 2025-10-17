@@ -104,7 +104,7 @@ public class EpsilonPlanets{
                 rotateTime = 60f*836f;
                 solarSystem = epsilon;
                 updateLighting = true;
-                alwaysUnlocked = allowLaunchLoadout = allowLaunchSchematics = clearSectorOnLose = true;
+                alwaysUnlocked = allowLaunchLoadout = allowLaunchSchematics = clearSectorOnLose = false;
                 generator = new EryphosPlanetGenerator();
                 meshLoader = () -> new MultiMesh(
                         new HexMesh(this, 7)
