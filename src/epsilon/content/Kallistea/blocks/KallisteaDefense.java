@@ -3,6 +3,7 @@ package epsilon.content.Kallistea.blocks;
 import arc.graphics.Color;
 import arc.math.Interp;
 import epsilon.content.Kallistea.EpsFx;
+import epsilon.content.Kallistea.EpsMusic;
 import epsilon.content.Kallistea.KallisteaItems;
 import epsilon.world.blocks.defense.*;
 import mindustry.content.Fx;
@@ -55,11 +56,13 @@ public class KallisteaDefense {
             reload = 155;
             range = 387;
             outlineColor = Color.valueOf("38314a");
+            shootSound = EpsMusic.highShoot;
 
             drawer = new DrawTurret(){{
+                basePrefix = "disbase-";
                 parts.add(new RegionPart("-blade"){{
-                    x = 26f / 4f;
-                    y = 20f / 4f;
+                    x = 30f / 4f;
+                    y = 22f / 4f;
                     mirror = true;
                     under = true;
                     progress = PartProgress.warmup;
@@ -259,9 +262,6 @@ public class KallisteaDefense {
                             }};
                         }};
                     }}
-            );
-            drawer = new DrawMulti(
-                    new DrawDefault()
             );
         }};
 

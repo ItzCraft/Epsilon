@@ -1,6 +1,9 @@
 package epsilon.content.Kallistea;
 
+import arc.Core;
 import arc.Events;
+import arc.assets.AssetDescriptor;
+import arc.assets.loaders.SoundLoader;
 import arc.audio.*;
 import arc.struct.*;
 import arc.util.Log;
@@ -30,6 +33,10 @@ public class EpsMusic{
     // Boss
     ;
 
+    public static Sound
+    // shoots
+    highShoot = new Sound();
+
     public static void load(){
         initializeMusics();
         initializeMusicSets();
@@ -58,13 +65,26 @@ public class EpsMusic{
         loadMusicSet("epsilon/ambient/", ambientTracks);
         //loadMusicSet("epsilon/dark/", darkTracks);
         //loadMusicSet("epsilon/boss/", bossTracks);
-    }
 
-    /**
-     * Loads a set of music tracks from a specified base path.
-     * @param basePath Base path for the music files.
-     * @param trackNames Array of track names to load.
-     */
+        //Sounds
+        highShoot = loadSound("high-shoot");
+    }
+    private static Sound loadSound(String soundName){
+        if(!Vars.headless){
+            String name = "sounds/" + soundName;
+            String path = Vars.tree.get(name + ".ogg").exists() ? name + ".ogg" : name + ".mp3";
+
+            Sound sound = new Sound();
+
+            AssetDescriptor<?> desc = Core.assets.load(path, Sound.class, new SoundLoader.SoundParameter(sound));
+            desc.errored = Throwable::printStackTrace;
+
+            return sound;
+
+        }else{
+            return new Sound();
+        }
+    }
     private static void loadMusicSet(String basePath, String[] trackNames){
         for(String track : trackNames){
             try{
