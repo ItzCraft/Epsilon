@@ -103,6 +103,8 @@ public class KallisteaEnv {
 				eadstonWallDeanytic = new StaticWall("eadston-deanytic-wall"){{variants = 4;
                     eadstonFloor.asFloor().wall = this; eadstonLightFloor.asFloor().wall = this; eadstonRoughFloor.asFloor().wall = this;
                 }};
+                fensporReinforcedFloor = new Floor("fenspor-reinforced-floor", 6);
+                fensporStrandsFloor = new Floor("fenspor-strands-floor", 6);
 				eadstalDeanyteCluster = new TallBlock("eadstal-deanyte-cluster"){{variants = 2; clipSize = 148; shadowOffset = -0.68f;}};
 				eadstonWallFenspor = new StaticWall("eadston-fenspor-wall"){{variants = 4;
                     fensporReinforcedFloor.asFloor().wall = this; fensporStrandsFloor.asFloor().wall = this;
@@ -110,8 +112,6 @@ public class KallisteaEnv {
 				eadstonFensporBoulder = new Prop("eadston-fenspor-boulder"){{variants = 4; customShadow = true;
                     fensporReinforcedFloor.asFloor().decoration = this; fensporStrandsFloor.asFloor().decoration = this;
                 }};
-                fensporReinforcedFloor = new Floor("fenspor-reinforced-floor", 6);
-                fensporStrandsFloor = new Floor("fenspor-strands-floor", 6);
                 fensporVent = new SteamVent("fenspor-vent"){{variants= 2; parent = blendGroup = fensporReinforcedFloor = fensporStrandsFloor;
                     attributes.set(infection, 1f);}};
                 buahanDeadBush = new Prop("buahan-dead-bush"){{variants = 3; customShadow = true;}};

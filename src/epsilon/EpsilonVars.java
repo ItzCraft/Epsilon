@@ -18,7 +18,8 @@ public class EpsilonVars{
     // NOTE: THIS IS FOR SECTORS ONLY DO NOT TRY TO USE IT ANYWHERE ELSE
     private static final Seq<String> sectorVars = Seq.with(
             "test",
-            "testwarning"
+            "testwarning",
+            "turret1"
     );
     public static boolean getVarForSector(String name){
         return Core.settings.getBool(name);

@@ -2,6 +2,7 @@ package epsilon.content.Kallistea.blocks;
 
 import arc.graphics.Color;
 import epsilon.content.Kallistea.KallisteaItems;
+import mindustry.entities.effect.ParticleEffect;
 import mindustry.type.Category;
 import mindustry.world.Block;
 import mindustry.world.blocks.power.ConsumeGenerator;
@@ -26,8 +27,20 @@ public class KallisteaPower{
             squareSprite = true;
             consumeItem(KallisteaItems.quartz, 1);
             itemDuration = 45f;
+            consumeEffect = new ParticleEffect(){{
+               lifetime = 30;
+               length = 15;
+               sizeFrom = 3.5f;
+               sizeTo = 0;
+               spin = 5f;
+               colorFrom = Color.valueOf("effdff");
+               colorTo = Color.valueOf("8b9cd3");
+            }};
             drawer = new DrawMulti(
                     new DrawRegion("-bottom"),
+                    new DrawRegion("-rotator"){{
+                      rotateSpeed = 1.25f;
+                    }},
                     new DrawDefault()
             );
         }};

@@ -4,10 +4,10 @@ import epsilon.type.EpsilonSectorPreset;
 import mindustry.type.SectorPreset;
 
 public class KallisteaSectorPresets {
-    public static SectorPreset firstRiddles;
+    public static EpsilonSectorPreset firstRiddles;
 
     public static void load(){
-        firstRiddles = new SectorPreset("first-riddles", EpsilonPlanets.kallistea, 13){{
+        firstRiddles = new EpsilonSectorPreset("first-riddles", EpsilonPlanets.kallistea, 13){{
            alwaysUnlocked = true;
            difficulty = 1;
            overrideLaunchDefaults = true;

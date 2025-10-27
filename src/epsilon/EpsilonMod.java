@@ -22,7 +22,8 @@ public class EpsilonMod extends Mod{
 
     public EpsilonMod(){
         Events.on(ClientLoadEvent.class, e -> {
-            loadESSD();
+            // disabled for release
+            //loadESSD();
             loadSettings();
             if(!EpsilonVars.hideWarnDialog){
                 Time.runTask(10f, () -> {
