@@ -16,7 +16,7 @@ import mindustry.world.draw.DrawRegion;
 import static mindustry.type.ItemStack.with;
 
 public class KallisteaPower{
-    public static Block quartzGenerator, thermalGenerator, quartzNode, quartzDiode;
+    public static Block quartzGenerator, thermalGenerator, gelionyteConsumer, quartzNode, energyCapsule, quartzDiode;
 
     public static void load(){
         quartzGenerator = new ConsumeGenerator("quartz-generator"){{

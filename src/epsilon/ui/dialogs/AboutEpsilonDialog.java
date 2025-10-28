@@ -28,7 +28,7 @@ public class AboutEpsilonDialog extends BaseDialog{
         }).padTop(30f).size(195f, 90f);
 
         table.button(Core.bundle.get("epsilon-database-fenspor-button"), () -> {
-            //EpsUi.showDialog("epsilon-frog", "blah blah", 10);
+            //EpsUi.textDialog("blah blah", "epsilon-frog", 10, false);
         }).padBottom(40f).size(195f, 90f);
         cont.add(table).width(500f).height(100f);
     }

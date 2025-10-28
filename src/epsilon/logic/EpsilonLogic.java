@@ -16,10 +16,12 @@ public class EpsilonLogic{
         LAssembler.customParsers.put("setvars", SetVars::new);
         LAssembler.customParsers.put("customeffect", CustomEffect::new);
         LAssembler.customParsers.put("resetmusic", ResetMusic::new);
+        LAssembler.customParsers.put("textdialog", TextDialog::new);
 
         LogicIO.allStatements.addUnique(PlayerChange::new);
         LogicIO.allStatements.addUnique(SetVars::new);
         LogicIO.allStatements.addUnique(CustomEffect::new);
         LogicIO.allStatements.addUnique(ResetMusic::new);
+        LogicIO.allStatements.addUnique(TextDialog::new);
     }
 }

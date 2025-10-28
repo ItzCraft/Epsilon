@@ -1,5 +1,6 @@
 package epsilon.logic.instructions;
 
+import epsilon.ui.EpsUi;
 import mindustry.gen.Unit;
 import mindustry.logic.LExecutor;
 import mindustry.logic.LExecutor.LInstruction;
