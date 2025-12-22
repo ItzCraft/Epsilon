@@ -47,7 +47,7 @@ public class KallisteaUnitTypes{
                 shoot.shots = 2;
                 shoot.shotDelay = 1f;
                 recoil = 2f;
-                shootSound = Sounds.spark;
+                shootSound = EpsMusic.electricShoot;
                 bullet = new BasicBulletType(){{
                     width = 5;
                     height = 5;
