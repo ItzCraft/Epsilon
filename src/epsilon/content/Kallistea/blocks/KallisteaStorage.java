@@ -22,7 +22,7 @@ public class KallisteaStorage{
             health = 1475;
             size = 4;
             itemCapacity = 828;
-            landDuration = 100f;
+            landDuration = 150f;
             fogRadius = 5;
             unitType = KallisteaUnitTypes.penumbraStarter;
             captureInvicibility = 1f;

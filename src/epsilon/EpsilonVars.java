@@ -9,16 +9,17 @@ import epsilon.ui.dialogs.EpsEffectsDialog;
 import static mindustry.Vars.control;
 
 public class EpsilonVars{
+    //DO NOT USE IT UNLESS YOU DON'T KNOW WHAT IT DOES
+    public static boolean  testingMode = Core.settings.getBool("@settings.testing-mode");
+
     //will the warn dialog be displayed
-    public static boolean  hideWarnDialog = Core.settings.getBool("hide-warn-dialog");
+    public static boolean  hideWarnDialog = Core.settings.getBool("@settings.hide-warn-dialog");
 
     // if false, only kallistea and epsilon will appear 
-    public static boolean  detailedSolarSystem = Core.settings.getBool("detailed-solar-system");
+    public static boolean  detailedSolarSystem = Core.settings.getBool("@settings.detailed-solar-system");
 
     // NOTE: THIS IS FOR SECTORS ONLY DO NOT TRY TO USE IT ANYWHERE ELSE
     private static final Seq<String> sectorVars = Seq.with(
-            "test",
-            "testwarning",
             "turret1"
     );
     public static boolean getVarForSector(String name){
@@ -28,8 +29,6 @@ public class EpsilonVars{
         Core.settings.put(name, true);
         Core.settings.manualSave();
     }
-
-    public static String musicName;
 
 
     public static EpsCore core;

@@ -4,17 +4,19 @@ import arc.*;
 import arc.util.*;
 import epsilon.content.Kallistea.blocks.*;
 import epsilon.content.Kallistea.*;
-import epsilon.ui.EpsStyles;
+import epsilon.ui.*;
 import epsilon.ui.dialogs.AboutEpsilonDialog;
-import epsilon.ui.TeamsUI;
 import epsilon.world.EpsAttribute;
 import epsilon.logic.EpsilonLogic;
+import mindustry.content.TechTree;
 import mindustry.game.EventType.*;
 import mindustry.gen.*;
 import mindustry.mod.*;
 import mindustry.ui.dialogs.*;
 
 import static arc.Core.bundle;
+import static epsilon.EpsilonVars.*;
+import static epsilon.content.Kallistea.EpsilonPlanets.kallistea;
 import static mindustry.Vars.*;
 
 public class EpsilonMod extends Mod{
@@ -22,14 +24,13 @@ public class EpsilonMod extends Mod{
 
     public EpsilonMod(){
         Events.on(ClientLoadEvent.class, e -> {
-            // disabled for release
-            //loadESSD();
+            if(testingMode){loadESSD();}
             loadSettings();
             if(!EpsilonVars.hideWarnDialog){
                 Time.runTask(10f, () -> {
                     BaseDialog dialog = new BaseDialog("Epsilon");
                     dialog.cont.add(bundle.get("warn-text1")).row();
-                    dialog.cont.image(Core.atlas.find("epsilon-crystal-f")).pad(20f).row();
+                    dialog.cont.image(Core.atlas.find("epsilon-icon")).pad(20f).row();
                     dialog.cont.button("OK", dialog::hide).size(100f, 50f);
                     dialog.show();
                 });
@@ -73,10 +74,21 @@ public class EpsilonMod extends Mod{
         });
     }
 
+    private void resetTree(TechTree.TechNode root) {
+        root.reset();
+        root.content.clearUnlock();
+    }
+
     private void loadSettings(){
         ui.settings.addCategory(bundle.get("settings.epsilon-title"), Icon.book, t -> {
-            t.checkPref("hide-warn-dialog", false);
-            t.checkPref("detailed-solar-system",false);
+            t.checkPref("@settings.testing-mode", false);
+            if(testingMode){
+                t.button("@settings.epsilon-tech-tree", Icon.tree, () -> {
+                    ui.showConfirm("@confirm", "@settings.epsilon-tech-tree.confirm", () -> resetTree(kallistea.techTree));
+                });
+            }
+            t.checkPref("@settings.hide-warn-dialog", false);
+            t.checkPref("@settings.detailed-solar-system",false);
         });
     }
 }

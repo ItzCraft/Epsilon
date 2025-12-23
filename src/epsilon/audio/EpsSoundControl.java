@@ -1,16 +1,36 @@
 package epsilon.audio;
 
 import arc.Events;
-import epsilon.EpsilonVars;
+import arc.audio.Music;
+import arc.struct.ObjectMap;
+import arc.util.Log;
+import epsilon.content.Kallistea.EpsMusic;
 import epsilon.type.EpsilonEventTypes;
-import mindustry.Vars;
 import mindustry.audio.SoundControl;
 
 public class EpsSoundControl extends SoundControl{
+    public static ObjectMap<String, Music> musicMap = new ObjectMap<>();
 
+    static{
+        musicMap.put("alarm", EpsMusic.alarm);
+        musicMap.put("inevitability", EpsMusic.inevitability);
+        musicMap.put("planet-of-despair", EpsMusic.planetOfDespair);
+        musicMap.put("youre-safe-mow", EpsMusic.youreSafeNow);
+    }
     public EpsSoundControl(){
         Events.on(EpsilonEventTypes.MusicResetEvent.class, e -> {
-            //playOnce(Vars.tree.loadMusic(EpsilonVars.musicName));
+            if(current != null){
+                fade = 1f;
+                current.stop();
+                Music music = musicMap.get(e.musicn);
+                Log.info("current music: " + e.musicn);
+                current = null;
+                playOnce(music);
+            }else{
+                Music music = musicMap.get(e.musicn);
+                Log.info("current music2: " + e.musicn);
+                playOnce(music);
+            }
         });
     }
 }

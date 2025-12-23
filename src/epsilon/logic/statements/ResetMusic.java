@@ -9,11 +9,10 @@ import mindustry.logic.LExecutor;
 import mindustry.logic.LStatement;
 
 public class ResetMusic extends LStatement{
-    public String musicName = "myLove", delay = "15";
+    public String musicName = "game1";
 
     public ResetMusic(String[] tokens){
         musicName = tokens[1];
-        delay = tokens[2];
     }
 
     public ResetMusic(){}
@@ -27,10 +26,6 @@ public class ResetMusic extends LStatement{
         table.add(" Music name ");
 
         fields(table, musicName, v -> musicName = v);
-
-        table.add(" music in ");
-
-        fields(table, delay, v -> delay = v);
     }
 
     @Override
@@ -40,7 +35,7 @@ public class ResetMusic extends LStatement{
 
     @Override
     public LExecutor.LInstruction build(LAssembler builder) {
-        return new ResetMusicI(builder.var(musicName), builder.var(delay));
+        return new ResetMusicI(builder.var(musicName));
     }
 
     @Override
@@ -52,7 +47,5 @@ public class ResetMusic extends LStatement{
         builder.append("resetmusic");
         builder.append(" ");
         builder.append(musicName);
-        builder.append(" ");
-        builder.append(delay);
     }
 }

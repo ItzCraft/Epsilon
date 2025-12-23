@@ -20,8 +20,8 @@ public class EpsMusic {
     public static Seq<Music> epsDarkMusic = new Seq<>();
     public static Seq<Music> epsBossMusic = new Seq<>();
 
-    public static String[] epsAmbientList = {"in-the-secrets", "its-over"};
-    public static String[] epsDarkList = {};
+    public static String[] epsAmbientList = {"in-the-secrets"};
+    public static String[] epsDarkList = {"its-over"};
     public static String[] epsBossList = {"the-end-is-near"};
 
     public static Seq<Music> origAmbientMusic;
