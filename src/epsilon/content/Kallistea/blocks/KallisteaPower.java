@@ -1,6 +1,7 @@
 package epsilon.content.Kallistea.blocks;
 
 import arc.graphics.Color;
+import epsilon.EpsilonVars;
 import epsilon.content.Kallistea.KallisteaItems;
 import mindustry.entities.effect.ParticleEffect;
 import mindustry.type.Category;
@@ -45,14 +46,16 @@ public class KallisteaPower{
             );
         }};
 
-        thermalGenerator = new HeaterGenerator("thermal-generator"){{
-           requirements(Category.power, with(KallisteaItems.calcite, 80, KallisteaItems.fylion, 45, KallisteaItems.magnetite, 30));
-           health = 200;
-           size = 3;
-           powerProduction = 250f/60f;
-           heatOutput = 40f;
+        if(EpsilonVars.testingMode) {
+            thermalGenerator = new HeaterGenerator("thermal-generator") {{
+                requirements(Category.power, with(KallisteaItems.calcite, 80, KallisteaItems.fylion, 45, KallisteaItems.magnetite, 30));
+                health = 200;
+                size = 3;
+                powerProduction = 250f / 60f;
+                heatOutput = 40f;
 
-        }};
+            }};
+        }
 
         quartzNode = new PowerNode("quartz-node"){{
            requirements(Category.power, with(KallisteaItems.quartz, 3, KallisteaItems.calcite, 1));

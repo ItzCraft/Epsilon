@@ -7,13 +7,11 @@ import arc.math.geom.Mat3D;
 import arc.util.Tmp;
 import arc.struct.Seq;
 import epsilon.EpsilonVars;
-import epsilon.content.Kallistea.blocks.KallisteaEnv;
-import epsilon.content.Kallistea.blocks.KallisteaStorage;
+import epsilon.content.Kallistea.blocks.*;
 import epsilon.planet.*;
 import mindustry.content.Blocks;
 import mindustry.graphics.g3d.*;
 import mindustry.maps.planet.AsteroidGenerator;
-import mindustry.maps.planet.ErekirPlanetGenerator;
 import mindustry.type.*;
 import mindustry.world.Block;
 import mindustry.world.meta.Env;
@@ -82,7 +80,7 @@ public class EpsilonPlanets{
             minZoom = 0.75f;
             generator = new KallisteaPlanetGenerator();
             meshLoader = () -> new MultiMesh(
-                    new HexMesh(this, EpsilonVars.detailedSolarSystem ? 7 : 5)
+                    new HexMesh(this, 7)
             );
             cloudMeshLoader = () -> new MultiMesh(
                     new HexSkyMesh(this, 59, 2.7f, 0.1f, EpsilonVars.detailedSolarSystem ? 7 : 5, Color.valueOf("6a7d9e").a(0.80f), 3, 0.42f, EpsilonVars.detailedSolarSystem ? 1.2f : 1f, EpsilonVars.detailedSolarSystem ? 0.36f : 0.43f),

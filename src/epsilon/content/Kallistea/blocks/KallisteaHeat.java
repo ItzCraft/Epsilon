@@ -1,5 +1,6 @@
 package epsilon.content.Kallistea.blocks;
 
+import epsilon.EpsilonVars;
 import epsilon.content.Kallistea.KallisteaItems;
 import epsilon.world.blocks.heat.VulcanHeatProducer;
 import mindustry.type.Category;
@@ -11,13 +12,15 @@ public class KallisteaHeat {
     public static Block test;
 
     public static void load(){
-        test = new VulcanHeatProducer("test"){{
-            requirements(Category.production, with(KallisteaItems.anveiur, 1));
-            health = 1;
-            size = 3;
-            squareSprite = false;
-            heatOutput = 35f;
-            craftTime = 45f;
-        }};
+        if(EpsilonVars.testingMode) {
+            test = new VulcanHeatProducer("test") {{
+                requirements(Category.production, with(KallisteaItems.anveiur, 1));
+                health = 1;
+                size = 3;
+                squareSprite = false;
+                heatOutput = 35f;
+                craftTime = 45f;
+            }};
+        }
     }
 }

@@ -14,7 +14,7 @@ public class ResetMusicI implements LExecutor.LInstruction {
     public ResetMusicI(){}
 
     @Override
-    public void run(LExecutor exec){;
+    public void run(LExecutor exec){
         if(musicName.obj() instanceof String musicN){
             Events.fire(new EpsilonEventTypes.MusicResetEvent(musicN));
         }

@@ -3,7 +3,6 @@ package epsilon.audio;
 import arc.Events;
 import arc.audio.Music;
 import arc.struct.ObjectMap;
-import arc.util.Log;
 import epsilon.content.Kallistea.EpsMusic;
 import epsilon.type.EpsilonEventTypes;
 import mindustry.audio.SoundControl;
@@ -23,12 +22,10 @@ public class EpsSoundControl extends SoundControl{
                 fade = 1f;
                 current.stop();
                 Music music = musicMap.get(e.musicn);
-                Log.info("current music: " + e.musicn);
                 current = null;
                 playOnce(music);
             }else{
                 Music music = musicMap.get(e.musicn);
-                Log.info("current music2: " + e.musicn);
                 playOnce(music);
             }
         });

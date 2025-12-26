@@ -34,7 +34,7 @@ public class EpsilonMod extends Mod{
                     dialog.cont.button("OK", dialog::hide).size(100f, 50f);
                     dialog.show();
                 });
-            };
+            }
         });
     }
 

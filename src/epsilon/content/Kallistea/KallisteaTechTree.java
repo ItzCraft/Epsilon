@@ -51,12 +51,6 @@ public class KallisteaTechTree {
             node(KallisteaSectorPresets.firstRiddles, Seq.with(new Objectives.OnSector(firstRiddles)), () -> {
 
             });
-            node(KallisteaDefense.dispersive, Seq.with(new EpsObjectives.OnVars("turret1", firstRiddles)), ()->{
-
-            });
-            //node(Missions.mission1, Seq.with(new Objectives.SectorComplete(firstRiddles)), () -> {
-
-            //});
         });
     }
 }

@@ -1,5 +1,6 @@
 package epsilon.content.Kallistea.blocks;
 
+import epsilon.EpsilonVars;
 import mindustry.world.Block;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
@@ -13,13 +14,15 @@ public class LoreBlocks{
     testBlock1, cutsceneBlock;
 
     public static void load(){
-        testBlock1 = new ImageBlock("test-block1"){{
-            requirements(Category.distribution, with(KallisteaItems.calcite, 14884252));
-            health = 1;
-            size = 1;
-            imageName = "epsilon-frog";
-            dialogName = "Router of god";
-        }};
+        if(EpsilonVars.testingMode) {
+            testBlock1 = new ImageBlock("test-block1") {{
+                requirements(Category.distribution, with(KallisteaItems.calcite, 14884252));
+                health = 1;
+                size = 1;
+                imageName = "epsilon-icon";
+                dialogName = "Router of god";
+            }};
+        }
 
 
         cutsceneBlock = new CutsceneBlock("cutscene-block"){{

@@ -23,7 +23,7 @@ import static mindustry.type.ItemStack.with;
 public class KallisteaDefense {
     public static Block
             // walls
-            test, quartzWall, quartzWallLarge,
+            quartzWall, quartzWallLarge,
             //region ganieris
             prism,
 
@@ -304,7 +304,7 @@ public class KallisteaDefense {
 
 
         disruptor = new EpsItemTurret("distruptor") {{
-            requirements(Category.turret, BuildVisibility.sandboxOnly, with(KallisteaItems.gelionyte, 1));
+            requirements(Category.turret, with(KallisteaItems.gelionyte, 1));
             ammo(
                     KallisteaItems.gelionyte, new BasicBulletType(2.3f, 150, "epsilon-plasm-bullet"){{
                         width = 29f;
@@ -422,7 +422,7 @@ public class KallisteaDefense {
         }};
 
         lancefield = new EpsPowerTurret("lancefield"){{
-            requirements(Category.turret, BuildVisibility.sandboxOnly, with(KallisteaItems.quartz, 1));
+            requirements(Category.turret, with(KallisteaItems.quartz, 1));
             size = 6;
             health = 1650;
             fraction = "Incers";
