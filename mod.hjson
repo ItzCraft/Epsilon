@@ -1,7 +1,27 @@
 displayName: "Epsilon"
 name: "epsilon"
 repo: "ItzCraft/Epsilon"
-author: "ItzJustaTeam\n\n[gray]Coders:[] ItzCraft, AnDashik, alnyle, Weersix\n\n[gray]Sprites:[] Nahan, Ace\n\n[gray]Music Composer:[] Ace\n\n[gray]Translators:[] Kevin Vilyan, ItzCraft"
+author: 
+'''
+ItzJustaTeam
+
+[accent[]]Coders:[gray[]]
+• ItzCraft
+• AnDashik
+• Alnyle
+• Weersix
+
+[accent[]]Sprites:[gray[]]
+• Nahan
+• Ace
+
+[accent[]]Music Composer:[gray[]]
+• Ace
+
+[accent[]]Translators:[gray[]]
+• Kevin Vilyan
+• ItzCraft
+'''
 main: "epsilon.EpsilonMod"
 description: "A mod which introduces actually unique [accent[]]Story Based Campaign[[]].\nMain goal of this mod is to show that lore based mods can be good too.\n\nWith story gameplay it introduces to you some new mechanics."
 subtitle: "V0.22"
