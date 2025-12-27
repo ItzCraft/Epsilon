@@ -13,6 +13,7 @@ import mindustry.entities.part.RegionPart;
 import mindustry.gen.Sounds;
 import mindustry.type.Category;
 import mindustry.world.Block;
+import mindustry.world.blocks.defense.Wall;
 import mindustry.world.draw.DrawDefault;
 import mindustry.world.draw.DrawMulti;
 import mindustry.world.draw.DrawTurret;
@@ -23,7 +24,7 @@ import static mindustry.type.ItemStack.with;
 public class KallisteaDefense {
     public static Block
             // walls
-            quartzWall, quartzWallLarge,
+            gelionyteWall, quartzWall, quartzWallLarge,
             //region ganieris
             prism,
 
@@ -31,6 +32,11 @@ public class KallisteaDefense {
             dispersive, sparkline, fluxray, gravitor, disruptor, pulsegrid, lancefield, expanse, nullflare;
 
     public static void load() {
+        gelionyteWall = new Wall("gelionyte-wall"){{
+            requirements(Category.defense, with(KallisteaItems.gelionyte, 6));
+            health = 175;
+            size = 1;
+        }};
         quartzWall = new EpsShieldWall("quartz-wall"){{
            requirements(Category.defense, with(KallisteaItems.quartz, 12, KallisteaItems.calcite, 4));
            health = 840;

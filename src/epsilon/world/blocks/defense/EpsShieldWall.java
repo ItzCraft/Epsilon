@@ -129,11 +129,11 @@ public class EpsShieldWall extends Wall{
             table.button(Icon.defense, EpsStyles.epsButtonImage, ()->{
                enabled = true;
                deselect();
-            }).size(40f);
+            }).size(50f);
             table.button(Icon.cancel, EpsStyles.epsButtonImage, ()->{
                 enabled = false;
                 deselect();
-            }).size(40f);
+            }).size(50f);
         }
 
         @Override
