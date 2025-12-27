@@ -14,8 +14,13 @@ Also join our discord server if you've got any questions or found bugs. Or just 
 
 ## ItzJustaTeam (or people who contributed to Epsilon)
 Owners: Cirrostratus(Nahan), ItzCraft
+
 Coders: ItzCraft, AnDashik, Weersix, alnyle
+
 Spriters: Cirrostratus(Nahan)
+
 Music producer: Ace1020Spawn
+
 Translators: Kevin Vilyan, ItzCraft
+
 Contributors: Sputnuc
