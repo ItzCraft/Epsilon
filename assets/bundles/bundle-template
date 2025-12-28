@@ -9,21 +9,29 @@ epsilon-solar-system-database-title =
 about.epsilon = 
 
 settings.epsilon-title = 
-settings.epsilon-hide-warn-dialog.name = 
 
-h =
+settings.testing-mode = 
+settings.testing-mode.description = 
 
-configureUI = 
-passive = 
-active = 
-select = 
+settings.hide-warn-dialog = 
+settings.hide-warn-dialog.description = 
+
+settings.detailed-solar-system = 
+settings.detailed-solar-system.description = 
+
+h = I'm going to h!! 
+
+configureUI = Configure
+passive = Passive
+active = Active
+select = Select
 
 objective.var = Location: {0}
 
-# World Proccesors Stuff
+# World Processors Stuff
 lcategory.epsilon-category = 
 
-# DIALOGS
+# These are testing dialoges for fun
 warn-text1 = 
 
 test1 = 
@@ -44,7 +52,7 @@ stat.efficiency-1 =
 stat.efficiency-2 = 
 stat.efficiency-3 = 
 
-# Star - Planets - Moons - [ idk if those being translatable ]
+# Star - Planets - Moons
 planet.epsilon-epsilon.name =
 
 planet.epsilon-kallistea.name = 
@@ -65,12 +73,18 @@ team.fenspor.name =
 sector.epsilon-first-riddles.name = 
 sector.epsilon-first-riddles.description = 
 
+sector.epsilon-abandoned-outpost.name = 
+sector.epsilon-abandoned-outpost.description = 
+
+sector.epsilon-transmission.name = 
+sector.epsilon-transmission.description = 
+
 # Objectives
-void = 
+void =
 riddles-objective1 = 
 first-riddles-tut1 =
 
-# Objectives Dialogues Region
+# Sector Dialogues Region
 riddles-1 = 
 riddles-2 = 
 riddles-3 = 
@@ -337,6 +351,9 @@ block.epsilon-lancefield.name =
 block.epsilon-lancefield.description = 
 
 # Defense
+block.epsilon-gelionyte-wall.name = 
+block.epsilon-gelionyte-wall.description =  
+
 block.epsilon-quartz-wall.name = 
 block.epsilon-quartz-wall.description = 
 
