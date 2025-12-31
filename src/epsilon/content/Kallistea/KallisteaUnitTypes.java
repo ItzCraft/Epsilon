@@ -3,6 +3,7 @@ package epsilon.content.Kallistea;
 
 import arc.graphics.Color;
 import arc.math.*;
+import epsilon.EpsilonVars;
 import epsilon.graphics.EpsPal;
 import epsilon.type.EpsilonWeapon;
 import mindustry.ai.types.*;
@@ -28,7 +29,7 @@ public class KallisteaUnitTypes{
             canBoost = true;
             boostMultiplier = 1.3f;
             health = 200;
-            speed = 1f;
+            speed = EpsilonVars.testingMode ? 3.5f : 1f;
             buildSpeed = 1.2f;
             armor = 2f;
             riseSpeed = 0.05f;
