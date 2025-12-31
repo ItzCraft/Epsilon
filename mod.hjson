@@ -27,4 +27,4 @@ subtitle: "V0.22"
 version: 0.22
 minGameVersion: 154
 java: true
-hideBrowser: true
+hideBrowser: false
