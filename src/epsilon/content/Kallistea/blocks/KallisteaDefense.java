@@ -82,6 +82,7 @@ public class KallisteaDefense {
             shoot.firstShotDelay = 54;
             shoot.shots = 2;
             shoot.shotDelay = 10;
+            moveWhileCharging = false;
 
             ammo(
                     KallisteaItems.quartz, new BasicBulletType(11,90){{
@@ -420,6 +421,7 @@ public class KallisteaDefense {
                     }});
 
             shoot.firstShotDelay = 150;
+            moveWhileCharging = false;
             size = 5;
             recoil = 1.6f;
             shake = 25f;
@@ -440,6 +442,7 @@ public class KallisteaDefense {
             shoot.shots = 6;
             shoot.shotDelay = 20;
             shoot.firstShotDelay = 180;
+            moveWhileCharging = false;
             shootType = new BasicBulletType(){{
                 width = 15f;
                 height = 20f;
@@ -500,3 +503,4 @@ public class KallisteaDefense {
         }};
     }
 }
+
