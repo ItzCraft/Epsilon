@@ -1,13 +1,16 @@
 package epsilon.content.Kallistea;
 
+import arc.Core;
 import arc.func.Cons;
 import arc.graphics.Color;
 import arc.math.Rand;
 import arc.math.geom.Mat3D;
+import arc.math.geom.Vec3;
 import arc.util.Tmp;
 import arc.struct.Seq;
 import epsilon.EpsilonVars;
 import epsilon.content.Kallistea.blocks.*;
+import epsilon.graphics.g3d.*;
 import epsilon.planet.*;
 import mindustry.content.Blocks;
 import mindustry.graphics.g3d.*;
@@ -53,12 +56,13 @@ public class EpsilonPlanets{
         kallistea = new Planet("kallistea", epsilon, 0.82f, 1){{
             accessible = true;
             hasAtmosphere = true;
+            minZoom = 1.99f;
             landCloudColor = Color.valueOf("6a7d9e");
             atmosphereColor = Color.valueOf("7d1bb3");
             atmosphereRadIn = 0.01f;
             atmosphereRadOut = 0.1f;
             orbitTime = 60f*20f;
-            rotateTime = 60f*12.3f;
+            rotateTime = 7f;
             orbitRadius = 40f;
             iconColor = Color.valueOf("891dcc");
             solarSystem = epsilon;
@@ -79,8 +83,14 @@ public class EpsilonPlanets{
             startSector = 13;
             minZoom = 0.75f;
             generator = new KallisteaPlanetGenerator();
+            Vec3 ringAxis = new Vec3(0, 1, 0).rotate(Vec3.X, 40);
+
             meshLoader = () -> new MultiMesh(
-                    new HexMesh(this, 7)
+                    new RotMesh(this, 7),
+                    new RingMesh(Core.atlas.find("epsilon-inner-ring-1"), this, 360, 1.55f, 1.61f, ringAxis),
+                    new RingMesh(Core.atlas.find("epsilon-inner-ring-2"), this, 360, 1.41f, 1.53f, ringAxis),
+                    new RingMesh(Core.atlas.find("epsilon-outer-ring-1"), this, 360, 1.9f, 1.96f, ringAxis),
+                    new RingMesh(Core.atlas.find("epsilon-outer-ring-2"), this, 360, 1.97f, 2.13f, ringAxis)
             );
             cloudMeshLoader = () -> new MultiMesh(
                     new HexSkyMesh(this, 59, 2.7f, 0.1f, EpsilonVars.detailedSolarSystem ? 7 : 5, Color.valueOf("6a7d9e").a(0.80f), 3, 0.42f, EpsilonVars.detailedSolarSystem ? 1.2f : 1f, EpsilonVars.detailedSolarSystem ? 0.36f : 0.43f),
@@ -92,20 +102,23 @@ public class EpsilonPlanets{
         //due a vertices limit which is set by Anuken i have to minimalize vertices for bad devices (it should crash and on good devices but for some people it is somehow works lmao)
         if(EpsilonVars.detailedSolarSystem){
             eryphos = new Planet("eryphos", epsilon, 1.75f, 1){{
-                accessible = false;
+                minZoom = 1.9f;
+                accessible = true;
                 hasAtmosphere = true;
+                allowSelfSectorLaunch = false;
                 atmosphereColor = Color.valueOf("929dd1");
                 atmosphereRadIn = 0f;
                 atmosphereRadOut = 3f;
                 orbitTime = 60f*47f;
                 orbitRadius = 85f;
-                rotateTime = 60f*836f;
+                rotateTime = 18f;
                 solarSystem = epsilon;
                 updateLighting = true;
-                alwaysUnlocked = allowLaunchLoadout = allowLaunchSchematics = clearSectorOnLose = false;
-                generator = new EryphosPlanetGenerator();
+                allowLaunchToNumbered = allowLaunchLoadout = allowLaunchSchematics = clearSectorOnLose = false;
+                alwaysUnlocked = true;
+                        generator = new EryphosPlanetGenerator();
                 meshLoader = () -> new MultiMesh(
-                        new HexMesh(this, 7)
+                        new RotMesh(this, 7)
                 );
             }};
             /*keraunos = new Planet("keraunos", epsilon, 2.75f, 1){{
@@ -135,6 +148,53 @@ public class EpsilonPlanets{
 
 
             // region moons
+            faniera = makeAsteroid("faniera",eryphos, Blocks.ice, Blocks.redIce, 184, 0.3f, 12, 0.5f, gen -> {
+                gen.iceChance = 1f;
+                gen.berylChance = 0f;
+                gen.carbonChance = 0f;
+                gen.stoneChance = 0f;
+            });
+
+            hyrokat = new Planet("hyrokat", eryphos, 0.45f, 1){{
+                accessible = true;
+                minZoom = 2f;
+                hasAtmosphere = true;
+                atmosphereColor = Color.valueOf("87c9c6");
+                atmosphereRadIn = 0.02f;
+                atmosphereRadOut = 0.02f;
+                orbitTime = 60f*45f;
+                orbitRadius = 7f;
+                orbitOffset = 10f;
+                rotateTime = 11f;
+                solarSystem = epsilon;
+                updateLighting = true;
+                allowLaunchToNumbered = allowLaunchLoadout = allowLaunchSchematics = clearSectorOnLose = false;
+                alwaysUnlocked = true;
+                generator = new HyrokatMoonGenerator();
+                meshLoader = () -> new MultiMesh(
+                        new RotMesh(this, 6)
+                );
+            }};
+
+            enviros = new Planet("enviros", eryphos, 0.3f, 1){{
+                accessible = true;
+                hasAtmosphere = false;
+                minZoom = 3f;
+                maxZoom = 3.1f;
+                bloom = true;
+                orbitTime = 60f*8f;
+                orbitRadius = 4f;
+                orbitOffset = 7f;
+                rotateTime = 29f;
+                solarSystem = epsilon;
+                updateLighting = true;
+                allowLaunchToNumbered = allowLaunchLoadout = allowLaunchSchematics = clearSectorOnLose = false;
+                alwaysUnlocked = true;
+                generator = new EnvirosMoonGenerator();
+                meshLoader = () -> new MultiMesh(
+                        new RotMesh(this, 5)
+                );
+            }};
 
 
             // region asteroids

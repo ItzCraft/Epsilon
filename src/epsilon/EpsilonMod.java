@@ -4,16 +4,19 @@ import arc.*;
 import arc.util.*;
 import epsilon.content.Kallistea.blocks.*;
 import epsilon.content.Kallistea.*;
+import epsilon.graphics.EpsShaders;
 import epsilon.ui.*;
 import epsilon.ui.dialogs.AboutEpsilonDialog;
 import epsilon.world.EpsAttribute;
 import epsilon.logic.EpsilonLogic;
 import mindustry.content.TechTree;
+import mindustry.game.EventType;
 import mindustry.game.EventType.*;
 import mindustry.gen.*;
 import mindustry.mod.*;
 import mindustry.ui.dialogs.*;
 
+import static arc.Core.app;
 import static arc.Core.bundle;
 import static epsilon.EpsilonVars.*;
 import static epsilon.content.Kallistea.EpsilonPlanets.kallistea;
@@ -36,6 +39,10 @@ public class EpsilonMod extends Mod{
                 });
             }
         });
+
+        Events.on(EventType.FileTreeInitEvent.class, e ->
+                app.post(EpsShaders::load)
+        );
     }
 
     @Override
