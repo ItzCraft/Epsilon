@@ -8,7 +8,7 @@ import mindustry.gen.Unit;
 import mindustry.type.Weapon;
 
 public class EpsilonWeapon extends Weapon {
-    private Seq<Effect> effects = new Seq<>();
+    public Seq<Effect> effects = new Seq<>();
     public float effectInterval = 60;
     private float effectTimer = 0f;
     public float effectX = 0;

@@ -20,7 +20,7 @@ import static mindustry.content.Fx.none;
 public class KallisteaUnitTypes{
     public static UnitType
     // core
-    penumbraStarter, sporacrawler, mycelist;
+    penumbraStarter, penumbraBroken, sporacrawler, mycelist;
     public static void load(){
         penumbraStarter = new UnitType("penumbra-starter"){{
             outlineColor= Color.valueOf("2f2726");
@@ -74,6 +74,85 @@ public class KallisteaUnitTypes{
                         sizeInterp = Interp.pow3Out;
                     }};
                 }};
+            }});
+        }};
+        penumbraBroken = new UnitType("penumbra-broken"){{
+            outlineColor= Color.valueOf("2f2726");
+            constructor = MechUnit::create;
+            controller = u -> new BuilderAI(true, 500f);
+            canBoost = true;
+            boostMultiplier = 1.3f;
+            health = 170;
+            speed = EpsilonVars.testingMode ? 3.5f : 0.9f;
+            buildSpeed = 1f;
+            armor = 1.5f;
+            riseSpeed = 0.05f;
+
+            mineTier = 2;
+            mineSpeed = 4.25f;
+
+            weapons.add(new Weapon("epsilon-penumbra-broken-gun2"){{
+                top = false;
+                x = -7f;
+                y = 5.5f;
+                mirror = false;
+                shake = 1.7f;
+                reload = 85f;
+                inaccuracy = 25;
+                shoot.shots = 2;
+                shoot.shotDelay = 1f;
+                recoil = 2f;
+                shootSound = EpsMusic.electricShoot;
+                bullet = new BasicBulletType(){{
+                    width = 5;
+                    height = 5;
+                    speed = 2;
+                    lifetime = 60;
+                    damage = 30;
+                    frontColor = Color.valueOf("97a6cc");
+                    backColor = trailColor = Color.valueOf("4c5878");
+                    trailWidth = 1.05f;
+                    trailLength = 3;
+                    trailEffect = Fx.missileTrail;
+                    shootEffect = new ParticleEffect(){{
+                        particles = 6;
+                        lifetime = 30f;
+                        length = 30f;
+                        baseLength = 0f;
+                        cone = 15;
+                        colorFrom = Color.valueOf("6789e0");
+                        colorTo = Color.valueOf("455273");
+                        sizeFrom = 5;
+                        sizeTo = 0;
+                        interp = Interp.pow3;
+                        sizeInterp = Interp.pow3Out;
+                    }};
+                }};
+            }},
+                    new EpsilonWeapon("epsilon-penumbra-broken-gun"){{
+                        top = false;
+                        x = 7f;
+                        y = 5.5f;
+                        mirror = false;
+                        display = false;
+                        shake = 0;
+                        reload = 1f;
+                        recoil = 0f;
+                        shootSound = Sounds.none;
+                        effectX = 7f;
+                        effectY = 5f;
+                        effectInterval = 30f;
+                        addEffects(Fx.fire, EpsFx.energyOverloadPulse);
+                        bullet = new BasicBulletType(){{
+                            width = 0;
+                            height = 0;
+                            damage = 0;
+                            speed = 0;
+                            shootEffect = none;
+                            smokeEffect = none;
+                            hitEffect = none;
+                            despawnEffect = none;
+                        }};
             }});
         }};
 

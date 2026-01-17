@@ -5,7 +5,6 @@ import arc.graphics.gl.Shader;
 import arc.math.geom.*;
 import arc.util.Time;
 import epsilon.graphics.EpsShaders;
-import mindustry.graphics.Shaders;
 import mindustry.graphics.g3d.*;
 import mindustry.type.Planet;
 
