@@ -77,7 +77,7 @@ public class KallisteaUnitTypes{
             }});
         }};
         penumbraBroken = new UnitType("penumbra-broken"){{
-            outlineColor= Color.valueOf("2f2726");
+            outlineColor= Color.valueOf("221e26");
             constructor = MechUnit::create;
             controller = u -> new BuilderAI(true, 500f);
             canBoost = true;

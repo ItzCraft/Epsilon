@@ -93,7 +93,7 @@ public class KallisteaProduction{
         fylionSmelter = new GenericCrafter("fylion-smelter"){{
             requirements(Category.crafting, with(KallisteaItems.calcite, 120, KallisteaItems.quartz, 40));
             health = 400;
-            size = 4;
+            size = 3;
             squareSprite = false;
             hasPower = true;
             hasLiquids = false;
@@ -101,24 +101,19 @@ public class KallisteaProduction{
             consumePower(1.2f);
             consumeItems(with(KallisteaItems.calcite, 2, KallisteaItems.quartz, 1));
             craftTime = 80f;
-            craftEffect = new ParticleEffect(){{
-                particles = 10;
-                lifetime = 600f;
-                length = 700f;
-                baseLength = 5f;
-                sizeFrom = 4f;
-                sizeTo = 0f;
-                cone = 20f;
-                baseRotation = 45f;
-                colorFrom = Color.valueOf("709c9c");
-                colorTo = Color.valueOf("417d7d");
-                interp = Interp.pow2In;
-                sizeInterp = Interp.pow2Out;
-            }};
+            craftEffect = Fx.none;
             outputItem = new ItemStack(KallisteaItems.fylion, 1);
             drawer = new DrawMulti(
                     new DrawRegion("-bottom"),
+                    new DrawCrucibleFlame(){{
+                        flameColor = Color.valueOf("420303");
+                        circleStroke = 0.5f;
+                    }},
                     new DrawDefault(),
+                    new DrawGlowRegion("-glow"){{
+                       color = Color.valueOf("a7dad3");
+                       glowIntensity = 0.7f;
+                    }},
                     new DrawRegion("-top"));
         }};
         tantalumSynthesizer = new GenericCrafter("tantalum-synthesizer"){{
