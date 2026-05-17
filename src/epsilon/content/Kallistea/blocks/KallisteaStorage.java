@@ -14,7 +14,7 @@ import static mindustry.type.ItemStack.with;
 
 public class KallisteaStorage{
     public static Block
-    coreObscurityBroken, coreObscurity;
+    coreObscurityBroken, coreObscurity, coreObscurityb;
 
     public static void load(){
         coreObscurityBroken = new CoreBlock("core-obscurity-broken"){{
@@ -37,6 +37,18 @@ public class KallisteaStorage{
             itemCapacity = 1450;
             fogRadius = 5;
             unitType = KallisteaUnitTypes.penumbraStarter;
+            captureInvicibility = 5f;
+            alwaysUnlocked = true;
+            requiresCoreZone = false;
+            launchEffect = EpsFx.launchCore;
+        }};
+        coreObscurityb = new EpsilonCoreBlock("core-obscurityb"){{
+            requirements(Category.effect, with(KallisteaItems.calcite, 120, KallisteaItems.gelionyte, 40));
+            health = 1475;
+            size = 4;
+            itemCapacity = 1450;
+            fogRadius = 5;
+            unitType = KallisteaUnitTypes.penumbraBroken;
             captureInvicibility = 5f;
             alwaysUnlocked = true;
             requiresCoreZone = false;

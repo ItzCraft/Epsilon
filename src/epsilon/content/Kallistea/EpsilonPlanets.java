@@ -62,7 +62,7 @@ public class EpsilonPlanets{
             atmosphereRadIn = 0.01f;
             atmosphereRadOut = 0.1f;
             orbitTime = 60f*20f;
-            rotateTime = 7f;
+            rotateTime = 11f;
             orbitRadius = 40f;
             iconColor = Color.valueOf("891dcc");
             solarSystem = epsilon;

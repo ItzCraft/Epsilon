@@ -27,6 +27,7 @@ public class CutsceneBlock extends MessageBlock{
         solid = true;
         update = true;
         noUpdateDisabled = false;
+        forceDark = true;
         category = Category.logic;
     }
     @SuppressWarnings("InnerClassMayBeStatic")
