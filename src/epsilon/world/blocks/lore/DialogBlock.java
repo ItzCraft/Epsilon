@@ -3,6 +3,7 @@ package epsilon.world.blocks.lore;
 import arc.Core;
 import arc.scene.ui.layout.Table;
 import mindustry.Vars;
+import mindustry.core.GameState;
 import mindustry.gen.Building;
 import mindustry.gen.Icon;
 import mindustry.ui.Styles;
@@ -24,7 +25,7 @@ public class DialogBlock extends Block{
         targetable = false;
         destructible = false;
         drawTeamOverlay = false;
-        buildVisibility = BuildVisibility.sandboxOnly;
+        buildVisibility = BuildVisibility.editorOnly;
     }
 
     public class DialogBlockBuild extends Building{
@@ -32,8 +33,10 @@ public class DialogBlock extends Block{
         public void buildConfiguration(Table table){
             table.button(Icon.eye, Styles.cleari, () -> {
                 BaseDialog dialog = new BaseDialog(Core.bundle.get(dialogName));
+                dialog.cont.center();
+                dialog.cont.add(Core.bundle.get(imageName)).center();
                 dialog.addCloseButton();
-                dialog.add(Core.bundle.get(imageName));
+                Vars.state.set(GameState.State.paused);
                 dialog.show();
             }).size(50f);
         } 
