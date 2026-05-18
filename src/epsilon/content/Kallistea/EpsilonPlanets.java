@@ -62,7 +62,7 @@ public class EpsilonPlanets{
             atmosphereRadIn = 0.01f;
             atmosphereRadOut = 0.1f;
             orbitTime = 60f*20f;
-            rotateTime = 11f;
+            rotateTime = 26f;
             orbitRadius = 40f;
             iconColor = Color.valueOf("891dcc");
             solarSystem = epsilon;
@@ -111,7 +111,7 @@ public class EpsilonPlanets{
                 atmosphereRadOut = 3f;
                 orbitTime = 60f*47f;
                 orbitRadius = 85f;
-                rotateTime = 18f;
+                rotateTime = 41f;
                 solarSystem = epsilon;
                 updateLighting = true;
                 allowLaunchToNumbered = allowLaunchLoadout = allowLaunchSchematics = clearSectorOnLose = false;
@@ -165,7 +165,7 @@ public class EpsilonPlanets{
                 orbitTime = 60f*45f;
                 orbitRadius = 7f;
                 orbitOffset = 10f;
-                rotateTime = 11f;
+                rotateTime = 67f;
                 solarSystem = epsilon;
                 updateLighting = true;
                 allowLaunchToNumbered = allowLaunchLoadout = allowLaunchSchematics = clearSectorOnLose = false;
@@ -185,7 +185,7 @@ public class EpsilonPlanets{
                 orbitTime = 60f*8f;
                 orbitRadius = 4f;
                 orbitOffset = 7f;
-                rotateTime = 29f;
+                rotateTime = 103f;
                 solarSystem = epsilon;
                 updateLighting = true;
                 allowLaunchToNumbered = allowLaunchLoadout = allowLaunchSchematics = clearSectorOnLose = false;

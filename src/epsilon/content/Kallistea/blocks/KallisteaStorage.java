@@ -4,6 +4,7 @@ import epsilon.content.Kallistea.EpsFx;
 import epsilon.content.Kallistea.EpsMusic;
 import epsilon.content.Kallistea.KallisteaUnitTypes;
 import mindustry.world.Block;
+import mindustry.world.Build;
 import mindustry.world.blocks.storage.*;
 import mindustry.type.Category;
 import epsilon.content.Kallistea.KallisteaItems;
@@ -43,7 +44,7 @@ public class KallisteaStorage{
             launchEffect = EpsFx.launchCore;
         }};
         coreObscurityb = new EpsilonCoreBlock("core-obscurityb"){{
-            requirements(Category.effect, with(KallisteaItems.calcite, 120, KallisteaItems.gelionyte, 40));
+            requirements(Category.effect, BuildVisibility.sandboxOnly, with(KallisteaItems.calcite, 120, KallisteaItems.gelionyte, 40));
             health = 1475;
             size = 4;
             itemCapacity = 1450;

@@ -49,7 +49,14 @@ public class KallisteaTechTree {
                 node(KallisteaProduction.breakerDrill);
             });
             node(KallisteaSectorPresets.firstRiddles, Seq.with(new Objectives.OnSector(firstRiddles)), () -> {
+                node(abandonedOutpost, Seq.with(new Objectives.SectorComplete(firstRiddles)), () -> {
 
+                });
+            });
+            node(KallisteaDefense.dispersive, Seq.with(new EpsObjectives.OnVars("turret1", abandonedOutpost)), () -> {
+                node(KallisteaDefense.gelionyteWall, () -> {
+
+                });
             });
         });
     }

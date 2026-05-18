@@ -65,6 +65,7 @@ public class EpsilonMod extends Mod{
         EpsMusic.load();
         EpsTeams.load();
         EpsAttribute.load();
+        SchematicsLoader.load();
         KallisteaItems.load();
         KallisteaUnitTypes.load();
         KallisteaBlocks.load();

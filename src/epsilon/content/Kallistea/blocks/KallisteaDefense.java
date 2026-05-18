@@ -85,7 +85,7 @@ public class KallisteaDefense {
             moveWhileCharging = false;
 
             ammo(
-                    KallisteaItems.quartz, new BasicBulletType(11,90){{
+                    KallisteaItems.quartz, new BasicBulletType(11,115){{
                         width = 6;
                         height = 16;
                         lifetime = 60;
@@ -248,7 +248,7 @@ public class KallisteaDefense {
                         fragRandomSpread = 45;
                         fragAngle = 180;
                         fragSpread = 45;
-                        fragBullet = new BasicBulletType(8, 30){{
+                        fragBullet = new BasicBulletType(8, 45){{
                             lifetime = 10;
                             width = 5;
                             height = 14;
