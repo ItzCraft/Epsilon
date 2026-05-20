@@ -2,6 +2,7 @@ package epsilon.content.Kallistea.blocks;
 
 import arc.graphics.Color;
 import arc.math.Interp;
+import arc.struct.Seq;
 import epsilon.content.Kallistea.EpsFx;
 import epsilon.content.Kallistea.EpsMusic;
 import epsilon.content.Kallistea.KallisteaItems;
@@ -501,6 +502,72 @@ public class KallisteaDefense {
                 }};
             }};
         }};
+        // I want to make it look like The Orbital Strike Cannon from Unstable SMPa
+        /*nullflare = new EpsItemTurret("nullflare"){{
+           requirements(Category.turret, with(KallisteaItems.magnetite, 950, KallisteaItems.fylion, 1350, KallisteaItems.tantalum, 900, KallisteaItems.anveiur, 640));
+           size = 6;
+           health = 4500;
+           fraction = "Incers";
+           consumePower(390f);
+           recoil = 2;
+           shake = 11f;
+           reload = 180;
+           range = 1080;
+           shoot.firstShotDelay = 300;
+           moveWhileCharging = false;
+           ammo(
+             KallisteaItems.tantalum, new BasicBulletType(10, 400){{
+               width = 5;
+               height = 5;
+               smokeEffect = Fx.shootBigSmoke;
+               lifetime = 100;
+               speed = 5f;
+               ammoMultiplier = 1;
+               hitColor = backColor = Color.valueOf("633163");
+               frontColor = trailColor = Color.valueOf("966596");
+               trailWidth = 5f;
+               trailLength = 17;
+               splashDamage = 450;
+               splashDamageRadius = 73;
+               fragAngle = 360;
+               fragBullets = 12;
+               fragBullet = new BasicBulletType(650, 4){{
+                   width = 4;
+                   height = 4;
+                   lifetime = 60;
+                   speed = 1.5f;
+                   hitEffect = Fx.blastExplosion;
+                   fragAngle = 135;
+                   fragBullets = 5;
+                   fragBullet = new BasicBulletType(350, 4){{
+                       width = 4;
+                       height = 4;
+                       lifetime = 60;
+                       speed = 1.5f;
+                       hitEffect = Fx.blastExplosion;
+                      fragAngle = 180;
+                      fragBullets = 7;
+                      fragBullet = new BasicBulletType(150, 4){{
+                          width = 4;
+                          height = 4;
+                          lifetime = 60;
+                          speed = 1.5f;
+                          hitEffect = Fx.blastExplosion;
+                          fragAngle = 215;
+                          fragBullets = 9;
+                          fragBullet = new BasicBulletType(95, 4){{
+                              width = 4;
+                              height = 4;
+                              lifetime = 60;
+                              speed = 1.5f;
+                              hitEffect = Fx.blastExplosion;
+                          }};
+                      }};
+                   }};
+               }};
+             }}
+           );
+        }};*/
     }
 }
 

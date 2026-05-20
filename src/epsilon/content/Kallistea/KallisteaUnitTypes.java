@@ -23,7 +23,7 @@ public class KallisteaUnitTypes{
     penumbraStarter, penumbraBroken, sporacrawler, mycelist;
     public static void load(){
         penumbraStarter = new UnitType("penumbra-starter"){{
-            outlineColor= Color.valueOf("2f2726");
+            outlineColor= Color.valueOf("18151a");
             constructor = MechUnit::create;
             controller = u -> new BuilderAI(true, 500f); 
             canBoost = true;
@@ -39,12 +39,11 @@ public class KallisteaUnitTypes{
 
             weapons.add(new Weapon("epsilon-penumbra-starter-gun"){{
                 top = false;
-                x = 7f;
-                y = 5.5f;
                 mirror = true;
+                x=0;
                 shake = 1.7f;
                 reload = 85f;
-                inaccuracy = 25;
+                inaccuracy = 10;
                 shoot.shots = 2;
                 shoot.shotDelay = 1f;
                 recoil = 2f;
@@ -52,22 +51,24 @@ public class KallisteaUnitTypes{
                 bullet = new BasicBulletType(){{
                     width = 5;
                     height = 5;
+                    x = -7f;
+                    y = 7.5f;
                     speed = 2;
                     lifetime = 60;
                     damage = 30;
-                    frontColor = Color.valueOf("97a6cc");
-                    backColor = trailColor = Color.valueOf("4c5878");
+                    frontColor = Color.valueOf("fcc0ce");
+                    backColor = trailColor = Color.valueOf("cc7085");
                     trailWidth = 1.05f;
                     trailLength = 3;
-                    trailEffect = Fx.missileTrail;
+                    trailEffect = Fx.incendTrail;
                     shootEffect = new ParticleEffect(){{
                         particles = 6;
                         lifetime = 30f;
                         length = 30f;
                         baseLength = 0f;
-                        cone = 15;
-                        colorFrom = Color.valueOf("6789e0");
-                        colorTo = Color.valueOf("455273");
+                        cone = 0;
+                        colorFrom = Color.valueOf("cc7085");
+                        colorTo = Color.valueOf("fcc0ce");
                         sizeFrom = 5;
                         sizeTo = 0;
                         interp = Interp.pow3;
@@ -77,7 +78,7 @@ public class KallisteaUnitTypes{
             }});
         }};
         penumbraBroken = new UnitType("penumbra-broken"){{
-            outlineColor= Color.valueOf("221e26");
+            outlineColor= Color.valueOf("18151a");
             constructor = MechUnit::create;
             controller = u -> new BuilderAI(true, 500f);
             canBoost = true;
@@ -109,8 +110,8 @@ public class KallisteaUnitTypes{
                     speed = 2;
                     lifetime = 60;
                     damage = 30;
-                    frontColor = Color.valueOf("97a6cc");
-                    backColor = trailColor = Color.valueOf("4c5878");
+                    frontColor = Color.valueOf("fcc0ce");
+                    backColor = trailColor = Color.valueOf("cc7085");
                     trailWidth = 1.05f;
                     trailLength = 3;
                     trailEffect = Fx.missileTrail;
@@ -119,9 +120,9 @@ public class KallisteaUnitTypes{
                         lifetime = 30f;
                         length = 30f;
                         baseLength = 0f;
-                        cone = 15;
-                        colorFrom = Color.valueOf("6789e0");
-                        colorTo = Color.valueOf("455273");
+                        cone = 0;
+                        colorFrom = Color.valueOf("cc7085");
+                        colorTo = Color.valueOf("fcc0ce");
                         sizeFrom = 5;
                         sizeTo = 0;
                         interp = Interp.pow3;
