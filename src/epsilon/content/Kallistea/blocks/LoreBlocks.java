@@ -1,6 +1,9 @@
 package epsilon.content.Kallistea.blocks;
 
 import epsilon.EpsilonVars;
+import mindustry.content.Fx;
+import mindustry.entities.effect.*;
+import mindustry.graphics.Pal;
 import mindustry.world.Block;
 import mindustry.type.Category;
 import epsilon.content.Kallistea.KallisteaItems;
@@ -11,7 +14,7 @@ import static mindustry.type.ItemStack.with;
 
 public class LoreBlocks{
     public static Block
-    testBlock1, newspaper1, cutsceneBlock;
+    testBlock1, newspaper1, cutsceneBlock, radioTower;
 
     public static void load(){
         if(EpsilonVars.testingMode) {

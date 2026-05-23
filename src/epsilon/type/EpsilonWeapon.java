@@ -31,7 +31,7 @@ public class EpsilonWeapon extends Weapon {
         if(effectTimer >= effectInterval){
             effectTimer = 0f;
             for(Effect eff : effects){
-                eff.at(unit.x + effectX, unit.y + effectY, unit.rotation + mount.rotation);
+                eff.at(this.x + effectX, this.y + effectY, unit.rotation + mount.rotation);
             }
         }
     }

@@ -2,12 +2,14 @@ package epsilon.content.Kallistea;
 
 import arc.graphics.*;
 import arc.struct.*;
-import mindustry.type.Item;
+import mindustry.type.*;
 import epsilon.world.EpsItem;
 
 public class KallisteaItems {
     public static Item
     gelionyte, calcite, quartz, fylion, redSand, magnetite, tantalum, anveiur;
+    public static Liquid
+    spoiledWater;
 
     public static final Seq<Item> kallisteaItems = new Seq<>();
 
@@ -53,6 +55,13 @@ public class KallisteaItems {
             charge = 0.07f;
             flammability = 0.24f;
             explosiveness = 0.45f;
+        }};
+        spoiledWater = new Liquid("liquid-spoiled-water", Color.valueOf("8462e8")){{
+            barColor = Color.valueOf("8462e8");
+            boilPoint = 0.5f;
+            viscosity = 0.35f;
+            heatCapacity = 0.2f;
+            gasColor = Color.valueOf("5948ae");
         }};
         kallisteaItems.addAll(gelionyte, calcite, quartz, fylion, redSand, magnetite, tantalum, anveiur);
     }

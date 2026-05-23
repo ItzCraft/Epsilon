@@ -3,6 +3,7 @@ package epsilon.content.Kallistea;
 import arc.struct.*;
 import epsilon.content.Kallistea.blocks.*;
 import epsilon.game.EpsObjectives;
+import mindustry.content.Liquids;
 import mindustry.game.Objectives;
 import mindustry.type.Item;
 
@@ -31,8 +32,12 @@ public class KallisteaTechTree {
                                });
                             });
                         });
+                        node(Liquids.ozone, Seq.with(new Objectives.Produce(Liquids.ozone)), () -> {});
                    });
                   node(KallisteaItems.redSand, Seq.with(new Objectives.Produce(KallisteaItems.redSand)), () -> {});
+                  node(KallisteaItems.spoiledWater, Seq.with(new Objectives.Produce(KallisteaItems.spoiledWater)), () -> {
+                      node(Liquids.water, Seq.with(new Objectives.Produce(Liquids.water)), () -> {});
+                  });
                });
             });
             node(KallisteaDistribution.transmittingBridge, () -> {
