@@ -20,7 +20,7 @@ public class KallisteaTechTree {
         costMultipliers.put(KallisteaItems.gelionyte, 0.3f);
 
         EpsilonPlanets.kallistea.techTree = nodeRoot("kallistea", KallisteaStorage.coreObscurity, () -> {
-            node(KallisteaItems.gelionyte, Seq.with(new Objectives.Research(KallisteaItems.gelionyte)), () -> {
+            node(KallisteaItems.gelionyte, Seq.with(new Objectives.OnSector(firstRiddles)), () -> {
                node(KallisteaItems.calcite, Seq.with(new Objectives.Produce(KallisteaItems.calcite)), () ->{
                   node(KallisteaItems.quartz, Seq.with(new Objectives.Produce(KallisteaItems.quartz)), () -> {
                         node(KallisteaItems.fylion, Seq.with(new Objectives.Produce(KallisteaItems.fylion)), () -> {

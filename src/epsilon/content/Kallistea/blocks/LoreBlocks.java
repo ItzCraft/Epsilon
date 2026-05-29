@@ -34,6 +34,7 @@ public class LoreBlocks{
             requirements(Category.logic, with(KallisteaItems.gelionyte, 1448425269));
             size = 1;
             health = 99999;
+            ignoreBuildDarkness = true;
         }};
         newspaper1 = new DialogBlock("newspaper1") {{
             requirements(Category.logic, buildVisibility= BuildVisibility.editorOnly, with(KallisteaItems.calcite, 14884252));

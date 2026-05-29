@@ -9,12 +9,17 @@ import epsilon.ui.*;
 import epsilon.ui.dialogs.AboutEpsilonDialog;
 import epsilon.world.EpsAttribute;
 import epsilon.logic.EpsilonLogic;
+import mindustry.content.Blocks;
 import mindustry.content.TechTree;
 import mindustry.game.EventType;
 import mindustry.game.EventType.*;
 import mindustry.gen.*;
 import mindustry.mod.*;
+import mindustry.type.Category;
+import mindustry.type.ItemStack;
 import mindustry.ui.dialogs.*;
+import mindustry.world.blocks.logic.SwitchBlock;
+import mindustry.world.meta.BuildVisibility;
 
 import static arc.Core.app;
 import static arc.Core.bundle;
@@ -61,6 +66,13 @@ public class EpsilonMod extends Mod{
         modahh.meta.author = Core.bundle.get("mod.epsilon.author");
         modahh.meta.description = Core.bundle.get("mod.epsilon.description");
         modahh.meta.subtitle = Core.bundle.get("mod.epsilon.subtitle");
+
+        Blocks.worldSwitch = new SwitchBlock("world-switch"){{
+            requirements(Category.logic, BuildVisibility.worldProcessorOnly, ItemStack.with(new Object[0]));
+            targetable = false;
+            privileged = true;
+            ignoreBuildDarkness = true;
+        }};
         
         EpsMusic.load();
         EpsTeams.load();
