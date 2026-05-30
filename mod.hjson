@@ -23,8 +23,8 @@ ItzJustaTeam
 '''
 main: "epsilon.EpsilonMod"
 description: "A mod which introduces actually unique [accent[]]Story Based Campaign[[]].\nMain goal of this mod is to show that lore based mods can be good too.\n\nWith story gameplay it introduces to you some new mechanics."
-subtitle: "V0.27"
-version: 0.27
+subtitle: "V0.28"
+version: 0.28
 minGameVersion: 158
 java: true
 hideBrowser: false
