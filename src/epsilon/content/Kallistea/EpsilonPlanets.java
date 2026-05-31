@@ -44,10 +44,10 @@ public class EpsilonPlanets{
             meshLoader = () -> new SunMesh(
                     this, 5, 8, 0.4f, 0.7f, 1.4f, 1.6f, 1.2f,
 
-                    Color.valueOf("6c72c4"),
                     Color.valueOf("60749e"),
                     Color.valueOf("7b8ad4"),
                     Color.valueOf("8d9ff7"),
+                    Color.valueOf("#c9ccf0"),
                     Color.valueOf("b4c7de")
             );
         }};
@@ -60,7 +60,7 @@ public class EpsilonPlanets{
             landCloudColor = Color.valueOf("6a7d9e");
             atmosphereColor = Color.valueOf("7d1bb3");
             atmosphereRadIn = 0.01f;
-            atmosphereRadOut = 0.1f;
+            atmosphereRadOut = 0.13f;
             orbitTime = 60f*20f;
             rotateTime = 26f;
             orbitRadius = 40f;
