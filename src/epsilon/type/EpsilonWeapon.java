@@ -1,43 +1,38 @@
 package epsilon.type;
 
+import arc.math.Angles;
+import arc.math.Mathf;
 import arc.struct.Seq;
 import arc.util.Time;
+import mindustry.content.Fx;
 import mindustry.entities.Effect;
 import mindustry.entities.units.WeaponMount;
 import mindustry.gen.Unit;
 import mindustry.type.Weapon;
 
 public class EpsilonWeapon extends Weapon {
-    public Seq<Effect> effects = new Seq<>();
+    public Effect effect = Fx.none;
     public float effectInterval = 60;
     private float effectTimer = 0f;
     public float effectX = 0;
     public float effectY = 0;
+    public float effectChance = 1f;
     public EpsilonWeapon(String name){
         super(name);
-    }
-
-    public void addEffects(Effect...effect){
-        for(Effect eff : effect){
-            effects.add(eff);
-        }
     }
 
     @Override
     public void update(Unit unit, WeaponMount mount){
         super.update(unit, mount);
         effectTimer += Time.delta;
-
+        float mountX = unit.x + Angles.trnsx(unit.rotation - 90, x, y);
+        float mountY = unit.y + Angles.trnsy(unit.rotation - 90, x, y);
+        float weaponRotation = unit.rotation - 90 + (rotate ? mount.rotation : baseRotation);
+        float wX = mountX + Angles.trnsx(weaponRotation, this.effectX, this.effectY);
+        float wY = mountY + Angles.trnsy(weaponRotation, this.effectX, this.effectY);
         if(effectTimer >= effectInterval){
-            effectTimer = 0f;
-            for(Effect eff : effects){
-                eff.at(this.x + effectX, this.y + effectY, unit.rotation + mount.rotation);
-            }
+            effectTimer = 0;
+            if(Mathf.chance(effectChance)) effect.at(wX, wY, mount.rotation + unit.rotation());
         }
-    }
-
-    @Override
-    public void draw(Unit unit, WeaponMount mount){
-        super.draw(unit, mount);
     }
 }

@@ -7,7 +7,9 @@ import epsilon.content.Kallistea.EpsFx;
 import epsilon.content.Kallistea.EpsMusic;
 import epsilon.content.Kallistea.KallisteaItems;
 import epsilon.world.blocks.defense.*;
+import epsilon.world.bullets.RingExplosionBullet;
 import mindustry.content.Fx;
+import mindustry.content.Items;
 import mindustry.entities.bullet.*;
 import mindustry.entities.effect.*;
 import mindustry.entities.part.RegionPart;
@@ -27,10 +29,12 @@ public class KallisteaDefense {
             // walls
             gelionyteWall, quartzWall, quartzWallLarge,
             //region ganieris
-            prism,
+            prism, testTurret,
 
             // region incers
             dispersive, sparkline, fluxray, gravitor, disruptor, pulsegrid, lancefield, expanse, nullflare;
+
+
 
     public static void load() {
         gelionyteWall = new Wall("gelionyte-wall"){{
@@ -568,6 +572,32 @@ public class KallisteaDefense {
              }}
            );
         }};*/
+
+        testTurret = new EpsItemTurret("teleport-turret"){{
+            requirements(Category.turret, with(
+                    Items.copper, 300,
+                    Items.silicon, 200
+            ));
+
+            ammo(
+                    Items.surgeAlloy,
+                    new RingExplosionBullet(){{
+                        rings = 4;
+                        bulletsPerRing = 32;
+                        ringBullet = new BasicBulletType(1.5f, 50f){{
+                                lifetime = 25f;
+
+                                splashDamage = 120f;
+                                splashDamageRadius = 32f;
+
+                                hitEffect = Fx.blastExplosion;
+                                despawnEffect = Fx.blastExplosion;
+
+                                fragBullets = 0;
+                            }};
+                    }}
+            );
+        }};
     }
 }
 

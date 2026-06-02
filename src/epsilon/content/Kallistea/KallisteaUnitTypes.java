@@ -140,10 +140,8 @@ public class KallisteaUnitTypes{
                         reload = 1f;
                         recoil = 0f;
                         shootSound = Sounds.none;
-                        effectX = 7f;
-                        effectY = 5f;
                         effectInterval = 30f;
-                        addEffects(Fx.fire, EpsFx.energyOverloadPulse);
+                        effect = new MultiEffect(Fx.fire, EpsFx.energyOverloadPulse);
                         bullet = new BasicBulletType(){{
                             width = 0;
                             height = 0;
