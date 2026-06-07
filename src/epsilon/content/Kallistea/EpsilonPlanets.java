@@ -42,13 +42,13 @@ public class EpsilonPlanets{
             solarSystem = this;
 
             meshLoader = () -> new SunMesh(
-                    this, 5, 8, 0.4f, 0.7f, 1.4f, 1.6f, 1.2f,
+                    this, 5, 8, 0.67f, 0.7f, 1.52f, 1.6f, 1.2f,
 
-                    Color.valueOf("60749e"),
-                    Color.valueOf("7b8ad4"),
-                    Color.valueOf("8d9ff7"),
-                    Color.valueOf("#c9ccf0"),
-                    Color.valueOf("b4c7de")
+                    Color.valueOf("edf8ff"),
+                    Color.valueOf("d7eafc"),
+                    Color.valueOf("b2c9f7"),
+                    Color.valueOf("949df2"),
+                    Color.valueOf("8279e8")
             );
         }};
 
