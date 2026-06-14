@@ -2,11 +2,14 @@ package epsilon.content.Kallistea.blocks;
 
 import arc.graphics.Color;
 import arc.math.Interp;
+import arc.struct.Seq;
 import epsilon.content.Kallistea.EpsFx;
 import epsilon.content.Kallistea.EpsMusic;
 import epsilon.content.Kallistea.KallisteaItems;
 import epsilon.world.blocks.defense.*;
+import epsilon.world.bullets.RingExplosionBullet;
 import mindustry.content.Fx;
+import mindustry.content.Items;
 import mindustry.entities.bullet.*;
 import mindustry.entities.effect.*;
 import mindustry.entities.part.RegionPart;
@@ -26,10 +29,12 @@ public class KallisteaDefense {
             // walls
             gelionyteWall, quartzWall, quartzWallLarge,
             //region ganieris
-            prism,
+            prism, testTurret,
 
             // region incers
             dispersive, sparkline, fluxray, gravitor, disruptor, pulsegrid, lancefield, expanse, nullflare;
+
+
 
     public static void load() {
         gelionyteWall = new Wall("gelionyte-wall"){{
@@ -85,7 +90,7 @@ public class KallisteaDefense {
             moveWhileCharging = false;
 
             ammo(
-                    KallisteaItems.quartz, new BasicBulletType(11,90){{
+                    KallisteaItems.quartz, new BasicBulletType(11,115){{
                         width = 6;
                         height = 16;
                         lifetime = 60;
@@ -248,7 +253,7 @@ public class KallisteaDefense {
                         fragRandomSpread = 45;
                         fragAngle = 180;
                         fragSpread = 45;
-                        fragBullet = new BasicBulletType(8, 30){{
+                        fragBullet = new BasicBulletType(8, 45){{
                             lifetime = 10;
                             width = 5;
                             height = 14;
@@ -500,6 +505,98 @@ public class KallisteaDefense {
                     }};
                 }};
             }};
+        }};
+        // I want to make it look like The Orbital Strike Cannon from Unstable SMPa
+        /*nullflare = new EpsItemTurret("nullflare"){{
+           requirements(Category.turret, with(KallisteaItems.magnetite, 950, KallisteaItems.fylion, 1350, KallisteaItems.tantalum, 900, KallisteaItems.anveiur, 640));
+           size = 6;
+           health = 4500;
+           fraction = "Incers";
+           consumePower(390f);
+           recoil = 2;
+           shake = 11f;
+           reload = 180;
+           range = 1080;
+           shoot.firstShotDelay = 300;
+           moveWhileCharging = false;
+           ammo(
+             KallisteaItems.tantalum, new BasicBulletType(10, 400){{
+               width = 5;
+               height = 5;
+               smokeEffect = Fx.shootBigSmoke;
+               lifetime = 100;
+               speed = 5f;
+               ammoMultiplier = 1;
+               hitColor = backColor = Color.valueOf("633163");
+               frontColor = trailColor = Color.valueOf("966596");
+               trailWidth = 5f;
+               trailLength = 17;
+               splashDamage = 450;
+               splashDamageRadius = 73;
+               fragAngle = 360;
+               fragBullets = 12;
+               fragBullet = new BasicBulletType(650, 4){{
+                   width = 4;
+                   height = 4;
+                   lifetime = 60;
+                   speed = 1.5f;
+                   hitEffect = Fx.blastExplosion;
+                   fragAngle = 135;
+                   fragBullets = 5;
+                   fragBullet = new BasicBulletType(350, 4){{
+                       width = 4;
+                       height = 4;
+                       lifetime = 60;
+                       speed = 1.5f;
+                       hitEffect = Fx.blastExplosion;
+                      fragAngle = 180;
+                      fragBullets = 7;
+                      fragBullet = new BasicBulletType(150, 4){{
+                          width = 4;
+                          height = 4;
+                          lifetime = 60;
+                          speed = 1.5f;
+                          hitEffect = Fx.blastExplosion;
+                          fragAngle = 215;
+                          fragBullets = 9;
+                          fragBullet = new BasicBulletType(95, 4){{
+                              width = 4;
+                              height = 4;
+                              lifetime = 60;
+                              speed = 1.5f;
+                              hitEffect = Fx.blastExplosion;
+                          }};
+                      }};
+                   }};
+               }};
+             }}
+           );
+        }};*/
+
+        testTurret = new EpsItemTurret("teleport-turret"){{
+            requirements(Category.turret, with(
+                    Items.copper, 300,
+                    Items.silicon, 200
+            ));
+
+            ammo(
+                    Items.surgeAlloy,
+                    new RingExplosionBullet(){{
+                        rings = 4;
+                        bulletsPerRing = 32;
+                        ringBullet = new BasicBulletType(1.5f, 50f){{
+                                lifetime = 25f;
+
+                                splashDamage = 120f;
+                                splashDamageRadius = 32f;
+
+                                hitEffect = Fx.blastExplosion;
+                                despawnEffect = Fx.blastExplosion;
+
+                                fragBullets = 0;
+                            }};
+                    }}
+            );
         }};
     }
 }

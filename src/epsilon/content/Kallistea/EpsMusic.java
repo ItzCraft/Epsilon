@@ -32,7 +32,7 @@ public class EpsMusic {
 
     public static Music inevitability, planetOfDespair, youreSafeNow, alarm;
 
-    public static Sound highShoot, electricShoot, scan;
+    public static Sound highShoot, electricShoot, scan, purystalWalk;
 
     // Don't change from outside I trust you by putting it in public
     public static boolean enabled = true;
@@ -56,6 +56,7 @@ public class EpsMusic {
         highShoot = loadSound("high-shoot");
         electricShoot = loadSound("electric-shoot");
         scan = loadSound("scan");
+        purystalWalk = loadSound("purystal-walk");
     }
 
     private static Sound loadSound(String soundName){

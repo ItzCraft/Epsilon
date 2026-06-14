@@ -93,7 +93,7 @@ public class KallisteaProduction{
         fylionSmelter = new GenericCrafter("fylion-smelter"){{
             requirements(Category.crafting, with(KallisteaItems.calcite, 120, KallisteaItems.quartz, 40));
             health = 400;
-            size = 4;
+            size = 3;
             squareSprite = false;
             hasPower = true;
             hasLiquids = false;
@@ -101,24 +101,19 @@ public class KallisteaProduction{
             consumePower(1.2f);
             consumeItems(with(KallisteaItems.calcite, 2, KallisteaItems.quartz, 1));
             craftTime = 80f;
-            craftEffect = new ParticleEffect(){{
-                particles = 10;
-                lifetime = 600f;
-                length = 700f;
-                baseLength = 5f;
-                sizeFrom = 4f;
-                sizeTo = 0f;
-                cone = 20f;
-                baseRotation = 45f;
-                colorFrom = Color.valueOf("709c9c");
-                colorTo = Color.valueOf("417d7d");
-                interp = Interp.pow2In;
-                sizeInterp = Interp.pow2Out;
-            }};
+            craftEffect = Fx.none;
             outputItem = new ItemStack(KallisteaItems.fylion, 1);
             drawer = new DrawMulti(
                     new DrawRegion("-bottom"),
+                    new DrawCrucibleFlame(){{
+                        flameColor = Color.valueOf("420303");
+                        circleStroke = 0.5f;
+                    }},
                     new DrawDefault(),
+                    new DrawGlowRegion("-glow"){{
+                       color = Color.valueOf("a7dad3");
+                       glowIntensity = 0.7f;
+                    }},
                     new DrawRegion("-top"));
         }};
         tantalumSynthesizer = new GenericCrafter("tantalum-synthesizer"){{
@@ -135,35 +130,6 @@ public class KallisteaProduction{
             craftTime = 180f;
             updateEffect = EpsFx.purpleFire;
             updateEffectChance = 0.035f;
-            craftEffect = new MultiEffect(
-                    new RadialEffect() {{
-                        amount = 6;
-                        lifetime = 45f;
-                        effect = new ParticleEffect(){{
-                            strokeFrom = 0.6f;
-                            strokeTo = 0f;
-                            colorFrom = Color.valueOf("ff80ff");
-                            colorTo = Color.valueOf("8000ff");
-                            line = true;
-                        }};
-                    }},
-
-                    new ParticleEffect() {{
-                        particles = 8;
-                        lifetime = 80f;
-                        sizeFrom = 2f;
-                        sizeTo = 0f;
-                        lenFrom = 2f;
-                        lenTo = 8f;
-                        cone = 25f;
-                        length = 40f;
-                        baseRotation = 45;
-                        colorFrom = Color.valueOf("a480bf");
-                        colorTo = Color.valueOf("4b0082");
-                        layer = Layer.flyingUnit + 0.1f;
-                    }},
-                    EpsFx.purpleSmoke
-            );
             outputItem = new ItemStack(KallisteaItems.tantalum, 3);
             drawer = new DrawMulti(
                     new DrawRegion("-bottom"),

@@ -126,14 +126,16 @@ public class EpsShieldWall extends Wall{
 
         @Override
         public void buildConfiguration(Table table){
-            table.button(Icon.defense, EpsStyles.epsButtonImage, ()->{
-               enabled = true;
-               deselect();
-            }).size(50f);
-            table.button(Icon.cancel, EpsStyles.epsButtonImage, ()->{
-                enabled = false;
+            if(Vars.player.team() == this.team()){
+                table.button(Icon.defense, EpsStyles.epsButtonImage, ()->{
+                enabled = true;
                 deselect();
-            }).size(50f);
+                }).size(50f);
+                table.button(Icon.cancel, EpsStyles.epsButtonImage, ()->{
+                    enabled = false;
+                    deselect();
+                }).size(50f);
+            }
         }
 
         @Override

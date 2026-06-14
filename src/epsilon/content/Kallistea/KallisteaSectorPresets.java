@@ -13,5 +13,11 @@ public class KallisteaSectorPresets {
            overrideLaunchDefaults = true;
            captureWave = 2;
         }};
+        abandonedOutpost = new EpsilonSectorPreset("abandoned-outpost", EpsilonPlanets.kallistea, 9){{
+            difficulty = 2;
+            overrideLaunchDefaults = true;
+            captureWave = 4;
+            requireUnlock = true;
+        }};
     }
 }

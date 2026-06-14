@@ -1,6 +1,7 @@
 package epsilon.content.Kallistea.blocks;
 
 import arc.graphics.Color;
+import epsilon.content.Kallistea.EpsMusic;
 import mindustry.content.Fx;
 import mindustry.world.Block;
 import mindustry.world.blocks.environment.*;
@@ -44,10 +45,7 @@ public class KallisteaEnv {
             // Thermalitic biome
             thermaliticFloor, thermaliticDarkFloor, thermaliticBrownFloor, thermaliticVulcanFloor, thermaliticWall,thermaliticWallAlt,
             thermaliticDarkWall, thermaliticBrownWall, thermaliticBrownWallAlt, thermaliticBoulder, thermaliticDarkBoulder, thermaliticBrownBoulder,
-            miniVulcan, vulcan,
-
-            // broken facility
-            facilityTile1, facilityTile2, facilityTile3, facilityWalls;
+            miniVulcan, vulcan;
 
     public static void load() {
         {
@@ -65,9 +63,10 @@ public class KallisteaEnv {
 
 
                 //PURYSTAL BIOME
-                purystalErodedFloor = new Floor("purystal-eroded-floor", 6);
-                purystalFloor = new Floor("purystal-floor", 6){{this.albedo = 0.35f;}};
-                purystalLightFloor = new Floor("purystal-light-floor", 6);
+                purystalErodedFloor = new Floor("purystal-eroded-floor", 6){{walkSound= EpsMusic.purystalWalk;
+                }};
+                purystalFloor = new Floor("purystal-floor", 6){{this.albedo = 0.35f;walkSound= EpsMusic.purystalWalk;}};
+                purystalLightFloor = new Floor("purystal-light-floor", 6){{walkSound= EpsMusic.purystalWalk;}};
                 purystalWall = new StaticWall("purystal-wall"){{variants = 4;
                     purystalErodedFloor.asFloor().wall = this; purystalFloor.asFloor().wall = this; purystalLightFloor.asFloor().wall = this;
                 }};
@@ -163,16 +162,6 @@ public class KallisteaEnv {
                 // vulcans
                 vulcan = new Vulcan("thermalitic-vulcan"){{variants = 2; parent = blendGroup = thermaliticVulcanFloor; emitLight = true; lightColor = Color.valueOf("d46108"); lightRadius = 45; effect = Fx.fire;}};
                 miniVulcan = new Vulcan("thermalitic-vulcan-mini"){{variants = 2; parent = blendGroup = thermaliticVulcanFloor; mini=true; emitLight = true; lightColor = Color.valueOf("d46108"); lightRadius = 25; effect = Fx.fire;}};
-
-                // facility biome
-                facilityTile1 = new TiledFloor("facility-tile-1") {{
-                }};
-                facilityTile2 = new TiledFloor("facility-tile-2"){{
-                }};
-                facilityTile3 = new TiledFloor("facility-tile-3"){{
-                }};
-                facilityWalls = new StaticWall("facility-walls"){{
-                }};
             }
         }
     }

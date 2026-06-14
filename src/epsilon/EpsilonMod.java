@@ -4,16 +4,24 @@ import arc.*;
 import arc.util.*;
 import epsilon.content.Kallistea.blocks.*;
 import epsilon.content.Kallistea.*;
+import epsilon.graphics.EpsShaders;
 import epsilon.ui.*;
 import epsilon.ui.dialogs.AboutEpsilonDialog;
 import epsilon.world.EpsAttribute;
 import epsilon.logic.EpsilonLogic;
+import mindustry.content.Blocks;
 import mindustry.content.TechTree;
+import mindustry.game.EventType;
 import mindustry.game.EventType.*;
 import mindustry.gen.*;
 import mindustry.mod.*;
+import mindustry.type.Category;
+import mindustry.type.ItemStack;
 import mindustry.ui.dialogs.*;
+import mindustry.world.blocks.logic.SwitchBlock;
+import mindustry.world.meta.BuildVisibility;
 
+import static arc.Core.app;
 import static arc.Core.bundle;
 import static epsilon.EpsilonVars.*;
 import static epsilon.content.Kallistea.EpsilonPlanets.kallistea;
@@ -36,6 +44,10 @@ public class EpsilonMod extends Mod{
                 });
             }
         });
+
+        Events.on(EventType.FileTreeInitEvent.class, e ->
+                app.post(EpsShaders::load)
+        );
     }
 
     @Override
@@ -54,10 +66,19 @@ public class EpsilonMod extends Mod{
         modahh.meta.author = Core.bundle.get("mod.epsilon.author");
         modahh.meta.description = Core.bundle.get("mod.epsilon.description");
         modahh.meta.subtitle = Core.bundle.get("mod.epsilon.subtitle");
+
+        Blocks.worldSwitch = new SwitchBlock("world-switch"){{
+            requirements(Category.logic, BuildVisibility.worldProcessorOnly, ItemStack.with(new Object[0]));
+            targetable = false;
+            privileged = true;
+            ignoreBuildDarkness = true;
+        }};
         
         EpsMusic.load();
         EpsTeams.load();
         EpsAttribute.load();
+        SchematicsLoader.load();
+        KallisteaWeather.load();
         KallisteaItems.load();
         KallisteaUnitTypes.load();
         KallisteaBlocks.load();
@@ -74,19 +95,9 @@ public class EpsilonMod extends Mod{
         });
     }
 
-    private void resetTree(TechTree.TechNode root) {
-        root.reset();
-        root.content.clearUnlock();
-    }
-
     private void loadSettings(){
         ui.settings.addCategory(bundle.get("settings.epsilon-title"), Icon.book, t -> {
             t.checkPref("@settings.testing-mode", false);
-            if(testingMode){
-                t.button("@settings.epsilon-tech-tree", Icon.tree, () -> {
-                    ui.showConfirm("@confirm", "@settings.epsilon-tech-tree.confirm", () -> resetTree(kallistea.techTree));
-                });
-            }
             t.checkPref("@settings.hide-warn-dialog", false);
             t.checkPref("@settings.detailed-solar-system",false);
         });

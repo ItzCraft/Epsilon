@@ -4,6 +4,7 @@ import arc.graphics.Color;
 import epsilon.EpsilonVars;
 import epsilon.content.Kallistea.KallisteaItems;
 import mindustry.entities.effect.ParticleEffect;
+import mindustry.graphics.Layer;
 import mindustry.type.Category;
 import mindustry.world.Block;
 import mindustry.world.blocks.power.ConsumeGenerator;
@@ -11,6 +12,7 @@ import mindustry.world.blocks.power.HeaterGenerator;
 import mindustry.world.blocks.power.PowerDiode;
 import mindustry.world.blocks.power.PowerNode;
 import mindustry.world.draw.DrawDefault;
+import mindustry.world.draw.DrawGlowRegion;
 import mindustry.world.draw.DrawMulti;
 import mindustry.world.draw.DrawRegion;
 
@@ -34,6 +36,7 @@ public class KallisteaPower{
                sizeFrom = 3.5f;
                sizeTo = 0;
                spin = 5f;
+               layer = Layer.block + 0.1f;
                colorFrom = Color.valueOf("effdff");
                colorTo = Color.valueOf("8b9cd3");
             }};
@@ -41,6 +44,9 @@ public class KallisteaPower{
                     new DrawRegion("-bottom"),
                     new DrawRegion("-rotator"){{
                       rotateSpeed = 1.25f;
+                    }},
+                    new DrawGlowRegion("-glow"){{
+                        color = Color.valueOf("959bae");
                     }},
                     new DrawDefault()
             );

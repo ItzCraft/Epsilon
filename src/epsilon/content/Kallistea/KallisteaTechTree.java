@@ -3,6 +3,7 @@ package epsilon.content.Kallistea;
 import arc.struct.*;
 import epsilon.content.Kallistea.blocks.*;
 import epsilon.game.EpsObjectives;
+import mindustry.content.Liquids;
 import mindustry.game.Objectives;
 import mindustry.type.Item;
 
@@ -19,7 +20,7 @@ public class KallisteaTechTree {
         costMultipliers.put(KallisteaItems.gelionyte, 0.3f);
 
         EpsilonPlanets.kallistea.techTree = nodeRoot("kallistea", KallisteaStorage.coreObscurity, () -> {
-            node(KallisteaItems.gelionyte, Seq.with(new Objectives.Research(KallisteaItems.gelionyte)), () -> {
+            node(KallisteaItems.gelionyte, Seq.with(new Objectives.OnSector(firstRiddles)), () -> {
                node(KallisteaItems.calcite, Seq.with(new Objectives.Produce(KallisteaItems.calcite)), () ->{
                   node(KallisteaItems.quartz, Seq.with(new Objectives.Produce(KallisteaItems.quartz)), () -> {
                         node(KallisteaItems.fylion, Seq.with(new Objectives.Produce(KallisteaItems.fylion)), () -> {
@@ -31,8 +32,12 @@ public class KallisteaTechTree {
                                });
                             });
                         });
+                        node(Liquids.ozone, Seq.with(new Objectives.Produce(Liquids.ozone)), () -> {});
                    });
                   node(KallisteaItems.redSand, Seq.with(new Objectives.Produce(KallisteaItems.redSand)), () -> {});
+                  node(KallisteaItems.spoiledWater, Seq.with(new Objectives.Produce(KallisteaItems.spoiledWater)), () -> {
+                      node(Liquids.water, Seq.with(new Objectives.Produce(Liquids.water)), () -> {});
+                  });
                });
             });
             node(KallisteaDistribution.transmittingBridge, () -> {
@@ -49,7 +54,14 @@ public class KallisteaTechTree {
                 node(KallisteaProduction.breakerDrill);
             });
             node(KallisteaSectorPresets.firstRiddles, Seq.with(new Objectives.OnSector(firstRiddles)), () -> {
+                node(abandonedOutpost, Seq.with(new Objectives.SectorComplete(firstRiddles)), () -> {
 
+                });
+            });
+            node(KallisteaDefense.dispersive, Seq.with(new EpsObjectives.OnVars("turret1", abandonedOutpost)), () -> {
+                node(KallisteaDefense.gelionyteWall, () -> {
+
+                });
             });
         });
     }
