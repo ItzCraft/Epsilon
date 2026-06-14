@@ -78,6 +78,7 @@ public class EpsilonMod extends Mod{
         EpsTeams.load();
         EpsAttribute.load();
         SchematicsLoader.load();
+        KallisteaWeather.load();
         KallisteaItems.load();
         KallisteaUnitTypes.load();
         KallisteaBlocks.load();
@@ -85,8 +86,6 @@ public class EpsilonMod extends Mod{
         KallisteaSectorPresets.load();
         KallisteaTechTree.load();
         EpsilonLogic.init();
-
-
     }
 
     private void loadESSD(){
@@ -96,19 +95,9 @@ public class EpsilonMod extends Mod{
         });
     }
 
-    private void resetTree(TechTree.TechNode root) {
-        root.reset();
-        root.content.clearUnlock();
-    }
-
     private void loadSettings(){
         ui.settings.addCategory(bundle.get("settings.epsilon-title"), Icon.book, t -> {
             t.checkPref("@settings.testing-mode", false);
-            if(testingMode){
-                t.button("@settings.epsilon-tech-tree", Icon.tree, () -> {
-                    ui.showConfirm("@confirm", "@settings.epsilon-tech-tree.confirm", () -> resetTree(kallistea.techTree));
-                });
-            }
             t.checkPref("@settings.hide-warn-dialog", false);
             t.checkPref("@settings.detailed-solar-system",false);
         });

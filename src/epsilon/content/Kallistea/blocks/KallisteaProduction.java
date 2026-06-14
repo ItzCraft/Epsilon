@@ -130,35 +130,6 @@ public class KallisteaProduction{
             craftTime = 180f;
             updateEffect = EpsFx.purpleFire;
             updateEffectChance = 0.035f;
-            craftEffect = new MultiEffect(
-                    new RadialEffect() {{
-                        amount = 6;
-                        lifetime = 45f;
-                        effect = new ParticleEffect(){{
-                            strokeFrom = 0.6f;
-                            strokeTo = 0f;
-                            colorFrom = Color.valueOf("ff80ff");
-                            colorTo = Color.valueOf("8000ff");
-                            line = true;
-                        }};
-                    }},
-
-                    new ParticleEffect() {{
-                        particles = 8;
-                        lifetime = 80f;
-                        sizeFrom = 2f;
-                        sizeTo = 0f;
-                        lenFrom = 2f;
-                        lenTo = 8f;
-                        cone = 25f;
-                        length = 40f;
-                        baseRotation = 45;
-                        colorFrom = Color.valueOf("a480bf");
-                        colorTo = Color.valueOf("4b0082");
-                        layer = Layer.flyingUnit + 0.1f;
-                    }},
-                    EpsFx.purpleSmoke
-            );
             outputItem = new ItemStack(KallisteaItems.tantalum, 3);
             drawer = new DrawMulti(
                     new DrawRegion("-bottom"),

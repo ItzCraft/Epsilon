@@ -1,6 +1,7 @@
 package epsilon.content.Kallistea.blocks;
 
 import arc.graphics.Color;
+import epsilon.content.Kallistea.EpsMusic;
 import mindustry.content.Fx;
 import mindustry.world.Block;
 import mindustry.world.blocks.environment.*;
@@ -62,9 +63,10 @@ public class KallisteaEnv {
 
 
                 //PURYSTAL BIOME
-                purystalErodedFloor = new Floor("purystal-eroded-floor", 6);
-                purystalFloor = new Floor("purystal-floor", 6){{this.albedo = 0.35f;}};
-                purystalLightFloor = new Floor("purystal-light-floor", 6);
+                purystalErodedFloor = new Floor("purystal-eroded-floor", 6){{walkSound= EpsMusic.purystalWalk;
+                }};
+                purystalFloor = new Floor("purystal-floor", 6){{this.albedo = 0.35f;walkSound= EpsMusic.purystalWalk;}};
+                purystalLightFloor = new Floor("purystal-light-floor", 6){{walkSound= EpsMusic.purystalWalk;}};
                 purystalWall = new StaticWall("purystal-wall"){{variants = 4;
                     purystalErodedFloor.asFloor().wall = this; purystalFloor.asFloor().wall = this; purystalLightFloor.asFloor().wall = this;
                 }};
