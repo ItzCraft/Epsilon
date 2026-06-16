@@ -381,7 +381,7 @@ public class KallisteaUnitTypes{
                         cone = 360;
                         colorFrom = Color.valueOf("6ea7ba");
                         colorTo = Color.valueOf("3e6187");
-                        sizeFrom = 3g;
+                        sizeFrom = 3;
                         sizeTo = 0;
                         interp = Interp.pow2;
                         sizeInterp = Interp.pow2Out;
