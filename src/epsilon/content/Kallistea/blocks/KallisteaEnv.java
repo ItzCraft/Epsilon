@@ -3,6 +3,8 @@ package epsilon.content.Kallistea.blocks;
 import arc.graphics.Color;
 import epsilon.content.Kallistea.EpsMusic;
 import mindustry.content.Fx;
+import mindustry.content.StatusEffects;
+import mindustry.graphics.CacheLayer;
 import mindustry.world.Block;
 import mindustry.world.blocks.environment.*;
 import epsilon.content.Kallistea.KallisteaItems;
@@ -28,7 +30,7 @@ public class KallisteaEnv {
             //purystal-biome
             purystalErodedFloor, purystalFloor, purystalLightFloor, 
 			purystalWall, purystalWallAlt, purystalBoulder, 
-			gelionyticWall, gelionyteChunk, gelionyteCluster, 
+			gelionyticWall, gelionyteChunk, gelionyteCluster, spoiledWaterFloor,
 
             // eadstal biome
             eadstonFloor, eadstonLightFloor, eadstonRoughFloor, 
@@ -83,7 +85,21 @@ public class KallisteaEnv {
                 gelionyteChunk = new BreakableTallBlock("gelionyte-chunk"){{requirements(Category.distribution, with(KallisteaItems.gelionyte, 24)); buildCostMultiplier = 6; variants = 3; clipSize = 148; shadowOffset = -0.68f;}};
                 gelionyteCluster = new TallBlock("gelionyte-cluster"){{variants = 2; clipSize = 148; shadowOffset = -0.68f; emitLight = true; lightColor = Color.valueOf("a86bd1"); lightRadius = 40f;}};
 
-                // EADSTON BIOME
+                spoiledWaterFloor = new Floor("spoiled-water-floor"){{
+                   variants = 4;
+                   liquidDrop = KallisteaItems.spoiledWater;
+                   liquidMultiplier = 1.5f;
+                   isLiquid = true;
+                   status = StatusEffects.wet;
+                   statusDuration = 120f;
+                   drownTime = 200f;
+                   cacheLayer = CacheLayer.water;
+                   albedo = 0.9f;
+                   supportsOverlay = true;
+                }};
+
+
+                        // EADSTON BIOME
                 eadstonFloor = new ColorableFloor("eadston-floor", 6, Color.valueOf("818a8c")){{color = Color.valueOf("818a8c");}};
                 eadstonLightFloor = new ColorableFloor("eadston-light-floor", 6, Color.valueOf("656c6e")){{color = Color.valueOf("656c6e");}};
                 eadstonRoughFloor = new ColorableFloor("eadston-rough-floor", 6, Color.valueOf("474e4f")){{color = Color.valueOf("474e4f");}};
@@ -118,7 +134,6 @@ public class KallisteaEnv {
                 buahanDeadTree = new TreeBlock("buahan-dead-tree"){{variants = 2; clipSize = 200; shadowOffset = -1.53f;}};
 				buahanBush = new Prop("buahan-bush"){{variants = 3; customShadow = true;}};
                 buahanTree = new TreeBlock("buahan-tree"){{variants = 2; clipSize = 200; shadowOffset = -1.53f;}};
-
                 // MERAPORA BIOME
                 // floors
                 meraporaFloor = new Floor("merapora-floor", 6){{itemDrop = KallisteaItems.redSand; this.albedo = 0.5f;}};

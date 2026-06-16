@@ -1,8 +1,7 @@
-package epsilon.type;
+package epsilon.type.units;
 
 import arc.math.Angles;
 import arc.math.Mathf;
-import arc.struct.Seq;
 import arc.util.Time;
 import mindustry.content.Fx;
 import mindustry.entities.Effect;
