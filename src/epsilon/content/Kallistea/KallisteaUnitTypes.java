@@ -228,6 +228,7 @@ public class KallisteaUnitTypes{
 
         mycelist = new UnitType("mycelist"){{
             constructor = LegsUnit::create;
+            hitSize = 4f;
             health = 850;
             speed = 1.2f;
             singleTarget = true;
@@ -368,7 +369,7 @@ public class KallisteaUnitTypes{
                 mirror = false;
                 reload = 30;
                 bullet = new BulletType(){{
-                    x = 0;
+                    x = -1.5f;
                     damage = 10;
                     lifetime = 5;
                     speed = 0.5f;
@@ -391,10 +392,12 @@ public class KallisteaUnitTypes{
                         new RegionPart("-l"){{
                             progress = PartProgress.heat;
                             moveRot = -15f;
+                            x=1.5f;
                         }},
                         new RegionPart("-r"){{
                             progress = PartProgress.heat;
                             moveRot = 15f;
+                            x=1.5f;
                         }}
                 );
             }});
