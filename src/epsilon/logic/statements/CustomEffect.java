@@ -44,11 +44,11 @@ public class CustomEffect extends LStatement{
 
         EpsLogicFx.EffectEntry entry = EpsLogicFx.get(effect);
 
-        row(table);
+        //row(table);
 
         fields(table, "x", x, str -> x = str);
         fields(table, "y", y, str -> y = str);
-        row(table);
+        //row(table);
 
         if(entry != null){
             if(entry.color){
@@ -60,7 +60,7 @@ public class CustomEffect extends LStatement{
                 });
             }
 
-            row(table);
+            //row(table);
 
             if(entry.size || entry.rotate){
                 fields(table, entry.size ? "size" : "rotation", sizerot, str -> sizerot = str);

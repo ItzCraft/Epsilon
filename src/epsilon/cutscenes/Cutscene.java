@@ -35,12 +35,15 @@ public class Cutscene{
         return Seq.with(lines);
     }
 
+    /*
     public static float parseFloat(String token, Building source) {
         if (token.startsWith("@") && source != null && world.build(source.tileX(), source.tileY() - 1).block instanceof MemoryBlock){
             MemoryBlock.MemoryBuild memory = (MemoryBlock.MemoryBuild)world.build(source.tileX(), source.tileY() - 1);
             return (float) memory.memory[Integer.parseInt(token.replace("@", ""))];
         }else return Float.parseFloat(token);
     }
+
+     */
     
     public static CutsceneBase phaseCutscene(String tokens, Building source){
          Seq<String> tokensArray = parseString(tokens);
