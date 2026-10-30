@@ -82,9 +82,9 @@ public class EpsilonMod extends Mod{
         EpsTeams.load();
         EpsAttribute.load();
         SchematicsLoader.load();
-        KallisteaWeather.load();
         KallisteaItems.load();
         KallisteaUnitTypes.load();
+        KallisteaWeather.load();
         EntityRegistry.registerUnits();
         KallisteaBlocks.load();
         EpsilonPlanets.load();

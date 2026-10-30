@@ -10,6 +10,7 @@ import mindustry.world.Block;
 import mindustry.type.Category;
 import epsilon.content.Kallistea.KallisteaItems;
 import epsilon.world.blocks.lore.*;
+import mindustry.world.blocks.defense.Radar;
 import mindustry.world.blocks.production.GenericCrafter;
 import mindustry.world.meta.BuildVisibility;
 

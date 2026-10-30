@@ -1,7 +1,6 @@
 package epsilon.content.Kallistea;
 
-import epsilon.type.EpsilonSectorPreset;
-import mindustry.type.SectorPreset;
+import epsilon.type.sector.EpsilonSectorPreset;
 
 public class KallisteaSectorPresets {
     public static EpsilonSectorPreset firstRiddles, abandonedOutpost, transmission;

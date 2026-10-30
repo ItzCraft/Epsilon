@@ -1,4 +1,4 @@
-package epsilon.type;
+package epsilon.type.sector;
 
 import mindustry.type.*;
 import mindustry.ctype.*;

@@ -7,7 +7,7 @@ import ent.anno.Annotations;
 import epsilon.EpsilonVars;
 import epsilon.gen.FunnyRotationc;
 import epsilon.graphics.EpsPal;
-import epsilon.type.EpsilonWeapon;
+import epsilon.type.units.EpsilonWeapon;
 import mindustry.ai.types.*;
 import mindustry.content.Fx;
 import mindustry.entities.bullet.*;
@@ -22,6 +22,14 @@ import static mindustry.content.Fx.none;
 public class KallisteaUnitTypes{
     public static UnitType
     // core
+    penumbraStarter, penumbraBroken,
+
+    // fenspor
+    // spiders
+    sporacrawler, mycelist,
+
+    // mechs
+    hyphastrider;
     penumbraStarter, penumbraBroken, sporacrawler, mycelist;
     @Annotations.EntityDef(value = {Unitc.class, FunnyRotationc.class}) public static UnitType funnyUnit;
     public static void load(){
@@ -224,6 +232,7 @@ public class KallisteaUnitTypes{
 
         mycelist = new UnitType("mycelist"){{
             constructor = LegsUnit::create;
+            hitSize = 4f;
             health = 850;
             speed = 1.2f;
             singleTarget = true;
@@ -336,6 +345,66 @@ public class KallisteaUnitTypes{
                                 }}
                         );
                     }});
+
+        }};
+
+        hyphastrider = new UnitType("hyphastrider"){{
+            constructor = LegsUnit::create;
+            health = 130;
+            speed = 1.45f;
+            singleTarget = true;
+            faceTarget = true;
+            armor = 0;
+            rotateSpeed = 1.3f;
+            outlineColor = EpsPal.fensporUnits;
+            legStraightness = 0.7f;
+            legContinuousMove = true;
+            lockLegBase = true;
+            legGroupSize = 3;
+            legCount = 5;
+            legExtension = -1f;
+            legLength = 10f;
+            legSpeed = 1.2f;
+            legForwardScl = 0.8f;
+            legMoveSpace = 1f;
+            drawCell = false;
+            weapons.add(new Weapon("epsilon-hyphastrider-mouth"){{
+                top = true;
+                mirror = false;
+                reload = 30;
+                bullet = new BulletType(){{
+                    x = -1.5f;
+                    damage = 10;
+                    lifetime = 5;
+                    speed = 0.5f;
+                    shootEffect = none;
+                    hitEffect = despawnEffect = new ParticleEffect(){{
+                        particles = 5;
+                        lifetime = 20f;
+                        length = 35f;
+                        baseLength = 0f;
+                        cone = 360;
+                        colorFrom = Color.valueOf("6ea7ba");
+                        colorTo = Color.valueOf("3e6187");
+                        sizeFrom = 3;
+                        sizeTo = 0;
+                        interp = Interp.pow2;
+                        sizeInterp = Interp.pow2Out;
+                    }};
+                }};
+                parts.addAll(
+                        new RegionPart("-l"){{
+                            progress = PartProgress.heat;
+                            moveRot = -15f;
+                            x=1.5f;
+                        }},
+                        new RegionPart("-r"){{
+                            progress = PartProgress.heat;
+                            moveRot = 15f;
+                            x=1.5f;
+                        }}
+                );
+            }});
         }};
         funnyUnit = new UnitType("funny");
     }

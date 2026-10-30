@@ -2,7 +2,7 @@ package epsilon.game;
 
 import arc.Core;
 import epsilon.EpsilonVars;
-import epsilon.type.EpsilonSectorPreset;
+import epsilon.type.sector.EpsilonSectorPreset;
 import mindustry.game.Objectives;
 
 public class EpsObjectives {
