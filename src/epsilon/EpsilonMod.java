@@ -4,6 +4,7 @@ import arc.*;
 import arc.util.*;
 import epsilon.content.Kallistea.blocks.*;
 import epsilon.content.Kallistea.*;
+import epsilon.gen.EntityRegistry;
 import epsilon.graphics.EpsShaders;
 import epsilon.ui.*;
 import epsilon.ui.dialogs.AboutEpsilonDialog;
@@ -31,6 +32,8 @@ public class EpsilonMod extends Mod{
     public static Mods.LoadedMod modahh;
 
     public EpsilonMod(){
+
+
         Events.on(ClientLoadEvent.class, e -> {
             if(testingMode){loadESSD();}
             loadSettings();
@@ -60,6 +63,7 @@ public class EpsilonMod extends Mod{
         
     @Override
     public void loadContent(){
+        EntityRegistry.register();
 
         modahh = mods.getMod(getClass());
         modahh.meta.displayName = Core.bundle.get("mod.epsilon.name");
@@ -81,6 +85,7 @@ public class EpsilonMod extends Mod{
         KallisteaItems.load();
         KallisteaUnitTypes.load();
         KallisteaWeather.load();
+        EntityRegistry.registerUnits();
         KallisteaBlocks.load();
         EpsilonPlanets.load();
         KallisteaSectorPresets.load();

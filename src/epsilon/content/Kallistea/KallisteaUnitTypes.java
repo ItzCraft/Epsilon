@@ -3,7 +3,9 @@ package epsilon.content.Kallistea;
 
 import arc.graphics.Color;
 import arc.math.*;
+import ent.anno.Annotations;
 import epsilon.EpsilonVars;
+import epsilon.gen.FunnyRotationc;
 import epsilon.graphics.EpsPal;
 import epsilon.type.units.EpsilonWeapon;
 import mindustry.ai.types.*;
@@ -28,6 +30,8 @@ public class KallisteaUnitTypes{
 
     // mechs
     hyphastrider;
+    penumbraStarter, penumbraBroken, sporacrawler, mycelist;
+    @Annotations.EntityDef(value = {Unitc.class, FunnyRotationc.class}) public static UnitType funnyUnit;
     public static void load(){
         penumbraStarter = new UnitType("penumbra-starter"){{
             outlineColor= Color.valueOf("18151a");
@@ -402,5 +406,6 @@ public class KallisteaUnitTypes{
                 );
             }});
         }};
+        funnyUnit = new UnitType("funny");
     }
 }
