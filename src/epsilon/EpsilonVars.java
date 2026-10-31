@@ -31,8 +31,6 @@ public class EpsilonVars{
 
 
     public static EpsCore core;
-    public static CutsceneControl cutsceneControl;
-    public static CutsceneUI cutscene;
     public static EpsEffectsDialog epsEffectsDialog;
 
     public static void init(){
