@@ -3,7 +3,6 @@ package epsilon;
 import arc.Core;
 import arc.struct.Seq;
 import epsilon.audio.EpsSoundControl;
-import epsilon.cutscenes.*;
 import epsilon.ui.dialogs.EpsEffectsDialog;
 
 import static mindustry.Vars.control;
