@@ -29,4 +29,4 @@ subtitle: "V0.285"
 version: 0.285
 minGameVersion: 160
 java: true
-hideBrowser: false
+hideBrowser: true
