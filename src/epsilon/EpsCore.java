@@ -9,13 +9,6 @@ public class EpsCore implements ApplicationListener{
     public EpsCore(){}
 
     @Override
-    public void update(){
-        if(Vars.state.isPlaying()){
-            cutsceneControl.update();        
-        }
-    }
-  
-    @Override
     public void dispose() {
         ApplicationListener.super.dispose();
     }
