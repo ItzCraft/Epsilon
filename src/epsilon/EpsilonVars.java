@@ -37,8 +37,6 @@ public class EpsilonVars{
     public static EpsEffectsDialog epsEffectsDialog;
 
     public static void init(){
-        cutsceneControl = new CutsceneControl();
-        cutscene = new CutsceneUI();
         core = new EpsCore();
         epsEffectsDialog = new EpsEffectsDialog();
         Core.app.addListener(core);
