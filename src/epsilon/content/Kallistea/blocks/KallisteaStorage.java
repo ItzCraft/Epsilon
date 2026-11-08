@@ -18,12 +18,12 @@ public class KallisteaStorage{
     coreObscurityBroken, coreObscurity, coreObscurityb;
 
     public static void load(){
-        coreObscurityBroken = new CoreBlock("core-obscurity-broken"){{
+        coreObscurityBroken = new UnstableCoreBlock("core-obscurity-broken"){{
             requirements(Category.effect, BuildVisibility.editorOnly, with(KallisteaItems.calcite, 120, KallisteaItems.gelionyte, 40));
             health = 1475;
             size = 4;
             itemCapacity = 828;
-            landDuration = 150f;
+            landDuration = 250f;
             fogRadius = 5;
             unitType = KallisteaUnitTypes.penumbraStarter;
             captureInvicibility = 1f;

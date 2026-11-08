@@ -140,4 +140,21 @@ public class EpsFx{
             Drawf.tri(e.x, e.y, 3, 3, angle);
        }
     });
+
+    public static final Effect crashFire = new Effect(40f, 80f, e -> {
+        Draw.color(Pal.lightFlame, Pal.darkFlame, Color.gray, e.fin());
+        Angles.randLenVectors(e.id, 3, e.finpow() * 14f, (x, y) -> {
+            Fill.circle(e.x + x, e.y + y + e.fin() * 6f, 0.8f + e.fout() * 3.5f);
+        });
+    });
+
+    public static final Effect crashSmoke = new Effect(100f, 140f, e -> {
+        Draw.color(Color.gray, Color.darkGray, e.fin());
+        Draw.alpha(e.fout() * 0.7f);
+        Angles.randLenVectors(e.id, 2, 10f + e.finpow() * 30f, (x, y) -> {
+            Fill.circle(e.x + x, e.y + y + e.fin() * 20f, 2f + e.fin() * 5f);
+        });
+    });
+
+
 }
