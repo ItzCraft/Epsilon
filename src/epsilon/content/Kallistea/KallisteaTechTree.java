@@ -1,6 +1,8 @@
 package epsilon.content.Kallistea;
 
+import arc.Core;
 import arc.struct.*;
+import epsilon.EpsilonVars;
 import epsilon.content.Kallistea.blocks.*;
 import epsilon.game.EpsObjectives;
 import mindustry.content.Liquids;
@@ -21,6 +23,9 @@ public class KallisteaTechTree {
 
         EpsilonPlanets.kallistea.techTree = nodeRoot("kallistea", KallisteaStorage.coreObscurity, () -> {
             node(KallisteaItems.gelionyte, Seq.with(new Objectives.OnSector(firstRiddles)), () -> {
+                if(!Core.settings.getBool("@settings.had-epsilon-data")) {
+                    Core.settings.put("@settings.has-epsilon-data", true);
+                    Core.settings.put("@settings.had-epsilon-data", true);}
                node(KallisteaItems.calcite, Seq.with(new Objectives.Produce(KallisteaItems.calcite)), () ->{
                   node(KallisteaItems.quartz, Seq.with(new Objectives.Produce(KallisteaItems.quartz)), () -> {
                         node(KallisteaItems.fylion, Seq.with(new Objectives.Produce(KallisteaItems.fylion)), () -> {

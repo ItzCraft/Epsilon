@@ -12,12 +12,14 @@ import epsilon.world.EpsAttribute;
 import epsilon.logic.EpsilonLogic;
 import mindustry.content.Blocks;
 import mindustry.content.TechTree;
+import mindustry.ctype.UnlockableContent;
 import mindustry.game.EventType;
 import mindustry.game.EventType.*;
 import mindustry.gen.*;
 import mindustry.mod.*;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
+import mindustry.type.Planet;
 import mindustry.ui.dialogs.*;
 import mindustry.world.blocks.logic.SwitchBlock;
 import mindustry.world.meta.BuildVisibility;
@@ -37,14 +39,44 @@ public class EpsilonMod extends Mod{
         Events.on(ClientLoadEvent.class, e -> {
             if(testingMode){loadESSD();}
             loadSettings();
-            if(!EpsilonVars.hideWarnDialog){
+            if(Core.settings.getBool("@settings.has-epsilon-data")){
                 Time.runTask(10f, () -> {
                     BaseDialog dialog = new BaseDialog("Epsilon");
                     dialog.cont.add(bundle.get("warn-text1")).row();
                     dialog.cont.image(Core.atlas.find("epsilon-icon")).pad(20f).row();
                     dialog.cont.button("OK", dialog::hide).size(100f, 50f);
                     dialog.show();
+                    Planet planet = kallistea;
+                    for(TechTree.TechNode node : TechTree.all){
+                        if(node.rootNode == kallistea.techTree){
+                            node.reset();
+                        }
+                    }
+                    content.each(c -> {
+                        if(c instanceof UnlockableContent u && u.databaseTabs.contains(planet)){
+                            u.clearUnlock();
+                        }
+                    });
+                    planet.clearStats();
+                    boolean any = false;
+                    for(var sec : planet.sectors){
+                        sec.clearInfo();
+                        if(sec.save != null){
+                            any = true;
+                            sec.save.delete();
+                            sec.save = null;
+                        }
+                    }
+                    if(any){
+                        planet.reloadMeshAsync();
+                    }
+                    for(var slot : control.saves.getSaveSlots().copy()){
+                        if(slot.isSector() && slot.getSector().planet == planet){
+                            slot.delete();
+                        }
+                    }
                 });
+                Core.settings.put("@settings.has-epsilon-data", false);
             }
         });
 

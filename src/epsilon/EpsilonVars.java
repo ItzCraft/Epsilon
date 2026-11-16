@@ -17,6 +17,8 @@ public class EpsilonVars{
     // if false, only kallistea and epsilon will appear 
     public static boolean  detailedSolarSystem = Core.settings.getBool("@settings.detailed-solar-system");
 
+    public static boolean hasData = Core.settings.getBool("@settings.has-epsilon-data");
+
     // NOTE: THIS IS FOR SECTORS ONLY DO NOT TRY TO USE IT ANYWHERE ELSE
     private static final Seq<String> sectorVars = Seq.with(
             "turret1"

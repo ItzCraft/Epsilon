@@ -18,6 +18,7 @@ public class EpsilonLogic{
         LAssembler.customParsers.put("customeffect", CustomEffect::new);
         LAssembler.customParsers.put("resetmusic", ResetMusic::new);
         LAssembler.customParsers.put("textdialog", TextDialog::new);
+        LAssembler.customParsers.put("blackscreen", BlackScreen::new);
 
         LogicIO.allStatements.addUnique(PlayerChange::new);
         LogicIO.allStatements.addUnique(PlayerCoordinates::new);
@@ -25,5 +26,6 @@ public class EpsilonLogic{
         LogicIO.allStatements.addUnique(CustomEffect::new);
         LogicIO.allStatements.addUnique(ResetMusic::new);
         LogicIO.allStatements.addUnique(TextDialog::new);
+        LogicIO.allStatements.addUnique(BlackScreen::new);
     }
 }
