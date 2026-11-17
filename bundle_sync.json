@@ -1,0 +1,76 @@
+{
+  "mod_name": "epsilon",
+  "src": [
+    "src"
+  ],
+  "bundles_dir": null,
+  "base_bundle": "bundle.properties",
+  "section_header": "# {name}",
+  "fill": "copy",
+  "file_categories": {
+    "KallisteaDefense": "defense",
+    "KallisteaDistribution": "distribution",
+    "KallisteaEnv": "environment",
+    "KallisteaHeat": "heat",
+    "KallisteaPower": "power",
+    "KallisteaProduction": "production",
+    "KallisteaStorage": "storage",
+    "LoreBlocks": "lore"
+  },
+  "type_categories": {
+    "item": "items",
+    "liquid": "liquids",
+    "unit": "units",
+    "status": "status",
+    "weather": "weathers",
+    "planet": "planets",
+    "sector": "sectors"
+  },
+  "section_order": [],
+  "fields": {
+    "block": [
+      "name",
+      "description"
+    ],
+    "item": [
+      "name",
+      "description"
+    ],
+    "liquid": [
+      "name",
+      "description"
+    ],
+    "unit": [
+      "name",
+      "description",
+      "details"
+    ],
+    "status": [
+      "name",
+      "description"
+    ],
+    "weather": [
+      "name"
+    ],
+    "planet": [
+      "name",
+      "description"
+    ],
+    "sector": [
+      "name",
+      "description"
+    ]
+  },
+  "block_classes": [],
+  "ignore_classes": [],
+  "bundles": {
+    "bundle_in_ID.properties": {
+      "enabled": true,
+      "fill": "copy"
+    },
+    "bundle_ru.properties": {
+      "enabled": true,
+      "fill": "copy"
+    }
+  }
+}

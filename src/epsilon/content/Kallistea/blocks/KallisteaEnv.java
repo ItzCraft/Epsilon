@@ -19,7 +19,6 @@ import static epsilon.world.EpsAttribute.infection;
 public class KallisteaEnv {
     public static Block
             // testing ones
-            crystalF,
 
             //misc
             coreObscurityBrokenBits,
@@ -52,8 +51,6 @@ public class KallisteaEnv {
     public static void load() {
         {
             {
-                // testing blocks
-                crystalF = new Floor("crystal-f", 0);
 
                 // misc
                 coreObscurityBrokenBits = new Prop("core-obscurity-broken-bits"){{variants=2;breakable=false;}};
